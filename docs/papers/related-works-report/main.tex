@@ -6,9 +6,13 @@
 \usepackage{hyperref}
 \usepackage{geometry}
 \geometry{margin=1in}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
 
 \title{Related Works on Personalized Healthcare using Artificial Intelligence}
-\author{Djelloul Daouadji}
+\author{Djelloul Daouadji Fadela}
 
 \begin{document}
 
@@ -21,11 +25,15 @@ This report summarizes recent research and developments in the field of AI-based
 \section{Introduction}
 The use of Artificial Intelligence (AI) in healthcare has opened new avenues for personalized treatment. This report reviews existing studies and methods used in AI-driven healthcare solutions.
 
+\section{Related Works}
+\input{./related_work/reinforcement_learning}
 
 \section{Conclusion}
 Personalized healthcare using AI continues to evolve, offering significant potential to improve patient care. However, integration into real-world clinical settings remains an ongoing challenge.
 
-\bibliographystyle{plain}
+\newpage
+% Bibliography
+\bibliographystyle{unsrt}
 \bibliography{bibliography}
 
 \end{document}
