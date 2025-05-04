@@ -1,0 +1,109 @@
+%-----------------------------------------------------------------------------------------------------------------------------
+% \chapter{Machine Learning-Based Intrusion Detection System Approaches}
+% This section will provide an overview of various approaches that have been developed for intrusion detection.
+% Many works are being carried out in this context to find the best parameters and results for intrusion detection in various environments, and this survey will examine some of the most recent studies. The section will conclude with a summary table of the reviewed approaches.\\
+\section{Towards Realizing the Vision of Precision Medicine: AI-Based Prediction of Clinical Drug Response}
+\textbf{Article Reference:} \cite{article_1}
+
+\subsection*{Overview}
+This study uses machine learning to predict patient response to the epilepsy drug brivaracetam using integrated clinical and genomic data. The resulting model demonstrated strong performance (AUC: 0.76 training, 0.75 validation) and identified specific biomarkers associated with poor response. The research underscores the potential of ML models to support precision medicine and optimize clinical trials by targeting likely responders.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item \textbf{Discovery dataset:} 235 adult patients from a phase III clinical trial (NCT01261325).
+    \item \textbf{External validation dataset:} 47 patients from an independent trial (NCT00490035).
+\end{itemize}
+
+\subsection*{Processing}
+Clinical data included demographic and seizure-related information. Whole Genome Sequencing (WGS) data (~20 million variants) was filtered down to 40 features through knowledge-driven extraction, focusing on epilepsy-related genes and drug mechanism (e.g., SV2A gene, eQTLs). Genetic features included mutational load scores, polygenic risk scores, and structural variant descriptors.
+
+\subsection*{Model Building}
+Multiple ML models were evaluated: sparse multi-block PLS-DA, multimodal neural networks, elastic net, gradient-boosted decision trees (GBDT), and stacked classifiers. The best performance was achieved using a GBDT model integrating all data types.
+
+\subsection*{Results}
+The GBDT classifier achieved: AUC (training): 0.76
+
+\subsection*{Future Directions and Challenges}
+\begin{itemize}
+    \item Addressing high dimensionality and sparsity of genomic data.
+    \item Integrating additional data types (e.g., EEG, imaging) to improve model performance.
+    \item Generalizing models to other anti-epileptic drugs.
+    \item Collaborating with regulatory bodies for clinical adoption.
+    \item Increasing dataset size to enhance model performance (targeting ~350 patients for AUC = 0.9).
+\end{itemize}
+
+\section{Diabetes Prediction Using Machine Learning and Explainable AI Techniques}
+\textbf{Article Reference:} \cite{article_2}
+
+\subsection*{Overview}
+This study proposes an automated diabetes prediction system using ML and explainable AI. The system combines the public Pima Indian dataset with a private dataset collected from female workers in a Bangladeshi textile factory. The system addresses data imbalance, missing values, and is deployed for real-time prediction via web and mobile applications.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item \textbf{Pima Indian Dataset:} 768 records, 268 diabetes-positive; includes 8 features.
+    \item \textbf{RTML Private Dataset:} 203 female employees; features similar to Pima dataset but lacks insulin values.
+\end{itemize}
+
+\subsection*{Processing}
+\begin{itemize}
+    \item Zero values in the merged dataset were replaced with corresponding mean values and the dataset was separated into training and test sets using the holdout validation technique.
+    \item Mutual information was used to measure the interdependence of variables and feature importance.
+    \item A semi-supervised approach using the extreme gradient boosting technique (XGB regressor) was used to predict the missing insulin feature of the RTML dataset.
+\end{itemize}
+
+\subsection*{ML Approach}
+Various models were tested: decision trees, KNN, SVM, random forest, logistic regression, AdaBoost, XGBoost, bagging, and voting classifiers. Hyperparameters were tuned using GridSearchCV. The final model employed XGBoost with ADASYN for balancing.
+
+\subsection*{Results}
+The best results were obtained using the XGBoost classifier with ADASYN:
+\begin{itemize}
+    \item Accuracy: 81\%
+    \item F1 Score: 0.81
+    \item AUC: 0.84
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Missing insulin values required imputation via semi-supervised learning.
+    \item Class imbalance necessitated oversampling (SMOTE, ADASYN).
+    \item Limited private dataset size may hinder generalizability.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Expanding dataset size for better robustness.
+    \item Integrating fuzzy logic and optimization for improved prediction.
+\end{itemize}
+\newpage
+\section{Comparison of the Solutions}
+
+The table below compares the reviewed studies based on disease domain, dataset, preprocessing methods, approach, and results.
+\begin{table}[htbp]
+    \begin{adjustwidth}{-2cm}{-2cm} 
+    \centering 
+    \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{3.5cm}|p{2.5cm}|p{2.5cm}|}
+    \hline
+    \textbf{Work} & \textbf{Disease/ Domain} & \textbf{Dataset} & \textbf{Data Processing} & \textbf{Approach} & \textbf{Results} \\
+    \hline
+    \cite{article_1} & Epilepsy & Phase III (235) + Validation (47) patients & Clinical + WGS feature extraction (e.g., SV2A), mutational scores, PRS & Gradient-Boosted Decision Trees & AUC: 0.76 (train), 0.75 (validation) \\
+    \hline
+    \cite{article_2} & Diabetes prediction & Pima Indian (768) + RTML (203) records & Imputation, ADASYN, Mutual Info, Holdout Validation & XGBoost + Ensemble Methods (voting, bagging) & AUC: 0.84, Accuracy: 81\%, F1 Score: 0.81 \\
+    \hline
+    \end{tabular}
+    \caption{Comparison of AI Approaches in Health Applications}
+    \label{tab:ai_health_comparison}
+    \end{adjustwidth}
+\end{table}
+% \newpage
+% \section{Discussion}
+% As presented in the table above, different methods were proposed using machine learning which are seen as the most effective technique to build an intrusion detection system and detect attacks with different datasets mostly NSL-KDD dataset which resulted in a good accuracy.\\
+% Nearly half of the studies did not work with normalization, there are also studies that did not perform a feature selection, as well as the most did not test many learning algorithms and the most of studies work on binary classification (normal or attack).
+
+ 
+% \section{Conclusion}
+% In this chapter, we studied and evaluated the latest methods proposed by recent research, about the use of machine learning methods for attacks classification based on data-sets.
+
+% Most of the studied architectures could more or less achieve satisfying results with high accuracy. However, further research using large and fresh data-sets is always required to improve the performance of the existing methods for more efficient results.
+
+
+
