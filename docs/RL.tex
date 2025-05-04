@@ -1,0 +1,286 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{geometry}
+\usepackage{booktabs}
+\geometry{margin=1in}
+
+\title{Reinforcement Learning}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Core Terminology}
+\begin{itemize}
+    \item \textbf{Agent}: The autonomous decision-maker that learns from experience.
+    \item \textbf{Environment}: The external system the agent interacts with.
+    \item \textbf{State ($s$)}: A representation of the current situation.
+    \item \textbf{Action ($a$)}: A decision or movement the agent makes.
+    \item \textbf{Reward ($r$)}: Immediate numerical feedback from the environment.
+    \item \textbf{Policy ($\pi$)}: The strategy that maps states to actions.
+    \item \textbf{Trajectory (Episode)}: A sequence of states, actions, and rewards.
+\end{itemize}
+
+\section{Markov Decision Process (MDP)}
+
+An MDP is defined by a tuple $(\mathcal{S}, \mathcal{A}, P, R, \gamma)$:
+\begin{itemize}
+    \item $\mathcal{S}$: A set of states.
+    \item $\mathcal{A}$: A set of actions.
+    \item $P(s'|s,a)$: Transition probability of moving to state $s'$ from $s$ using action $a$.
+    \item $R(s,a)$: Expected reward received after taking action $a$ in state $s$.
+    \item $\gamma \in [0,1]$: Discount factor for future rewards.
+\end{itemize}
+
+\subsection*{Markov Property}
+
+The Markov property assumes that the future is independent of the past given the present:
+\[
+P(s_{t+1} | s_t, a_t, s_{t-1}, a_{t-1}, \ldots) = P(s_{t+1} | s_t, a_t)
+\]
+
+This implies that the current state captures all relevant information needed for decision-making.
+
+\section{Types of Reinforcement Learning}
+
+\subsection{Model-Based vs. Model-Free RL}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{p{0.45\textwidth}p{0.45\textwidth}}
+        \toprule
+        \textbf{Model-Based RL} & \textbf{Model-Free RL} \\
+        \midrule
+        \begin{itemize}
+            \item Agents build a model of environment dynamics.
+            \item Enable planning via simulations.
+            \item More sample-efficient.
+            \item Sensitive to model inaccuracies.
+        \end{itemize} &
+        \begin{itemize}
+            \item Learn directly from experience.
+            \item No internal model of the environment.
+            \item Easier to apply in complex scenarios.
+            \item Requires more data.
+        \end{itemize} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\textbf{Healthcare Examples:}
+\begin{itemize}
+    \item \textbf{Model-Based:} Radiotherapy treatment planning, where the model predicts outcomes of different radiation doses.
+    \item \textbf{Model-Free:} Adaptive insulin dosing for diabetes using real-time glucose monitoring.
+\end{itemize}
+
+\subsection{On-Policy vs. Off-Policy RL}
+\begin{itemize}
+    \item \textbf{On-Policy} (e.g., SARSA):
+    \begin{itemize}
+        \item Learns from the same policy it uses for action selection.
+        \item Safer in sensitive environments.
+        \item Example: Clinical support tools during live surgeries.
+    \end{itemize}
+    \item \textbf{Off-Policy} (e.g., Q-Learning):
+    \begin{itemize}
+        \item Learns from different behavior than the policy being improved.
+        \item Learns from historical or simulated data.
+        \item Example: Treatment planning from historical electronic health records (EHRs).
+    \end{itemize}
+\end{itemize}
+
+\subsection{Value-Based vs. Policy-Based}
+\begin{itemize}
+    \item \textbf{Value-Based}:
+    \begin{itemize}
+        \item Learns value functions like $Q(s,a)$.
+        \item Derives policy by maximizing values.
+        \item Examples: Q-Learning, DQN.
+    \end{itemize}
+    \item \textbf{Policy-Based}:
+    \begin{itemize}
+        \item Directly optimizes the policy $\pi(a|s)$.
+        \item Better for continuous action spaces.
+        \item Examples: REINFORCE, PPO.
+    \end{itemize}
+\end{itemize}
+
+\section{Bellman Equations}
+
+\subsection{Bellman Expectation Equation}
+
+The Bellman Expectation Equation expresses the value of a state (or action) under a policy $\pi$ as the expected return starting from that state and following $\pi$ thereafter.
+
+\begin{itemize}
+    \item \textbf{State-Value Function:}
+    \[
+    V^{\pi}(s) = \mathbb{E}_{\pi} \left[ r_{t+1} + \gamma V^{\pi}(s_{t+1}) \mid s_t = s \right]
+    \]
+    
+    \item \textbf{Action-Value Function:}
+    \[
+    Q^{\pi}(s, a) = \mathbb{E}_{\pi} \left[ r_{t+1} + \gamma Q^{\pi}(s_{t+1}, a_{t+1}) \mid s_t = s, a_t = a \right]
+    \]
+\end{itemize}
+
+\textbf{Interpretation:}  
+The value of a state (or state-action pair) is the immediate reward plus the discounted value of the next state under policy $\pi$.
+
+\subsection{Bellman Optimality Equation}
+
+When seeking the optimal policy $\pi^*$, the Bellman Optimality Equation defines the best possible value function.
+
+\begin{itemize}
+    \item \textbf{Optimal State-Value:}
+    \[
+    V^*(s) = \max_{a} \mathbb{E} \left[ r_{t+1} + \gamma V^*(s_{t+1}) \mid s_t = s, a_t = a \right]
+    \]
+    
+    \item \textbf{Optimal Action-Value:}
+    \[
+    Q^*(s, a) = \mathbb{E} \left[ r_{t+1} + \gamma \max_{a'} Q^*(s_{t+1}, a') \mid s_t = s, a_t = a \right]
+    \]
+\end{itemize}
+
+\textbf{Key Idea:}  
+The optimal value is obtained by choosing the action that leads to the best future value.
+
+\subsection*{Healthcare Example}
+
+In treatment planning:
+\begin{itemize}
+    \item $s$: current patient condition (e.g., lab values, vitals).
+    \item $a$: treatment decision (e.g., drug dosage, imaging scan).
+    \item $r$: immediate health outcome (e.g., symptom relief, complication risk).
+\end{itemize}
+
+The Bellman Equation models how the present decision influences long-term health outcomes, helping build policies for optimal care trajectories.
+
+\section{Key Reinforcement Learning Algorithms}
+\subsection{Q-Learning (Off-Policy, Value-Based)}
+\begin{itemize}
+    \item Update rule:
+    \[
+    Q(s,a) \leftarrow Q(s,a) + \alpha \left[r + \gamma \max_{a'} Q(s',a') - Q(s,a)\right]
+    \]
+    \item \textbf{Healthcare Example:} Optimizing sepsis treatment decisions (fluid resuscitation, vasopressors).
+\end{itemize}
+
+\begin{algorithm}[H]
+\caption{Q-Learning}
+\begin{algorithmic}[1]
+\State Initialize $Q(s,a)$ arbitrarily
+\For{each episode}
+    \State Initialize state $s$
+    \Repeat
+        \State Choose $a$ using $\epsilon$-greedy policy
+        \State Execute $a$, observe $r$ and $s'$
+        \State $Q(s,a) \leftarrow Q(s,a) + \alpha[r + \gamma \max_{a'} Q(s',a') - Q(s,a)]$
+        \State $s \leftarrow s'$
+    \Until{$s$ is terminal}
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{SARSA (On-Policy, Value-Based)}
+\begin{itemize}
+    \item Update rule:
+    \[
+    Q(s,a) \leftarrow Q(s,a) + \alpha \left[r + \gamma Q(s',a') - Q(s,a)\right]
+    \]
+    \item \textbf{Healthcare Example:} Robotic surgery systems that prioritize safety by learning only from actions taken.
+\end{itemize}
+
+\begin{algorithm}[H]
+\caption{SARSA}
+\begin{algorithmic}[1]
+\State Initialize $Q(s,a)$ arbitrarily
+\For{each episode}
+    \State Initialize $s$, choose $a$ from $s$
+    \Repeat
+        \State Take action $a$, observe $r$, $s'$
+        \State Choose $a'$ from $s'$
+        \State $Q(s,a) \leftarrow Q(s,a) + \alpha[r + \gamma Q(s',a') - Q(s,a)]$
+        \State $s \leftarrow s'$, $a \leftarrow a'$
+    \Until{$s$ is terminal}
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Monte Carlo Methods}
+\begin{itemize}
+    \item Learn from complete episodes.
+    \item Two main variants:
+    \begin{itemize}
+        \item \textbf{First-Visit:} Update only first time $(s,a)$ appears.
+        \item \textbf{Every-Visit:} Update all visits of $(s,a)$.
+    \end{itemize}
+    \item Update rule:
+    \[
+    Q(s,a) \leftarrow Q(s,a) + \alpha[G_t - Q(s,a)]
+    \]
+    \item \textbf{Healthcare Example:} Treatment planning from full patient history.
+\end{itemize}
+
+\begin{algorithm}[H]
+\caption{First-Visit Monte Carlo Control}
+\begin{algorithmic}[1]
+\State Initialize $Q(s,a)$, policy $\pi$
+\For{each episode}
+    \State Generate episode: $s_0,a_0,r_1,\ldots,s_T$
+    \State $G \leftarrow 0$
+    \For{$t = T-1$ to $0$}
+        \State $G \leftarrow \gamma G + r_{t+1}$
+        \If{first visit of $(s_t,a_t)$}
+            \State $Q(s_t,a_t) \leftarrow Q(s_t,a_t) + \alpha[G - Q(s_t,a_t)]$
+            \State Update $\pi$ to be $\epsilon$-greedy
+        \EndIf
+    \EndFor
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Deep Q-Networks (DQN)}
+
+\begin{itemize}
+    \item Combines Q-learning with deep neural networks.
+    \item Key techniques:
+    \begin{itemize}
+        \item \textbf{Experience Replay}: Breaks correlation between samples.
+        \item \textbf{Target Network}: Stabilizes learning with delayed updates.
+    \end{itemize}
+    \item Loss function:
+    \[
+    L(\theta) = \mathbb{E}_{(s,a,r,s') \sim D} \left[ \left( r + \gamma \max_{a'} Q_{\text{target}}(s',a') - Q(s,a;\theta) \right)^2 \right]
+    \]
+    \item Optimized using stochastic gradient descent or Adam.
+\end{itemize}
+
+\textbf{DQN Architecture:}
+\begin{itemize}
+    \item \textbf{Input Layer:} Encodes state $s$ (e.g., vital signs, image).
+    \item \textbf{Hidden Layers:} Convolutional or fully connected layers.
+    \item \textbf{Output Layer:} Q-values for each possible action.
+\end{itemize}
+
+\textbf{Variants:}
+\begin{itemize}
+    \item \textbf{Double DQN:} Reduces overestimation of Q-values.
+    \item \textbf{Dueling DQN:} Separates value and advantage estimations.
+    \item \textbf{Prioritized Experience Replay:} Focuses on important transitions.
+\end{itemize}
+
+\textbf{Healthcare Examples:}
+\begin{itemize}
+    \item \textbf{Chronic Disease Management:} Learning long-term treatment plans.
+    \item \textbf{Personalized Drug Dosing:} Recommending dosages based on patient trajectory.
+    \item \textbf{Radiology:} Optimal scan protocols, anomaly detection from image data.
+\end{itemize}
+
+\end{document}
