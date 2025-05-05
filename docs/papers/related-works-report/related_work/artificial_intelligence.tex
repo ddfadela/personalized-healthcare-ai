@@ -74,6 +74,47 @@ The best results were obtained using the XGBoost classifier with ADASYN:
     \item Expanding dataset size for better robustness.
     \item Integrating fuzzy logic and optimization for improved prediction.
 \end{itemize}
+
+\section{Integrating Machine Learning and Deep Learning Techniques for Advanced Alzheimer’s
+Disease Detection through Gait Analysis}
+\textbf{Article Reference:} \cite{article_3}
+
+\subsection*{Overview}
+The paper aims to enhance early detection of Alzheimer’s Disease (AD) by leveraging gait analysis combined with advanced machine learning (ML) and deep learning (DL) techniques. Gait abnormalities, such as reduced stride length and irregular cadence, are identified as early biomarkers for cognitive decline associated with AD. The study emphasizes the need for non-invasive, scalable diagnostic tools.
+
+
+\subsection*{Dataset}
+Data were collected using wearable sensors and motion capture systems in both clinical and real-world environments, providing high-resolution temporal and spatial gait metrics. The dataset includes gait features like stride length, cadence, swing time, and gait variability, with some data sourced from publicly available repositories like the UCI Machine Learning Repository. Preprocessing steps involved normalization, handling missing data via median imputation, class balancing with SMOTE, and feature selection through Recursive Feature Elimination.
+\subsection*{Processing}
+- Normalization: Features were scaled between 0 and 1 to standardize the data, ensuring that features with larger ranges (e.g., stride length) did not dominate the model training.
+- Handling Missing Data: Missing values were imputed using median substitution to maintain data integrity and reduce bias.
+- Class Imbalance: The Synthetic Minority Over-sampling Technique (SMOTE) was applied to generate synthetic samples of the minority class (AD patients), addressing class imbalance issues.
+- Feature Selection: Recursive Feature Elimination (RFE) was used to identify the most significant gait features—such as stride length, gait variability, and cadence—to improve model performance.
+- Correlation Analysis: High correlations between key features (e.g., stride length and step length) validated their importance for prediction, informing feature selection.
+
+\subsection*{ML Approach}
+The study employed a hybrid deep learning model comprising Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs) to classify individuals as healthy or at risk for AD. These models analyzed temporal-spatial gait features, capturing sequential patterns and irregularities. Traditional ML classifiers such as Random Forest and SVM were also evaluated for comparison.
+\subsection*{Results}
+The hybrid CNN-RNN model achieved the highest accuracy of 93\%, with other metrics like precision, recall, and F1-score also indicating strong performance. Traditional models like Random Forest and SVM performed well but with slightly lower accuracy (88\% and 86\%, respectively). These results demonstrate the potential of deep learning models in accurately detecting early AD.
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item The reliance on controlled datasets, which may not fully reflect real-world variability, impacting model robustness.
+    \item The complexity and interpretability of deep learning models, posing a barrier for clinical acceptance.
+    \item The need for large, diverse datasets to ensure generalizability.
+    \item Integration into clinical workflows and validation through real-world testing.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Incorporating multimodal data sources, such as MRI, PET scans, vocal, and cognitive measures, to improve diagnostic precision.
+    \item Expanding datasets to include diverse populations and environmental conditions, enhancing model robustness.
+    \item Developing explainable AI frameworks to improve interpretability and clinician trust.
+    \item Extending studies to include longitudinal gait data for monitoring disease progression and enabling earlier detection.
+    \item Conducting clinical pilot studies and developing affordable wearable technologies for widespread, low-resource application.
+\end{itemize}
+
+
 \newpage
 \section{Comparison of the Solutions}
 
@@ -83,17 +124,20 @@ The table below compares the reviewed studies based on disease domain, dataset, 
     \centering 
     \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{3.5cm}|p{2.5cm}|p{2.5cm}|}
     \hline
-    \textbf{Work} & \textbf{Disease/ Domain} & \textbf{Dataset} & \textbf{Data Processing} & \textbf{Approach} & \textbf{Results} \\
+    \textbf{Work} & \textbf{Disease/Domain} & \textbf{Dataset} & \textbf{Data Processing} & \textbf{Approach} & \textbf{Results} \\
     \hline
     \cite{article_1} & Epilepsy & Phase III (235) + Validation (47) patients & Clinical + WGS feature extraction (e.g., SV2A), mutational scores, PRS & Gradient-Boosted Decision Trees & AUC: 0.76 (train), 0.75 (validation) \\
     \hline
-    \cite{article_2} & Diabetes prediction & Pima Indian (768) + RTML (203) records & Imputation, ADASYN, Mutual Info, Holdout Validation & XGBoost + Ensemble Methods (voting, bagging) & AUC: 0.84, Accuracy: 81\%, F1 Score: 0.81 \\
+    \cite{article_2} & Diabetes Prediction & Pima Indian (768) + RTML (203) records & Imputation, ADASYN, Mutual Info, Holdout Validation & XGBoost + Ensemble Methods (voting, bagging) & AUC: 0.84, Accuracy: 81\%, F1 Score: 0.81 \\
+    \hline
+    \cite{article_3} & Alzheimer’s Disease & 300 instances from wearable sensors and motion capture & Normalization, median imputation, SMOTE, RFE, correlation analysis & Hybrid CNN-RNN (LSTM) & Accuracy: 93\%, Precision: 92\%, Recall: 91\%, F1-Score: 91.5\%, AUC-ROC: 95\% \\
     \hline
     \end{tabular}
     \caption{Comparison of AI Approaches in Health Applications}
     \label{tab:ai_health_comparison}
     \end{adjustwidth}
 \end{table}
+
 % \newpage
 % \section{Discussion}
 % As presented in the table above, different methods were proposed using machine learning which are seen as the most effective technique to build an intrusion detection system and detect attacks with different datasets mostly NSL-KDD dataset which resulted in a good accuracy.\\
