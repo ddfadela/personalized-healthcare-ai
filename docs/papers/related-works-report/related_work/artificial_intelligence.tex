@@ -97,7 +97,6 @@ The best results were obtained using the XGBoost classifier with ADASYN:
 % ============================== ARTICLE 3 =====================================
 \section{Integrating Machine Learning and Deep Learning Techniques for Advanced Alzheimer’s Disease Detection through Gait Analysis}
 \textbf{Article Reference:} \cite{article_3}
-
 \subsection*{Overview}
 The paper aims to enhance early detection of Alzheimer’s Disease (AD) by leveraging gait analysis combined with advanced machine learning (ML) and deep learning (DL) techniques. Gait abnormalities, such as reduced stride length and irregular cadence, are identified as early biomarkers for cognitive decline associated with AD. The study emphasizes the need for non-invasive, scalable diagnostic tools. This research highlights the potential of AI-driven gait analysis to contribute to personalized AD management through early detection.
 
@@ -141,7 +140,7 @@ The hybrid CNN-RNN model achieved the highest accuracy of 93\%, with other metri
 \end{itemize}
 
 % ============================== ARTICLE 4 =====================================
-\section {Diabetes detection using deep learning algorithms}
+\section{Diabetes detection using deep learning algorithms}
 \textbf{Article Reference:} \cite{article_4}
 
 \subsection*{Overview}
@@ -196,6 +195,98 @@ The study achieved a maximum classification accuracy of 95.7\% using a CNN-LSTM 
     \item Like other deep learning models, the interpretability of the model could be a concern for clinical use.
 \end{itemize}
 
+% ============================== ARTICLE 5 =====================================
+\section{Enhancing heart disease prediction with reinforcement learning and data augmentation}
+\textbf{Article Reference:} \cite{article_5}
+
+\subsection*{Overview}
+This study aims to improve the prediction accuracy of heart disease by integrating reinforcement learning (RL) and data augmentation techniques. The approach addresses the complexities of cardiac data, which often hampers traditional machine learning models, by leveraging advanced methods to enhance predictive performance and early diagnosis.
+
+\subsection*{Dataset}
+The primary dataset employed is similar to the Cleveland Heart Disease dataset, sourced from the UCI Machine Learning Repository. It contains features such as age, gender, blood pressure, cholesterol levels, ECG results, and other patient health indicators. The dataset includes a target variable indicating the presence or absence of heart disease, facilitating classification tasks. Additional datasets might come from healthcare agencies and research repositories.
+
+\subsection*{Processing}
+\begin{itemize}
+    \item \textbf{Feature Selection:} Techniques such as feature importance scores and recursive feature elimination are used to identify the most impactful variables for heart disease prediction.
+    \item \textbf{Model Training:} The models are trained on augmented data, using reinforcement learning strategies to iteratively improve predictions based on feedback.
+    \item \textbf{Evaluation:} The models are assessed using metrics like accuracy, precision, recall, F1-score, and AUC-ROC scores to gauge performance and robustness.
+\end{itemize}
+
+\subsection*{ML Approach}
+\begin{itemize}
+    \item \textbf{Data Augmentation:} Applying transformations like feature scaling, rotation, noise addition, and synthetic data generation to expand and diversify the training data. This helps models handle variability and reduce overfitting.
+    \item \textbf{Reinforcement Learning (RL):} Utilizing RL algorithms to optimize decision-making processes dynamically, allowing models to adapt to evolving patient data and improve prediction accuracy over time.
+\end{itemize}
+
+\noindent \textbf{How It Functions in the Study:}
+\begin{itemize}
+    \item \textbf{Initialization:}
+        \begin{itemize}
+            \item The RL agent starts with an initial policy, possibly based on prior knowledge or random actions.
+            \item The dataset is preprocessed, and the model's initial parameters are set.
+        \end{itemize}
+    \item \textbf{Interaction Loop:}
+        \begin{itemize}
+            \item For each episode, the agent:
+            \begin{itemize}
+                \item Observes the current state (e.g., patient features).
+                \item Selects an action according to its policy (e.g., choosing a specific augmentation or parameter setting).
+                \item Executes the action, which may involve training the model further, updating parameters, or selecting data augmentation techniques.
+                \item Moves to the next state, reflecting the outcome of its action, such as improved data representation or better predictive performance.
+                \item Receives a reward based on the effectiveness of its action, such as increased accuracy or better generalization.
+            \end{itemize}
+        \end{itemize}
+    \item \textbf{Learning:}
+        \begin{itemize}
+            \item The agent updates its policy based on the feedback (rewards), aiming to improve decision-making over future episodes.
+            \item Techniques like Q-learning or policy gradients are often used to optimize this process.
+        \end{itemize}
+    \item \textbf{Outcome:}
+        \begin{itemize}
+            \item Over many iterations, the RL model learns which actions lead to higher rewards and adapts its strategy to improve heart disease prediction accuracy continually.
+        \end{itemize}
+\end{itemize}
+
+\noindent In summary:
+\begin{itemize}
+    \item \textbf{States} represent patient data or model status.
+    \item \textbf{Actions} correspond to decisions like data augmentation choices or model updates.
+    \item \textbf{Rewards} are signals (e.g., accuracy improvements) guiding the learning process.
+    \item The RL agent learns the best policy to update the model continuously, maximizing prediction performance.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item The integrated approach achieved an accuracy rate of approximately 94\%, surpassing traditional models.
+    \item Data augmentation contributed to better generalization and robustness of the models.
+    \item Reinforcement learning facilitated continual improvement, especially in handling complex and dynamic cardiac data.
+    \item Visual comparisons indicated significant gains in both recall and overall predictive performance.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item \textbf{Computational Complexity:} The combined methods demand significant processing power and longer training times.
+    \item \textbf{Data Quality and Accessibility:} The efficacy of data augmentation depends heavily on the quality of the original dataset; biases or missing data can impact outcomes.
+    \item \textbf{Model Generalizability:} Design choices and assumptions within the RL framework may limit applicability across diverse patient populations or clinical settings.
+    \item \textbf{Scalability:} Handling large-scale, real-world datasets remains challenging due to resource requirements.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item \textbf{Fine-tuning Techniques:} Further optimizing model parameters and augmentation strategies.
+    \item \textbf{Privacy and Security:} Incorporating mechanisms to ensure patient data privacy.
+    \item \textbf{Clinical Validation:} Conducting extensive real-world clinical trials to validate model usefulness and safety.
+    \item \textbf{Broader Application:} Extending the methodology to other medical diagnostic areas beyond heart disease.
+    \item \textbf{Reducing Computational Costs:} Developing more efficient algorithms to make the approach more scalable and practical in healthcare settings.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item The integration of RL and data augmentation is promising, but computational demands and reliance on data quality could hinder deployment in resource-limited settings.
+    \item The paper lacks details on the exact RL algorithm used, which is essential for reproducibility.
+    \item There is limited discussion on how interpretability is addressed, which is crucial for clinical use.
+\end{itemize}
+
 \section{Comparison of the Solutions}
 The table below compares the reviewed studies based on disease domain, dataset, preprocessing methods, approach, and results.
 
@@ -213,6 +304,8 @@ The table below compares the reviewed studies based on disease domain, dataset, 
     \cite{article_3} & Alzheimer’s Disease & Wearable sensors and motion capture data & Normalization, median imputation, SMOTE, RFE, correlation analysis & Hybrid CNN-RNN (LSTM) & Accuracy: 93\%, Precision: 92\%, Recall: 91\%, F1-Score: 91.5\%, AUC-ROC: 95\% \\
     \hline
     \cite{article_4} & Diabetes & ECG recordings (71 datasets) & Pan-Tompkins for QRS detection & CNN-LSTM + SVM & Accuracy: 95.7\% \\
+    \hline
+    \cite{article_5} & Heart Disease & UCI Cleveland Heart Disease dataset & Feature selection, data augmentation, reinforcement-based iteration & RL + Data Augmentation & Accuracy: 94\% \\
     \hline
     \end{tabular}
     \caption{Comparison of AI Approaches in Health Applications}
