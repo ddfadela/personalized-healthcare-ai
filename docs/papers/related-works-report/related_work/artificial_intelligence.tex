@@ -15,20 +15,19 @@ This study uses machine learning to predict patient response to the epilepsy dru
     \item \textbf{External validation dataset:} 47 patients from an independent trial (NCT00490035).
 \end{itemize}
 
-\subsection*{Processing}
+\subsection*{Data Processing}
 Clinical data included demographic and seizure-related information. Whole Genome Sequencing (WGS) data ($\sim$20 million variants) was filtered down to 40 features through knowledge-driven extraction, focusing on epilepsy-related genes and drug mechanism (e.g., SV2A gene, eQTLs). Genetic features included mutational load scores, polygenic risk scores, and structural variant descriptors.
 
 \subsection*{ML Approach}
 Multiple ML models were evaluated: sparse multi-block PLS-DA, multimodal neural networks, elastic net, gradient-boosted decision trees (GBDT), and stacked classifiers. The best performance was achieved using a GBDT model integrating all data types. GBDT models are well-suited for handling the complex interactions between clinical and genetic features, which is crucial for personalized drug response prediction. However, the inherent complexity of GBDT models can make it challenging to interpret the specific contributions of individual features, a limitation that future explainable AI (XAI) techniques could address.
 
 \subsection*{Results}
-The GBDT classifier achieved:
 \begin{itemize}
     \item AUC (training): 0.76
     \item AUC (validation): 0.75
 \end{itemize}
 
-\subsection*{Future Directions and Challenges}
+\subsection*{Challenges}
 \begin{itemize}
     \item Addressing high dimensionality and sparsity of genomic data. This is a common challenge in personalized medicine research, as genomic data often has many variables but few samples.
     \item Integrating additional data types (e.g., EEG, imaging) to improve model performance. Multimodal data integration is essential for a holistic view of the patient but increases complexity.
@@ -57,7 +56,7 @@ This study proposes an automated diabetes prediction system using ML and explain
     \item \textbf{RTML Private Dataset:} 203 female employees; features similar to Pima dataset but lacks insulin values.
 \end{itemize}
 
-\subsection*{Processing}
+\subsection*{Data Processing}
 \begin{itemize}
     \item Zero values in the merged dataset were replaced with corresponding mean values and the dataset was separated into training and test sets using the holdout validation technique.
     \item Mutual information was used to measure the interdependence of variables and feature importance.
@@ -68,7 +67,6 @@ This study proposes an automated diabetes prediction system using ML and explain
 Various models were tested: decision trees, KNN, SVM, random forest, logistic regression, AdaBoost, XGBoost, bagging, and voting classifiers. Hyperparameters were tuned using GridSearchCV. The final model employed XGBoost with ADASYN for balancing. The choice of XGBoost is appropriate due to its effectiveness in handling complex datasets, but the lack of inherent explainability highlights the need for methods.
 
 \subsection*{Results}
-The best results were obtained using the XGBoost classifier with ADASYN:
 \begin{itemize}
     \item Accuracy: 81\%
     \item F1 Score: 0.81
@@ -87,6 +85,7 @@ The best results were obtained using the XGBoost classifier with ADASYN:
     \item Expanding dataset size for better robustness.
     \item Integrating fuzzy logic and optimization for improved prediction.
 \end{itemize}
+
 \subsection*{Critique}
 \begin{itemize}
     \item The use of imputation for missing insulin values introduces some uncertainty.    
@@ -95,27 +94,36 @@ The best results were obtained using the XGBoost classifier with ADASYN:
 \end{itemize}
 
 % ============================== ARTICLE 3 =====================================
-\section{Integrating Machine Learning and Deep Learning Techniques for Advanced Alzheimer’s Disease Detection through Gait Analysis}
+\section{Integrating Machine Learning and Deep Learning Techniques for Advanced Alzheimer's Disease Detection through Gait Analysis}
 \textbf{Article Reference:} \cite{article_3}
+
 \subsection*{Overview}
-The paper aims to enhance early detection of Alzheimer’s Disease (AD) by leveraging gait analysis combined with advanced machine learning (ML) and deep learning (DL) techniques. Gait abnormalities, such as reduced stride length and irregular cadence, are identified as early biomarkers for cognitive decline associated with AD. The study emphasizes the need for non-invasive, scalable diagnostic tools. This research highlights the potential of AI-driven gait analysis to contribute to personalized AD management through early detection.
+The paper aims to enhance early detection of Alzheimer's Disease (AD) by leveraging gait analysis combined with advanced machine learning (ML) and deep learning (DL) techniques. Gait abnormalities, such as reduced stride length and irregular cadence, are identified as early biomarkers for cognitive decline associated with AD. The study emphasizes the need for non-invasive, scalable diagnostic tools. This research highlights the potential of AI-driven gait analysis to contribute to personalized AD management through early detection.
 
 \subsection*{Dataset}
-Data were collected using wearable sensors and motion capture systems in both clinical and real-world environments, providing high-resolution temporal and spatial gait metrics. The dataset includes gait features like stride length, cadence, swing time, and gait variability, with some data sourced from publicly available repositories like the UCI Machine Learning Repository. Preprocessing steps involved normalization, handling missing data via median imputation, class balancing with SMOTE, and feature selection through Recursive Feature Elimination.
-\subsection*{Processing}
+Data were collected using wearable sensors and motion capture systems in both clinical and real-world environments, providing high-resolution temporal and spatial gait metrics. The dataset includes gait features like stride length, cadence, swing time, and gait variability, with some data sourced from publicly available repositories like the UCI Machine Learning Repository.
+
+\subsection*{Data Processing}
 \begin{itemize}
-    \item Normalization: Features were scaled between 0 and 1 to standardize the data, ensuring that features with larger ranges (e.g., stride length) did not dominate the model training.
-    \item Handling Missing Data: Missing values were imputed using median substitution to maintain data integrity and reduce bias.
-    \item Class Imbalance: The Synthetic Minority Over-sampling Technique (SMOTE) was applied to generate synthetic samples of the minority class (AD patients), addressing class imbalance issues.
-    \item Feature Selection: Recursive Feature Elimination (RFE) was used to identify the most significant gait features—such as stride length, gait variability, and cadence—to improve model performance.
-    \item Correlation Analysis: High correlations between key features (e.g., stride length and step length) validated their importance for prediction, informing feature selection.
+    \item \textbf{Normalization:} Features were scaled between 0 and 1 to standardize the data, ensuring that features with larger ranges (e.g., stride length) did not dominate the model training.
+    \item \textbf{Handling Missing Data:} Missing values were imputed using median substitution to maintain data integrity and reduce bias.
+    \item \textbf{Class Imbalance:} The Synthetic Minority Over-sampling Technique (SMOTE) was applied to generate synthetic samples of the minority class (AD patients), addressing class imbalance issues.
+    \item \textbf{Feature Selection:} Recursive Feature Elimination (RFE) was used to identify the most significant gait features—such as stride length, gait variability, and cadence—to improve model performance.
+    \item \textbf{Correlation Analysis:} High correlations between key features (e.g., stride length and step length) validated their importance for prediction, informing feature selection.
 \end{itemize}
 
 \subsection*{ML Approach}
 The study employed a hybrid deep learning model comprising Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs) to classify individuals as healthy or at risk for AD. These models analyzed temporal-spatial gait features, capturing sequential patterns and irregularities. Traditional ML classifiers such as Random Forest and SVM were also evaluated for comparison. The use of a hybrid CNN-RNN model is a strength, as it leverages the capabilities of both CNNs for spatial feature extraction and RNNs for temporal sequence modeling, which is well-suited for gait analysis.
 
 \subsection*{Results}
-The hybrid CNN-RNN model achieved the highest accuracy of 93\%, with other metrics like precision, recall, and F1-score also indicating strong performance. Traditional models like Random Forest and SVM performed well but with slightly lower accuracy (88\% and 86\%, respectively). These results demonstrate the potential of deep learning models in accurately detecting early AD.
+\begin{itemize}
+    \item Hybrid CNN-RNN model accuracy: 93\%
+    \item Precision: 92\% 
+    \item Recall: 91\%
+    \item F1-score: 91.5\%
+    \item AUC-ROC: 95\%
+    \item Traditional models: Random Forest (88\%) and SVM (86\%)
+\end{itemize}
 
 \subsection*{Challenges}
 \begin{itemize}
@@ -133,26 +141,28 @@ The hybrid CNN-RNN model achieved the highest accuracy of 93\%, with other metri
     \item Extending studies to include longitudinal gait data for monitoring disease progression and enabling earlier detection.
     \item Conducting clinical pilot studies and developing affordable wearable technologies for widespread, low-resource application.
 \end{itemize}
+
 \subsection*{Critique}
 \begin{itemize}
-    \item The dataset may not fully represent the variability of real-world gait patterns.    
+    \item The dataset may not fully represent the variability of real-world gait patterns.    
     \item Deep learning models are often considered "black boxes," which can hinder clinical acceptance.
 \end{itemize}
 
 % ============================== ARTICLE 4 =====================================
-\section{Diabetes detection using deep learning algorithms}
+\section{Diabetes Detection Using Deep Learning Algorithms}
 \textbf{Article Reference:} \cite{article_4}
 
 \subsection*{Overview}
-The authors developed a non-invasive method to detect diabetes using heart rate variability (HRV) signals derived from ECG data. They designed a deep learning architecture combining convolutional neural networks (CNN) and long short-term memory (LSTM) networks to automatically extract complex features from the HRV signals. These features were then classified using a support vector machine (SVM) with an RBF kernel. The approach achieved a high accuracy of 95.7\%, outperforming previous methods. The dataset consisted of ECG recordings from 20 individuals, each providing 10-minute samples, which were processed to extract HRV data without extensive preprocessing. The study demonstrated that deep learning models could effectively identify diabetes from HRV signals, with future work aimed at expanding datasets, improving model robustness, and exploring anomaly prediction for earlier diagnosis. This research demonstrates the potential of AI for non-invasive, personalized diabetes screening.
+The authors developed a non-invasive method to detect diabetes using heart rate variability (HRV) signals derived from ECG data. They designed a deep learning architecture combining convolutional neural networks (CNN) and long short-term memory (LSTM) networks to automatically extract complex features from the HRV signals. These features were then classified using a support vector machine (SVM) with an RBF kernel. The approach achieved a high accuracy of 95.7\%, outperforming previous methods. This research demonstrates the potential of AI for non-invasive, personalized diabetes screening.
+
 \subsection*{Dataset}
 \begin{itemize}
-    \item ECG recordings from 20 individuals (both diabetic and normal).
-    \item Each participant provided a 10-minute ECG sample, from which heart rate time series data was derived.
-    \item Total datasets: 71 datasets for both groups, each containing 1000 samples.
+    \item ECG recordings from 20 individuals (both diabetic and normal)
+    \item Each participant provided a 10-minute ECG sample, from which heart rate time series data was derived
+    \item Total datasets: 71 datasets for both groups, each containing 1000 samples
 \end{itemize}
 
-\subsection*{Processing}
+\subsection*{Data Processing}
 \begin{itemize}
     \item Used Pan and Tompkins algorithm for QRS complex detection to extract heart rate intervals.
     \item Derived HRV signals directly from ECG without additional preprocessing.
@@ -164,16 +174,16 @@ The authors developed a non-invasive method to detect diabetes using heart rate 
     \item Built a deep learning model comprising 5 CNN layers followed by an LSTM layer to capture spatial and temporal features.
     \item Used dropout (0.1) for regularization.
     \item Extracted features automatically within the network, then classified using an SVM with RBF kernel.
-    \item Employed 5-fold cross-validation for robust evaluation. The combination of CNNs and LSTMs is well-suited for processing time-series data like HRV signals.
+    \item Employed 5-fold cross-validation for robust evaluation.
 \end{itemize}
 \subsection*{Results}
-The study achieved a maximum classification accuracy of 95.7\% using a CNN-LSTM architecture combined with SVM for placement of the final classifier. This result represents the highest accuracy reported so far for non-invasive diabetes detection using HRV signals as input. The detailed results showed that:
-
 \begin{itemize}
-    \item The combination of deep learning feature extraction with SVM classification outperformed using deep learning alone.
-    \item Various architectures tested yielded accuracies ranging from around 68.\% (CNN 1 with SVM) to 95.7\% (CNN 5-LSTM with SVM).
-    \item The high accuracy indicates that the proposed model effectively captures the complex temporal and spatial features of HRV signals associated with diabetic and normal individuals, confirming the potential of this approach for reliable, non-invasive diabetes detection.
+    \item Maximum classification accuracy: 95.7\% (CNN-LSTM with SVM)
+    \item Various architectures tested with accuracies ranging from 68\% to 95.7\%
+    \item The combination of deep learning feature extraction with SVM classification outperformed using deep learning alone
+    \item Highest accuracy reported so far for non-invasive diabetes detection using HRV signals
 \end{itemize}
+
 \subsection*{Challenges}
 \begin{itemize}
     \item Limited dataset size could affect generalization; larger datasets are needed.
@@ -189,10 +199,11 @@ The study achieved a maximum classification accuracy of 95.7\% using a CNN-LSTM 
     \item Develop more advanced deep learning models for early and accurate detection.
     \item Investigate applicability to real-time monitoring and broader clinical validation.
 \end{itemize}
+
 \subsection*{Critique}
 \begin{itemize}
-    \item The dataset size is limited, which may affect the model's ability to generalize to larger populations.
-    \item Like other deep learning models, the interpretability of the model could be a concern for clinical use.
+    \item The dataset size is limited (only 20 individuals), which may affect the model's ability to generalize to larger populations
+    \item Like other deep learning models, the interpretability of the model could be a concern for clinical use
 \end{itemize}
 
 % ============================== ARTICLE 5 =====================================
@@ -205,11 +216,12 @@ This study aims to improve the prediction accuracy of heart disease by integrati
 \subsection*{Dataset}
 The primary dataset employed is similar to the Cleveland Heart Disease dataset, sourced from the UCI Machine Learning Repository. It contains features such as age, gender, blood pressure, cholesterol levels, ECG results, and other patient health indicators. The dataset includes a target variable indicating the presence or absence of heart disease, facilitating classification tasks. Additional datasets might come from healthcare agencies and research repositories.
 
-\subsection*{Processing}
+\subsection*{Data Processing}
 \begin{itemize}
-    \item \textbf{Feature Selection:} Techniques such as feature importance scores and recursive feature elimination are used to identify the most impactful variables for heart disease prediction.
-    \item \textbf{Model Training:} The models are trained on augmented data, using reinforcement learning strategies to iteratively improve predictions based on feedback.
-    \item \textbf{Evaluation:} The models are assessed using metrics like accuracy, precision, recall, F1-score, and AUC-ROC scores to gauge performance and robustness.
+    \item \textbf{Feature Selection:} Techniques such as feature importance scores and recursive feature elimination were used to identify the most impactful variables for heart disease prediction.
+    \item \textbf{Data Augmentation:} Applied transformations like feature scaling, rotation, noise addition, and synthetic data generation to expand and diversify the training data. This helps models handle variability and reduce overfitting.
+    \item \textbf{Model Training:} The models were trained on augmented data, using reinforcement learning strategies to iteratively improve predictions based on feedback.
+    \item \textbf{Evaluation:} The models were assessed using metrics like accuracy, precision, recall, F1-score, and AUC-ROC scores to gauge performance and robustness.
 \end{itemize}
 
 \subsection*{ML Approach}
@@ -257,10 +269,10 @@ The primary dataset employed is similar to the Cleveland Heart Disease dataset, 
 
 \subsection*{Results}
 \begin{itemize}
-    \item The integrated approach achieved an accuracy rate of approximately 94\%, surpassing traditional models.
-    \item Data augmentation contributed to better generalization and robustness of the models.
-    \item Reinforcement learning facilitated continual improvement, especially in handling complex and dynamic cardiac data.
-    \item Visual comparisons indicated significant gains in both recall and overall predictive performance.
+    \item Achieved an accuracy rate of approximately 94\%, surpassing traditional models
+    \item Data augmentation contributed to better generalization and robustness
+    \item Reinforcement learning facilitated continual improvement, especially in handling complex and dynamic cardiac data
+    \item Significant gains in both recall and overall predictive performance
 \end{itemize}
 
 \subsection*{Challenges}
@@ -302,16 +314,17 @@ This paper introduces CardioXNet, a lightweight CRNN architecture designed for t
 
 \subsection*{Data Processing}
 \begin{itemize}
-    \item All signals were resampled at 2 kHz and amplitude-normalized.
-    \item No segmentation or extensive preprocessing was performed, emphasizing the model's robustness to raw signals.
-    \item The approach leverages convolutional pathways to learn features directly from raw waveforms, avoiding traditional MFCC or spectrogram conversion.
+    \item All signals were resampled at 2 kHz and amplitude-normalized
+    \item No segmentation or extensive preprocessing was performed, emphasizing the model's robustness to raw signals
+    \item The approach leverages convolutional pathways to learn features directly from raw waveforms, avoiding traditional MFCC or spectrogram conversion
 \end{itemize}
 
-\subsection*{Approach}
+\subsection*{ML Approach}
+The authors developed CardioXNet, a lightweight CRNN framework with two learning schemes:
 \begin{itemize}
-    \item The authors developed CardioXNet, a lightweight CRNN framework with two learning schemes: representation learning and sequence residual learning.
-    \item Representation learning extracts time-invariant features using three parallel CNN pathways.
-    \item Sequence residual learning extracts temporal features using bidirectional connections.
+    \item \textbf{Representation learning:} Extracts time-invariant features using three parallel CNN pathways
+    \item \textbf{Sequence residual learning:} Extracts temporal features using bidirectional connections
+    \item The model is specifically designed to be efficient in terms of parameters and computational requirements
 \end{itemize}
 
 \subsection*{Results}
@@ -323,25 +336,26 @@ This paper introduces CardioXNet, a lightweight CRNN architecture designed for t
 
 \subsection*{Challenges}
 \begin{itemize}
-    \item Limited dataset size, especially for specific conditions like HVD.
-    \item Lack of patient independence and demographic details.
-    \item Generalization to real-world, heterogeneous data remains untested.
+    \item Limited dataset size, especially for specific conditions like HVD
+    \item Lack of patient independence and demographic details
+    \item Generalization to real-world, heterogeneous data remains untested
 \end{itemize}
 
 \subsection*{Future Directions}
 \begin{itemize}
-    \item Incorporate larger and more diverse PCG datasets.
-    \item Integrate CardioXNet into wearable devices with cloud connectivity.
-    \item Explore transfer learning and further model compression for resource-constrained deployment.
+    \item Incorporate larger and more diverse PCG datasets
+    \item Integrate CardioXNet into wearable devices with cloud connectivity
+    \item Explore transfer learning and further model compression for resource-constrained deployment
+    \item Develop methods to handle noisy recordings and variable acoustic environments
 \end{itemize}
 
 \subsection*{Critique}
 \begin{itemize}
-    \item Dataset size and diversity might limit generalizability.
-    \item Missing demographic and variability information.
-    \item Robustness to real-world noise and device variation not fully evaluated.
+    \item Dataset size and diversity might limit generalizability to broader populations
+    \item Missing demographic and variability information limits assessment of performance across different patient groups
+    \item Robustness to real-world noise and device variation not fully evaluated
+    \item Limited evaluation in actual clinical settings
 \end{itemize}
-
 
 % ============================== ARTICLE 7 =====================================
 \section{A Reinforcement Learning–Based Method for Management of Type 1 Diabetes: Exploratory Study}
@@ -358,12 +372,12 @@ The data included patient information such as HbA1c levels, BMI, physical activi
 The authors conducted a correlation analysis to identify key variables influencing blood glucose, concluding that HbA1c, BMI, activity level, and alcohol usage were the most relevant.
 
 Based on these factors, they defined the patient’s state by discretizing these variables into levels:
-\begin{itemize}
-    \item HbA1c levels (e.g., normal, elevated, high)
-    \item BMI categories
-    \item Activity levels (e.g., low, high)
-    \item Alcohol usage levels (e.g., none, moderate, high)
-\end{itemize}
+    \begin{itemize}
+        \item HbA1c levels (e.g., normal, elevated, high)
+        \item BMI categories
+        \item Activity levels (e.g., low, high)
+        \item Alcohol usage levels (e.g., none, moderate, high)
+    \end{itemize}
 
 \subsection*{Data Processing}
 States were formed as combinations of these discretized features.
@@ -382,7 +396,7 @@ The data was used to train and validate the RL model.
     \item The reward function is designed based on how well the insulin dose achieved the target HbA1c level.
 \end{itemize}
 
-\textbf{Details of Implementation:}
+\subsection*{ML Approach}
 \begin{itemize}
     \item At each time step (e.g., clinical visit), the agent observes the state and selects an action (insulin dose) either by exploration (random choice with probability $\epsilon$) or exploitation (based on learned Q-values).
     \item After administering the dose, the patient's response (e.g., change in HbA1c) results in a reward, guiding the learning process.
@@ -390,47 +404,49 @@ The data was used to train and validate the RL model.
 \end{itemize}
 
 \subsection*{Results}
-The RL model was trained on the data and then tested on 60 unseen cases.
-
-The recommended insulin dose interval from the RL agent included the physician-prescribed dose in 88\% of the cases.
-
-This suggests the RL approach can effectively offer personalized treatment recommendations aligning with clinical decisions.
+\begin{itemize}
+    \item RL model tested on 60 unseen cases
+    \item Recommended insulin dose interval included the physician-prescribed dose in 88\% of cases
+    \item Results suggest the RL approach can effectively offer personalized treatment recommendations aligning with clinical decisions
+\end{itemize}
 
 \subsection*{Challenges}
 \begin{itemize}
-    \item \textbf{Limited dataset size:} Only 87 patients, which may limit generalizability.
-    \item \textbf{Discretization of variables:} Fineness of categories might affect the model's precision.
-    \item \textbf{Data quality and missing variables:} Not all potentially influential factors (like diet or stress) were included.
-    \item \textbf{Algorithm complexity:} RL models require careful tuning; real-world implementation must address issues like exploration vs. exploitation and patient safety.
+    \item \textbf{Limited dataset size:} Only 87 patients, which may limit generalizability
+    \item \textbf{Discretization of variables:} Fineness of categories might affect the model's precision
+    \item \textbf{Data quality and missing variables:} Not all potentially influential factors (like diet or stress) were included
+    \item \textbf{Algorithm complexity:} RL models require careful tuning; real-world implementation must address issues like exploration vs. exploitation and patient safety
 \end{itemize}
 
 \subsection*{Future Directions}
 \begin{itemize}
-    \item Extend the model to include other types of insulin and medications.
-    \item Incorporate finer categories or continuous variables for more precise recommendations.
-    \item Validate with larger and more diverse datasets.
-    \item Explore the application to other populations, such as patients with Type 2 Diabetes.
-    \item Implement real-time decision support in clinical settings.
+    \item Extend the model to include other types of insulin and medications
+    \item Incorporate finer categories or continuous variables for more precise recommendations
+    \item Validate with larger and more diverse datasets
+    \item Explore application to other populations, such as patients with Type 2 Diabetes
+    \item Implement real-time decision support in clinical settings
 \end{itemize}
 
 \subsection*{Critique}
 \begin{itemize}
-    \item Limited patient sample size may not capture all variability.
-    \item Discretization may lead to loss of information.
-    \item No explicit mention of model validation techniques beyond testing on 60 cases.
-    \item Reward function description is brief; more detail would clarify alignment with clinical goals.
+    \item Limited patient sample size may not capture all variability in diabetes management
+    \item Discretization may lead to loss of information that could be valuable for precise dosing
+    \item No explicit mention of model validation techniques beyond testing on 60 cases
+    \item Reward function description is brief; more detail would clarify alignment with clinical goals
 \end{itemize}
 
 % ============================== ARTICLE 8 =====================================
-\section{
-Cardiovascular diseases prediction by machine learning incorporation with deep learning}
+\section{Cardiovascular Diseases Prediction by Machine Learning Incorporation with Deep Learning}
 \textbf{Article Reference:} \cite{article_8}
 
 \subsection*{Overview}
 The article discusses the increasing role of artificial intelligence (AI) in healthcare, particularly in predicting cardiovascular diseases (CVD). It highlights the growing prevalence of data from the Internet of Things (IoT) within healthcare systems, which can be leveraged to identify risk factors associated with CVD.
 
 \subsection*{Dataset}
-The research utilized a Heart dataset, which was refined to include 918 unique samples after removing duplicates. This dataset comprises 11 features relevant for predicting CVD.
+\begin{itemize}
+    \item Heart dataset with 918 unique samples after removing duplicates
+    \item Dataset comprises 11 features relevant for predicting CVD
+\end{itemize}
 
 \subsection*{Data Processing}
 The study employed machine learning models to analyze the data received from Internet of Things (IoT) devices. Traditional machine learning algorithms were noted to have limitations in accuracy, which led to the exploration of advanced techniques for better predictions. A feature selection method using Tree SHAP was applied to identify significant features influencing CVD predictions. This method enhances the interpretability of the results by showing each feature's contribution to predictions.
@@ -445,27 +461,27 @@ The proposed stacking fusion model-based classifier demonstrated superior perfor
 One of the challenges noted in the study is the reliance on traditional machine learning algorithms, which may not adequately account for data variability, leading to lower accuracy in predictions. Additionally, the need for more extensive datasets from various medical institutions was emphasized.
 
 \subsection*{Future Directions}
-Future research should incorporate additional deep learning techniques and algorithms within Internet of Things (IoT) environments. This integration could enhance accuracy and provide valuable insights for hospitals in identifying high-risk patients and implementing early clinical interventions.
+\begin{itemize}
+    \item Incorporate additional deep learning techniques within IoT environments
+    \item Enhance accuracy for identifying high-risk patients
+    \item Implement early clinical interventions based on model predictions
+    \item Develop more sophisticated models that can handle real-time streaming data
+\end{itemize}
 
 \subsection*{Critique}
-The paper presents a comprehensive approach to predicting cardiovascular diseases using machine learning and deep learning techniques. However, it could benefit from:
 \begin{itemize}
-    \item \textbf{Broader Dataset Diversity:} Incorporating data from various demographics and geographical locations could enhance the model's generalizability.
-    \item \textbf{Detailed Methodology:} A more in-depth explanation of the algorithms used in the stacking model would clarify their individual contributions.
-    \item \textbf{Longitudinal Studies:} Including longitudinal studies would help assess the real-world effectiveness of the models.
-    \item \textbf{Addressing Data Imbalance:} The paper does not discuss how data imbalance was handled, which is crucial for improving model performance.
+    \item Need for broader dataset diversity incorporating various demographics and geographical locations
+    \item More detailed explanation of the specific algorithms used in the stacking model would clarify their individual contributions
+    \item Longitudinal studies would help assess the real-world effectiveness of the models
+    \item The paper does not adequately address how data imbalance was handled
 \end{itemize}
 
 % ============================== ARTICLE 9 =====================================
-\section{Optimizing type 2 diabetes management:
-AI-enhanced time series analysis of
-continuous glucose monitoring data for
-personalized dietary intervention}
+\section{Optimizing Type 2 Diabetes Management: AI-Enhanced Time Series Analysis of Continuous Glucose Monitoring Data for Personalized Dietary Intervention}
 \textbf{Article Reference:} \cite{article_9}
 
 \subsection*{Overview}
-This study proposes a method to optimize type 2 diabetes management using AI-enhanced time series analysis of continuous glucose monitoring (CGM) data.
-The goal is to enable personalized dietary interventions to improve patient outcomes.
+This study proposes a method to optimize type 2 diabetes management using AI-enhanced time series analysis of continuous glucose monitoring (CGM) data. The goal is to enable personalized dietary interventions to improve patient outcomes.
 
 \subsection*{Dataset}
 \begin{itemize}
@@ -475,12 +491,12 @@ The goal is to enable personalized dietary interventions to improve patient outc
 
 \subsection*{Data Processing}
 \begin{itemize}
-    \item Removed NaN records to clean the data.
-    \item Applied feature extraction and dimensionality reduction.
-    \item Split dataset into training (75\%) and testing (25\%).
+    \item Removed NaN records to clean the data
+    \item Applied feature extraction and dimensionality reduction techniques
+    \item Split dataset into training (75\%) and testing (25\%) portions
 \end{itemize}
 
-\subsection*{Approach}
+\subsection*{ML Approach}
 \begin{itemize}
     \item Used regression models: XGBoost, SARIMA, Prophet.
     \item Evaluated using MAE, MSE, and R-squared (R²) metrics.
@@ -513,11 +529,11 @@ The goal is to enable personalized dietary interventions to improve patient outc
 \end{itemize}
 
 % ============================== COMPARISON TABLE ==============================
-
 \section{Comparison of the Solutions}
 \begin{table}[htbp]
-    \begin{adjustwidth}{-2cm}{-2cm}
+\begin{adjustwidth}{-2cm}{-2cm}
 \centering
+\scriptsize
 \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{3.5cm}|p{2.5cm}|p{2.5cm}|}
 \hline
 \textbf{Work} & \textbf{Disease/Domain} & \textbf{Dataset} & \textbf{Data Processing} & \textbf{Approach} & \textbf{Results} \\
@@ -543,7 +559,7 @@ The goal is to enable personalized dietary interventions to improve patient outc
 \end{tabular}
 \caption{Comparison of AI Approaches in Health Applications}
 \label{tab:ai_health_comparison}
-    \end{adjustwidth}
+\end{adjustwidth}
 \end{table}
 
 
