@@ -196,7 +196,7 @@ The study achieved a maximum classification accuracy of 95.7\% using a CNN-LSTM 
 \end{itemize}
 
 % ============================== ARTICLE 5 =====================================
-\section{Enhancing heart disease prediction with reinforcement learning and data augmentation}
+\section{Enhancing Heart Disease Prediction with Reinforcement Learning and Data Augmentation}
 \textbf{Article Reference:} \cite{article_5}
 
 \subsection*{Overview}
@@ -287,31 +287,265 @@ The primary dataset employed is similar to the Cleveland Heart Disease dataset, 
     \item There is limited discussion on how interpretability is addressed, which is crucial for clinical use.
 \end{itemize}
 
-\section{Comparison of the Solutions}
-The table below compares the reviewed studies based on disease domain, dataset, preprocessing methods, approach, and results.
+% ============================== ARTICLE 6 =====================================
+\section{CardioXNet: A Novel Lightweight Deep Learning Framework for Cardiovascular Disease Classification Using Heart Sound Recordings}
+\textbf{Article Reference:} \cite{article_6}
 
+\subsection*{Overview}
+This paper introduces CardioXNet, a lightweight CRNN architecture designed for the automatic detection of five types of heart sounds using raw PCG signals. The architecture involves two main phases: representation learning to extract time-invariant features and sequence residual learning to extract temporal features. CardioXNet is designed to be efficient for use in low-resource settings.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item \textbf{Primary Dataset:} GitHub PCG database containing 1000 recordings across five classes: Normal, Aortic stenosis, Mitral regurgitation, Mitral stenosis, and Mitral valve prolapse.
+    \item \textbf{Secondary Dataset:} PhysioNet/CinC 2016 challenge dataset with 3240 recordings labeled as normal or abnormal, used to test the model's generalizability.
+\end{itemize}
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item All signals were resampled at 2 kHz and amplitude-normalized.
+    \item No segmentation or extensive preprocessing was performed, emphasizing the model's robustness to raw signals.
+    \item The approach leverages convolutional pathways to learn features directly from raw waveforms, avoiding traditional MFCC or spectrogram conversion.
+\end{itemize}
+
+\subsection*{Approach}
+\begin{itemize}
+    \item The authors developed CardioXNet, a lightweight CRNN framework with two learning schemes: representation learning and sequence residual learning.
+    \item Representation learning extracts time-invariant features using three parallel CNN pathways.
+    \item Sequence residual learning extracts temporal features using bidirectional connections.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item Achieved 99.60\% accuracy on the GitHub dataset, outperforming prior methods.
+    \item Demonstrated 86.57\% accuracy on the PhysioNet dataset, indicating good generalization.
+    \item Model is efficient, with only 0.67M trainable parameters, 26M FLOPS, and $\sim$54.6 ms processing time—suitable for real-time applications.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Limited dataset size, especially for specific conditions like HVD.
+    \item Lack of patient independence and demographic details.
+    \item Generalization to real-world, heterogeneous data remains untested.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Incorporate larger and more diverse PCG datasets.
+    \item Integrate CardioXNet into wearable devices with cloud connectivity.
+    \item Explore transfer learning and further model compression for resource-constrained deployment.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Dataset size and diversity might limit generalizability.
+    \item Missing demographic and variability information.
+    \item Robustness to real-world noise and device variation not fully evaluated.
+\end{itemize}
+
+
+% ============================== ARTICLE 7 =====================================
+\section{A Reinforcement Learning–Based Method for Management of Type 1 Diabetes: Exploratory Study}
+\textbf{Article Reference:} \cite{article_7}
+
+\subsection*{Overview}
+The researchers developed a reinforcement learning (RL) framework, specifically a Q-learning algorithm, to personalize insulin dosing for patients with Type 1 Diabetes Mellitus (T1DM). The aim was to improve blood glucose management by recommending insulin doses tailored to individual patient characteristics.
+
+\subsection*{Dataset}
+The dataset consisted of clinical records from 87 T1DM patients treated at Mass General Hospital (MGH) between 2003 and 2013.
+
+The data included patient information such as HbA1c levels, BMI, physical activity, and alcohol usage.
+
+The authors conducted a correlation analysis to identify key variables influencing blood glucose, concluding that HbA1c, BMI, activity level, and alcohol usage were the most relevant.
+
+Based on these factors, they defined the patient’s state by discretizing these variables into levels:
+\begin{itemize}
+    \item HbA1c levels (e.g., normal, elevated, high)
+    \item BMI categories
+    \item Activity levels (e.g., low, high)
+    \item Alcohol usage levels (e.g., none, moderate, high)
+\end{itemize}
+
+\subsection*{Data Processing}
+States were formed as combinations of these discretized features.
+
+Insulin doses (actions) were defined within specific ranges (e.g., Lantus dose intervals).
+
+The data was used to train and validate the RL model.
+
+\subsection*{Approach}
+\textbf{Framework \& Method:}
+\begin{itemize}
+    \item The Q-learning algorithm was employed, which is a model-free RL method.
+    \item The environment is represented by the patient’s health state, and the agent makes decisions on insulin dosage.
+    \item The states are defined by the combination of HbA1c, BMI, activity level, and alcohol usage.
+    \item The actions are discretized insulin dose levels (specific dose intervals).
+    \item The reward function is designed based on how well the insulin dose achieved the target HbA1c level.
+\end{itemize}
+
+\textbf{Details of Implementation:}
+\begin{itemize}
+    \item At each time step (e.g., clinical visit), the agent observes the state and selects an action (insulin dose) either by exploration (random choice with probability $\epsilon$) or exploitation (based on learned Q-values).
+    \item After administering the dose, the patient's response (e.g., change in HbA1c) results in a reward, guiding the learning process.
+    \item The Q-values are updated iteratively based on the reward and the estimated value of subsequent states.
+\end{itemize}
+
+\subsection*{Results}
+The RL model was trained on the data and then tested on 60 unseen cases.
+
+The recommended insulin dose interval from the RL agent included the physician-prescribed dose in 88\% of the cases.
+
+This suggests the RL approach can effectively offer personalized treatment recommendations aligning with clinical decisions.
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item \textbf{Limited dataset size:} Only 87 patients, which may limit generalizability.
+    \item \textbf{Discretization of variables:} Fineness of categories might affect the model's precision.
+    \item \textbf{Data quality and missing variables:} Not all potentially influential factors (like diet or stress) were included.
+    \item \textbf{Algorithm complexity:} RL models require careful tuning; real-world implementation must address issues like exploration vs. exploitation and patient safety.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Extend the model to include other types of insulin and medications.
+    \item Incorporate finer categories or continuous variables for more precise recommendations.
+    \item Validate with larger and more diverse datasets.
+    \item Explore the application to other populations, such as patients with Type 2 Diabetes.
+    \item Implement real-time decision support in clinical settings.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Limited patient sample size may not capture all variability.
+    \item Discretization may lead to loss of information.
+    \item No explicit mention of model validation techniques beyond testing on 60 cases.
+    \item Reward function description is brief; more detail would clarify alignment with clinical goals.
+\end{itemize}
+
+% ============================== ARTICLE 8 =====================================
+\section{
+Cardiovascular diseases prediction by machine learning incorporation with deep learning}
+\textbf{Article Reference:} \cite{article_8}
+
+\subsection*{Overview}
+The article discusses the increasing role of artificial intelligence (AI) in healthcare, particularly in predicting cardiovascular diseases (CVD). It highlights the growing prevalence of data from the Internet of Things (IoT) within healthcare systems, which can be leveraged to identify risk factors associated with CVD.
+
+\subsection*{Dataset}
+The research utilized a Heart dataset, which was refined to include 918 unique samples after removing duplicates. This dataset comprises 11 features relevant for predicting CVD.
+
+\subsection*{Data Processing}
+The study employed machine learning models to analyze the data received from Internet of Things (IoT) devices. Traditional machine learning algorithms were noted to have limitations in accuracy, which led to the exploration of advanced techniques for better predictions. A feature selection method using Tree SHAP was applied to identify significant features influencing CVD predictions. This method enhances the interpretability of the results by showing each feature's contribution to predictions.
+
+\subsection*{Approach}
+The researchers proposed a stacking fusion model-based classifier, which achieved an impressive accuracy of nearly 96\%. This model effectively combined the strengths of various algorithms, outperforming individual models in predicting high-risk individuals for CVD. They emphasized the limitations of traditional machine learning and the importance of large, diverse datasets for robust predictions.
+
+\subsection*{Results}
+The proposed stacking fusion model-based classifier demonstrated superior performance, achieving nearly 96\% accuracy. The model's performance remained stable after feature selection, with AUC values not significantly impacted by the removal of the Resting ECG feature.
+
+\subsection*{Challenges}
+One of the challenges noted in the study is the reliance on traditional machine learning algorithms, which may not adequately account for data variability, leading to lower accuracy in predictions. Additionally, the need for more extensive datasets from various medical institutions was emphasized.
+
+\subsection*{Future Directions}
+Future research should incorporate additional deep learning techniques and algorithms within Internet of Things (IoT) environments. This integration could enhance accuracy and provide valuable insights for hospitals in identifying high-risk patients and implementing early clinical interventions.
+
+\subsection*{Critique}
+The paper presents a comprehensive approach to predicting cardiovascular diseases using machine learning and deep learning techniques. However, it could benefit from:
+\begin{itemize}
+    \item \textbf{Broader Dataset Diversity:} Incorporating data from various demographics and geographical locations could enhance the model's generalizability.
+    \item \textbf{Detailed Methodology:} A more in-depth explanation of the algorithms used in the stacking model would clarify their individual contributions.
+    \item \textbf{Longitudinal Studies:} Including longitudinal studies would help assess the real-world effectiveness of the models.
+    \item \textbf{Addressing Data Imbalance:} The paper does not discuss how data imbalance was handled, which is crucial for improving model performance.
+\end{itemize}
+
+% ============================== ARTICLE 9 =====================================
+\section{Optimizing type 2 diabetes management:
+AI-enhanced time series analysis of
+continuous glucose monitoring data for
+personalized dietary intervention}
+\textbf{Article Reference:} \cite{article_9}
+
+\subsection*{Overview}
+This study proposes a method to optimize type 2 diabetes management using AI-enhanced time series analysis of continuous glucose monitoring (CGM) data.
+The goal is to enable personalized dietary interventions to improve patient outcomes.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item Collected CGM data from 8 patients with type 2 diabetes.
+    \item Data includes time-series blood glucose (BG) values.
+\end{itemize}
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item Removed NaN records to clean the data.
+    \item Applied feature extraction and dimensionality reduction.
+    \item Split dataset into training (75\%) and testing (25\%).
+\end{itemize}
+
+\subsection*{Approach}
+\begin{itemize}
+    \item Used regression models: XGBoost, SARIMA, Prophet.
+    \item Evaluated using MAE, MSE, and R-squared (R²) metrics.
+    \item Integrated dietary recommendations based on predicted BG levels.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item XGBoost outperformed SARIMA and Prophet.
+    \item Achieved high R² and low MAPE.
+    \item Accurately predicted glucose fluctuations for timely intervention.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Limited dataset (only 8 patients) reduced model generalizability.
+    \item Up to ±30-minute lag in CGM readings affected prediction accuracy.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Expand dataset to improve training and validation.
+    \item Enhance model with additional features and contextual data.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Promising approach, but small sample limits robustness.
+    \item Time lag in CGM data must be addressed for better accuracy.
+\end{itemize}
+
+% ============================== COMPARISON TABLE ==============================
+
+\section{Comparison of the Solutions}
 \begin{table}[htbp]
     \begin{adjustwidth}{-2cm}{-2cm}
-    \centering
-    \begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{3.5cm}|p{2.5cm}|p{2.5cm}|}
-    \hline
-    \textbf{Work} & \textbf{Disease/Domain} & \textbf{Dataset} & \textbf{Data Processing} & \textbf{Approach} & \textbf{Results} \\
-    \hline
-    \cite{article_1} & Epilepsy & Phase III (235) + Validation (47) patients & Clinical + WGS feature extraction (e.g., SV2A), mutational scores, PRS & Gradient-Boosted Decision Trees & AUC: 0.76 (train), 0.75 (validation) \\
-    \hline
-    \cite{article_2} & Diabetes Prediction & Pima Indian (768) + RTML (203) records & Imputation, ADASYN, Mutual Info, Holdout Validation & XGBoost + Ensemble Methods (voting, bagging) & AUC: 0.84, Accuracy: 81\%, F1 Score: 0.81 \\
-    \hline
-    \cite{article_3} & Alzheimer’s Disease & Wearable sensors and motion capture data & Normalization, median imputation, SMOTE, RFE, correlation analysis & Hybrid CNN-RNN (LSTM) & Accuracy: 93\%, Precision: 92\%, Recall: 91\%, F1-Score: 91.5\%, AUC-ROC: 95\% \\
-    \hline
-    \cite{article_4} & Diabetes & ECG recordings (71 datasets) & Pan-Tompkins for QRS detection & CNN-LSTM + SVM & Accuracy: 95.7\% \\
-    \hline
-    \cite{article_5} & Heart Disease & UCI Cleveland Heart Disease dataset & Feature selection, data augmentation, reinforcement-based iteration & RL + Data Augmentation & Accuracy: 94\% \\
-    \hline
-    \end{tabular}
-    \caption{Comparison of AI Approaches in Health Applications}
-    \label{tab:ai_health_comparison}
+\centering
+\begin{tabular}{|p{1.5cm}|p{2.5cm}|p{3cm}|p{3.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\textbf{Work} & \textbf{Disease/Domain} & \textbf{Dataset} & \textbf{Data Processing} & \textbf{Approach} & \textbf{Results} \\
+\hline
+\cite{article_1} & Epilepsy & Phase III (235) + Validation (47) patients & Clinical + WGS feature extraction (e.g., SV2A), mutational scores, PRS & Gradient-Boosted Decision Trees & AUC: 0.76 (train), 0.75 (validation) \\
+\hline
+\cite{article_2} & Diabetes Prediction & Pima Indian (768) + RTML (203) records & Imputation, ADASYN, Mutual Info, Holdout Validation & XGBoost + Ensemble Methods (voting, bagging) & AUC: 0.84, Accuracy: 81\%, F1 Score: 0.81 \\
+\hline
+\cite{article_3} & Alzheimer’s Disease & Wearable sensors and motion capture data & Normalization, median imputation, SMOTE, RFE, correlation analysis & Hybrid CNN-RNN (LSTM) & Accuracy: 93\%, Precision: 92\%, Recall: 91\%, F1-Score: 91.5\%, AUC-ROC: 95\% \\
+\hline
+\cite{article_4} & Diabetes & ECG recordings (71 datasets) & Pan-Tompkins for QRS detection & CNN-LSTM + SVM & Accuracy: 95.7\% \\
+\hline
+\cite{article_5} & Heart Disease & UCI Cleveland Heart Disease dataset & Feature selection, data augmentation, reinforcement-based iteration & RL + Data Augmentation & Accuracy: 94\% \\
+\hline
+\cite{article_6} & Cardiovascular Disease & PCG datasets (GitHub + PhysioNet) & Minimal preprocessing on raw heart sound signals & Lightweight CRNN (CardioXNet) with dual learning (representation + sequence residual) & Accuracy: 99.6\% (GitHub), 86.57\% (PhysioNet), 0.67M params, $\sim$54.6ms latency \\
+\hline
+\cite{article_7} & Type 1 Diabetes & Clinical data from 87 patients (MGH, 2003–2013) & Discretization of HbA1c, BMI, activity level, alcohol usage into states & Q-Learning (model-free RL) for insulin dosing & 88\% RL suggestions matched physician dose \\
+\hline
+\cite{article_8} & Cardiovascular Disease & Heart dataset (918 samples, 11 features) & Duplicate removal, Tree SHAP feature selection & Stacking fusion model with IoT-enhanced data inputs & Accuracy: 96\%, Stable AUC after feature pruning \\
+\hline
+\cite{article_9} & Type 2 Diabetes & CGM data from 8 patients & NaN removal, feature extraction, dimensionality reduction, 75/25 train-test split & XGBoost, SARIMA, Prophet regression for BG prediction + dietary recommendations & XGBoost: High R², low MAPE, effective BG prediction for personalized intervention \\
+\hline
+\end{tabular}
+\caption{Comparison of AI Approaches in Health Applications}
+\label{tab:ai_health_comparison}
     \end{adjustwidth}
 \end{table}
+
 
 % \newpage
 % \section{Discussion}
