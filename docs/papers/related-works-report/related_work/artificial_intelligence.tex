@@ -527,6 +527,7 @@ This study proposes a method to optimize type 2 diabetes management using AI-enh
     \item Promising approach, but small sample limits robustness.
     \item Time lag in CGM data must be addressed for better accuracy.
 \end{itemize}
+
 % ============================== ARTICLE 9 =====================================
 \section{Optimizing Type 2 Diabetes Management: AI-Enhanced Time Series Analysis of Continuous Glucose Monitoring Data for Personalized Dietary Intervention}
 \textbf{Article Reference:} \cite{article_9}
@@ -614,7 +615,9 @@ The paper addresses the challenges of using deep learning models for disease pre
 \end{itemize}
 
 \subsection*{Results}
-compares the Deep Q-Network (DQN) model with Logistic Regression, Decision Tree Classifier, Random Forest Classifier, and Gradient-Boosting Classifier.
+\begin{itemize}
+    \item The paper compares the Deep Q-Network (DQN) model with Logistic Regression, Decision Tree Classifier, Random Forest Classifier, and Gradient-Boosting Classifier.
+\end{itemize}
 
 Key Results:
 \begin{itemize}
@@ -649,6 +652,76 @@ Key Results:
     \item The paper acknowledges the "black box" nature of many AI algorithms and the resulting lack of interpretability, which can hinder trust and adoption in healthcare.
 \end{itemize}
 
+% ============================== ARTICLE 11 =====================================
+\section{A Reinforcement Learning Model for AI-Based Decision Support in Skin Cancer}
+\textbf{Article Reference:} \cite{article_11}
+
+\subsection*{Overview}
+\begin{itemize}
+    \item The article presents a reinforcement learning (RL) model designed to enhance decision support in skin cancer diagnosis.
+    \item It compares the effectiveness of RL with supervised learning (SL) methods, emphasizing the potential of RL in optimizing management decisions.
+\end{itemize}
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item They utilized the publicly available HAM10000 dataset, a comprehensive collection of dermatoscopic images of skin lesions.
+    \item This dataset contains over 10,000 images across seven diagnostic categories of skin lesions.
+\end{itemize}
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item For patient-centered scenarios, input vectors were normalized by dividing position-wise by the average across all lesion vectors of the same patient.
+    \item This normalization was crucial for processing multiple lesions from the same patient effectively.
+    \item Feature extraction was performed using convolutional neural networks pre-trained on the dataset.
+\end{itemize}
+
+\subsection*{ML Approach}
+\begin{itemize}
+    \item Supervised Learning (SL): A convolutional neural network was fine-tuned for classifying seven categories of skin lesions.
+    \item Reinforcement Learning (RL): A deep Q-learning model was developed using a multilayer perceptron that processed feature vectors derived from the SL model.
+    \item They also implemented a threshold-based approach for comparison.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item States: One-dimensional vectors representing features of skin lesions.
+    \item Actions: Management strategies including excision, short-term follow-up, and regular surveillance.
+    \item Rewards: Defined based on diagnosis outcomes and management decisions, optimizing for both clinical efficacy and resource utilization.
+    \item Learning: The model used experience replay and target networks to stabilize learning.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item The RL method and threshold method both improved management decisions compared to the naïve SL model.
+    \item Both approaches optimized operating points on decision curves, enhancing diagnostic accuracy.
+    \item The RL model demonstrated superior performance in balancing sensitivity and specificity.
+    \item The study showed potential for reducing unnecessary excisions while maintaining high detection rates.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item RL models require more complex retraining compared to simpler threshold approaches.
+    \item Integration into clinical workflows presents practical implementation barriers.
+    \item Limited consideration of patient preferences in the current model design.
+    \item Lack of longitudinal data to validate long-term decision outcomes.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Development of reward tables incorporating both physician and patient preferences.
+    \item Enhancement of shared decision-making tools combining AI recommendations with clinical expertise.
+    \item Integration of additional clinical parameters beyond image data.
+    \item Validation in prospective clinical trials to assess real-world impact.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item It focuses primarily on physician preferences, potentially neglecting patient-centered care principles.
+    \item Limited dataset diversity may restrict generalizability across different patient populations.
+    \item The complexity of RL models may limit practical implementation in resource-constrained settings.
+    \item Further validation is needed to demonstrate clinical utility beyond technical performance metrics.
+\end{itemize}
+
 % ============================== COMPARISON TABLE ==============================
 \section{Comparison of the Solutions}
 \begin{table}[htbp]
@@ -679,11 +752,14 @@ Key Results:
 \hline
 \cite{article_10} & Heart Disease & UCI Heart Disease Dataset via Kaggle (14 attributes) & Stratified 80/20 train-test split with robust scaling & Deep Q-Network (DQN) with reinforcement learning & Accuracy: 98.41\%, MSE: 0.0001, outperformed traditional classifiers \\
 \hline
+\cite{article_11} & Skin Cancer & HAM10000 dataset (10,000+ dermatoscopic images) & Feature extraction via CNN, patient-level normalization for multiple lesions & Comparative RL (Deep Q-learning) vs SL (CNN) for decision support & Improved diagnostic and management decisions, optimal operating points on decision curves \\
+\hline
 \end{tabular}
 \caption{Comparison of AI Approaches in Health Applications}
 \label{tab:ai_health_comparison}
 \end{adjustwidth}
 \end{table}
+
 % \newpage
 % \section{Discussion}
 % As presented in the table above, different methods were proposed using machine learning which are seen as the most effective technique to build an intrusion detection system and detect attacks with different datasets mostly NSL-KDD dataset which resulted in a good accuracy.\\
