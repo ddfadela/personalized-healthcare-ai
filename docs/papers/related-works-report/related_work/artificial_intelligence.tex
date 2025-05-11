@@ -491,9 +491,60 @@ This study proposes a method to optimize type 2 diabetes management using AI-enh
 
 \subsection*{Data Processing}
 \begin{itemize}
-    \item Removed NaN records to clean the data
-    \item Applied feature extraction and dimensionality reduction techniques
-    \item Split dataset into training (75\%) and testing (25\%) portions
+    \item Removed NaN records to clean the data.
+    \item Applied feature extraction and dimensionality reduction techniques.
+    \item Split dataset into training (75\%) and testing (25\%) portions.
+\end{itemize}
+
+\subsection*{ML Approach}
+\begin{itemize}
+    \item Used regression models: XGBoost, SARIMA, Prophet.
+    \item Evaluated using MAE, MSE, and R-squared (R²) metrics.
+    \item Integrated dietary recommendations based on predicted BG levels.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item XGBoost outperformed SARIMA and Prophet.
+    \item Achieved high R² and low MAPE.
+    \item Accurately predicted glucose fluctuations for timely intervention.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Limited dataset (only 8 patients) reduced model generalizability.
+    \item Up to ±30-minute lag in CGM readings affected prediction accuracy.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Expand dataset to improve training and validation.
+    \item Enhance model with additional features and contextual data.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Promising approach, but small sample limits robustness.
+    \item Time lag in CGM data must be addressed for better accuracy.
+\end{itemize}
+% ============================== ARTICLE 9 =====================================
+\section{Optimizing Type 2 Diabetes Management: AI-Enhanced Time Series Analysis of Continuous Glucose Monitoring Data for Personalized Dietary Intervention}
+\textbf{Article Reference:} \cite{article_9}
+
+\subsection*{Overview}
+This study proposes a method to optimize type 2 diabetes management using AI-enhanced time series analysis of continuous glucose monitoring (CGM) data. The goal is to enable personalized dietary interventions to improve patient outcomes.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item Collected CGM data from 8 patients with type 2 diabetes.
+    \item Data includes time-series blood glucose (BG) values.
+\end{itemize}
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item Removed NaN records to clean the data.
+    \item Applied feature extraction and dimensionality reduction techniques.
+    \item Split dataset into training (75\%) and testing (25\%) portions.
 \end{itemize}
 
 \subsection*{ML Approach}
@@ -528,6 +579,76 @@ This study proposes a method to optimize type 2 diabetes management using AI-enh
     \item Time lag in CGM data must be addressed for better accuracy.
 \end{itemize}
 
+% ============================== ARTICLE 10 =====================================
+\section{Deep Q-Network (DQN) Model for Disease Prediction Using Electronic Health Records (EHRs)}
+\textbf{Article Reference:} \cite{article_10}
+
+\subsection*{Overview}
+The paper addresses the challenges of using deep learning models for disease prediction with EHRs, including lack of precision, ethical concerns, limitations of small datasets, complexity of data processing, and incompleteness of patient data. It proposes a deep Q-learning (DQL) model to enhance the accuracy and stability of predictions. The model integrates reinforcement learning with neural networks, utilizing the mapping capabilities of the Q-network. The proposed model is evaluated on the Heart Disease Dataset from the UCI Data Repository, demonstrating high accuracy (98\%) compared to other models.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item The Heart Disease Dataset from the UCI Data Repository via Kaggle.
+    \item Includes multivariate numerical data with 14 attributes (categorical, integer, and real data).
+\end{itemize}
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item The dataset was split into training (80\%) and test sets (20\%) using stratified splitting.
+    \item Robust scaling was applied for feature scaling.
+\end{itemize}
+
+\subsection*{ML Approach}
+\begin{itemize}
+    \item The study uses a Deep Q-Network (DQN) model, which combines reinforcement learning with neural networks.
+    \item This approach aims to address the limitations of traditional Q-learning and improve the accuracy and stability of disease predictions.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item The model uses a "disease prediction game" environment.
+    \item State: The state is represented by the samples from the EHR data.
+    \item Action: Actions involve increasing, decreasing, or holding each feature.
+    \item Reward: Positive rewards are given for accurate predictions, and negative rewards for inaccurate ones.
+    \item Environment: The environment consists of sets of states (samples) and actions (feature adjustments).
+\end{itemize}
+
+\subsection*{Results}
+compares the Deep Q-Network (DQN) model with Logistic Regression, Decision Tree Classifier, Random Forest Classifier, and Gradient-Boosting Classifier.
+
+Key Results:
+\begin{itemize}
+    \item The proposed EHR-DQN model achieved high accuracy (0.9841) and a low mean squared error (MSE) of 0.0001.
+    \item The Decision Tree and Gradient-Boosting Classifiers also performed well, with perfect precision, recall, and F1 scores.
+    \item The Random Forest model showed a balance of high accuracy (0.9783) and a minimal MSE of 0.
+    \item Logistic Regression had the lowest performance, with an accuracy of 0.8424 and a higher MSE of 0.1576.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Data-related issues: digitization, consolidation, and availability of health records.
+    \item Privacy and legal concerns with patient data handling.
+    \item Patient-related difficulties: decision-making errors, treatment errors, and data inconsistencies.
+    \item Technical challenges: data integration across systems, ensuring patient security.
+    \item Interpretability: "black box" nature of complex AI models limits transparency.
+    \item Resource limitations: computational resources and expertise needed for implementation.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Expand the dataset size to better train deep reinforcement learning models.
+    \item Integrate additional contextual features to improve prediction accuracy.
+    \item Develop more transparent models to address interpretability concerns.
+    \item Create more standardized methods for validating healthcare AI systems.
+    \item Improve integration with clinical workflows for practical implementation.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item The paper emphasizes the high accuracy of the proposed model but also points out that the dataset used has only thousands of samples. The DQN algorithm typically requires a large number of training samples (millions) to achieve optimal performance.
+    \item The paper acknowledges the "black box" nature of many AI algorithms and the resulting lack of interpretability, which can hinder trust and adoption in healthcare.
+\end{itemize}
+
 % ============================== COMPARISON TABLE ==============================
 \section{Comparison of the Solutions}
 \begin{table}[htbp]
@@ -542,7 +663,7 @@ This study proposes a method to optimize type 2 diabetes management using AI-enh
 \hline
 \cite{article_2} & Diabetes Prediction & Pima Indian (768) + RTML (203) records & Imputation, ADASYN, Mutual Info, Holdout Validation & XGBoost + Ensemble Methods (voting, bagging) & AUC: 0.84, Accuracy: 81\%, F1 Score: 0.81 \\
 \hline
-\cite{article_3} & Alzheimer’s Disease & Wearable sensors and motion capture data & Normalization, median imputation, SMOTE, RFE, correlation analysis & Hybrid CNN-RNN (LSTM) & Accuracy: 93\%, Precision: 92\%, Recall: 91\%, F1-Score: 91.5\%, AUC-ROC: 95\% \\
+\cite{article_3} & Alzheimer's Disease & Wearable sensors and motion capture data & Normalization, median imputation, SMOTE, RFE, correlation analysis & Hybrid CNN-RNN (LSTM) & Accuracy: 93\%, Precision: 92\%, Recall: 91\%, F1-Score: 91.5\%, AUC-ROC: 95\% \\
 \hline
 \cite{article_4} & Diabetes & ECG recordings (71 datasets) & Pan-Tompkins for QRS detection & CNN-LSTM + SVM & Accuracy: 95.7\% \\
 \hline
@@ -556,13 +677,13 @@ This study proposes a method to optimize type 2 diabetes management using AI-enh
 \hline
 \cite{article_9} & Type 2 Diabetes & CGM data from 8 patients & NaN removal, feature extraction, dimensionality reduction, 75/25 train-test split & XGBoost, SARIMA, Prophet regression for BG prediction + dietary recommendations & XGBoost: High R², low MAPE, effective BG prediction for personalized intervention \\
 \hline
+\cite{article_10} & Heart Disease & UCI Heart Disease Dataset via Kaggle (14 attributes) & Stratified 80/20 train-test split with robust scaling & Deep Q-Network (DQN) with reinforcement learning & Accuracy: 98.41\%, MSE: 0.0001, outperformed traditional classifiers \\
+\hline
 \end{tabular}
 \caption{Comparison of AI Approaches in Health Applications}
 \label{tab:ai_health_comparison}
 \end{adjustwidth}
 \end{table}
-
-
 % \newpage
 % \section{Discussion}
 % As presented in the table above, different methods were proposed using machine learning which are seen as the most effective technique to build an intrusion detection system and detect attacks with different datasets mostly NSL-KDD dataset which resulted in a good accuracy.\\
