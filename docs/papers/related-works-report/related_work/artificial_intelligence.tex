@@ -722,6 +722,60 @@ Key Results:
     \item Further validation is needed to demonstrate clinical utility beyond technical performance metrics.
 \end{itemize}
 
+% ============================== ARTICLE 12 =====================================
+\section{Reinforcement Learning Using Deep Q Networks and Q-Learning Accurately Localizes Brain Tumors on MRI with Very Small Training Sets}
+\textbf{Article Reference:} \cite{article_12}
+
+\subsection*{Overview}
+This study applies reinforcement learning (RL), specifically Deep Q Networks (DQN), to accurately localize brain tumors in MRI scans. It addresses the limitations of traditional supervised learning methods, particularly the dependence on large annotated datasets. The authors demonstrate that RL can achieve high performance even with minimal training data.
+
+\subsection*{Dataset}
+The dataset used comprises 2D slices from the 2014 BraTS (Brain Tumor Segmentation) challenge dataset. These are T1-weighted contrast-enhanced MRI images. The training set included 30 images, with another 30 images used for testing.
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item 2D slices were extracted and the image space was divided into a grid.
+    \item Each agent operates within a 60 × 60 pixel block.
+    \item No data augmentation was applied to keep training consistent with the original dataset.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{Environment:} Modeled as a gridworld over MRI images.
+    \item \textbf{States:} Represented by the agent's position in the image grid.
+    \item \textbf{Actions:} The agent can move down, move right, or stay in place.
+    \item \textbf{Rewards:} Positive rewards for entering tumor regions, penalties for remaining idle outside the tumor area.
+    \item The DQN used experience replay and a target network to stabilize learning.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item The DQN achieved an average localization accuracy of 70\% over the last 20 episodes.
+    \item This significantly outperformed a supervised deep learning approach, which achieved only 11\% accuracy.
+    \item Results demonstrate RL’s superiority with small datasets in this context.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item The reliance on small datasets may limit generalizability.
+    \item High computational cost of RL may pose integration challenges in real-time clinical settings.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Extend the RL model to handle full 3D MRI volumes.
+    \item Compare performance with other RL strategies such as policy-gradient methods.
+    \item Optimize training and inference to improve clinical applicability.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item The model's performance with small data is promising but needs validation on larger, more diverse datasets.
+    \item No integration of clinical context or physician-in-the-loop evaluation.
+    \item Despite excellent performance metrics, interpretability and ease of integration in hospitals remain unresolved.
+\end{itemize}
+
+
 % ============================== COMPARISON TABLE ==============================
 \section{Comparison of the Solutions}
 \begin{table}[htbp]
@@ -753,6 +807,8 @@ Key Results:
 \cite{article_10} & Heart Disease & UCI Heart Disease Dataset via Kaggle (14 attributes) & Stratified 80/20 train-test split with robust scaling & Deep Q-Network (DQN) with reinforcement learning & Accuracy: 98.41\%, MSE: 0.0001, outperformed traditional classifiers \\
 \hline
 \cite{article_11} & Skin Cancer & HAM10000 dataset (10,000+ dermatoscopic images) & Feature extraction via CNN, patient-level normalization for multiple lesions & Comparative RL (Deep Q-learning) vs SL (CNN) for decision support & Improved diagnostic and management decisions, optimal operating points on decision curves \\
+\hline
+\cite{article_12} & Brain Tumor Localization & BraTS 2014 (T1-weighted contrast-enhanced MRI, 60 images total) & Grid-based image division, no augmentation, 60x60 pixel block navigation & Deep Q-Network (DQN) with position-based rewards in gridworld & 70\% accuracy vs 11\% for SL; high performance on small training data \\
 \hline
 \end{tabular}
 \caption{Comparison of AI Approaches in Health Applications}
