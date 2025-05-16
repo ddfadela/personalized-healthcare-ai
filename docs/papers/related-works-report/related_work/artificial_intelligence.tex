@@ -775,6 +775,128 @@ The dataset used comprises 2D slices from the 2014 BraTS (Brain Tumor Segmentati
     \item Despite excellent performance metrics, interpretability and ease of integration in hospitals remain unresolved.
 \end{itemize}
 
+% ============================== ARTICLE 13 =====================================
+\section{Deep Reinforcement Learning and Simulation as a Path Toward Precision Medicine}
+\textbf{Article Reference:} \cite{article_13}
+
+\subsection*{Overview}
+The paper explores the application of deep reinforcement learning (DRL) to develop personalized treatment strategies for sepsis, a severe condition caused by the body's dysregulated immune response to infection. The authors propose a novel approach that leverages simulation to identify effective multicytokine therapies tailored to individual patients based on their systemic measurements.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item The study used an Innate Immune Response Agent-Based Model (IIRABM) to simulate sepsis progression.
+    \item A set of 500 simulated patients with diverse genetic and physiological parameters was generated.
+    \item No real-world patient data was used directly, as the approach relies on in silico modeling.
+\end{itemize}
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item Simulated patient data included various systemic measurements relevant to sepsis.
+    \item Continuous monitoring of cytokine levels, immune cell populations, and tissue damage metrics.
+    \item Patient states were represented as high-dimensional continuous variables.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{Environment:} Simulated sepsis progression using an agent-based model (ABM) of the innate immune response to infection.
+    \item \textbf{States:} High-dimensional and continuous state space representing patient condition through various health metrics and systemic measurements.
+    \item \textbf{Actions:} Continuous action space for administering multicytokine therapies with varying dosages.
+    \item \textbf{Rewards:} Terminal rewards of +250 for healed patients and -250 for death cases, with intermediate rewards based on tissue damage changes and an L1 penalty to encourage conservative treatments.
+    \item \textbf{Learning Process:} Episodes of patient treatment where the agent learns to refine its policy to maximize cumulative rewards.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item DRL-based approach achieved significant reduction in mortality rates across 500 simulated patients.
+    \item Demonstrated ability to learn complex therapeutic strategies adaptive to individual disease progression.
+    \item Outperformed conventional standalone antibiotic therapy in simulations.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Ethical concerns related to exploring suboptimal treatments in real patients.
+    \item Complexity of dynamic multicytokine mediation requiring extensive exploration of treatment strategies.
+    \item Need for advanced strategies to achieve lower mortality rates across diverse patient simulations.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Development of measurement technologies informed by simulation findings.
+    \item Identification of biological targets for drug development.
+    \item Design of clinical trials for adaptive personalized therapies.
+    \item Expansion of simulation and DRL approach to other medical conditions beyond sepsis.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Heavy reliance on simulation may not fully capture real-world clinical complexities.
+    \item Ethical implications of testing derived treatment strategies remain significant.
+    \item Clinical validation through trials needed to confirm applicability in real-world settings.
+    \item Gap between simulation-derived policies and practical clinical implementation.
+\end{itemize}
+
+% ============================== ARTICLE 14 =====================================
+\section{PrescDRL: Deep Reinforcement Learning for Herbal Prescription Planning in Treatment of Chronic Diseases}
+\textbf{Article Reference:} \cite{article_14}
+
+\subsection*{Overview}
+This paper presents PrescDRL, a novel framework that applies deep reinforcement learning to optimize herbal prescriptions in Traditional Chinese Medicine (TCM) for the treatment of chronic diseases. Instead of focusing on immediate treatment effects, the approach emphasizes long-term patient outcomes through sequential treatment strategies, specifically focusing on diabetes as a case study.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item A custom high-quality benchmark dataset for sequential diagnosis and treatment of diabetes.
+    \item Data includes patient medical records and treatment histories specifically curated for evaluating the PrescDRL model.
+    \item Dataset constructed to enable comparison between the model's recommendations and traditional treatment methods.
+\end{itemize}
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item Cleaning and normalization of patient medical records.
+    \item Standardization of herbal prescription information.
+    \item Conversion of medical data into appropriate state representations for the RL framework.
+    \item Feature extraction from patient medical histories to capture relevant health indicators.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{State:} Representation of patient health status derived from medical records and treatment history.
+    \item \textbf{Actions:} Selection from 30 well-tuned herbal prescription candidates (HPCs).
+    \item \textbf{Reward:} Designed to maximize treatment efficacy while ensuring safety and avoiding side effects.
+    \item \textbf{Environment:} Consists of patient medical history and the set of possible herbal prescriptions.
+    \item \textbf{Learning Process:} Deep RL techniques to optimize prescription sequences for long-term health improvements.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item 117\% and 153\% improvement in single-step rewards compared to traditional doctor prescriptions.
+    \item 40.5\% increase in precision for prescription prediction.
+    \item 63\% increase in recall for prescription recommendations.
+    \item Demonstrated superior performance in generating sequential treatment strategies for chronic conditions.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Ensuring generalizability across diverse patient populations.
+    \item Balancing immediate treatment effects with long-term health outcomes.
+    \item Integration of the model recommendations into existing clinical workflows.
+    \item Limited availability of comprehensive, high-quality TCM treatment data.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Expansion of the dataset to include additional chronic diseases beyond diabetes.
+    \item Refinement of the model to incorporate more nuanced patient characteristics.
+    \item Real-world clinical validation studies to assess practical applicability.
+    \item Development of interpretable models to enhance physician trust and adoption.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item The study would benefit from more detailed exploration of dataset characteristics.
+    \item Further validation in real-world clinical settings is needed to establish practical efficacy.
+    \item Limited information on specific preprocessing steps may affect reproducibility.
+    \item Integration challenges with conventional medical practices need addressing for broader adoption.
+\end{itemize}
 
 % ============================== COMPARISON TABLE ==============================
 \section{Comparison of the Solutions}
@@ -810,12 +932,15 @@ The dataset used comprises 2D slices from the 2014 BraTS (Brain Tumor Segmentati
 \hline
 \cite{article_12} & Brain Tumor Localization & BraTS 2014 (T1-weighted contrast-enhanced MRI, 60 images total) & Grid-based image division, no augmentation, 60x60 pixel block navigation & Deep Q-Network (DQN) with position-based rewards in gridworld & 70\% accuracy vs 11\% for SL; high performance on small training data \\
 \hline
+\cite{article_13} & Sepsis Treatment & 500 simulated patients using IIRABM & Continuous monitoring of cytokine levels, immune cell populations, and tissue damage metrics & Deep Reinforcement Learning with simulation-based approach for multicytokine therapy & Significant mortality reduction in simulated patients compared to standard antibiotic therapy \\
+\hline
+\cite{article_14} & Diabetes Treatment (TCM) & Custom benchmark dataset for sequential diagnosis and treatment of diabetes & Cleaning, normalization of medical records, standardization of herbal prescriptions & PrescDRL: Deep RL for optimizing herbal prescription sequences & 117-153\% improvement in single-step rewards, 40.5\% increase in precision, 63\% increase in recall vs. traditional prescriptions \\
+\hline
 \end{tabular}
 \caption{Comparison of AI Approaches in Health Applications}
 \label{tab:ai_health_comparison}
 \end{adjustwidth}
 \end{table}
-
 % \newpage
 % \section{Discussion}
 % As presented in the table above, different methods were proposed using machine learning which are seen as the most effective technique to build an intrusion detection system and detect attacks with different datasets mostly NSL-KDD dataset which resulted in a good accuracy.\\
