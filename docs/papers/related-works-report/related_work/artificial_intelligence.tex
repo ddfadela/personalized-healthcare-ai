@@ -898,6 +898,427 @@ This paper presents PrescDRL, a novel framework that applies deep reinforcement 
     \item Integration challenges with conventional medical practices need addressing for broader adoption.
 \end{itemize}
 
+% ============================== ARTICLE 15 =====================================
+\section{Deep Reinforcement Learning for Multi-Class Imbalanced Training: Applications in Healthcare}
+\textbf{Article Reference:} \cite{article_15}
+
+\subsection*{Overview}
+This paper presents a novel deep reinforcement learning framework designed to address multi-class imbalanced classification problems in healthcare settings. Unlike traditional methods that often underperform with imbalanced data, this approach leverages reinforcement learning to improve the prediction of minority classes without compromising performance on majority classes, which is particularly valuable in clinical contexts where rare conditions must be accurately identified.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item Real-world clinical case studies exhibiting significant class imbalance.
+    \item Datasets containing rare events among numerous majority class cases.
+    \item Multiple validation datasets from different hospital trusts for out-of-sample testing.
+    \item Imbalance ratios extending beyond the previously studied threshold of 10\%.
+\end{itemize}
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item Feature selection and extraction from clinical data.
+    \item Normalization and standardization of input variables.
+    \item Structuring of data for sequential decision-making framework.
+    \item Preparation of cross-validation sets for robust evaluation.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{State (s):} Representation of the current data point being classified, including its features and context.
+    \item \textbf{Action (a):} Possible class assignments that the model can choose from.
+    \item \textbf{Reward (r):} Custom reward function designed to incentivize correct classifications, with higher rewards for accurately identifying minority classes.
+    \item \textbf{Policy:} The strategy guiding the agent's decision-making process based on observed states.
+    \item \textbf{Environment (p):} The classification task context, including the dataset characteristics.
+    \item \textbf{Architecture:} Combined dueling and double deep Q-learning architectures to enhance state-value function learning efficiency.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item Outperformed existing state-of-the-art imbalanced learning methods across multiple metrics.
+    \item Significantly improved sensitivity for minority classes while maintaining high specificity.
+    \item Demonstrated consistent performance across various out-of-sample validation datasets.
+    \item Achieved more balanced classification performance compared to traditional machine learning approaches.
+    \item Successfully generalized to data from different hospital trusts, indicating robust real-world applicability.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Addressing extremely imbalanced datasets where rare events may represent less than 0.1\% of cases.
+    \item Computational complexity of training reinforcement learning models on large clinical datasets.
+    \item Potential for reward function design to introduce unintended biases in model behavior.
+    \item Integration challenges with existing clinical decision support systems.
+    \item Interpretability concerns when applying complex RL models in healthcare settings.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Expansion to handle even more complex multi-class imbalance scenarios.
+    \item Exploration of additional RL techniques to further enhance performance.
+    \item Development of more sophisticated reward mechanisms that incorporate clinical domain knowledge.
+    \item Investigation of model explainability to increase trust among healthcare practitioners.
+    \item Implementation and testing in real-time clinical decision-making environments.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Limited evaluation on specific datasets may not fully represent all clinical scenarios.
+    \item Potential biases from the sample populations used in the study.
+    \item Real-time applicability in clinical settings requires further investigation.
+    \item Trade-offs between model complexity and interpretability need more thorough exploration.
+    \item The adaptability to various clinical contexts beyond those studied remains to be fully evaluated.
+\end{itemize}
+% ============================== ARTICLE 16 =====================================
+\section{Deep Attention Q-Network for Personalized Treatment Recommendation}
+\textbf{Article Reference:} \cite{article_16}
+
+\subsection*{Overview}
+The paper  addresses the challenge of tailoring treatment for critically ill patients using reinforcement learning (RL). Existing methods often rely solely on a patient's current physiological state, which may not fully represent their overall health. To overcome this, the authors propose a novel approach that incorporates historical observations, using the Transformer architecture within a deep RL framework to improve treatment recommendations.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item Real-world clinical datasets for:
+    \begin{itemize}
+        \item Sepsis patients
+        \item Acute hypotension patients
+    \end{itemize}
+    \item Used for evaluating the effectiveness of the proposed RL-based method in real clinical settings.
+\end{itemize}
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item Although specific preprocessing details are not exhaustively detailed, standard clinical data preparation techniques are implied:
+    \begin{itemize}
+        \item Data cleaning and handling of missing values.
+        \item Feature normalization to ensure model stability.
+        \item Temporal alignment of patient history for sequential modeling.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{State (s):} Includes both current and past observations of the patient's health status to enhance context-awareness.
+    \item \textbf{Action (a):} Represents the set of possible treatment decisions, such as medication dosages or intervention timings.
+    \item \textbf{Reward (r):} Guided by clinical insights, aiming to optimize patient outcomes based on treatment efficacy.
+    \item \textbf{Policy:} Learned policy maximizes expected rewards by considering prior observations indicative of declining health.
+    \item \textbf{Environment (p):} The patient's evolving health condition within a clinical setting where the agent receives feedback.
+    \item \textbf{Architecture:} Deep Attention Q-Network integrating Transformer modules for capturing long-term dependencies in patient data.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item The proposed model outperformed traditional treatment recommendation methods, including:
+    \begin{itemize}
+        \item LSTM-based models (memorization-based).
+        \item RL models that ignored historical observations.
+    \end{itemize}
+    \item Off-policy evaluation showed better expected rewards than clinician policies and random baselines.
+    \item Demonstrated stronger alignment with optimal treatment outcomes by leveraging temporal patient information.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Evaluation of RL models using offline data sampled from clinician-led decisions.
+    \item Complexity of deep attention models makes real-time deployment difficult.
+    \item Potential for bias due to reliance on historical clinical datasets.
+    \item Necessity for interpretability and trust in clinical applications.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Enhancing model interpretability to improve clinician acceptance.
+    \item Refinement of reward functions based on additional clinical feedback.
+    \item Exploration of hybrid architectures to balance complexity and performance.
+    \item Real-time deployment trials in clinical decision-making environments.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Dependence on historical data may introduce systemic biases not reflective of current populations.
+    \item Model complexity could hinder adoption in clinical workflows.
+    \item Need for validation across broader and more diverse clinical settings.
+    \item Interpretability and transparency remain challenges in deep RL models used in healthcare.
+\end{itemize}
+% ============================== ARTICLE 17 =====================================
+\section{Deep Q-Learning for Treatment Selection in Oropharyngeal Squamous Cell Carcinoma}
+\textbf{Article Reference:} \cite{article_17}
+
+\subsection*{Overview}
+This paper explores the use of Deep Q-Learning (DQL) to optimize sequential treatment decisions for patients with oropharyngeal squamous cell carcinoma. It introduces a dual digital twin framework — one representing the patient and the other representing the physician — to personalize treatments based on survival and toxicity outcomes.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item 536 patient records from MD Anderson Cancer Center (2005–2013).
+    \item Includes comprehensive patient histories and three-step sequential treatment decisions.
+    \item Radiomics features derived from segmented primary tumor volumes were also integrated.
+    \item Data was split: 75\% (402 patients) for training and 25\% (134 patients) for evaluation.
+\end{itemize}
+
+\subsection*{Preprocessing of Data}
+\begin{itemize}
+    \item Random data split into training and evaluation sets.
+    \item Some models trained with radiomics features to assess added predictive value.
+\end{itemize}
+
+\subsection*{Approach Used}
+\begin{itemize}
+    \item A 3-step Markov Decision Process (MDP) framework was used.
+    \item Deep Q-Learning was applied to learn a treatment policy maximizing a linear combination of outcomes (e.g., survival and toxicity reduction).
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{States (s):} Patient health conditions at each treatment decision point.
+    \item \textbf{Actions (a):} Treatment options chosen at each of the three decision stages.
+    \item \textbf{Rewards (r):} Based on survival and treatment-related toxicity using a defined reward function.
+    \item \textbf{Environment (p):} The clinical treatment trajectory where decisions influence future patient state transitions.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item Achieved a mean accuracy of 87.35\% and median accuracy of 90.85\% in predicting treatment outcomes.
+    \item Improved predicted survival rate by 3.73\% and reduced predicted dysphagia rate by 0.75\% over clinician decisions.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item High-dimensional state space required extensive data to accurately compute rewards.
+    \item Managing stochastic nature of outcomes posed difficulty for consistent policy optimization.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Integration of more radiomics features for enhanced prediction.
+    \item Expansion to include larger and more diverse patient populations.
+    \item Exploration of alternative architectures for real-time deployment.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Reliance on historical clinical data may reduce generalizability.
+    \item High computational requirements for training and bootstrapping limit clinical scalability.
+    \item Encouraging results indicate strong potential for real-world impact pending further validation.
+\end{itemize}
+% ============================== ARTICLE 18 =====================================
+\section{Personalized Multimorbidity Management in Type 2 Diabetes Using Reinforcement Learning}
+\textbf{Article Reference:} \cite{article_18}
+
+\subsection*{Overview}
+This paper introduces an AI-based reinforcement learning (RL) algorithm for personalized management of Type 2 Diabetes Mellitus (T2DM) and its comorbidities. The algorithm dynamically recommends individualized treatment regimens using longitudinal electronic health records (EHRs) to improve health outcomes including glycemic control, blood pressure (BP), and cardiovascular disease (CVD) risk.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item Retrospective cohort of 16,665 patients from New York University Langone Health (NYULH) ambulatory care EHRs.
+    \item Data spans from 2009 to 2017.
+    \item Inclusion criteria involved multiple encounters with T2DM-related ICD-10 codes or abnormal hemoglobin A1c levels.
+\end{itemize}
+
+\subsection*{Preprocessing of Data}
+\begin{itemize}
+    \item Patients seen only for consultation or emergency visits were excluded to ensure longitudinal data quality.
+    \item Final dataset split: 60\% for training and 40\% for testing.
+\end{itemize}
+
+\subsection*{Approach Used}
+\begin{itemize}
+    \item Developed three independent RL models: RL-glycemia, RL-BP, and RL-CVD.
+    \item These were integrated into a multimorbidity RL model to optimize overall patient outcomes across the three conditions.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{States (s):} Include patient demographics, lab test results, and past treatment history at each encounter.
+    \item \textbf{Actions (a):} Represent the selected treatment regimens (pharmacologic subclasses or combinations).
+    \item \textbf{Rewards (r):} Defined by achieving target health outcomes (e.g., A1c < 7\%, BP within range, low CVD risk).
+    \item \textbf{Environment (p):} Simulated patient trajectory over time based on health states and treatments.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item High concordance with clinician prescriptions: 86.1\% (glycemia), 82.9\% (BP), and 98.4\% (CVD).
+    \item In cases of disagreement, the RL model's recommendations were associated with better clinical outcomes.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item The reward function lacked important biomarkers like creatinine, limiting clinical realism.
+    \item The study population may not be generalizable to the broader U.S. T2DM population.
+    \item Balancing clinical domain knowledge with algorithmic optimization remains a key challenge.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Conduct randomized clinical trials to compare RL-guided and clinician-guided treatments.
+    \item Expand reward functions to include adverse events and broader health metrics.
+    \item Test the approach across more diverse and representative patient populations.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item While the RL algorithm shows strong potential in managing multimorbidity in T2DM, the reliance on historical EHRs may introduce systemic biases.
+    \item The algorithm's performance may degrade in underrepresented demographics.
+    \item More robust clinical integration and validation are required before real-world adoption.
+\end{itemize}
+
+% ============================== ARTICLE 19 =====================================
+\section{Deep Reinforcement Learning for Personalized Treatment Recommendation}
+\textbf{Article Reference:} \cite{article_19}
+
+\subsection*{Overview}
+This paper proposes a deep reinforcement learning (DRL) approach, called PPORank, to enhance precision medicine through personalized treatment recommendation, specifically in the context of cancer therapy. The method formulates treatment ranking as a sequential decision-making problem to improve patient-specific outcomes.
+
+\subsection*{Datasets Used}
+\begin{itemize}
+    \item \textbf{Immunohistochemistry Annotations:} Includes 163 HER2-positive and 116 triple-negative breast cancer (TNBC) patients.
+    \item \textbf{The Cancer Genome Atlas (TCGA):} Used for generalizing findings from cell line data to real-world patient data.
+    \item \textbf{GDSC Gene Expression Data:} Harmonized with RNA-seq data from 1080 patients for analysis consistency.
+\end{itemize}
+
+\subsection*{Data Preprocessing}
+\begin{itemize}
+    \item Excluded drug samples lacking PubChem IDs.
+    \item Harmonized gene expression datasets across sources.
+    \item Final dataset contained 223 drugs after filtering.
+\end{itemize}
+
+\subsection*{Approach Used}
+\begin{itemize}
+    \item Introduces PPORank, a DRL model utilizing a deep neural network to learn state representations from heterogeneous data.
+    \item Employs a model-free actor-critic framework, optimized via Proximal Policy Optimization (PPO).
+    \item Optimizes the non-differentiable ranking metric NDCG (Normalized Discounted Cumulative Gain) through policy gradients.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item PPORank outperforms state-of-the-art supervised learning approaches in cancer drug ranking tasks.
+    \item Demonstrated stability and sample efficiency on high-dimensional screening datasets.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item DRL and deep learning are inherently data-hungry, posing challenges for biomedical applications with limited data.
+    \item Interpretability of deep learning remains a barrier to clinical adoption.
+    \item Adapting RL to account for safety, risk, and limited samples is an ongoing research challenge.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Incorporating active learning to improve interaction with dynamic patient data.
+    \item Enhancing the robustness of DRL models by integrating diverse biomedical data sources.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Although PPORank shows promising results, its reliance on large datasets may hinder its real-world usability in data-scarce settings.
+    \item Future success will depend on improving data efficiency and model transparency for practical clinical deployment.
+\end{itemize}
+
+% ============================== ARTICLE 20 =====================================
+\section{AI-Based COVID-19 Detection Using CT Imaging}
+\textbf{Article Reference:} \cite{article_20}
+
+\subsection*{Overview}
+The article presents a deep learning algorithm developed to screen for COVID-19 using CT images, motivated by the limitations of traditional pathogenic testing methods (e.g., nucleic acid testing), which may yield false negatives. The main objective is to provide rapid and accurate diagnoses to help mitigate the spread of the virus.
+
+\subsection*{Data Used}
+\begin{itemize}
+    \item A total of 1,065 CT images were collected.
+    \item Included 180 cases of typical viral pneumonia and 79 confirmed COVID-19 cases from three hospitals.
+    \item An additional 15 COVID-19 cases were added where initial nucleic acid tests were negative.
+\end{itemize}
+
+\subsection*{Data Preprocessing}
+\begin{itemize}
+    \item All images were resized to 299 × 299 pixels for input consistency.
+    \item Lung regions were manually delineated to focus on regions of interest (ROIs), improving model focus.
+    \item Images were converted to a virtual RGB format to match the input requirements of the modified inception model.
+\end{itemize}
+
+\subsection*{Approach Used}
+\begin{itemize}
+    \item A transfer learning strategy was employed using a modified inception model, referred to as M-inception.
+    \item Only the customized layers were trained, leveraging pre-trained weights to reduce overfitting and training time.
+    \item The architecture aimed to classify CT images to distinguish between COVID-19 and other viral pneumonias.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item Internal validation accuracy was 89.5\% (Specificity: 0.88, Sensitivity: 0.87).
+    \item External test accuracy was 79.3\% (Specificity: 0.83, Sensitivity: 0.67).
+    \item In 54 cases where nucleic acid tests were initially negative, the model correctly predicted 46 cases, achieving an accuracy of 85.2\%.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item CT images often include irrelevant elements, complicating automated diagnosis.
+    \item A relatively small training dataset may reduce generalizability and increase model bias.
+    \item Low signal-to-noise ratio and data heterogeneity pose significant hurdles in applying deep learning in clinical diagnostics.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Expand the dataset to cover a larger number of COVID-19 cases across various pathological stages.
+    \item Optimize the model's robustness, accuracy, and reliability by including diverse imaging scenarios.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item The study provides a compelling proof-of-concept for AI-based diagnostics, but its effectiveness is limited by dataset size.
+    \item Future work should emphasize external validation and distinguishability from other respiratory diseases.
+\end{itemize}
+
+
+
+% ============================== ARTICLE 21 =====================================
+\section{Identifying Medical Diagnoses and Treatable Diseases by Image-Based Deep Learning}
+\textbf{Article Reference:} \cite{article_21}
+
+\subsection*{Overview}
+This study presents the development of an artificial intelligence (AI) system based on transfer learning to diagnose medical conditions using medical imaging. The authors focus on the classification of images for macular degeneration, diabetic retinopathy, and pneumonia from chest X-rays. The aim is to demonstrate that AI can improve diagnostic accuracy and speed, often matching or exceeding human performance.
+
+\subsection*{Data Used}
+\begin{itemize}
+    \item \textbf{Optical Coherence Tomography (OCT)}: Out of 207,130 collected OCT images, 108,312 high-quality images were retained after a quality review for training.
+    \item \textbf{Chest X-ray Images}: A dataset consisting of 5,232 pediatric chest X-rays was used to train the model for pneumonia classification, with an additional 624 patient images used for testing.
+\end{itemize}
+
+\subsection*{Data Preprocessing}
+\begin{itemize}
+    \item Quality control to filter OCT images.
+    \item Categorization of images according to medical diagnosis to facilitate supervised learning.
+\end{itemize}
+
+\subsection*{Approach}
+\begin{itemize}
+    \item The model utilizes a transfer learning strategy, initializing from pre-trained convolutional neural networks to boost performance despite the relatively small dataset size.
+    \item Classification tasks included urgent referral detection for conditions like choroidal neovascularization and diabetic macular edema.
+    \item The approach also focused on distinguishing between bacterial and viral pneumonia on pediatric chest X-rays.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item \textbf{96.6\% accuracy} in OCT image classification.
+    \item \textbf{92.8\% accuracy} in pneumonia detection from chest X-rays.
+    \item Performance was comparable to that of experienced clinicians, highlighting the potential of AI in supporting medical decision-making.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Difficulty in obtaining large and diverse labeled medical datasets.
+    \item Clinical interpretability of the AI decisions, a common barrier in the adoption of deep learning in healthcare.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Expanding the dataset with images from multiple imaging devices and settings to improve model generalizability.
+    \item Extending the transfer learning approach to other imaging modalities beyond OCT and X-ray.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item While the approach is promising and the results impressive, the generalizability of the model remains a concern due to dataset limitations.
+    \item Further validation with larger, more heterogeneous datasets is necessary.
+    \item The open release of data and code is a notable contribution, encouraging reproducibility and further research in AI for medical imaging.
+\end{itemize}
+
 % ============================== COMPARISON TABLE ==============================
 \section{Comparison of the Solutions}
 \begin{table}[htbp]
@@ -936,6 +1357,20 @@ This paper presents PrescDRL, a novel framework that applies deep reinforcement 
 \hline
 \cite{article_14} & Diabetes Treatment (TCM) & Custom benchmark dataset for sequential diagnosis and treatment of diabetes & Cleaning, normalization of medical records, standardization of herbal prescriptions & PrescDRL: Deep RL for optimizing herbal prescription sequences & 117-153\% improvement in single-step rewards, 40.5\% increase in precision, 63\% increase in recall vs. traditional prescriptions \\
 \hline
+\cite{article_15} & Multi-class Clinical Classification & Real-world clinical datasets with significant class imbalance from multiple hospital trusts & Feature selection, normalization, preparation for sequential decision-making & Combined dueling and double deep Q-learning for imbalanced classification & Superior sensitivity for minority classes while maintaining high performance for majority classes; successful generalization across hospital trusts \\
+\hline
+\cite{article_16} & Sepsis and Acute Hypotension & Real-world datasets (sepsis and acute hypotension patients) & Integration of historical patient observations, standard preprocessing (cleaning, normalization), offline dataset preparation & Transformer-based Deep Attention Q-Network, considering past observations for treatment recommendations & Outperformed LSTM and standard RL baselines in off-policy evaluation; better expected rewards than clinician policies \\
+\hline
+\cite{article_17} & Oropharyngeal squamous cell carcinoma & 536 patient records (MD Anderson, 2005–2013), with radiomics features & Random split (75\% train, 25\% test); radiomics used in select training runs & Deep Q-Learning on 3-step MDP; state: patient condition, action: treatment step, reward: survival + toxicity & Achieved 87.35\% mean accuracy; improved predicted survival by 3.73\% and reduced dysphagia by 0.75\% \\
+\hline
+\cite{article_18} & Type 2 diabetes with multimorbidity & 16,665 EHRs from NYU Langone (2009–2017) & 60\% train, 40\% test; excluded non-longitudinal or emergency visits & RL models for glycemia, BP, and CVD; actions: treatments; states: labs, history; rewards: target outcomes & High concordance with clinicians; better outcomes in disagreement cases (86.1\% for glycemia, 98.4\% for CVD) \\
+\hline
+\cite{article_19} & Cancer therapy personalization & 1080 RNA-seq patients, 223 drugs, TCGA + GDSC & Filtered samples by PubChem ID, harmonized gene expression data & PPORank (DRL), actor-critic with PPO; ranks treatments by optimizing NDCG & Outperformed SOTA supervised methods; sample-efficient and stable under high-dimensional data \\
+\hline
+\cite{article_20} & COVID-19 diagnosis using CT images & 1,065 CT images (including COVID-19, viral pneumonia, and false negatives) & ROI extraction, resized to 299x299, RGB conversion for model input & Modified Inception model (M-inception), fine-tuned with transfer learning & 89.5\% accuracy on internal validation; 85.2\% on difficult false-negative cases \\
+\hline
+\cite{article_21} & Macular degeneration, diabetic retinopathy, pneumonia & OCT images (108,312) + Chest X-rays (5,232 + 624 test) & Quality filtering of OCT images, categorization by diagnosis & Transfer learning with pre-trained CNN for medical image classification & 96.6\% accuracy (OCT), 92.8\% accuracy (pneumonia X-rays) \\
+\hline
 \end{tabular}
 \caption{Comparison of AI Approaches in Health Applications}
 \label{tab:ai_health_comparison}
@@ -946,7 +1381,7 @@ This paper presents PrescDRL, a novel framework that applies deep reinforcement 
 % As presented in the table above, different methods were proposed using machine learning which are seen as the most effective technique to build an intrusion detection system and detect attacks with different datasets mostly NSL-KDD dataset which resulted in a good accuracy.\\
 % Nearly half of the studies did not work with normalization, there are also studies that did not perform a feature selection, as well as the most did not test many learning algorithms and the most of studies work on binary classification (normal or attack).
 
- 
+
 % \section{Conclusion}
 % In this chapter, we studied and evaluated the latest methods proposed by recent research, about the use of machine learning methods for attacks classification based on data-sets.
 
