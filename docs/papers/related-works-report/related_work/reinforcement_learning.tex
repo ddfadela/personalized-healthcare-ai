@@ -1,103 +1,891 @@
-% First Article
-\subsection{A Primer on Reinforcement Learning in Medicine for Clinicians}
-Article Reference: \cite{article_1}
+% % First Article
+% \subsection{A Primer on Reinforcement Learning in Medicine for Clinicians}
+% Article Reference: \cite{article_1}
+
+% \subsection*{Overview}
+% Reinforcement Learning (RL) is a machine learning approach that enhances clinical decision-making by addressing uncertainties and optimizing sequential treatment strategies. This review introduces RL to clinicians, emphasizing how it leverages patient data to generate personalized treatment plans that improve outcomes and resource efficiency. It also explores foundational RL concepts, applications, challenges, and future directions.
+
+% \textbf{Categories of RL}
+% \begin{itemize} \item \textbf{Model-based RL:} Learns a model of the environment to simulate outcomes and make decisions. Example: AlphaZero. \item \textbf{Model-free RL:} Learns policies directly from experience without modeling the environment. Includes: \begin{itemize} \item \textit{Value-based methods:} e.g., Q-learning, SARSA \item \textit{Policy-based methods:} e.g., REINFORCE \item \textit{Hybrid methods:} e.g., Actor-Critic \end{itemize} \end{itemize}
+
+% RL shifts AI in healthcare from prediction to actionable, real-time decision-making.
+
+% \textbf{Applications in Healthcare}
+% RL has demonstrated potential in: \begin{itemize} \item Creating personalized treatment plans (e.g., chemotherapy, sedation, insulin dosing) \item Optimizing resource allocation in critical care (e.g., ventilator weaning, sepsis treatment) \item Enhancing adaptive interventions using offline RL and simulation environments \end{itemize}
+
+% \textbf{Evaluation Challenges}
+% Evaluation is constrained by safety, ethical, and logistical concerns. RL often relies on: \begin{itemize} \item Simulated environments \item Off-Policy Evaluation (OPE) methods like FQE and Doubly Robust methods \end{itemize}
+
+% \textbf{Implementation Issues}
+% Practical deployment of RL in healthcare is hindered by: \begin{itemize} \item Challenges in reward function design \item High-dimensional state and action spaces \item Necessity for domain expertise in clinical evaluation \end{itemize}
+
+% \textbf{Future Directions}
+% Future developments may include: \begin{itemize} \item Integration with Large Language Models (LLMs) \item Privacy-preserving learning (e.g., Federated Learning) \item Real-time adaptive interventions and decision support \end{itemize}
+
+% \textbf{Real-World Examples}
+% Examples include: \begin{itemize} \item DeepMind’s AlphaZero and AI Clinician for sepsis treatment \item RL-based models for sedation weaning, cancer therapy, and insulin control \item Clinical trials like REINFORCE and glycemic control interventions \end{itemize}
+% \newpage
+% % Second Article
+% \subsection{Reinforcement Learning Algorithms and Applications in Healthcare and Robotics: A Comprehensive and Systematic Review}
+% \textbf{Article Reference:} \cite{article_2}
+
+% \subsection*{Overview}
+% Reinforcement learning (RL) is a powerful branch of artificial intelligence (AI) that enables agents to make intelligent decisions in dynamic and uncertain environments. This review explores the fundamentals of various RL algorithms, compares them, and emphasizes their applications in robotics and healthcare.\\
+% In robotics, RL enhances capabilities in tasks such as object manipulation and grasping. In healthcare, it is applied to optimize cell growth and aid in treatment development, demonstrating the broad utility of RL across different domains.
+
+% \subsection*{Methodology}
+% The study follows a systematic literature review (SLR) approach to answer well-defined research questions. The methodology involves:
+% \begin{itemize}
+%     \item Establishing specific research questions,
+%     \item Defining inclusion and exclusion criteria,
+%     \item Conducting structured searches across multiple databases.
+% \end{itemize}
+% This rigorous approach ensures the quality and relevance of the evidence used to evaluate current practices in RL applications.
+
+% \subsection*{Applications of Reinforcement Learning}
+% The paper highlights two primary domains of RL application: \textbf{robotics} and \textbf{healthcare}. Here's an overview of each:
+
+% \paragraph{1. Robotics}
+% \begin{itemize}
+%     \item \textbf{Object Grasping and Manipulation:} RL algorithms are increasingly used to enhance robotic capabilities in grasping and manipulating objects. This area is rapidly evolving and has significant implications for automation in dynamic environments.
+%     \item \textbf{Precision and Adaptability:} Through trial-and-error learning, RL improves the precision and adaptability of robots, enabling them to perform complex tasks more effectively in real-world, unstructured settings.
+% \end{itemize}
+
+% \paragraph{2. Healthcare}
+% \begin{itemize}
+%     \item \textbf{Cell Growth Optimization:} RL is applied to optimize conditions for cell culture growth, contributing to advancements in biotechnology, particularly in drug discovery and cellular research.
+%     \item \textbf{Data-Driven Therapeutics:} By leveraging RL's data-driven nature, healthcare practitioners can enhance therapeutic strategies and improve biotechnological processes, leading to more efficient and targeted treatment development.
+% \end{itemize}
+
+% \subsection*{Challenges, Conclusions, and Future Directions}
+% The review identifies several challenges in applying RL to robotics and healthcare:
+% \begin{itemize}
+%     \item \textbf{Dexterity in Robotic Tasks:} Achieving fine motor control in robotic manipulation remains difficult.
+%     \item \textbf{Sample Efficiency:} RL algorithms often require large amounts of data, which can be costly or impractical.
+%     \item \textbf{Sim-to-Real Transfer:} Training in simulated environments does not always translate effectively to real-world performance.
+% \end{itemize}
+
+% \noindent\textbf{Future Directions} include:
+% \begin{itemize}
+%     \item Improving sample efficiency through better exploration strategies,
+%     \item Developing transfer learning techniques to bridge the sim-to-real gap,
+%     \item Enhancing data collection frameworks to support RL in real-time applications.
+% \end{itemize}
+% \newpage
+
+% % Third Article
+% \subsection{Reinforcement Learning in Healthcare: Optimizing Treatment Strategies, Dynamic Resource Allocation, and Adaptive Clinical Decision-Making}
+% \textbf{Article Reference:} \cite{article_3}
+
+% \subsection*{Overview}
+% Reinforcement Learning (RL) is an advanced paradigm within artificial intelligence (AI) that is particularly effective in optimizing complex, real-time decision-making processes in healthcare. By learning from continuous feedback, RL enables dynamic adjustments in treatment protocols, efficient resource allocation, and personalized clinical interventions. Its capabilities are well-suited for adaptive therapies, precision medicine, robotic-assisted surgery, and intelligent diagnostic systems. Despite its transformative potential, successful real-world deployment of RL in healthcare is contingent upon overcoming challenges related to data quality, model interpretability, and ethical compliance.
+
+% \subsection{Applications of RL in Healthcare}
+% \begin{itemize}
+%     \item \textbf{Treatment Strategy Optimization:} Personalized drug dosing (e.g., chemotherapy, insulin, antihypertensives), sepsis management, and adaptive clinical trials.
+%     \item \textbf{Dynamic Resource Allocation:} ICU bed management, ventilator distribution during pandemics, and adaptive staff scheduling.
+%     \item \textbf{Clinical Decision Support:} Real-time diagnostic support, surgical planning using robotic systems, and emergency triage optimization.
+%     \item \textbf{Rehabilitation and Assistive Systems:} Adaptive physiotherapy, prosthetic limb control, and deep brain stimulation adjustment.
+% \end{itemize}
+
+% \subsection{Challenges and Limitations}
+% \begin{itemize}
+%     \item \textbf{Data Limitations and Privacy:} Medical data is often sparse, fragmented, and governed by strict privacy regulations (e.g., HIPAA, GDPR), limiting the availability of high-quality training data.
+%     \item \textbf{Model Interpretability:} Many RL models function as "black boxes," making it difficult for clinicians to understand and trust their recommendations.
+%     \item \textbf{Ethical and Regulatory Issues:} Concerns around algorithmic bias, accountability, and the legal framework for AI-driven clinical decisions must be carefully addressed.
+% \end{itemize}
+
+% \subsection{Future Prospects}
+% \begin{itemize}
+%     \item \textbf{Multi-Agent Reinforcement Learning:} Enabling coordinated care across multiple AI agents, particularly in complex hospital ecosystems.
+%     \item \textbf{Federated Learning and Blockchain Integration:} Supporting decentralized training across institutions while preserving data privacy and security.
+%     \item \textbf{Predictive Healthcare Analytics:} Using Deep RL and Transfer Learning for early disease detection, personalized risk assessment, and proactive intervention planning.
+% \end{itemize}
+
+
+% ============================== ARTICLE 5 =====================================
+\section{Enhancing Heart Disease Prediction with Reinforcement Learning and Data Augmentation}
+\textbf{Article Reference:} \cite{article_5}
 
 \subsection*{Overview}
-Reinforcement Learning (RL) is a machine learning approach that enhances clinical decision-making by addressing uncertainties and optimizing sequential treatment strategies. This review introduces RL to clinicians, emphasizing how it leverages patient data to generate personalized treatment plans that improve outcomes and resource efficiency. It also explores foundational RL concepts, applications, challenges, and future directions.
+This study aims to improve the prediction accuracy of heart disease by integrating reinforcement learning (RL) and data augmentation techniques. The approach addresses the complexities of cardiac data, which often hampers traditional machine learning models, by leveraging advanced methods to enhance predictive performance and early diagnosis.
 
-\textbf{Categories of RL}
-\begin{itemize} \item \textbf{Model-based RL:} Learns a model of the environment to simulate outcomes and make decisions. Example: AlphaZero. \item \textbf{Model-free RL:} Learns policies directly from experience without modeling the environment. Includes: \begin{itemize} \item \textit{Value-based methods:} e.g., Q-learning, SARSA \item \textit{Policy-based methods:} e.g., REINFORCE \item \textit{Hybrid methods:} e.g., Actor-Critic \end{itemize} \end{itemize}
+\subsection*{Dataset}
+The primary dataset employed is similar to the Cleveland Heart Disease dataset, sourced from the UCI Machine Learning Repository. It contains features such as age, gender, blood pressure, cholesterol levels, ECG results, and other patient health indicators. The dataset includes a target variable indicating the presence or absence of heart disease, facilitating classification tasks. Additional datasets might come from healthcare agencies and research repositories.
 
-RL shifts AI in healthcare from prediction to actionable, real-time decision-making.
+\subsection*{Data Processing}
+\begin{itemize}
+    \item \textbf{Feature Selection:} Techniques such as feature importance scores and recursive feature elimination were used to identify the most impactful variables for heart disease prediction.
+    \item \textbf{Data Augmentation:} Applied transformations like feature scaling, rotation, noise addition, and synthetic data generation to expand and diversify the training data. This helps models handle variability and reduce overfitting.
+\end{itemize}
 
-\textbf{Applications in Healthcare}
-RL has demonstrated potential in: \begin{itemize} \item Creating personalized treatment plans (e.g., chemotherapy, sedation, insulin dosing) \item Optimizing resource allocation in critical care (e.g., ventilator weaning, sepsis treatment) \item Enhancing adaptive interventions using offline RL and simulation environments \end{itemize}
+\subsection*{Approach}
+\begin{itemize}
+    \item \textbf{Reinforcement Learning (RL):} Utilizing RL algorithms to optimize decision-making processes dynamically, allowing models to adapt to evolving patient data and improve prediction accuracy over time.
+\end{itemize}
 
-\textbf{Evaluation Challenges}
-Evaluation is constrained by safety, ethical, and logistical concerns. RL often relies on: \begin{itemize} \item Simulated environments \item Off-Policy Evaluation (OPE) methods like FQE and Doubly Robust methods \end{itemize}
+\noindent \textbf{How It Functions in the Study:}
+\begin{itemize}
+    \item \textbf{Initialization:}
+        \begin{itemize}
+            \item The RL agent starts with an initial policy, possibly based on prior knowledge or random actions.
+            \item The dataset is preprocessed, and the model's initial parameters are set.
+        \end{itemize}
+    \item \textbf{Interaction Loop:}
+        \begin{itemize}
+            \item For each episode, the agent:
+            \begin{itemize}
+                \item Observes the current state (e.g., patient features).
+                \item Selects an action according to its policy (e.g., choosing a specific augmentation or parameter setting).
+                \item Executes the action, which may involve training the model further, updating parameters, or selecting data augmentation techniques.
+                \item Moves to the next state, reflecting the outcome of its action, such as improved data representation or better predictive performance.
+                \item Receives a reward based on the effectiveness of its action, such as increased accuracy or better generalization.
+            \end{itemize}
+        \end{itemize}
+    \item \textbf{Learning:}
+        \begin{itemize}
+            \item The agent updates its policy based on the feedback (rewards), aiming to improve decision-making over future episodes.
+            \item Techniques like Q-learning or policy gradients are often used to optimize this process.
+        \end{itemize}
+    \item \textbf{Outcome:}
+        \begin{itemize}
+            \item Over many iterations, the RL model learns which actions lead to higher rewards and adapts its strategy to improve heart disease prediction accuracy continually.
+        \end{itemize}
+\end{itemize}
 
-\textbf{Implementation Issues}
-Practical deployment of RL in healthcare is hindered by: \begin{itemize} \item Challenges in reward function design \item High-dimensional state and action spaces \item Necessity for domain expertise in clinical evaluation \end{itemize}
+\noindent In summary:
+\begin{itemize}
+    \item \textbf{States} represent patient data or model status.
+    \item \textbf{Actions} correspond to decisions like data augmentation choices or model updates.
+    \item \textbf{Rewards} are signals (e.g., accuracy improvements) guiding the learning process.
+    \item The RL agent learns the best policy to update the model continuously, maximizing prediction performance.
+\end{itemize}
 
-\textbf{Future Directions}
-Future developments may include: \begin{itemize} \item Integration with Large Language Models (LLMs) \item Privacy-preserving learning (e.g., Federated Learning) \item Real-time adaptive interventions and decision support \end{itemize}
+\subsection*{Results}
+\begin{itemize}
+    \item Achieved an accuracy rate of approximately 94\%, surpassing traditional models
+\end{itemize}
 
-\textbf{Real-World Examples}
-Examples include: \begin{itemize} \item DeepMind’s AlphaZero and AI Clinician for sepsis treatment \item RL-based models for sedation weaning, cancer therapy, and insulin control \item Clinical trials like REINFORCE and glycemic control interventions \end{itemize}
-\newpage
-% Second Article
-\subsection{Reinforcement Learning Algorithms and Applications in Healthcare and Robotics: A Comprehensive and Systematic Review}
-\textbf{Article Reference:} \cite{article_2}
+\subsection*{Challenges}
+\begin{itemize}
+    \item \textbf{Computational Complexity:} The combined methods demand significant processing power and longer training times.
+    \item \textbf{Data Quality and Accessibility:} The efficacy of data augmentation depends heavily on the quality of the original dataset; biases or missing data can impact outcomes.
+    \item \textbf{Model Generalizability:} Design choices and assumptions within the RL framework may limit applicability across diverse patient populations or clinical settings.
+    \item \textbf{Scalability:} Handling large-scale, real-world datasets remains challenging due to resource requirements.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item \textbf{Fine-tuning Techniques:} Further optimizing model parameters and augmentation strategies.
+    \item \textbf{Privacy and Security:} Incorporating mechanisms to ensure patient data privacy.
+    \item \textbf{Clinical Validation:} Conducting extensive real-world clinical trials to validate model usefulness and safety.
+    \item \textbf{Broader Application:} Extending the methodology to other medical diagnostic areas beyond heart disease.
+    \item \textbf{Reducing Computational Costs:} Developing more efficient algorithms to make the approach more scalable and practical in healthcare settings.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item The integration of RL and data augmentation is promising, but computational demands and reliance on data quality could hinder deployment in resource-limited settings.
+    \item The paper lacks details on the exact RL algorithm used, which is essential for reproducibility.
+    \item There is limited discussion on how interpretability is addressed, which is crucial for clinical use.
+\end{itemize}
+
+
+% ============================== ARTICLE 7 =====================================
+\section{A Reinforcement Learning–Based Method for Management of Type 1 Diabetes: Exploratory Study}
+\textbf{Article Reference:} \cite{article_7}
 
 \subsection*{Overview}
-Reinforcement learning (RL) is a powerful branch of artificial intelligence (AI) that enables agents to make intelligent decisions in dynamic and uncertain environments. This review explores the fundamentals of various RL algorithms, compares them, and emphasizes their applications in robotics and healthcare.\\
-In robotics, RL enhances capabilities in tasks such as object manipulation and grasping. In healthcare, it is applied to optimize cell growth and aid in treatment development, demonstrating the broad utility of RL across different domains.
+The researchers developed a reinforcement learning (RL) framework, specifically a Q-learning algorithm, to personalize insulin dosing for patients with Type 1 Diabetes Mellitus (T1DM). The aim was to improve blood glucose management by recommending insulin doses tailored to individual patient characteristics.
 
-\subsection*{Methodology}
-The study follows a systematic literature review (SLR) approach to answer well-defined research questions. The methodology involves:
+\subsection*{Dataset}
+The dataset consisted of clinical records from 87 T1DM patients treated at Mass General Hospital (MGH) between 2003 and 2013.
+
+The data included patient information such as HbA1c levels, BMI, physical activity, and alcohol usage.
+
+The authors conducted a correlation analysis to identify key variables influencing blood glucose, concluding that HbA1c, BMI, activity level, and alcohol usage were the most relevant.
+
+Based on these factors, they defined the patient’s state by discretizing these variables into levels:
+    \begin{itemize}
+        \item HbA1c levels (e.g., normal, elevated, high)
+        \item BMI categories
+        \item Activity levels (e.g., low, high)
+        \item Alcohol usage levels (e.g., none, moderate, high)
+    \end{itemize}
+
+\subsection*{Data Processing}
+States were formed as combinations of these discretized features.
+
+Insulin doses (actions) were defined within specific ranges (e.g., Lantus dose intervals).
+
+The data was used to train and validate the RL model.
+
+\subsection*{Approach}
 \begin{itemize}
-    \item Establishing specific research questions,
-    \item Defining inclusion and exclusion criteria,
-    \item Conducting structured searches across multiple databases.
-\end{itemize}
-This rigorous approach ensures the quality and relevance of the evidence used to evaluate current practices in RL applications.
-
-\subsection*{Applications of Reinforcement Learning}
-The paper highlights two primary domains of RL application: \textbf{robotics} and \textbf{healthcare}. Here's an overview of each:
-
-\paragraph{1. Robotics}
-\begin{itemize}
-    \item \textbf{Object Grasping and Manipulation:} RL algorithms are increasingly used to enhance robotic capabilities in grasping and manipulating objects. This area is rapidly evolving and has significant implications for automation in dynamic environments.
-    \item \textbf{Precision and Adaptability:} Through trial-and-error learning, RL improves the precision and adaptability of robots, enabling them to perform complex tasks more effectively in real-world, unstructured settings.
-\end{itemize}
-
-\paragraph{2. Healthcare}
-\begin{itemize}
-    \item \textbf{Cell Growth Optimization:} RL is applied to optimize conditions for cell culture growth, contributing to advancements in biotechnology, particularly in drug discovery and cellular research.
-    \item \textbf{Data-Driven Therapeutics:} By leveraging RL's data-driven nature, healthcare practitioners can enhance therapeutic strategies and improve biotechnological processes, leading to more efficient and targeted treatment development.
-\end{itemize}
-
-\subsection*{Challenges, Conclusions, and Future Directions}
-The review identifies several challenges in applying RL to robotics and healthcare:
-\begin{itemize}
-    \item \textbf{Dexterity in Robotic Tasks:} Achieving fine motor control in robotic manipulation remains difficult.
-    \item \textbf{Sample Efficiency:} RL algorithms often require large amounts of data, which can be costly or impractical.
-    \item \textbf{Sim-to-Real Transfer:} Training in simulated environments does not always translate effectively to real-world performance.
+    \item The Q-learning algorithm was employed, which is a model-free RL method.
+    \item The environment is represented by the patient’s health state, and the agent makes decisions on insulin dosage.
+    \item The states are defined by the combination of HbA1c, BMI, activity level, and alcohol usage.
+    \item The actions are discretized insulin dose levels (specific dose intervals).
+    \item The reward function is designed based on how well the insulin dose achieved the target HbA1c level.
 \end{itemize}
 
-\noindent\textbf{Future Directions} include:
+\subsection*{Approach}
 \begin{itemize}
-    \item Improving sample efficiency through better exploration strategies,
-    \item Developing transfer learning techniques to bridge the sim-to-real gap,
-    \item Enhancing data collection frameworks to support RL in real-time applications.
+    \item At each time step (e.g., clinical visit), the agent observes the state and selects an action (insulin dose) either by exploration (random choice with probability $\epsilon$) or exploitation (based on learned Q-values).
+    \item After administering the dose, the patient's response (e.g., change in HbA1c) results in a reward, guiding the learning process.
+    \item The Q-values are updated iteratively based on the reward and the estimated value of subsequent states.
 \end{itemize}
-\newpage
 
-% Third Article
-\subsection{Reinforcement Learning in Healthcare: Optimizing Treatment Strategies, Dynamic Resource Allocation, and Adaptive Clinical Decision-Making}
-\textbf{Article Reference:} \cite{article_3}
+\subsection*{Results}
+\begin{itemize}
+    \item RL model tested on 60 unseen cases
+    \item Recommended insulin dose interval included the physician-prescribed dose in 88\% of cases
+    \item Results suggest the RL approach can effectively offer personalized treatment recommendations aligning with clinical decisions
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item \textbf{Limited dataset size:} Only 87 patients, which may limit generalizability
+    \item \textbf{Discretization of variables:} Fineness of categories might affect the model's precision
+    \item \textbf{Data quality and missing variables:} Not all potentially influential factors (like diet or stress) were included
+    \item \textbf{Algorithm complexity:} RL models require careful tuning; real-world implementation must address issues like exploration vs. exploitation and patient safety
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Extend the model to include other types of insulin and medications
+    \item Incorporate finer categories or continuous variables for more precise recommendations
+    \item Validate with larger and more diverse datasets
+    \item Explore application to other populations, such as patients with Type 2 Diabetes
+    \item Implement real-time decision support in clinical settings
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Limited patient sample size may not capture all variability in diabetes management
+    \item Discretization may lead to loss of information that could be valuable for precise dosing
+    \item No explicit mention of model validation techniques beyond testing on 60 cases
+    \item Reward function description is brief; more detail would clarify alignment with clinical goals
+\end{itemize}
+
+
+
+
+
+
+% ============================== ARTICLE 10 =====================================
+\section{Deep Q-Network (DQN) Model for Disease Prediction Using Electronic Health Records (EHRs)}
+\textbf{Article Reference:} \cite{article_10}
 
 \subsection*{Overview}
-Reinforcement Learning (RL) is an advanced paradigm within artificial intelligence (AI) that is particularly effective in optimizing complex, real-time decision-making processes in healthcare. By learning from continuous feedback, RL enables dynamic adjustments in treatment protocols, efficient resource allocation, and personalized clinical interventions. Its capabilities are well-suited for adaptive therapies, precision medicine, robotic-assisted surgery, and intelligent diagnostic systems. Despite its transformative potential, successful real-world deployment of RL in healthcare is contingent upon overcoming challenges related to data quality, model interpretability, and ethical compliance.
+The paper addresses the challenges of using deep learning models for disease prediction with EHRs, including lack of precision, ethical concerns, limitations of small datasets, complexity of data processing, and incompleteness of patient data. It proposes a deep Q-learning (DQL) model to enhance the accuracy and stability of predictions. The model integrates reinforcement learning with neural networks, utilizing the mapping capabilities of the Q-network. The proposed model is evaluated on the Heart Disease Dataset from the UCI Data Repository, demonstrating high accuracy (98\%) compared to other models.
 
-\subsection{Applications of RL in Healthcare}
+\subsection*{Dataset}
 \begin{itemize}
-    \item \textbf{Treatment Strategy Optimization:} Personalized drug dosing (e.g., chemotherapy, insulin, antihypertensives), sepsis management, and adaptive clinical trials.
-    \item \textbf{Dynamic Resource Allocation:} ICU bed management, ventilator distribution during pandemics, and adaptive staff scheduling.
-    \item \textbf{Clinical Decision Support:} Real-time diagnostic support, surgical planning using robotic systems, and emergency triage optimization.
-    \item \textbf{Rehabilitation and Assistive Systems:} Adaptive physiotherapy, prosthetic limb control, and deep brain stimulation adjustment.
+    \item The Heart Disease Dataset from the UCI Data Repository via Kaggle.
+    \item Includes multivariate numerical data with 14 attributes (categorical, integer, and real data).
 \end{itemize}
 
-\subsection{Challenges and Limitations}
+\subsection*{Data Processing}
 \begin{itemize}
-    \item \textbf{Data Limitations and Privacy:} Medical data is often sparse, fragmented, and governed by strict privacy regulations (e.g., HIPAA, GDPR), limiting the availability of high-quality training data.
-    \item \textbf{Model Interpretability:} Many RL models function as "black boxes," making it difficult for clinicians to understand and trust their recommendations.
-    \item \textbf{Ethical and Regulatory Issues:} Concerns around algorithmic bias, accountability, and the legal framework for AI-driven clinical decisions must be carefully addressed.
+    \item The dataset was split into training (80\%) and test sets (20\%) using stratified splitting.
+    \item Robust scaling was applied for feature scaling.
 \end{itemize}
 
-\subsection{Future Prospects}
+\subsection*{Approach}
 \begin{itemize}
-    \item \textbf{Multi-Agent Reinforcement Learning:} Enabling coordinated care across multiple AI agents, particularly in complex hospital ecosystems.
-    \item \textbf{Federated Learning and Blockchain Integration:} Supporting decentralized training across institutions while preserving data privacy and security.
-    \item \textbf{Predictive Healthcare Analytics:} Using Deep RL and Transfer Learning for early disease detection, personalized risk assessment, and proactive intervention planning.
+    \item The study uses a Deep Q-Network (DQN) model, which combines reinforcement learning with neural networks.
+    \item This approach aims to address the limitations of traditional Q-learning and improve the accuracy and stability of disease predictions.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item The model uses a "disease prediction game" environment.
+    \item State: The state is represented by the samples from the EHR data.
+    \item Action: Actions involve increasing, decreasing, or holding each feature.
+    \item Reward: Positive rewards are given for accurate predictions, and negative rewards for inaccurate ones.
+    \item Environment: The environment consists of sets of states (samples) and actions (feature adjustments).
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item The paper compares the Deep Q-Network (DQN) model with Logistic Regression, Decision Tree Classifier, Random Forest Classifier, and Gradient-Boosting Classifier.
+\end{itemize}
+
+Key Results:
+\begin{itemize}
+    \item The proposed EHR-DQN model achieved high accuracy (0.9841) and a low mean squared error (MSE) of 0.0001.
+    \item The Decision Tree and Gradient-Boosting Classifiers also performed well, with perfect precision, recall, and F1 scores.
+    \item The Random Forest model showed a balance of high accuracy (0.9783) and a minimal MSE of 0.
+    \item Logistic Regression had the lowest performance, with an accuracy of 0.8424 and a higher MSE of 0.1576.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Data-related issues: digitization, consolidation, and availability of health records.
+    \item Privacy and legal concerns with patient data handling.
+    \item Patient-related difficulties: decision-making errors, treatment errors, and data inconsistencies.
+    \item Technical challenges: data integration across systems, ensuring patient security.
+    \item Interpretability: "black box" nature of complex AI models limits transparency.
+    \item Resource limitations: computational resources and expertise needed for implementation.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Expand the dataset size to better train deep reinforcement learning models.
+    \item Integrate additional contextual features to improve prediction accuracy.
+    \item Develop more transparent models to address interpretability concerns.
+    \item Create more standardized methods for validating healthcare AI systems.
+    \item Improve integration with clinical workflows for practical implementation.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item The paper emphasizes the high accuracy of the proposed model but also points out that the dataset used has only thousands of samples. The DQN algorithm typically requires a large number of training samples (millions) to achieve optimal performance.
+    \item The paper acknowledges the "black box" nature of many AI algorithms and the resulting lack of interpretability, which can hinder trust and adoption in healthcare.
+\end{itemize}
+% ============================== ARTICLE 11 =====================================
+\section{A Reinforcement Learning Model for AI-Based Decision Support in Skin Cancer}
+\textbf{Article Reference:} \cite{article_11}
+
+\subsection*{Overview}
+\begin{itemize}
+    \item The article presents a reinforcement learning (RL) model designed to enhance decision support in skin cancer diagnosis.
+    \item It compares the effectiveness of RL with supervised learning (SL) methods, emphasizing the potential of RL in optimizing management decisions.
+\end{itemize}
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item They utilized the publicly available HAM10000 dataset, a comprehensive collection of dermatoscopic images of skin lesions.
+    \item This dataset contains over 10,000 images across seven diagnostic categories of skin lesions.
+\end{itemize}
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item For patient-centered scenarios, input vectors were normalized by dividing position-wise by the average across all lesion vectors of the same patient.
+    \item This normalization was crucial for processing multiple lesions from the same patient effectively.
+    \item Feature extraction was performed using convolutional neural networks pre-trained on the dataset.
+\end{itemize}
+
+\subsection*{Approach}
+\begin{itemize}
+    \item Supervised Learning (SL): A convolutional neural network was fine-tuned for classifying seven categories of skin lesions.
+    \item Reinforcement Learning (RL): A deep Q-learning model was developed using a multilayer perceptron that processed feature vectors derived from the SL model.
+    \item They also implemented a threshold-based approach for comparison.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item States: One-dimensional vectors representing features of skin lesions.
+    \item Actions: Management strategies including excision, short-term follow-up, and regular surveillance.
+    \item Rewards: Defined based on diagnosis outcomes and management decisions, optimizing for both clinical efficacy and resource utilization.
+    \item Learning: The model used experience replay and target networks to stabilize learning.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item The RL method and threshold method both improved management decisions compared to the naïve SL model.
+    \item Both approaches optimized operating points on decision curves, enhancing diagnostic accuracy.
+    \item The RL model demonstrated superior performance in balancing sensitivity and specificity.
+    \item The study showed potential for reducing unnecessary excisions while maintaining high detection rates.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item RL models require more complex retraining compared to simpler threshold approaches.
+    \item Integration into clinical workflows presents practical implementation barriers.
+    \item Limited consideration of patient preferences in the current model design.
+    \item Lack of longitudinal data to validate long-term decision outcomes.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Development of reward tables incorporating both physician and patient preferences.
+    \item Enhancement of shared decision-making tools combining AI recommendations with clinical expertise.
+    \item Integration of additional clinical parameters beyond image data.
+    \item Validation in prospective clinical trials to assess real-world impact.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item It focuses primarily on physician preferences, potentially neglecting patient-centered care principles.
+    \item Limited dataset diversity may restrict generalizability across different patient populations.
+    \item The complexity of RL models may limit practical implementation in resource-constrained settings.
+    \item Further validation is needed to demonstrate clinical utility beyond technical performance metrics.
+\end{itemize}
+
+
+% ============================== ARTICLE 12 =====================================
+\section{Reinforcement Learning Using Deep Q Networks and Q-Learning Accurately Localizes Brain Tumors on MRI with Very Small Training Sets}
+\textbf{Article Reference:} \cite{article_12}
+
+\subsection*{Overview}
+This study applies reinforcement learning (RL), specifically Deep Q Networks (DQN), to accurately localize brain tumors in MRI scans. It addresses the limitations of traditional supervised learning methods, particularly the dependence on large annotated datasets. The authors demonstrate that RL can achieve high performance even with minimal training data.
+
+\subsection*{Dataset}
+The dataset used comprises 2D slices from the 2014 BraTS (Brain Tumor Segmentation) challenge dataset. These are T1-weighted contrast-enhanced MRI images. The training set included 30 images, with another 30 images used for testing.
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item 2D slices were extracted and the image space was divided into a grid.
+    \item Each agent operates within a 60 × 60 pixel block.
+    \item No data augmentation was applied to keep training consistent with the original dataset.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{Environment:} Modeled as a gridworld over MRI images.
+    \item \textbf{States:} Represented by the agent's position in the image grid.
+    \item \textbf{Actions:} The agent can move down, move right, or stay in place.
+    \item \textbf{Rewards:} Positive rewards for entering tumor regions, penalties for remaining idle outside the tumor area.
+    \item The DQN used experience replay and a target network to stabilize learning.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item The DQN achieved an average localization accuracy of 70\% over the last 20 episodes.
+    \item This significantly outperformed a supervised deep learning approach, which achieved only 11\% accuracy.
+    \item Results demonstrate RL’s superiority with small datasets in this context.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item The reliance on small datasets may limit generalizability.
+    \item High computational cost of RL may pose integration challenges in real-time clinical settings.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Extend the RL model to handle full 3D MRI volumes.
+    \item Compare performance with other RL strategies such as policy-gradient methods.
+    \item Optimize training and inference to improve clinical applicability.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item The model's performance with small data is promising but needs validation on larger, more diverse datasets.
+    \item No integration of clinical context or physician-in-the-loop evaluation.
+    \item Despite excellent performance metrics, interpretability and ease of integration in hospitals remain unresolved.
+\end{itemize}
+
+% ============================== ARTICLE 13 =====================================
+\section{Deep Reinforcement Learning and Simulation as a Path Toward Precision Medicine}
+\textbf{Article Reference:} \cite{article_13}
+
+\subsection*{Overview}
+The paper explores the application of deep reinforcement learning (DRL) to develop personalized treatment strategies for sepsis, a severe condition caused by the body's dysregulated immune response to infection. The authors propose a novel approach that leverages simulation to identify effective multicytokine therapies tailored to individual patients based on their systemic measurements.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item The study used an Innate Immune Response Agent-Based Model (IIRABM) to simulate sepsis progression.
+    \item A set of 500 simulated patients with diverse genetic and physiological parameters was generated.
+    \item No real-world patient data was used directly, as the approach relies on in silico modeling.
+\end{itemize}
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item Simulated patient data included various systemic measurements relevant to sepsis.
+    \item Continuous monitoring of cytokine levels, immune cell populations, and tissue damage metrics.
+    \item Patient states were represented as high-dimensional continuous variables.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{Environment:} Simulated sepsis progression using an agent-based model (ABM) of the innate immune response to infection.
+    \item \textbf{States:} High-dimensional and continuous state space representing patient condition through various health metrics and systemic measurements.
+    \item \textbf{Actions:} Continuous action space for administering multicytokine therapies with varying dosages.
+    \item \textbf{Rewards:} Terminal rewards of +250 for healed patients and -250 for death cases, with intermediate rewards based on tissue damage changes and an L1 penalty to encourage conservative treatments.
+    \item \textbf{Learning Process:} Episodes of patient treatment where the agent learns to refine its policy to maximize cumulative rewards.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item DRL-based approach achieved significant reduction in mortality rates across 500 simulated patients.
+    \item Demonstrated ability to learn complex therapeutic strategies adaptive to individual disease progression.
+    \item Outperformed conventional standalone antibiotic therapy in simulations.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Ethical concerns related to exploring suboptimal treatments in real patients.
+    \item Complexity of dynamic multicytokine mediation requiring extensive exploration of treatment strategies.
+    \item Need for advanced strategies to achieve lower mortality rates across diverse patient simulations.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Development of measurement technologies informed by simulation findings.
+    \item Identification of biological targets for drug development.
+    \item Design of clinical trials for adaptive personalized therapies.
+    \item Expansion of simulation and DRL approach to other medical conditions beyond sepsis.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Heavy reliance on simulation may not fully capture real-world clinical complexities.
+    \item Ethical implications of testing derived treatment strategies remain significant.
+    \item Clinical validation through trials needed to confirm applicability in real-world settings.
+    \item Gap between simulation-derived policies and practical clinical implementation.
+\end{itemize}
+
+% ============================== ARTICLE 14 =====================================
+\section{PrescDRL: Deep Reinforcement Learning for Herbal Prescription Planning in Treatment of Chronic Diseases}
+\textbf{Article Reference:} \cite{article_14}
+
+\subsection*{Overview}
+This paper presents PrescDRL, a novel framework that applies deep reinforcement learning to optimize herbal prescriptions in Traditional Chinese Medicine (TCM) for the treatment of chronic diseases. Instead of focusing on immediate treatment effects, the approach emphasizes long-term patient outcomes through sequential treatment strategies, specifically focusing on diabetes as a case study.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item A custom high-quality benchmark dataset for sequential diagnosis and treatment of diabetes.
+    \item Data includes patient medical records and treatment histories specifically curated for evaluating the PrescDRL model.
+    \item Dataset constructed to enable comparison between the model's recommendations and traditional treatment methods.
+\end{itemize}
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item Cleaning and normalization of patient medical records.
+    \item Standardization of herbal prescription information.
+    \item Feature extraction from patient medical histories to capture relevant health indicators.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{State:} Representation of patient health status derived from medical records and treatment history.
+    \item \textbf{Actions:} Selection from 30 well-tuned herbal prescription candidates (HPCs).
+    \item \textbf{Reward:} Designed to maximize treatment efficacy while ensuring safety and avoiding side effects.
+    \item \textbf{Environment:} Consists of patient medical history and the set of possible herbal prescriptions.
+    \item \textbf{Learning Process:} Deep RL techniques to optimize prescription sequences for long-term health improvements.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item 117\% and 153\% improvement in single-step rewards compared to traditional doctor prescriptions.
+    \item 40.5\% increase in precision for prescription prediction.
+    \item 63\% increase in recall for prescription recommendations.
+    \item Demonstrated superior performance in generating sequential treatment strategies for chronic conditions.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Ensuring generalizability across diverse patient populations.
+    \item Balancing immediate treatment effects with long-term health outcomes.
+    \item Integration of the model recommendations into existing clinical workflows.
+    \item Limited availability of comprehensive, high-quality TCM treatment data.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Expansion of the dataset to include additional chronic diseases beyond diabetes.
+    \item Refinement of the model to incorporate more nuanced patient characteristics.
+    \item Real-world clinical validation studies to assess practical applicability.
+    \item Development of interpretable models to enhance physician trust and adoption.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item The study would benefit from more detailed exploration of dataset characteristics.
+    \item Further validation in real-world clinical settings is needed to establish practical efficacy.
+    \item Limited information on specific preprocessing steps may affect reproducibility.
+    \item Integration challenges with conventional medical practices need addressing for broader adoption.
+\end{itemize}
+
+% ============================== ARTICLE 15 =====================================
+\section{Deep Reinforcement Learning for Multi-Class Imbalanced Training: Applications in Healthcare}
+\textbf{Article Reference:} \cite{article_15}
+
+\subsection*{Overview}
+This paper presents a novel deep reinforcement learning framework designed to address multi-class imbalanced classification problems in healthcare settings. Unlike traditional methods that often underperform with imbalanced data, this approach leverages reinforcement learning to improve the prediction of minority classes without compromising performance on majority classes, which is particularly valuable in clinical contexts where rare conditions must be accurately identified.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item Real-world clinical case studies exhibiting significant class imbalance.
+    \item Datasets containing rare events among numerous majority class cases.
+    \item Multiple validation datasets from different hospital trusts for out-of-sample testing.
+    \item Imbalance ratios extending beyond the previously studied threshold of 10\%.
+\end{itemize}
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item Feature selection and extraction from clinical data.
+    \item Normalization and standardization of input variables.
+    \item Structuring of data for sequential decision-making framework.
+    \item Preparation of cross-validation sets for robust evaluation.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{State :} Representation of the current data point being classified, including its features and context.
+    \item \textbf{Action :} Possible class assignments that the model can choose from.
+    \item \textbf{Reward :} Custom reward function designed to incentivize correct classifications, with higher rewards for accurately identifying minority classes.
+    \item \textbf{Policy:} The strategy guiding the agent's decision-making process based on observed states.
+    \item \textbf{Environment :} The classification task context, including the dataset characteristics.
+    \item \textbf{Architecture:} Combined dueling and double deep Q-learning architectures to enhance state-value function learning efficiency.
+\end{itemize}
+
+\subsection*{Results}
+ Outperformed existing state-of-the-art imbalanced learning methods across multiple metrics.
+    
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Addressing extremely imbalanced datasets where rare events may represent less than 0.1\% of cases.
+    \item Computational complexity of training reinforcement learning models on large clinical datasets.
+    \item Potential for reward function design to introduce unintended biases in model behavior.
+    \item Integration challenges with existing clinical decision support systems.
+    \item Interpretability concerns when applying complex RL models in healthcare settings.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Expansion to handle even more complex multi-class imbalance scenarios.
+    \item Exploration of additional RL techniques to further enhance performance.
+    \item Development of more sophisticated reward mechanisms that incorporate clinical domain knowledge.
+    \item Investigation of model explainability to increase trust among healthcare practitioners.
+    \item Implementation and testing in real-time clinical decision-making environments.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Limited evaluation on specific datasets may not fully represent all clinical scenarios.
+    \item Potential biases from the sample populations used in the study.
+    \item Real-time applicability in clinical settings requires further investigation.
+    \item Trade-offs between model complexity and interpretability need more thorough exploration.
+    \item The adaptability to various clinical contexts beyond those studied remains to be fully evaluated.
+\end{itemize}
+% ============================== ARTICLE 16 =====================================
+\section{Deep Attention Q-Network for Personalized Treatment Recommendation}
+\textbf{Article Reference:} \cite{article_16}
+
+\subsection*{Overview}
+The paper  addresses the challenge of tailoring treatment for critically ill patients using reinforcement learning (RL). Existing methods often rely solely on a patient's current physiological state, which may not fully represent their overall health. To overcome this, the authors propose a novel approach that incorporates historical observations, using the Transformer architecture within a deep RL framework to improve treatment recommendations.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item Real-world clinical datasets for:
+    \begin{itemize}
+        \item Sepsis patients
+        \item Acute hypotension patients
+    \end{itemize}
+    \item Used for evaluating the effectiveness of the proposed RL-based method in real clinical settings.
+\end{itemize}
+
+\subsection*{Data Processing}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{State :} Includes both current and past observations of the patient's health status to enhance context-awareness.
+    \item \textbf{Action :} Represents the set of possible treatment decisions, such as medication dosages or intervention timings.
+    \item \textbf{Reward :} Guided by clinical insights, aiming to optimize patient outcomes based on treatment efficacy.
+    \item \textbf{Policy:} Learned policy maximizes expected rewards by considering prior observations indicative of declining health.
+    \item \textbf{Environment :} The patient's evolving health condition within a clinical setting where the agent receives feedback.
+    \item \textbf{Architecture:} Deep Attention Q-Network integrating Transformer modules for capturing long-term dependencies in patient data.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item The proposed model outperformed traditional treatment recommendation methods, including:
+    \begin{itemize}
+        \item LSTM-based models (memorization-based).
+        \item RL models that ignored historical observations.
+    \end{itemize}
+    \item Off-policy evaluation showed better expected rewards than clinician policies and random baselines.
+    \item Demonstrated stronger alignment with optimal treatment outcomes by leveraging temporal patient information.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Evaluation of RL models using offline data sampled from clinician-led decisions.
+    \item Complexity of deep attention models makes real-time deployment difficult.
+    \item Potential for bias due to reliance on historical clinical datasets.
+    \item Necessity for interpretability and trust in clinical applications.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Enhancing model interpretability to improve clinician acceptance.
+    \item Refinement of reward functions based on additional clinical feedback.
+    \item Exploration of hybrid architectures to balance complexity and performance.
+    \item Real-time deployment trials in clinical decision-making environments.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Dependence on historical data may introduce systemic biases not reflective of current populations.
+    \item Model complexity could hinder adoption in clinical workflows.
+    \item Need for validation across broader and more diverse clinical settings.
+    \item Interpretability and transparency remain challenges in deep RL models used in healthcare.
+\end{itemize}
+
+% ============================== ARTICLE 17 =====================================
+\section{Deep Q-Learning for Treatment Selection in Oropharyngeal Squamous Cell Carcinoma}
+\textbf{Article Reference:} \cite{article_17}
+
+\subsection*{Overview}
+This paper explores the use of Deep Q-Learning (DQL) to optimize sequential treatment decisions for patients with oropharyngeal squamous cell carcinoma. It introduces a dual digital twin framework — one representing the patient and the other representing the physician — to personalize treatments based on survival and toxicity outcomes.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item 536 patient records from MD Anderson Cancer Center (2005–2013).
+    \item Includes comprehensive patient histories and three-step sequential treatment decisions.
+    \item Radiomics features derived from segmented primary tumor volumes were also integrated.
+    \item Data was split: 75\% (402 patients) for training and 25\% (134 patients) for evaluation.
+\end{itemize}
+
+\subsection*{Preprocessing of Data}
+\begin{itemize}
+    \item Random data split into training and evaluation sets.
+    \item Some models trained with radiomics features to assess added predictive value.
+\end{itemize}
+
+\subsection*{Approach Used}
+\begin{itemize}
+    \item A 3-step Markov Decision Process (MDP) framework was used.
+    \item Deep Q-Learning was applied to learn a treatment policy maximizing a linear combination of outcomes (e.g., survival and toxicity reduction).
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{States :} Patient health conditions at each treatment decision point.
+    \item \textbf{Actions :} Treatment options chosen at each of the three decision stages.
+    \item \textbf{Rewards :} Based on survival and treatment-related toxicity using a defined reward function.
+    \item \textbf{Environment :} The clinical treatment trajectory where decisions influence future patient state transitions.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item Achieved a mean accuracy of 87.35\% and median accuracy of 90.85\% in predicting treatment outcomes.
+    \item Improved predicted survival rate by 3.73\% and reduced predicted dysphagia rate by 0.75\% over clinician decisions.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item High-dimensional state space required extensive data to accurately compute rewards.
+    \item Managing stochastic nature of outcomes posed difficulty for consistent policy optimization.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Integration of more radiomics features for enhanced prediction.
+    \item Expansion to include larger and more diverse patient populations.
+    \item Exploration of alternative architectures for real-time deployment.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Reliance on historical clinical data may reduce generalizability.
+    \item High computational requirements for training and bootstrapping limit clinical scalability.
+    \item Encouraging results indicate strong potential for real-world impact pending further validation.
+\end{itemize}
+% ============================== ARTICLE 18 =====================================
+\section{Personalized Multimorbidity Management in Type 2 Diabetes Using Reinforcement Learning}
+\textbf{Article Reference:} \cite{article_18}
+
+\subsection*{Overview}
+This paper introduces an AI-based reinforcement learning (RL) algorithm for personalized management of Type 2 Diabetes Mellitus (T2DM) and its comorbidities. The algorithm dynamically recommends individualized treatment regimens using longitudinal electronic health records (EHRs) to improve health outcomes including glycemic control, blood pressure (BP), and cardiovascular disease (CVD) risk.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item Retrospective cohort of 16,665 patients from New York University Langone Health (NYULH) ambulatory care EHRs.
+    \item Data spans from 2009 to 2017.
+    \item Inclusion criteria involved multiple encounters with T2DM-related ICD-10 codes or abnormal hemoglobin A1c levels.
+\end{itemize}
+
+\subsection*{Preprocessing of Data}
+\begin{itemize}
+    \item Patients seen only for consultation or emergency visits were excluded to ensure longitudinal data quality.
+    \item Final dataset split: 60\% for training and 40\% for testing.
+\end{itemize}
+
+\subsection*{Approach Used}
+\begin{itemize}
+    \item Developed three independent RL models: RL-glycemia, RL-BP, and RL-CVD.
+    \item These were integrated into a multimorbidity RL model to optimize overall patient outcomes across the three conditions.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{States :} Include patient demographics, lab test results, and past treatment history at each encounter.
+    \item \textbf{Actions :} Represent the selected treatment regimens (pharmacologic subclasses or combinations).
+    \item \textbf{Rewards :} Defined by achieving target health outcomes (e.g., A1c < 7\%, BP within range, low CVD risk).
+    \item \textbf{Environment :} Simulated patient trajectory over time based on health states and treatments.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item High concordance with clinician prescriptions: 86.1\% (glycemia), 82.9\% (BP), and 98.4\% (CVD).
+    \item In cases of disagreement, the RL model's recommendations were associated with better clinical outcomes.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item The reward function lacked important biomarkers like creatinine, limiting clinical realism.
+    \item The study population may not be generalizable to the broader U.S. T2DM population.
+    \item Balancing clinical domain knowledge with algorithmic optimization remains a key challenge.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Conduct randomized clinical trials to compare RL-guided and clinician-guided treatments.
+    \item Expand reward functions to include adverse events and broader health metrics.
+    \item Test the approach across more diverse and representative patient populations.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item While the RL algorithm shows strong potential in managing multimorbidity in T2DM, the reliance on historical EHRs may introduce systemic biases.
+    \item The algorithm's performance may degrade in underrepresented demographics.
+    \item More robust clinical integration and validation are required before real-world adoption.
+\end{itemize}
+
+% ============================== ARTICLE 19 =====================================
+\section{Deep Reinforcement Learning for Personalized Treatment Recommendation}
+\textbf{Article Reference:} \cite{article_19}
+
+\subsection*{Overview}
+This paper proposes a deep reinforcement learning (DRL) approach, called PPORank, to enhance precision medicine through personalized treatment recommendation, specifically in the context of cancer therapy. The method formulates treatment ranking as a sequential decision-making problem to improve patient-specific outcomes.
+
+\subsection*{Datasets Used}
+\begin{itemize}
+    \item \textbf{Immunohistochemistry Annotations:} Includes 163 HER2-positive and 116 triple-negative breast cancer (TNBC) patients.
+    \item \textbf{The Cancer Genome Atlas (TCGA):} Used for generalizing findings from cell line data to real-world patient data.
+    \item \textbf{GDSC Gene Expression Data:} Harmonized with RNA-seq data from 1080 patients for analysis consistency.
+\end{itemize}
+
+\subsection*{Data Preprocessing}
+\begin{itemize}
+    \item Excluded drug samples lacking PubChem IDs.
+    \item Final dataset contained 223 drugs after filtering.
+\end{itemize}
+
+\subsection*{Approach Used}
+\begin{itemize}
+    \item Introduces PPORank, a DRL model utilizing a deep neural network to learn state representations from heterogeneous data.
+    \item Employs a model-free actor-critic framework, optimized via Proximal Policy Optimization (PPO).
+    \item Optimizes the non-differentiable ranking metric NDCG (Normalized Discounted Cumulative Gain) through policy gradients.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item PPORank outperforms state-of-the-art supervised learning approaches in cancer drug ranking tasks.
+    \item Demonstrated stability and sample efficiency on high-dimensional screening datasets.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item DRL and deep learning are inherently data-hungry, posing challenges for biomedical applications with limited data.
+    \item Interpretability of deep learning remains a barrier to clinical adoption.
+    \item Adapting RL to account for safety, risk, and limited samples is an ongoing research challenge.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Incorporating active learning to improve interaction with dynamic patient data.
+    \item Enhancing the robustness of DRL models by integrating diverse biomedical data sources.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Although PPORank shows promising results, its reliance on large datasets may hinder its real-world usability in data-scarce settings.
+    \item Future success will depend on improving data efficiency and model transparency for practical clinical deployment.
 \end{itemize}
