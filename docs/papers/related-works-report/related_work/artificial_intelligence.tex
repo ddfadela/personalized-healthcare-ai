@@ -16,9 +16,8 @@ This study uses machine learning to predict patient response to the epilepsy dru
 \end{itemize}
 
 \subsection*{Data Processing}
-Clinical data included demographic and seizure-related information. Whole Genome Sequencing (WGS) data ($\sim$20 million variants) was filtered down to 40 features through knowledge-driven extraction, focusing on epilepsy-related genes and drug mechanism (e.g., SV2A gene, eQTLs). Genetic features included mutational load scores, polygenic risk scores, and structural variant descriptors.
-
-\subsection*{ML Approach}
+/
+\subsection*{Approach}
 Multiple ML models were evaluated: sparse multi-block PLS-DA, multimodal neural networks, elastic net, gradient-boosted decision trees (GBDT), and stacked classifiers. The best performance was achieved using a GBDT model integrating all data types. GBDT models are well-suited for handling the complex interactions between clinical and genetic features, which is crucial for personalized drug response prediction. However, the inherent complexity of GBDT models can make it challenging to interpret the specific contributions of individual features, a limitation that future explainable AI (XAI) techniques could address.
 
 \subsection*{Results}
@@ -63,7 +62,7 @@ This study proposes an automated diabetes prediction system using ML and explain
     \item A semi-supervised approach using the extreme gradient boosting technique (XGB regressor) was used to predict the missing insulin feature of the RTML dataset.
 \end{itemize}
 
-\subsection*{ML Approach}
+\subsection*{Approach}
 Various models were tested: decision trees, KNN, SVM, random forest, logistic regression, AdaBoost, XGBoost, bagging, and voting classifiers. Hyperparameters were tuned using GridSearchCV. The final model employed XGBoost with ADASYN for balancing. The choice of XGBoost is appropriate due to its effectiveness in handling complex datasets, but the lack of inherent explainability highlights the need for methods.
 
 \subsection*{Results}
@@ -90,7 +89,6 @@ Various models were tested: decision trees, KNN, SVM, random forest, logistic re
 \begin{itemize}
     \item The use of imputation for missing insulin values introduces some uncertainty.    
     \item The private dataset is relatively small, which may limit the model's generalizability.    
-    
 \end{itemize}
 
 % ============================== ARTICLE 3 =====================================
@@ -112,7 +110,7 @@ Data were collected using wearable sensors and motion capture systems in both cl
     \item \textbf{Correlation Analysis:} High correlations between key features (e.g., stride length and step length) validated their importance for prediction, informing feature selection.
 \end{itemize}
 
-\subsection*{ML Approach}
+\subsection*{Approach}
 The study employed a hybrid deep learning model comprising Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs) to classify individuals as healthy or at risk for AD. These models analyzed temporal-spatial gait features, capturing sequential patterns and irregularities. Traditional ML classifiers such as Random Forest and SVM were also evaluated for comparison. The use of a hybrid CNN-RNN model is a strength, as it leverages the capabilities of both CNNs for spatial feature extraction and RNNs for temporal sequence modeling, which is well-suited for gait analysis.
 
 \subsection*{Results}
@@ -169,7 +167,7 @@ The authors developed a non-invasive method to detect diabetes using heart rate 
     \item Input data fed into deep learning architectures for automatic feature learning.
 \end{itemize}
 
-\subsection*{ML Approach}
+\subsection*{Approach}
 \begin{itemize}
     \item Built a deep learning model comprising 5 CNN layers followed by an LSTM layer to capture spatial and temporal features.
     \item Used dropout (0.1) for regularization.
@@ -220,13 +218,10 @@ The primary dataset employed is similar to the Cleveland Heart Disease dataset, 
 \begin{itemize}
     \item \textbf{Feature Selection:} Techniques such as feature importance scores and recursive feature elimination were used to identify the most impactful variables for heart disease prediction.
     \item \textbf{Data Augmentation:} Applied transformations like feature scaling, rotation, noise addition, and synthetic data generation to expand and diversify the training data. This helps models handle variability and reduce overfitting.
-    \item \textbf{Model Training:} The models were trained on augmented data, using reinforcement learning strategies to iteratively improve predictions based on feedback.
-    \item \textbf{Evaluation:} The models were assessed using metrics like accuracy, precision, recall, F1-score, and AUC-ROC scores to gauge performance and robustness.
 \end{itemize}
 
-\subsection*{ML Approach}
+\subsection*{Approach}
 \begin{itemize}
-    \item \textbf{Data Augmentation:} Applying transformations like feature scaling, rotation, noise addition, and synthetic data generation to expand and diversify the training data. This helps models handle variability and reduce overfitting.
     \item \textbf{Reinforcement Learning (RL):} Utilizing RL algorithms to optimize decision-making processes dynamically, allowing models to adapt to evolving patient data and improve prediction accuracy over time.
 \end{itemize}
 
@@ -270,9 +265,6 @@ The primary dataset employed is similar to the Cleveland Heart Disease dataset, 
 \subsection*{Results}
 \begin{itemize}
     \item Achieved an accuracy rate of approximately 94\%, surpassing traditional models
-    \item Data augmentation contributed to better generalization and robustness
-    \item Reinforcement learning facilitated continual improvement, especially in handling complex and dynamic cardiac data
-    \item Significant gains in both recall and overall predictive performance
 \end{itemize}
 
 \subsection*{Challenges}
@@ -313,13 +305,9 @@ This paper introduces CardioXNet, a lightweight CRNN architecture designed for t
 \end{itemize}
 
 \subsection*{Data Processing}
-\begin{itemize}
-    \item All signals were resampled at 2 kHz and amplitude-normalized
-    \item No segmentation or extensive preprocessing was performed, emphasizing the model's robustness to raw signals
-    \item The approach leverages convolutional pathways to learn features directly from raw waveforms, avoiding traditional MFCC or spectrogram conversion
-\end{itemize}
+Normalisation
 
-\subsection*{ML Approach}
+\subsection*{Approach}
 The authors developed CardioXNet, a lightweight CRNN framework with two learning schemes:
 \begin{itemize}
     \item \textbf{Representation learning:} Extracts time-invariant features using three parallel CNN pathways
@@ -331,7 +319,6 @@ The authors developed CardioXNet, a lightweight CRNN framework with two learning
 \begin{itemize}
     \item Achieved 99.60\% accuracy on the GitHub dataset, outperforming prior methods.
     \item Demonstrated 86.57\% accuracy on the PhysioNet dataset, indicating good generalization.
-    \item Model is efficient, with only 0.67M trainable parameters, 26M FLOPS, and $\sim$54.6 ms processing time—suitable for real-time applications.
 \end{itemize}
 
 \subsection*{Challenges}
@@ -387,7 +374,6 @@ Insulin doses (actions) were defined within specific ranges (e.g., Lantus dose i
 The data was used to train and validate the RL model.
 
 \subsection*{Approach}
-\textbf{Framework \& Method:}
 \begin{itemize}
     \item The Q-learning algorithm was employed, which is a model-free RL method.
     \item The environment is represented by the patient’s health state, and the agent makes decisions on insulin dosage.
@@ -396,7 +382,7 @@ The data was used to train and validate the RL model.
     \item The reward function is designed based on how well the insulin dose achieved the target HbA1c level.
 \end{itemize}
 
-\subsection*{ML Approach}
+\subsection*{Approach}
 \begin{itemize}
     \item At each time step (e.g., clinical visit), the agent observes the state and selects an action (insulin dose) either by exploration (random choice with probability $\epsilon$) or exploitation (based on learned Q-values).
     \item After administering the dose, the patient's response (e.g., change in HbA1c) results in a reward, guiding the learning process.
@@ -435,71 +421,70 @@ The data was used to train and validate the RL model.
     \item Reward function description is brief; more detail would clarify alignment with clinical goals
 \end{itemize}
 
-% ============================== ARTICLE 8 =====================================
-\section{Cardiovascular Diseases Prediction by Machine Learning Incorporation with Deep Learning}
-\textbf{Article Reference:} \cite{article_8}
+% % ============================== ARTICLE 8 =====================================
+% \section{Cardiovascular Diseases Prediction by Machine Learning Incorporation with Deep Learning}
+% \textbf{Article Reference:} \cite{article_8}
+
+% \subsection*{Overview}
+% The article discusses the increasing role of artificial intelligence (AI) in healthcare, particularly in predicting cardiovascular diseases (CVD). It highlights the growing prevalence of data from the Internet of Things (IoT) within healthcare systems, which can be leveraged to identify risk factors associated with CVD.
+
+% \subsection*{Dataset}
+% \begin{itemize}
+%     \item Heart dataset with 918 unique samples after removing duplicates
+%     \item Dataset comprises 11 features relevant for predicting CVD
+% \end{itemize}
+
+% \subsection*{Data Processing}
+% The study employed machine learning models to analyze the data received from Internet of Things (IoT) devices. Traditional machine learning algorithms were noted to have limitations in accuracy, which led to the exploration of advanced techniques for better predictions. A feature selection method using Tree SHAP was applied to identify significant features influencing CVD predictions. This method enhances the interpretability of the results by showing each feature's contribution to predictions.
+
+% \subsection*{Approach}
+% The researchers proposed a stacking fusion model-based classifier, which achieved an impressive accuracy of nearly 96\%. This model effectively combined the strengths of various algorithms, outperforming individual models in predicting high-risk individuals for CVD. They emphasized the limitations of traditional machine learning and the importance of large, diverse datasets for robust predictions.
+
+% \subsection*{Results}
+% The proposed stacking fusion model-based classifier demonstrated superior performance, achieving nearly 96\% accuracy. The model's performance remained stable after feature selection, with AUC values not significantly impacted by the removal of the Resting ECG feature.
+
+% \subsection*{Challenges}
+% One of the challenges noted in the study is the reliance on traditional machine learning algorithms, which may not adequately account for data variability, leading to lower accuracy in predictions. Additionally, the need for more extensive datasets from various medical institutions was emphasized.
+
+% \subsection*{Future Directions}
+% \begin{itemize}
+%     \item Incorporate additional deep learning techniques within IoT environments
+%     \item Enhance accuracy for identifying high-risk patients
+%     \item Implement early clinical interventions based on model predictions
+%     \item Develop more sophisticated models that can handle real-time streaming data
+% \end{itemize}
+
+% \subsection*{Critique}
+% \begin{itemize}
+%     \item Need for broader dataset diversity incorporating various demographics and geographical locations
+%     \item More detailed explanation of the specific algorithms used in the stacking model would clarify their individual contributions
+%     \item Longitudinal studies would help assess the real-world effectiveness of the models
+%     \item The paper does not adequately address how data imbalance was handled
+% \end{itemize}
+
+% ============================== ARTICLE 9 =====================================
+\section{Optimizing Type 2 Diabetes Management: AI-Enhanced Time Series Analysis of Continuous Glucose Monitoring Data for Personalized Dietary Intervention}
+\textbf{Article Reference:} \cite{article_9}
 
 \subsection*{Overview}
-The article discusses the increasing role of artificial intelligence (AI) in healthcare, particularly in predicting cardiovascular diseases (CVD). It highlights the growing prevalence of data from the Internet of Things (IoT) within healthcare systems, which can be leveraged to identify risk factors associated with CVD.
+This study proposes a method to optimize type 2 diabetes management using AI-enhanced time series analysis of continuous glucose monitoring (CGM) data. The goal is to enable personalized dietary interventions to improve patient outcomes.
 
 \subsection*{Dataset}
 \begin{itemize}
-    \item Heart dataset with 918 unique samples after removing duplicates
-    \item Dataset comprises 11 features relevant for predicting CVD
+    \item Collected CGM data from 8 patients with type 2 diabetes.
+    \item Data includes time-series blood glucose (BG) values.
 \end{itemize}
 
 \subsection*{Data Processing}
-The study employed machine learning models to analyze the data received from Internet of Things (IoT) devices. Traditional machine learning algorithms were noted to have limitations in accuracy, which led to the exploration of advanced techniques for better predictions. A feature selection method using Tree SHAP was applied to identify significant features influencing CVD predictions. This method enhances the interpretability of the results by showing each feature's contribution to predictions.
+\begin{itemize}
+    \item Removed NaN records to clean the data.
+    \item Applied feature extraction and dimensionality reduction techniques.
+    \item Split dataset into training (75\%) and testing (25\%) portions.
+\end{itemize}
 
 \subsection*{Approach}
-The researchers proposed a stacking fusion model-based classifier, which achieved an impressive accuracy of nearly 96\%. This model effectively combined the strengths of various algorithms, outperforming individual models in predicting high-risk individuals for CVD. They emphasized the limitations of traditional machine learning and the importance of large, diverse datasets for robust predictions.
-
-\subsection*{Results}
-The proposed stacking fusion model-based classifier demonstrated superior performance, achieving nearly 96\% accuracy. The model's performance remained stable after feature selection, with AUC values not significantly impacted by the removal of the Resting ECG feature.
-
-\subsection*{Challenges}
-One of the challenges noted in the study is the reliance on traditional machine learning algorithms, which may not adequately account for data variability, leading to lower accuracy in predictions. Additionally, the need for more extensive datasets from various medical institutions was emphasized.
-
-\subsection*{Future Directions}
-\begin{itemize}
-    \item Incorporate additional deep learning techniques within IoT environments
-    \item Enhance accuracy for identifying high-risk patients
-    \item Implement early clinical interventions based on model predictions
-    \item Develop more sophisticated models that can handle real-time streaming data
-\end{itemize}
-
-\subsection*{Critique}
-\begin{itemize}
-    \item Need for broader dataset diversity incorporating various demographics and geographical locations
-    \item More detailed explanation of the specific algorithms used in the stacking model would clarify their individual contributions
-    \item Longitudinal studies would help assess the real-world effectiveness of the models
-    \item The paper does not adequately address how data imbalance was handled
-\end{itemize}
-
-% ============================== ARTICLE 9 =====================================
-\section{Optimizing Type 2 Diabetes Management: AI-Enhanced Time Series Analysis of Continuous Glucose Monitoring Data for Personalized Dietary Intervention}
-\textbf{Article Reference:} \cite{article_9}
-
-\subsection*{Overview}
-This study proposes a method to optimize type 2 diabetes management using AI-enhanced time series analysis of continuous glucose monitoring (CGM) data. The goal is to enable personalized dietary interventions to improve patient outcomes.
-
-\subsection*{Dataset}
-\begin{itemize}
-    \item Collected CGM data from 8 patients with type 2 diabetes.
-    \item Data includes time-series blood glucose (BG) values.
-\end{itemize}
-
-\subsection*{Data Processing}
-\begin{itemize}
-    \item Removed NaN records to clean the data.
-    \item Applied feature extraction and dimensionality reduction techniques.
-    \item Split dataset into training (75\%) and testing (25\%) portions.
-\end{itemize}
-
-\subsection*{ML Approach}
 \begin{itemize}
     \item Used regression models: XGBoost, SARIMA, Prophet.
-    \item Evaluated using MAE, MSE, and R-squared (R²) metrics.
     \item Integrated dietary recommendations based on predicted BG levels.
 \end{itemize}
 
@@ -528,57 +513,6 @@ This study proposes a method to optimize type 2 diabetes management using AI-enh
     \item Time lag in CGM data must be addressed for better accuracy.
 \end{itemize}
 
-% ============================== ARTICLE 9 =====================================
-\section{Optimizing Type 2 Diabetes Management: AI-Enhanced Time Series Analysis of Continuous Glucose Monitoring Data for Personalized Dietary Intervention}
-\textbf{Article Reference:} \cite{article_9}
-
-\subsection*{Overview}
-This study proposes a method to optimize type 2 diabetes management using AI-enhanced time series analysis of continuous glucose monitoring (CGM) data. The goal is to enable personalized dietary interventions to improve patient outcomes.
-
-\subsection*{Dataset}
-\begin{itemize}
-    \item Collected CGM data from 8 patients with type 2 diabetes.
-    \item Data includes time-series blood glucose (BG) values.
-\end{itemize}
-
-\subsection*{Data Processing}
-\begin{itemize}
-    \item Removed NaN records to clean the data.
-    \item Applied feature extraction and dimensionality reduction techniques.
-    \item Split dataset into training (75\%) and testing (25\%) portions.
-\end{itemize}
-
-\subsection*{ML Approach}
-\begin{itemize}
-    \item Used regression models: XGBoost, SARIMA, Prophet.
-    \item Evaluated using MAE, MSE, and R-squared (R²) metrics.
-    \item Integrated dietary recommendations based on predicted BG levels.
-\end{itemize}
-
-\subsection*{Results}
-\begin{itemize}
-    \item XGBoost outperformed SARIMA and Prophet.
-    \item Achieved high R² and low MAPE.
-    \item Accurately predicted glucose fluctuations for timely intervention.
-\end{itemize}
-
-\subsection*{Challenges}
-\begin{itemize}
-    \item Limited dataset (only 8 patients) reduced model generalizability.
-    \item Up to ±30-minute lag in CGM readings affected prediction accuracy.
-\end{itemize}
-
-\subsection*{Future Directions}
-\begin{itemize}
-    \item Expand dataset to improve training and validation.
-    \item Enhance model with additional features and contextual data.
-\end{itemize}
-
-\subsection*{Critique}
-\begin{itemize}
-    \item Promising approach, but small sample limits robustness.
-    \item Time lag in CGM data must be addressed for better accuracy.
-\end{itemize}
 
 % ============================== ARTICLE 10 =====================================
 \section{Deep Q-Network (DQN) Model for Disease Prediction Using Electronic Health Records (EHRs)}
@@ -599,7 +533,7 @@ The paper addresses the challenges of using deep learning models for disease pre
     \item Robust scaling was applied for feature scaling.
 \end{itemize}
 
-\subsection*{ML Approach}
+\subsection*{Approach}
 \begin{itemize}
     \item The study uses a Deep Q-Network (DQN) model, which combines reinforcement learning with neural networks.
     \item This approach aims to address the limitations of traditional Q-learning and improve the accuracy and stability of disease predictions.
@@ -675,7 +609,7 @@ Key Results:
     \item Feature extraction was performed using convolutional neural networks pre-trained on the dataset.
 \end{itemize}
 
-\subsection*{ML Approach}
+\subsection*{Approach}
 \begin{itemize}
     \item Supervised Learning (SL): A convolutional neural network was fine-tuned for classifying seven categories of skin lesions.
     \item Reinforcement Learning (RL): A deep Q-learning model was developed using a multilayer perceptron that processed feature vectors derived from the SL model.
@@ -853,7 +787,6 @@ This paper presents PrescDRL, a novel framework that applies deep reinforcement 
 \begin{itemize}
     \item Cleaning and normalization of patient medical records.
     \item Standardization of herbal prescription information.
-    \item Conversion of medical data into appropriate state representations for the RL framework.
     \item Feature extraction from patient medical histories to capture relevant health indicators.
 \end{itemize}
 
@@ -923,22 +856,17 @@ This paper presents a novel deep reinforcement learning framework designed to ad
 
 \subsection*{Implementation of Reinforcement Learning}
 \begin{itemize}
-    \item \textbf{State (s):} Representation of the current data point being classified, including its features and context.
-    \item \textbf{Action (a):} Possible class assignments that the model can choose from.
-    \item \textbf{Reward (r):} Custom reward function designed to incentivize correct classifications, with higher rewards for accurately identifying minority classes.
+    \item \textbf{State :} Representation of the current data point being classified, including its features and context.
+    \item \textbf{Action :} Possible class assignments that the model can choose from.
+    \item \textbf{Reward :} Custom reward function designed to incentivize correct classifications, with higher rewards for accurately identifying minority classes.
     \item \textbf{Policy:} The strategy guiding the agent's decision-making process based on observed states.
-    \item \textbf{Environment (p):} The classification task context, including the dataset characteristics.
+    \item \textbf{Environment :} The classification task context, including the dataset characteristics.
     \item \textbf{Architecture:} Combined dueling and double deep Q-learning architectures to enhance state-value function learning efficiency.
 \end{itemize}
 
 \subsection*{Results}
-\begin{itemize}
-    \item Outperformed existing state-of-the-art imbalanced learning methods across multiple metrics.
-    \item Significantly improved sensitivity for minority classes while maintaining high specificity.
-    \item Demonstrated consistent performance across various out-of-sample validation datasets.
-    \item Achieved more balanced classification performance compared to traditional machine learning approaches.
-    \item Successfully generalized to data from different hospital trusts, indicating robust real-world applicability.
-\end{itemize}
+ Outperformed existing state-of-the-art imbalanced learning methods across multiple metrics.
+    
 
 \subsection*{Challenges}
 \begin{itemize}
@@ -984,22 +912,14 @@ The paper  addresses the challenge of tailoring treatment for critically ill pat
 \end{itemize}
 
 \subsection*{Data Processing}
-\begin{itemize}
-    \item Although specific preprocessing details are not exhaustively detailed, standard clinical data preparation techniques are implied:
-    \begin{itemize}
-        \item Data cleaning and handling of missing values.
-        \item Feature normalization to ensure model stability.
-        \item Temporal alignment of patient history for sequential modeling.
-    \end{itemize}
-\end{itemize}
 
 \subsection*{Implementation of Reinforcement Learning}
 \begin{itemize}
-    \item \textbf{State (s):} Includes both current and past observations of the patient's health status to enhance context-awareness.
-    \item \textbf{Action (a):} Represents the set of possible treatment decisions, such as medication dosages or intervention timings.
-    \item \textbf{Reward (r):} Guided by clinical insights, aiming to optimize patient outcomes based on treatment efficacy.
+    \item \textbf{State :} Includes both current and past observations of the patient's health status to enhance context-awareness.
+    \item \textbf{Action :} Represents the set of possible treatment decisions, such as medication dosages or intervention timings.
+    \item \textbf{Reward :} Guided by clinical insights, aiming to optimize patient outcomes based on treatment efficacy.
     \item \textbf{Policy:} Learned policy maximizes expected rewards by considering prior observations indicative of declining health.
-    \item \textbf{Environment (p):} The patient's evolving health condition within a clinical setting where the agent receives feedback.
+    \item \textbf{Environment :} The patient's evolving health condition within a clinical setting where the agent receives feedback.
     \item \textbf{Architecture:} Deep Attention Q-Network integrating Transformer modules for capturing long-term dependencies in patient data.
 \end{itemize}
 
@@ -1066,10 +986,10 @@ This paper explores the use of Deep Q-Learning (DQL) to optimize sequential trea
 
 \subsection*{Implementation of Reinforcement Learning}
 \begin{itemize}
-    \item \textbf{States (s):} Patient health conditions at each treatment decision point.
-    \item \textbf{Actions (a):} Treatment options chosen at each of the three decision stages.
-    \item \textbf{Rewards (r):} Based on survival and treatment-related toxicity using a defined reward function.
-    \item \textbf{Environment (p):} The clinical treatment trajectory where decisions influence future patient state transitions.
+    \item \textbf{States :} Patient health conditions at each treatment decision point.
+    \item \textbf{Actions :} Treatment options chosen at each of the three decision stages.
+    \item \textbf{Rewards :} Based on survival and treatment-related toxicity using a defined reward function.
+    \item \textbf{Environment :} The clinical treatment trajectory where decisions influence future patient state transitions.
 \end{itemize}
 
 \subsection*{Results}
@@ -1125,10 +1045,10 @@ This paper introduces an AI-based reinforcement learning (RL) algorithm for pers
 
 \subsection*{Implementation of Reinforcement Learning}
 \begin{itemize}
-    \item \textbf{States (s):} Include patient demographics, lab test results, and past treatment history at each encounter.
-    \item \textbf{Actions (a):} Represent the selected treatment regimens (pharmacologic subclasses or combinations).
-    \item \textbf{Rewards (r):} Defined by achieving target health outcomes (e.g., A1c < 7\%, BP within range, low CVD risk).
-    \item \textbf{Environment (p):} Simulated patient trajectory over time based on health states and treatments.
+    \item \textbf{States :} Include patient demographics, lab test results, and past treatment history at each encounter.
+    \item \textbf{Actions :} Represent the selected treatment regimens (pharmacologic subclasses or combinations).
+    \item \textbf{Rewards :} Defined by achieving target health outcomes (e.g., A1c < 7\%, BP within range, low CVD risk).
+    \item \textbf{Environment :} Simulated patient trajectory over time based on health states and treatments.
 \end{itemize}
 
 \subsection*{Results}
@@ -1175,7 +1095,6 @@ This paper proposes a deep reinforcement learning (DRL) approach, called PPORank
 \subsection*{Data Preprocessing}
 \begin{itemize}
     \item Excluded drug samples lacking PubChem IDs.
-    \item Harmonized gene expression datasets across sources.
     \item Final dataset contained 223 drugs after filtering.
 \end{itemize}
 
@@ -1329,7 +1248,7 @@ This study presents the development of an artificial intelligence (AI) system ba
 \hline
 \textbf{Work} & \textbf{Disease/Domain} & \textbf{Dataset} & \textbf{Data Processing} & \textbf{Approach} & \textbf{Results} \\
 \hline
-\cite{article_1} & Epilepsy & Phase III (235) + Validation (47) patients & Clinical + WGS feature extraction (e.g., SV2A), mutational scores, PRS & Gradient-Boosted Decision Trees & AUC: 0.76 (train), 0.75 (validation) \\
+\cite{article_1} & Epilepsy & Phase III (235) + Validation (47) patients &   & GBDT & AUC: 0.76 (train), 0.75 (validation) \\
 \hline
 \cite{article_2} & Diabetes Prediction & Pima Indian (768) + RTML (203) records & Imputation, ADASYN, Mutual Info, Holdout Validation & XGBoost + Ensemble Methods (voting, bagging) & AUC: 0.84, Accuracy: 81\%, F1 Score: 0.81 \\
 \hline
@@ -1337,39 +1256,39 @@ This study presents the development of an artificial intelligence (AI) system ba
 \hline
 \cite{article_4} & Diabetes & ECG recordings (71 datasets) & Pan-Tompkins for QRS detection & CNN-LSTM + SVM & Accuracy: 95.7\% \\
 \hline
-\cite{article_5} & Heart Disease & UCI Cleveland Heart Disease dataset & Feature selection, data augmentation, reinforcement-based iteration & RL + Data Augmentation & Accuracy: 94\% \\
+\cite{article_5} & Heart Disease & UCI Cleveland Heart Disease dataset & data augmentation & RL & Accuracy: 94\% \\
 \hline
-\cite{article_6} & Cardiovascular Disease & PCG datasets (GitHub + PhysioNet) & Minimal preprocessing on raw heart sound signals & Lightweight CRNN (CardioXNet) with dual learning (representation + sequence residual) & Accuracy: 99.6\% (GitHub), 86.57\% (PhysioNet), 0.67M params, $\sim$54.6ms latency \\
+\cite{article_6} & Cardiovascular Disease & PCG datasets (GitHub + PhysioNet) & Normalisation & Lightweight CRNN (CardioXNet) & Accuracy: 99.6\% (GitHub), 86.57\% (PhysioNet) \\
 \hline
-\cite{article_7} & Type 1 Diabetes & Clinical data from 87 patients (MGH, 2003–2013) & Discretization of HbA1c, BMI, activity level, alcohol usage into states & Q-Learning (model-free RL) for insulin dosing & 88\% RL suggestions matched physician dose \\
+\cite{article_7} & Type 1 Diabetes & Clinical data from 87 patients (MGH, 2003–2013) & Discretization & Q-Learning (model-free RL) & 88\% \\
 \hline
-\cite{article_8} & Cardiovascular Disease & Heart dataset (918 samples, 11 features) & Duplicate removal, Tree SHAP feature selection & Stacking fusion model with IoT-enhanced data inputs & Accuracy: 96\%, Stable AUC after feature pruning \\
+% \cite{article_8} & Cardiovascular Disease & Heart dataset (918 samples, 11 features) & Duplicate removal, Tree SHAP feature selection & Stacking fusion model with IoT-enhanced data inputs & Accuracy: 96\%, Stable AUC after feature pruning \\
+% \hline
+\cite{article_9} & Type 2 Diabetes & CGM data from 8 patients & NaN removal, feature extraction, dimensionality reduction, 75/25 train-test split & XGBoost, SARIMA, Prophet regression for BG prediction + dietary recommendations &  \\
 \hline
-\cite{article_9} & Type 2 Diabetes & CGM data from 8 patients & NaN removal, feature extraction, dimensionality reduction, 75/25 train-test split & XGBoost, SARIMA, Prophet regression for BG prediction + dietary recommendations & XGBoost: High R², low MAPE, effective BG prediction for personalized intervention \\
+\cite{article_10} & Heart Disease & UCI Heart Disease Dataset via Kaggle & Stratified 80/20 train-test split , robust scaling & Deep Q-Network (DQN) & Accuracy: 98.41\%, MSE: 0.0001 \\
 \hline
-\cite{article_10} & Heart Disease & UCI Heart Disease Dataset via Kaggle (14 attributes) & Stratified 80/20 train-test split with robust scaling & Deep Q-Network (DQN) with reinforcement learning & Accuracy: 98.41\%, MSE: 0.0001, outperformed traditional classifiers \\
+\cite{article_11} & Skin Cancer & HAM10000 dataset (10,000+ dermatoscopic images) & Feature extraction via CNN,  normalization  &  RL (Deep Q-learning), SL (CNN)  &  \\
 \hline
-\cite{article_11} & Skin Cancer & HAM10000 dataset (10,000+ dermatoscopic images) & Feature extraction via CNN, patient-level normalization for multiple lesions & Comparative RL (Deep Q-learning) vs SL (CNN) for decision support & Improved diagnostic and management decisions, optimal operating points on decision curves \\
+\cite{article_12} & Brain Tumor Localization & BraTS 2014 (T1-weighted contrast-enhanced MRI, 60 images total) & Grid-based image division, 60x60 pixel block navigation & Deep Q-Network (DQN) & 70\% accuracy vs 11\% for SL;\\
 \hline
-\cite{article_12} & Brain Tumor Localization & BraTS 2014 (T1-weighted contrast-enhanced MRI, 60 images total) & Grid-based image division, no augmentation, 60x60 pixel block navigation & Deep Q-Network (DQN) with position-based rewards in gridworld & 70\% accuracy vs 11\% for SL; high performance on small training data \\
+\cite{article_13} & Sepsis Treatment & 500 simulated patients using IIRABM &  & Deep Reinforcement Learning  &  \\
 \hline
-\cite{article_13} & Sepsis Treatment & 500 simulated patients using IIRABM & Continuous monitoring of cytokine levels, immune cell populations, and tissue damage metrics & Deep Reinforcement Learning with simulation-based approach for multicytokine therapy & Significant mortality reduction in simulated patients compared to standard antibiotic therapy \\
+\cite{article_14} & Diabetes Treatment & Custom benchmark dataset  &  Feature extraction & Deep RL  & 117-153\% improvement in single-step rewards, 40.5\% increase in precision, 63\% increase in recall \\
 \hline
-\cite{article_14} & Diabetes Treatment (TCM) & Custom benchmark dataset for sequential diagnosis and treatment of diabetes & Cleaning, normalization of medical records, standardization of herbal prescriptions & PrescDRL: Deep RL for optimizing herbal prescription sequences & 117-153\% improvement in single-step rewards, 40.5\% increase in precision, 63\% increase in recall vs. traditional prescriptions \\
+\cite{article_15} & Multi-class Clinical Classification & Real-world clinical datasets & Feature selection, normalization & Combined dueling and double deep Q-learning &  \\
 \hline
-\cite{article_15} & Multi-class Clinical Classification & Real-world clinical datasets with significant class imbalance from multiple hospital trusts & Feature selection, normalization, preparation for sequential decision-making & Combined dueling and double deep Q-learning for imbalanced classification & Superior sensitivity for minority classes while maintaining high performance for majority classes; successful generalization across hospital trusts \\
+\cite{article_16} & Sepsis and Acute Hypotension & Real-world datasets  &  & Transformer-based Deep Attention Q-Network &  better expected rewards than clinician policies \\
 \hline
-\cite{article_16} & Sepsis and Acute Hypotension & Real-world datasets (sepsis and acute hypotension patients) & Integration of historical patient observations, standard preprocessing (cleaning, normalization), offline dataset preparation & Transformer-based Deep Attention Q-Network, considering past observations for treatment recommendations & Outperformed LSTM and standard RL baselines in off-policy evaluation; better expected rewards than clinician policies \\
+\cite{article_17} & Oropharyngeal squamous cell carcinoma & 536 patient records (MD Anderson, 2005–2013) & Random split (75\% train, 25\% test); radiomics used in select training runs & Deep Q-Learning & Achieved 87.35\% mean accuracy; improved predicted survival by 3.73\% and reduced dysphagia by 0.75\% \\
 \hline
-\cite{article_17} & Oropharyngeal squamous cell carcinoma & 536 patient records (MD Anderson, 2005–2013), with radiomics features & Random split (75\% train, 25\% test); radiomics used in select training runs & Deep Q-Learning on 3-step MDP; state: patient condition, action: treatment step, reward: survival + toxicity & Achieved 87.35\% mean accuracy; improved predicted survival by 3.73\% and reduced dysphagia by 0.75\% \\
+\cite{article_18} & Type 2 diabetes & 16,665 EHRs from NYU Langone (2009–2017) & 60\% train, 40\% test; excluded non-longitudinal or emergency visits & RL models & High concordance with clinicians; better outcomes in disagreement cases (86.1\% for glycemia, 98.4\% for CVD) \\
 \hline
-\cite{article_18} & Type 2 diabetes with multimorbidity & 16,665 EHRs from NYU Langone (2009–2017) & 60\% train, 40\% test; excluded non-longitudinal or emergency visits & RL models for glycemia, BP, and CVD; actions: treatments; states: labs, history; rewards: target outcomes & High concordance with clinicians; better outcomes in disagreement cases (86.1\% for glycemia, 98.4\% for CVD) \\
+\cite{article_19} & Cancer therapy personalization & 1080 RNA-seq patients, 223 drugs, TCGA + GDSC & Filtered samples by PubChem ID & PPORank (DRL), actor-critic with PPO; ranks treatments by optimizing NDCG & next to 0.8 NDCG \\
 \hline
-\cite{article_19} & Cancer therapy personalization & 1080 RNA-seq patients, 223 drugs, TCGA + GDSC & Filtered samples by PubChem ID, harmonized gene expression data & PPORank (DRL), actor-critic with PPO; ranks treatments by optimizing NDCG & Outperformed SOTA supervised methods; sample-efficient and stable under high-dimensional data \\
+\cite{article_20} & COVID-19 diagnosis using CT images & 1,065 CT images & ROI extraction, resized to 299x299, RGB conversion  & Modified Inception model (M-inception), fine-tuned with transfer learning & 89.5\% accuracy on internal validation; 85.2\% on difficult false-negative cases \\
 \hline
-\cite{article_20} & COVID-19 diagnosis using CT images & 1,065 CT images (including COVID-19, viral pneumonia, and false negatives) & ROI extraction, resized to 299x299, RGB conversion for model input & Modified Inception model (M-inception), fine-tuned with transfer learning & 89.5\% accuracy on internal validation; 85.2\% on difficult false-negative cases \\
-\hline
-\cite{article_21} & Macular degeneration, diabetic retinopathy, pneumonia & OCT images (108,312) + Chest X-rays (5,232 + 624 test) & Quality filtering of OCT images, categorization by diagnosis & Transfer learning with pre-trained CNN for medical image classification & 96.6\% accuracy (OCT), 92.8\% accuracy (pneumonia X-rays) \\
+\cite{article_21} &  & OCT images (108,312) + Chest X-rays (5,232 + 624 test) &  & Transfer learning with pre-trained CNN  & 96.6\% accuracy (OCT), 92.8\% accuracy (pneumonia X-rays) \\
 \hline
 \end{tabular}
 \caption{Comparison of AI Approaches in Health Applications}
