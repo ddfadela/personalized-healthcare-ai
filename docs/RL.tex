@@ -282,5 +282,57 @@ The Bellman Equation models how the present decision influences long-term health
     \item \textbf{Personalized Drug Dosing:} Recommending dosages based on patient trajectory.
     \item \textbf{Radiology:} Optimal scan protocols, anomaly detection from image data.
 \end{itemize}
+\section{Actor-Critic Methods and Proximal Policy Optimization (PPO)}
+
+Actor-Critic methods combine the strengths of both value-based and policy-based approaches. They maintain two models:
+
+\begin{itemize}
+    \item \textbf{Actor:} Learns the policy $\pi(a|s)$ — how to act.
+    \item \textbf{Critic:} Learns a value function $V(s)$ or $Q(s,a)$ — how good an action is in a given state.
+\end{itemize}
+
+The actor updates the policy based on feedback from the critic, which evaluates the action taken.
+
+\subsection{Proximal Policy Optimization (PPO)}
+
+PPO is a widely used Actor-Critic algorithm that improves training stability by preventing large policy updates.
+
+\begin{itemize}
+    \item Uses a clipped surrogate objective to limit the policy update step size.
+    \item Ensures monotonic improvement of the policy.
+    \item Balances exploration and exploitation efficiently.
+\end{itemize}
+
+\subsubsection*{PPO Objective Function}
+
+PPO maximizes the following clipped objective:
+
+\[
+L^{CLIP}(\theta) = \mathbb{E}_t \left[ \min \left( r_t(\theta) \hat{A}_t, \text{clip}(r_t(\theta), 1 - \epsilon, 1 + \epsilon) \hat{A}_t \right) \right]
+\]
+
+Where:
+\begin{itemize}
+    \item $r_t(\theta) = \frac{\pi_\theta(a_t|s_t)}{\pi_{\theta_{\text{old}}}(a_t|s_t)}$: Probability ratio between new and old policies.
+    \item $\hat{A}_t$: Estimated advantage function.
+    \item $\epsilon$: Clipping parameter (e.g., 0.2).
+\end{itemize}
+
+The clipped term ensures updates do not move the policy too far from the previous one, preserving stability.
+
+\subsubsection*{Algorithm Steps}
+\begin{enumerate}
+    \item Collect trajectories using the current policy.
+    \item Estimate advantage values using the critic.
+    \item Optimize the actor using the clipped objective.
+    \item Update the critic by minimizing value function loss.
+    \item Repeat with updated parameters.
+\end{enumerate}
+
+\subsection*{Healthcare Example}
+
+\textbf{Personalized Treatment Recommendations:} PPO can be used in continuous state and action spaces, such as adjusting drug dosages in real-time for chronic disease patients. The actor suggests a treatment, while the critic evaluates the expected benefit, allowing the system to learn safe and effective personalized care policies.
+
 
 \end{document}
+
