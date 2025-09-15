@@ -53,13 +53,11 @@ The use of Artificial Intelligence (AI) in healthcare has opened new avenues for
 \hline
 \cite{article_4} & Diabetes & ECG recordings (71 datasets) & Pan-Tompkins for QRS detection & CNN-LSTM + SVM & Accuracy: 95.7\% \\
 \hline
-
 \cite{article_6} & Cardiovascular Disease & PCG datasets (GitHub + PhysioNet) & Normalization & Lightweight CRNN (CardioXNet) & Accuracy: 99.6\% (GitHub), 86.57\% (PhysioNet) \\
 \hline
-
 \cite{article_9} & Type 2 Diabetes & CGM data from 8 patients & NaN removal, feature extraction, dimensionality reduction, 75/25 split & XGBoost, SARIMA, Prophet regression for BG prediction & Not specified \\
 \hline
-\cite{article_20} & COVID-19 diagnosis & 1,065 CT images & ROI extraction, 299x299 resize, RGB conversion & M-inception, fine-tuned transfer learning & 89.5\% internal validation; 85.2\% on difficult cases \\
+\cite{article_20} & COVID-19 diagnosis & 1,065 CT images & ROI extraction, 299x299 resize, RGB conversion & M-Inception, fine-tuned transfer learning & 89.5\% internal validation; 85.2\% on difficult cases \\
 \hline
 \cite{article_21} & Medical imaging diagnostics & OCT (108,312) + X-rays (5,856) & Not specified & Transfer learning with pre-trained CNN & 96.6\% (OCT), 92.8\% (pneumonia) \\
 \hline
@@ -67,27 +65,31 @@ The use of Artificial Intelligence (AI) in healthcare has opened new avenues for
 \hline
 \cite{article_7} & Type 1 Diabetes & Clinical data from 87 patients (MGH, 2003--2013) & Discretization & Q-Learning (model-free RL) & Accuracy: 88\% \\
 \hline
-
 \cite{article_10} & Heart Disease & UCI Heart Disease Dataset via Kaggle & Stratified 80/20 split, robust scaling & Deep Q-Network (DQN) & Accuracy: 98.41\%, MSE: 0.0001 \\
 \hline
 \cite{article_11} & Skin Cancer & HAM10000 dataset (10,000+ dermatoscopic images) & Feature extraction via CNN, normalization & RL (Deep Q-learning), SL (CNN) & Not specified \\
 \hline
-
 \cite{article_12} & Brain Tumor Localization & BraTS 2014 (T1-weighted MRI, 60 images) & Grid-based image division, 60x60 pixel navigation & Deep Q-Network (DQN) & 70\% accuracy vs 11\% for SL \\
 \hline
-\cite{article_13} & Sepsis Treatment & 500 simulated patients using IIRABM & Not specified & Deep Reinforcement Learning & Not specified \\
+\cite{article_13} & Sepsis Treatment & 500 simulated patients using IIRABM & Not specified & Deep Reinforcement Learning (DRL) & Not specified \\
 \hline
-\cite{article_14} & Diabetes Treatment & Custom benchmark dataset & Feature extraction & Deep Reinforcement Learning & 117-153\% improvement in rewards, 40.5\% precision, 63\% recall \\
+\cite{article_14} & Diabetes Treatment & Custom benchmark dataset & Feature extraction & Deep Reinforcement Learning (DRL) & 117-153\% improvement in rewards, 40.5\% precision, 63\% recall \\
 \hline
-\cite{article_15} & Multi-class Clinical Classification & Real-world clinical datasets & Feature selection, normalization & Combined dueling and double deep Q-learning & Not specified \\
+\cite{article_15} & Multi-class Clinical Classification & Real-world clinical datasets & Feature selection, normalization & Combined Dueling and Double Deep Q-learning & Not specified \\
 \hline
 \cite{article_16} & Sepsis and Acute Hypotension & Real-world datasets & Not specified & Transformer-based Deep Attention Q-Network & Better expected rewards than clinician policies \\
 \hline
 \cite{article_17} & Oropharyngeal squamous cell carcinoma & 536 patient records (MD Anderson, 2005--2013) & 75/25 split; radiomics in select training runs & Deep Q-Learning & 87.35\% accuracy; +3.73\% survival, -0.75\% dysphagia \\
 \hline
-\cite{article_18} & Type 2 diabetes & 16,665 EHRs from NYU Langone (2009--2017) & 60/40 split; excluded non-longitudinal visits & RL models & High clinician concordance; better outcomes (86.1\% glycemia, 98.4\% CVD) \\
+\cite{article_18} & Type 2 Diabetes & 16,665 EHRs from NYU Langone (2009--2017) & 60/40 split; excluded non-longitudinal visits & Reinforcement Learning (RL) models & High clinician concordance; better outcomes (86.1\% glycemia, 98.4\% CVD) \\
 \hline
-\cite{article_19} & Cancer therapy personalization & 1080 RNA-seq patients, 223 drugs, TCGA + GDSC & Filtered by PubChem ID & PPORank (DRL), actor-critic with PPO & NDCG close to 0.8 \\
+\cite{article_19} & Cancer therapy personalization & 1080 RNA-seq patients, 223 drugs, TCGA + GDSC & Filtered by PubChem ID & PPORank (DRL), Actor-Critic with PPO & NDCG close to 0.8 \\
+\hline
+\cite{article_22} & Type 1 Diabetes (Artificial Pancreas) & Simglucose simulator (30 virtual patients) & State definition, reward engineering, normalization & Enhanced PPO (DRL) with dual safety & Median TIR: 87.45\%; eliminated severe hypoglycemia \\
+\hline
+\cite{article_23} & COVID-19 Detection (X-Ray) & Combined X-ray datasets (COVID-19, other pneumonia, healthy) & Resizing, normalization, data augmentation, labeling & Transfer Learning with CNNs (e.g., VGG, ResNet) & High accuracy (typically $>$90\%); rapid screening \\
+\hline
+\cite{article_24} & Mechanical Ventilation Optimization & Retrospective ICU patient EHR data (Physiological/Ventilator settings) & Cleaning, imputation, feature engineering, state/action/reward definition & Offline Reinforcement Learning (RL) & Improved physiological parameters; potential for reduced ventilation duration \\
 \hline
 
 \end{tabular}
