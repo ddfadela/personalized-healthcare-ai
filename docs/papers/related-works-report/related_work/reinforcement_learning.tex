@@ -1994,3 +1994,302 @@ RL is applied across diverse clinical domains:
     \item \textbf{Ethical and Regulatory Frameworks:} Federated learning and privacy-preserving RL for secure, decentralized model training.
     \item \textbf{Interdisciplinary Collaboration:} Involvement of AI researchers, clinicians, ethicists, and patients for responsible system design.
 \end{itemize}
+
+
+% ============================== ARTICLE 39 =====================================
+\section{A Dosing Strategy Model of Deep Deterministic Policy Gradient Algorithm for Sepsis}
+\textbf{Article Reference:} \cite{linDosingStrategyModel2022}
+
+\subsection*{Overview}
+This paper introduces an AI-based clinical decision support system for sepsis treatment using the Deep Deterministic Policy Gradient (DDPG) algorithm. The model aims to guide clinicians in determining optimal dosages of vasopressors and intravenous fluids for sepsis patients, improving upon previous approaches that used Deep Q-Learning Networks (DQN).
+
+\subsection*{Dataset and Preprocessing}
+\begin{itemize}
+    \item \textbf{Data Source:} MIMIC-III v1.4 database, a large, publicly available critical care dataset.
+    \item \textbf{Cohort:} Hospitalization records for 38,600 adult patients (age $>$ 15 years).
+    \item \textbf{Features:} 12 clinical variables, including heart rate, mean arterial pressure, temperature, respiratory rate, oxygen saturation, white blood cell count, pH, and lactate levels.
+\end{itemize}
+
+\subsection*{Reinforcement Learning Approach}
+The sepsis treatment problem is formulated as a Markov Decision Process (MDP):
+
+\begin{itemize}
+    \item \textbf{State Space:} Defined by the 12 clinical features extracted from the MIMIC-III database, representing the patient's current condition.
+    \item \textbf{Action Space:} Combination of intravenous fluid volume and vasopressor dose, discretized into 25 possible action pairs.
+    \item \textbf{Reward Mechanism:}
+    \begin{itemize}
+        \item $+15$ for patient survival.
+        \item $-15$ for patient death.
+        \item Smaller positive rewards for improvements in SOFA score and lactate levels.
+        \item Negative rewards for worsening SOFA score or lactate.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Implementation}
+\begin{itemize}
+    \item The model uses the Deep Deterministic Policy Gradient (DDPG) algorithm, a deep reinforcement learning method suitable for continuous action spaces (though actions were discretized here).
+    \item The DDPG-based model was compared to a previous DQN-based model using the same dataset and setup.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item \textbf{Training Efficiency:} The DDPG model converged 1.7 times faster than the DQN model.
+    \item \textbf{Treatment Alignment:} The DDPG model's recommendations matched clinician actions exactly in 75\% of cases, double the rate of the DQN model.
+    \item \textbf{Patient Survival:} Patients treated according to the DDPG model's recommendations had higher survival rates than those treated by the DQN model or by clinicians alone.
+\end{itemize}
+
+\subsection*{Critique, Challenges, and Future Work}
+\begin{itemize}
+    \item \textbf{Generalizability:} The study relies on a single dataset (MIMIC-III), which may limit the applicability of findings to other populations or healthcare systems.
+    \item \textbf{Model Limitations:} The model does not capture the full complexity of real-world clinical decision-making.
+    \item \textbf{Future Directions:}
+    \begin{itemize}
+        \item Test the model on additional datasets to assess generalizability.
+        \item Incorporate more complex variables and nuanced patient state representations.
+        \item Use the model as a decision support tool, not a replacement for clinician expertise.
+    \end{itemize}
+\end{itemize}
+
+% ============================== ARTICLE 40 =====================================
+\section{A Closed-Loop Healthcare Processing Approach Based on Deep Reinforcement Learning}
+\textbf{Article Reference:} \cite{daiClosedloopHealthcareProcessing2022}
+
+\subsection*{Overview}
+This paper proposes a novel framework for healthcare information processing that operates as a virtual, dynamic "closed loop" using a Deep Neural Network (DNN)-based human body simulator and a Deep Reinforcement Learning (DRL) treatment module. The primary objective is to create a safe, cost-effective, and efficient platform for testing and discovering effective healthcare intervention strategies without the need for real human subjects.
+
+\subsection*{Framework Components}
+The framework consists of two main interacting modules:
+\begin{itemize}
+    \item \textbf{DNN-based Body Simulator:} Serves as a "virtual patient." This deep neural network receives interventions (e.g., drug doses) as input and outputs physiological observations (e.g., blood pressure, heart rate) that reflect a hidden health state. The simulator is designed to capture real-world biological complexities, including the possibility of unreachable health states.
+    \item \textbf{DRL Treatment Module:} Acts as a "virtual doctor." This end-to-end deep reinforcement learning agent receives observations from the body simulator, infers the patient's latent health state, and recommends an intervention strategy. The DRL agent learns through trial and error to maximize long-term rewards, which are defined by successfully moving the patient toward a healthy state. For continuous actions, actor-critic methods such as Deep Deterministic Policy Gradient (DDPG) can be used.
+\end{itemize}
+
+\subsection*{Reinforcement Learning Implementation}
+The healthcare process is modeled as a Markov Decision Process (MDP):
+\begin{itemize}
+    \item \textbf{Agent:} The DRL treatment module.
+    \item \textbf{Environment:} The DNN-based body simulator.
+    \item \textbf{State:} The patient's health condition, represented by high-dimensional observations from the simulator.
+    \item \textbf{Actions:} Specific interventions or treatment strategies chosen by the DRL agent.
+    \item \textbf{Reward:} Feedback signal guiding the agent's learning, with positive rewards for successfully restoring the body to a healthy state.
+\end{itemize}
+
+This closed-loop system enables the virtual doctor (DRL agent) to continuously learn and refine its treatment policy by interacting with the virtual patient (body simulator). The agent starts with minimal knowledge and improves its decision-making through repeated interactions, analogous to experiential learning in human clinicians.
+
+\subsection*{Challenges and Future Work}
+\begin{itemize}
+    \item \textbf{Complexity:} Accurately simulating the human body's nonlinear, delayed, and variable responses remains a significant challenge.
+    \item \textbf{Ethical Concerns:} While the framework avoids direct patient risk, ethical data collection and patient privacy must be ensured when training the simulator.
+    \item \textbf{Clinical Integration:} Applying such a system in real clinical settings will require robust integration with clinician workflows, as well as ensuring the reliability and interpretability of the model's recommendations.
+\end{itemize}
+
+% ============================== ARTICLE 41 =====================================
+\section{A Reinforcement Learning Framework for Real-Time Personalized Treatment Planning in Clinical Environments}
+\textbf{Article Reference:} \cite{gorrepatiReinforcementLearningFramework2025}
+
+\subsection*{Abstract and Purpose}
+This paper introduces a reinforcement learning (RL) framework for real-time, personalized healthcare with the goal of optimizing treatment strategies for individual patients. The system models the patient-treatment environment as a Partially Observable Markov Decision Process (POMDP), enabling decision-making under uncertainty. The framework aims to select optimal interventions by balancing long-term clinical outcomes, risks, costs, and adherence to medical guidelines.
+
+\subsection*{Methodology and Key Components}
+The proposed hybrid framework leverages a deep policy network trained with Proximal Policy Optimization (PPO) and consists of several key modules:
+\begin{itemize}
+    \item \textbf{Data Collection:} Aggregates diverse patient data, including Electronic Health Records (EHRs), laboratory tests, and medical imaging.
+    \item \textbf{Data Preprocessing:} Handles missing values and normalizes data for consistent scaling.
+    \item \textbf{Feature Extraction:} Applies dimensionality reduction techniques such as Principal Component Analysis (PCA) and Variational Autoencoders (VAEs) to transform high-dimensional data into concise latent state representations.
+    \item \textbf{DRL Model:} Utilizes an actor-critic framework with a recurrent architecture (e.g., LSTM) to capture temporal dependencies. Integrates Bayesian uncertainty estimation to inform action selection under uncertainty.
+    \item \textbf{Reward Function:} Combines health improvement, treatment cost, and risk into a weighted reward signal.
+    \item \textbf{Off-Policy Data Augmentation:} Employs a model-based simulator to augment data and enhance optimization.
+    \item \textbf{Safety and Interpretability:} Incorporates auxiliary risk predictors, interpretable mechanisms (e.g., attention heatmaps, SHAP value visualizations), and action masking to ensure only medically feasible actions are taken and to build clinician trust.
+\end{itemize}
+
+\subsection*{Results and Performance}
+The framework was evaluated on over 50,000 patient records and in simulated environments, demonstrating superior performance:
+\begin{itemize}
+    \item \textbf{Accuracy and F1-score:} Achieved 93.6\% accuracy and a 0.937 F1-score, outperforming supervised CNN, Q-learning, PPO baseline, and rule-based expert models. Performance was consistent across subgroups (age, gender, comorbidities) with F1-scores above 0.930.
+    \item \textbf{ROC-AUC:} Demonstrated strong discriminative power with an AUC of 0.964, surpassing all benchmark models.
+    \item \textbf{Treatment Efficiency:} Required 12.6\% fewer treatment cycles to reach recovery criteria compared to supervised CNN models and 15.8\% fewer than rule-based systems, reducing patient burden and operational costs.
+    \item \textbf{Scalability and Stability:} Showed less than 1.8\% decline in accuracy when evaluated on a synthetic dataset expanded to 200,000 patients, confirming suitability for large-scale deployment. Policy demonstrated strong temporal consistency (cosine similarity $>0.992$).
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item \textbf{Data and State Space:} High-dimensional, partially observable state spaces with complex relationships among physiological, genetic, and environmental factors.
+    \item \textbf{Data and Feedback Issues:} Stochastic treatment responses, unmeasured confounders, and limited clinical data complicate learning. Medical interventions often provide delayed and infrequent feedback.
+    \item \textbf{Safety and Ethics:} Ethical and safety constraints limit available actions; the learning process must balance exploration and exploitation to minimize adverse events.
+\end{itemize}
+
+\subsection*{Future Work}
+\begin{itemize}
+    \item \textbf{Framework Expansion:} Extend to multi-agent cooperative settings.
+    \item \textbf{System Integration:} Integrate with hospital Electronic Medical Record (EMR) systems.
+    \item \textbf{Clinical Validation:} Validate through real-time clinical trials in intensive care and chronic disease management.
+\end{itemize}
+
+% ============================== ARTICLE 42 =====================================
+\section{A New Approach Using Deep Learning and Reinforcement Learning in Healthcare: Skin Cancer Classification}
+\textbf{Article Reference:} \cite{dahdouhNewApproachUsing2023}
+
+\subsection*{Overview}
+This paper proposes a hybrid model that combines Deep Learning (Convolutional Neural Network, CNN) and Reinforcement Learning (Deep Q-Learning, DQN) for the detection and classification of skin cancer from dermoscopic images. The goal is to assist clinicians by improving diagnostic accuracy and robustness in multi-class skin cancer classification. The model achieved an accuracy of 80\%, outperforming several other methods cited in the study.
+
+\subsection*{Dataset}
+The model was trained and evaluated on the publicly available HAM10000 dataset, which contains 10,015 dermoscopic images of seven skin cancer types:
+\begin{itemize}
+    \item Actinic keratosis (327 images)
+    \item Basal cell carcinoma (541 images)
+    \item Benign keratosis (1,099 images)
+    \item Dermatofibroma (155 images)
+    \item Melanocytic nevi (6,705 images)
+    \item Melanoma (1,113 images)
+    \item Vascular skin lesions (142 images)
+\end{itemize}
+Original images (600$\times$450 pixels, RGB) were resized to 28$\times$28 pixels to reduce computational complexity. The dataset was randomly split: 80\% for training and 20\% for testing.
+
+\subsection*{Preprocessing of Data}
+\begin{itemize}
+    \item Images are resized to 28$\times$28 pixels.
+    \item Cleaning steps such as hair removal are applied.
+    \item Images are normalized for consistent input scaling.
+    \item Labels are converted using One-Hot Encoding.
+\end{itemize}
+
+\subsection*{Methodology}
+The proposed approach integrates several steps:
+\begin{itemize}
+    \item \textbf{Segmentation:} The Watershed Algorithm is used to segment images and extract affected areas.
+    \item \textbf{Feature Extraction and Classification:} A deep CNN extracts features from segmented images and classifies them into one of the seven skin cancer types. The CNN architecture includes convolutional layers, pooling, activation functions, Batch Normalization, Dropout, and a Softmax output layer.
+    \item \textbf{Reinforcement Learning Integration:} The Deep Q-Learning (DQN) algorithm is used to train and retrain the CNN. The CNN outputs a probability distribution (state), and the DQN environment predicts a state value. The DQN selects images with high prediction values as "actions" to further train the CNN, iteratively improving accuracy in a closed-loop process.
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item The hybrid CNN+DQN model achieved an accuracy of 80\% on the HAM10000 test set.
+    \item This performance surpassed several other methods referenced in the paper.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Multi-class skin cancer classification is challenging due to the visual similarity between malignant tumors and benign moles.
+    \item Existing clinical techniques are limited, motivating the use of AI-based approaches.
+\end{itemize}
+
+\subsection*{Future Work}
+\begin{itemize}
+    \item Incorporate more specific and clean datasets to further improve model performance.
+    \item Explore advanced deep reinforcement learning algorithms for enhanced classification accuracy.
+\end{itemize}
+
+% ============================== ARTICLE 43 =====================================
+\section{Reinforcement Learning and Its Clinical Applications Within Healthcare: A Systematic Review of Precision Medicine and Dynamic Treatment Regimes}
+\textbf{Article Reference:} \cite{frommeyerReinforcementLearningIts2025}
+
+\subsection*{Summary of the Paper}
+This systematic review evaluates recent advancements in the use of Reinforcement Learning (RL) in healthcare, with a focus on precision medicine and dynamic treatment regimes (DTR). The review highlights clinical fields of application and proposes frameworks for future integration into medical practice. The authors analyzed 46 studies published between January 2014 and December 2024, finding that RL offers significant opportunities to augment clinical decision-making by enabling dynamic and individualized patient care.
+
+\subsection*{Approach and Implementation}
+\begin{itemize}
+    \item The review followed PRISMA guidelines for systematic reviews.
+    \item Literature search was conducted across PubMed, MEDLINE, and Web of Science databases.
+    \item Inclusion criteria focused on RL applications in precision medicine and dynamic treatment regimes.
+    \item Data extracted included study characteristics, RL algorithms used, specialty area, and outcomes.
+    \item RL applications were most concentrated in endocrinology, critical care, oncology, and behavioral health.
+    \item Hybrid and value-based RL methods were the most utilized.
+    \item No specific dataset was used, as the review summarizes other studies.
+\end{itemize}
+
+\subsection*{Challenges}
+The review identifies several challenges for RL implementation in clinical practice:
+\begin{itemize}
+    \item \textbf{Interpretability and Transparency:} RL algorithms often lack transparency, making it difficult for clinicians to understand and trust the decision-making process.
+    \item \textbf{Defining the Reward Function:} Clinical rewards are complex, encompassing survival, tolerability, cost, and quality of life. Aligning RL reward functions with clinical goals is challenging.
+    \item \textbf{Data and Computation Limitations:} RL requires large amounts of data and significant computational resources, which is problematic for rare diseases and limited datasets.
+    \item \textbf{Reproducibility:} Limited benchmarks and intrinsic algorithmic variance hinder reproducibility, compounded by stochastic environments and hyperparameter dependencies.
+\end{itemize}
+
+\subsection*{Future Work}
+The authors suggest several directions for future research:
+\begin{itemize}
+    \item \textbf{Addressing Barriers:} Overcome challenges related to transparency, data availability, and integration with clinical workflows to facilitate RL adoption in medical practice.
+    \item \textbf{Developing Research Taxonomy:} Create a taxonomy to help clinicians understand RL fundamentals, applications, benefits, and challenges.
+    \item \textbf{Hybrid Approaches:} Explore combining RL with other deep learning architectures (e.g., vision transformers, multimodal models) to improve interpretation of complex clinical data.
+    \item \textbf{Quantitative Syntheses:} Incorporate quantitative analyses in future reviews to strengthen evidence-based conclusions.
+\end{itemize}
+
+% ============================== ARTICLE 44 =====================================
+\section{Optimizing Warfarin Dosing Using Deep Reinforcement Learning}
+\textbf{Article Reference:} \cite{zadehOptimizingWarfarinDosing2023}
+
+\subsection*{Overview and Objective}
+This paper proposes a Deep Reinforcement Learning (DRL) model to personalize and optimize warfarin dosing, aiming to maintain a patient's International Normalized Ratio (INR) within the safe therapeutic range (2.0 to 3.0). The approach addresses the challenges of warfarin's narrow therapeutic index (NTI), where small dosing errors can lead to severe complications. The DRL protocol is trained in silico and shown to outperform established clinical dosing protocols.
+
+\subsection*{Dataset Used}
+\begin{itemize}
+    \item \textbf{Simulator:} A Pharmacokinetic/Pharmacodynamic (PK/PD) model of warfarin (Hamberg et al.) was used to create a virtual patient environment.
+    \item \textbf{Virtual Patient Characteristics:} Patient features (Age, CYP2C9, VKORC1 genotypes) were statistically generated based on a real-world database of over 14,000 patients from Aurora Health Care, ensuring realistic variability.
+    \item \textbf{No Real Patient Data:} The model was trained and evaluated entirely in simulation.
+\end{itemize}
+
+\subsection*{Approach and Implementation}
+The dosing problem is formulated as a sequential decision-making task using a Markov Decision Process (MDP), solved by a Deep Q-learning algorithm.
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item \textbf{Agent:} The DRL model learns the optimal dosing policy.
+    \item \textbf{Environment:} The PK/PD simulation model of warfarin.
+    \item \textbf{State (S):} Composed of:
+    \begin{itemize}
+        \item Latest measured INR value ($\mu_n$)
+        \item Static patient information ($P$): Age and genotypes
+        \item History ($H_{h_n}$): Recent INR values and corresponding doses
+    \end{itemize}
+    \item \textbf{Action (A):} Dosing decision ($x_n$), defined by:
+    \begin{itemize}
+        \item Daily dose ($d_n$) in 0.5 mg increments (up to 15.0 mg)
+        \item Duration ($\tau_n$): Number of days to take the dose
+    \end{itemize}
+    \item \textbf{Reward Function (R):} The reward is the negative of the total penalty, where the penalty for each day is the quadratic distance of the day's INR from the target value of 2.5. This heavily penalizes out-of-range INR values, encouraging stable, therapeutic dosing.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item \textbf{Lack of Interpretability:} The Deep Q-learning model is a "black box," making it difficult for clinicians to understand or trust its recommendations.
+    \item \textbf{Data Scarcity for Real-World Trials:} Ethical and practical constraints limit the availability of diverse real-world data for empirical model training.
+    \item \textbf{Bias Against Rare Genotypes:} Rare genotypes are underrepresented in training, potentially leading to unsafe dosing for sensitive patient groups.
+\end{itemize}
+
+\subsection*{Future Work}
+\begin{itemize}
+    \item \textbf{Policy Generalization:} Oversample rare genotypes during training to ensure safe and effective dosing for all patient subgroups.
+    \item \textbf{Advanced Patient Models:} Incorporate more complex dose-response models (e.g., PBPK models) for greater realism and generalizability.
+    \item \textbf{Alternative DRL Algorithms:} Explore Policy Gradient methods for potentially improved interpretability and direct action selection.
+\end{itemize}
+
+% ============================== ARTICLE 45 =====================================
+\section{Reinforcement Learning in Healthcare: Applications for Personalized Treatment Planning and Clinical Decision Support}
+\textbf{Article Reference:} \cite{deshmukhReinforcementLearningHealthcare2024}
+
+\subsection*{Overview and Objective}
+This paper highlights the unique capability of reinforcement learning (RL) to support dynamic, sequential medical decision-making. RL agents learn to make a sequence of decisions by interacting with an environment to maximize long-term rewards, making RL well-suited for real-time, patient-specific clinical decision support. The goal is to show how RL can help clinicians incorporate patient preferences, clinical guidelines, and real-time data into treatment planning.
+
+\subsection*{Key Applications Discussed}
+RL is applied across several areas of medicine:
+\begin{itemize}
+    \item \textbf{Personalized Treatment Planning for Chronic Diseases:} Dynamic adjustment of drug dosages for conditions such as HIV, cancer, and diabetes (e.g., insulin pumps).
+    \item \textbf{Adaptive Clinical Trial Design:} Optimization of trial procedures to efficiently test new treatments.
+    \item \textbf{Resource Allocation:} Improving hospital operations, including scheduling, bed allocation, and patient flow management.
+    \item \textbf{Medical Imaging:} Guiding imaging acquisition and analysis by identifying optimal scan protocols.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item \textbf{Data Scarcity and Quality:} RL models require large amounts of high-quality, sequential data, which is often limited, noisy, or incomplete in clinical settings.
+    \item \textbf{Safety and Ethics:} The exploration phase of RL is risky in patient care; safety constraints must be integrated into RL algorithms.
+    \item \textbf{Interpretability (Black Box Problem):} Clinicians need transparent, explainable recommendations to ensure patient safety and build trust, which is challenging with complex deep RL models.
+\end{itemize}
+
+\subsection*{Future Work}
+\begin{itemize}
+    \item \textbf{Safe and Interpretable RL:} Develop RL architectures that are inherently safe and provide clear reasoning for their actions to facilitate clinical adoption.
+    \item \textbf{Integrating Multimodal Data:} Effectively utilize heterogeneous, time-dependent data from EHRs, lab results, and imaging to create holistic patient state representations.
+    \item \textbf{Transfer Learning:} Enable RL agents to generalize knowledge across different hospitals and patient populations, rather than being confined to the environment they were trained in.
+\end{itemize}
