@@ -834,10 +834,10 @@ This study focuses on developing a safe and efficient Deep Reinforcement Learnin
 
 \subsection*{Challenges}
 \begin{itemize}
-    \item **Safety in Real-world Application**: Ensuring absolute safety and stability of DRL algorithms in a life-critical medical device for human patients remains a paramount challenge.
-    \item **Interpretability**: The "black box" nature of deep learning models can make it difficult to understand *why* certain insulin decisions are made, potentially hindering clinical trust and regulatory approval.
-    \item **Generalizability**: While tested on 30 virtual patients, generalizing performance to the full spectrum of real-world patient variability (e.g., exercise, stress, illness) is an ongoing challenge.
-    \item **Computational Cost**: Training complex DRL models can be computationally intensive.
+    \item Safety in Real-world Application: Ensuring absolute safety and stability of DRL algorithms in a life-critical medical device for human patients remains a paramount challenge.
+    \item Interpretability: The "black box" nature of deep learning models can make it difficult to understand *why* certain insulin decisions are made, potentially hindering clinical trust and regulatory approval.
+    \item Generalizability: While tested on 30 virtual patients, generalizing performance to the full spectrum of real-world patient variability (e.g., exercise, stress, illness) is an ongoing challenge.
+    \item Computational Cost: Training complex DRL models can be computationally intensive.
 \end{itemize}
 
 \subsection*{Future Directions}
@@ -1025,7 +1025,7 @@ This study introduces a novel cluster-applied deep reinforcement learning (DRL) 
     \item \textbf{Disease Scope Expansion}: Extending the methodology beyond T2DM to other chronic conditions requiring personalized treatment approaches.
     \item \textbf{Model Refinement}: Further development to manage prescription uncertainties and enhance clinical practice through iterative learning from expanded databases.
     \item \textbf{Real-Time Integration}: Development of systems capable of real-time clinical decision support with continuous learning capabilities.
-    \item \textbf{Regulatory Pathway**}: Establishing clear regulatory frameworks for AI-driven clinical decision support systems in diabetes care.
+    \item \textbf{Regulatory Pathway}: Establishing clear regulatory frameworks for AI-driven clinical decision support systems in diabetes care.
 \end{itemize}
 
 \subsection*{Critique}
@@ -1071,7 +1071,7 @@ This study explores the application of reinforcement learning (RL) to optimize r
     \item \textbf{EMA Data Generation}: Processing raw sensor data to create Environmental Momentary Analysis datasets that serve as quality benchmarks and personalization references.
     \item \textbf{Contextual Linking}: Framework development for connecting sensor data to behavioral markers in routine situations, requiring integration of environmental factors and biological signals.
     \item \textbf{State Space Construction}: Transformation of continuous sensor data and contextual information into discrete state representations suitable for RL algorithms.
-    \item \textbf{Data Synchronization**}: Implementation of robust data transfer protocols with multiple fallback mechanisms to ensure data integrity and availability.
+    \item \textbf{Data Synchronization}: Implementation of robust data transfer protocols with multiple fallback mechanisms to ensure data integrity and availability.
 \end{itemize}
 
 \subsection*{Approach}
@@ -1088,37 +1088,37 @@ This study explores the application of reinforcement learning (RL) to optimize r
             \item Remembrance behavior: Binary indicator of whether subject recalled performing the target behavior
         \end{itemize}
         \item \textbf{Action Space (AIS)}: Policy-selection algorithm activities: AIS = \{J1, J2, ..., Jn, No Intervention\}, where J1-Jn represent different intervention types and 'No Intervention' serves as the baseline option
-        \item \textbf{Reward Function (RIS)**}: Multi-constraint incentive system based on remembrance behavior, intervention delivery, and solution engagement. Higher rewards for subjects who accept interventions when recall is poor; positive reinforcement for behavioral participation
-        \item \textbf{Transition Probability (PIS)**}: Probability vector P(St+1 | s, at) representing likelihood that action 'at' transitions state from 's' to 'St+1'
+        \item \textbf{Reward Function (RIS)}: Multi-constraint incentive system based on remembrance behavior, intervention delivery, and solution engagement. Higher rewards for subjects who accept interventions when recall is poor; positive reinforcement for behavioral participation
+        \item \textbf{Transition Probability (PIS)}: Probability vector P(St+1 | s, at) representing likelihood that action 'at' transitions state from 's' to 'St+1'
     \end{itemize}
 \end{itemize}
 
 \subsection*{Results}
 \begin{itemize}
-    \item \textbf{Adaptive Intervention Delivery**}: Individuals with lower commitment levels (e.g., "Individual-1") initially received more frequent interventions, demonstrating the system's ability to provide additional support to users showing less behavioral attachment.
-    \item \textbf{Dynamic Adaptation Over Time**}: As user routines strengthened and habits formed, the system automatically reduced intervention frequency, indicating successful learning and adaptation to individual behavioral patterns.
-    \item \textbf{Personalized Intervention Timing**}: For users like "Individual-4," the RL system's randomized intervention delivery probabilities showed delayed decline (around day 16), suggesting sophisticated adaptive timing mechanisms tailored to individual responsiveness patterns.
-    \item \textbf{Behavioral Execution Patterns**}: Analysis revealed that behavioral execution and solution provision do not always occur simultaneously, with the system optimizing intervention delivery timing based on contextual appropriateness rather than rigid scheduling.
-    \item \textbf{Timing Optimization**}: Proportion of interventions delivered within pre-established timing windows generally decreased as time disparity increased, demonstrating the system's ability to balance immediacy with contextual relevance.
+    \item \textbf{Adaptive Intervention Delivery}: Individuals with lower commitment levels (e.g., "Individual-1") initially received more frequent interventions, demonstrating the system's ability to provide additional support to users showing less behavioral attachment.
+    \item \textbf{Dynamic Adaptation Over Time}: As user routines strengthened and habits formed, the system automatically reduced intervention frequency, indicating successful learning and adaptation to individual behavioral patterns.
+    \item \textbf{Personalized Intervention Timing}: For users like "Individual-4," the RL system's randomized intervention delivery probabilities showed delayed decline (around day 16), suggesting sophisticated adaptive timing mechanisms tailored to individual responsiveness patterns.
+    \item \textbf{Behavioral Execution Patterns}: Analysis revealed that behavioral execution and solution provision do not always occur simultaneously, with the system optimizing intervention delivery timing based on contextual appropriateness rather than rigid scheduling.
+    \item \textbf{Timing Optimization}: Proportion of interventions delivered within pre-established timing windows generally decreased as time disparity increased, demonstrating the system's ability to balance immediacy with contextual relevance.
 \end{itemize}
 
 \subsection*{Challenges}
 \begin{itemize}
-    \item \textbf{Data Collection Complexity**}: Gathering comprehensive behavioral and physiological data presents significant challenges due to individual variations in biology, habits, and daily routines. Bio-signaling patterns differ substantially across normal contexts, making standardization difficult.
-    \item \textbf{Labeling and Annotation Issues**}: Data labeling proves extremely challenging due to subjective interpretations of stress, behavior, and contextual factors, potentially leading to discriminatory or inconsistent annotations.
-    \item \textbf{User Engagement Limitations**}: Consumer commitment to Environmental Momentary Assessment (EMA) remains problematic, with users frequently failing to respond to inquiries, resulting in data abandonment or significantly delayed responses.
-    \item \textbf{Personalization Complexity**}: The wide diversity of human behaviors necessitates highly personalized prediction algorithms, making generalization across users extremely challenging.
-    \item \textbf{Implementation Challenges**}: Real-time intervention decisions at the deployment stage pose significant cognitive and technological hurdles, requiring sophisticated decision-making capabilities.
-    \item \textbf{Exploration vs. Exploitation**}: Discrepancies between desired outcomes and initial results, particularly when the RL agent makes arbitrary interaction choices in previously unexplored states.
+    \item \textbf{Data Collection Complexity}: Gathering comprehensive behavioral and physiological data presents significant challenges due to individual variations in biology, habits, and daily routines. Bio-signaling patterns differ substantially across normal contexts, making standardization difficult.
+    \item \textbf{Labeling and Annotation Issues}: Data labeling proves extremely challenging due to subjective interpretations of stress, behavior, and contextual factors, potentially leading to discriminatory or inconsistent annotations.
+    \item \textbf{User Engagement Limitations}: Consumer commitment to Environmental Momentary Assessment (EMA) remains problematic, with users frequently failing to respond to inquiries, resulting in data abandonment or significantly delayed responses.
+    \item \textbf{Personalization Complexity}: The wide diversity of human behaviors necessitates highly personalized prediction algorithms, making generalization across users extremely challenging.
+    \item \textbf{Implementation Challenges}: Real-time intervention decisions at the deployment stage pose significant cognitive and technological hurdles, requiring sophisticated decision-making capabilities.
+    \item \textbf{Exploration vs. Exploitation}: Discrepancies between desired outcomes and initial results, particularly when the RL agent makes arbitrary interaction choices in previously unexplored states.
 \end{itemize}
 
 \subsection*{Future Directions}
 \begin{itemize}
-    \item \textbf{Open Data Initiative**}: Plans to publicly release collected medical information, health metrics, and behavioral annotations gathered over extended periods in natural environments to facilitate broader research collaboration.
-    \item \textbf{Query Optimization**}: Development of methods to minimize the number of user inquiries required to achieve intended levels of personalization, reducing user burden while maintaining system effectiveness.
-    \item \textbf{Enhanced Personalization Algorithms**}: Further research into advanced machine learning techniques that can better capture and adapt to individual behavioral patterns and preferences.
-    \item \textbf{Multi-Modal Integration**}: Expansion of sensor modalities and integration techniques to capture more comprehensive behavioral and physiological signatures.
-    \item \textbf{Long-Term Validation**}: Extended longitudinal studies to validate the sustainability and long-term effectiveness of personalized intervention strategies.
+    \item \textbf{Open Data Initiative}: Plans to publicly release collected medical information, health metrics, and behavioral annotations gathered over extended periods in natural environments to facilitate broader research collaboration.
+    \item \textbf{Query Optimization}: Development of methods to minimize the number of user inquiries required to achieve intended levels of personalization, reducing user burden while maintaining system effectiveness.
+    \item \textbf{Enhanced Personalization Algorithms}: Further research into advanced machine learning techniques that can better capture and adapt to individual behavioral patterns and preferences.
+    \item \textbf{Multi-Modal Integration}: Expansion of sensor modalities and integration techniques to capture more comprehensive behavioral and physiological signatures.
+    \item \textbf{Long-Term Validation}: Extended longitudinal studies to validate the sustainability and long-term effectiveness of personalized intervention strategies.
 \end{itemize}
 
 \subsection*{Critique}
@@ -1141,15 +1141,15 @@ This study proposes a sophisticated reinforcement learning (RL)-based algorithm 
 \subsection*{Data Used}
 \begin{itemize}
     \item \textbf{Simulation-Based Validation}: Due to resource constraints and ethical considerations of real-life experiments, the study employs a comprehensive simulation-based validation approach that accepts diverse inputs including daily action plans and personal preferences.
-    \item \textbf{Simulated Personas**}: Four distinct personas with varying health behavior characteristics:
+    \item \textbf{Simulated Personas}: Four distinct personas with varying health behavior characteristics:
     \begin{itemize}
-        \item \textbf{Commitment Intensity Variation**}: Different time requirements for habit formation (Person-1: low commitment, Person-4: high commitment)
-        \item \textbf{Daily Activity Profiles**}: Semi-randomized activity timelines simulating varying contextual states throughout the day (suitable vs. unsuitable intervention moments)
-        \item \textbf{Intervention Type Preferences**}: Probabilistic reaction patterns to specific intervention types (Reminder-1, Reminder-2, Motivation messages)
-        \item \textbf{Behavioral Performance Patterns**}: Simulated actual behavior execution based on habit formation predictions and daily activity suitability
+        \item \textbf{Commitment Intensity Variation}: Different time requirements for habit formation (Person-1: low commitment, Person-4: high commitment)
+        \item \textbf{Daily Activity Profiles}: Semi-randomized activity timelines simulating varying contextual states throughout the day (suitable vs. unsuitable intervention moments)
+        \item \textbf{Intervention Type Preferences}: Probabilistic reaction patterns to specific intervention types (Reminder-1, Reminder-2, Motivation messages)
+        \item \textbf{Behavioral Performance Patterns}: Simulated actual behavior execution based on habit formation predictions and daily activity suitability
     \end{itemize}
-    \item \textbf{Habit Formation Model Integration**}: Incorporation of empirically validated habit formation models to realistically simulate habit-related parameters including habit strength progression and behavior frequency patterns.
-    \item \textbf{Contextual Parameters**}: Multi-dimensional context modeling including:
+    \item \textbf{Habit Formation Model Integration}: Incorporation of empirically validated habit formation models to realistically simulate habit-related parameters including habit strength progression and behavior frequency patterns.
+    \item \textbf{Contextual Parameters}: Multi-dimensional context modeling including:
     \begin{itemize}
         \item Physiological indicators (activity status, emotional state)
         \item Environmental factors (time, location, phone usage patterns)
@@ -1159,65 +1159,65 @@ This study proposes a sophisticated reinforcement learning (RL)-based algorithm 
 
 \subsection*{Data Preprocessing}
 \begin{itemize}
-    \item \textbf{State Space Discretization**}: Transformation of continuous contextual parameters into discrete values to manage computational complexity while preserving meaningful state distinctions.
-    \item \textbf{Persona Characterization**}: Development of comprehensive persona profiles incorporating commitment levels, preference distributions, and behavioral patterns for simulation validity.
-    \item \textbf{Activity Timeline Generation**}: Creation of semi-randomized daily schedules for each learning episode to ensure diverse training scenarios while maintaining realistic behavioral patterns.
-    \item \textbf{Habit Parameter Modeling**}: Integration of empirically-derived habit formation dynamics into the simulation framework for realistic long-term behavior progression.
-    \item \textbf{Preference Probability Mapping**}: Conversion of intervention type preferences into probabilistic reaction models for realistic user response simulation.
+    \item \textbf{State Space Discretization}: Transformation of continuous contextual parameters into discrete values to manage computational complexity while preserving meaningful state distinctions.
+    \item \textbf{Persona Characterization}: Development of comprehensive persona profiles incorporating commitment levels, preference distributions, and behavioral patterns for simulation validity.
+    \item \textbf{Activity Timeline Generation}: Creation of semi-randomized daily schedules for each learning episode to ensure diverse training scenarios while maintaining realistic behavioral patterns.
+    \item \textbf{Habit Parameter Modeling}: Integration of empirically-derived habit formation dynamics into the simulation framework for realistic long-term behavior progression.
+    \item \textbf{Preference Probability Mapping}: Conversion of intervention type preferences into probabilistic reaction models for realistic user response simulation.
 \end{itemize}
 
 \subsection*{Approach}
 \begin{itemize}
-    \item \textbf{Dual-Model Architecture**}: Two simultaneously operating RL models addressing different aspects of intervention personalization:
+    \item \textbf{Dual-Model Architecture}: Two simultaneously operating RL models addressing different aspects of intervention personalization:
     \begin{itemize}
-        \item \textbf{Intervention-Selection Model (MIS)**}: Adapts intervention delivery based on type and frequency considerations, incorporating individual long-term context and habit formation progress. Learns personal preferences for intervention types and optimal delivery frequencies.
-        \item \textbf{Opportune-Moment-Identification Model (MOMI)**}: Identifies optimal daily moments for intervention delivery by monitoring momentary contextual changes and user receptivity indicators.
+        \item \textbf{Intervention-Selection Model (MIS)}: Adapts intervention delivery based on type and frequency considerations, incorporating individual long-term context and habit formation progress. Learns personal preferences for intervention types and optimal delivery frequencies.
+        \item \textbf{Opportune-Moment-Identification Model (MOMI)}: Identifies optimal daily moments for intervention delivery by monitoring momentary contextual changes and user receptivity indicators.
     \end{itemize}
-    \item \textbf{Enhanced Learning Techniques**}: Two novel accelerator mechanisms:
+    \item \textbf{Enhanced Learning Techniques}: Two novel accelerator mechanisms:
     \begin{itemize}
-        \item \textbf{Customized Eligibility Traces**}: Modified eligibility tracing that selectively rewards past actions, ensuring only actions resulting in engaged interventions receive positive reinforcement, addressing standard eligibility trace inconsistencies.
-        \item \textbf{Transfer Learning Implementation**}: Knowledge reuse across multiple learning environments through a 'Common Policy' (CP) that accumulates successful experiences from all agents, coupled with a 'State Classifier' (SC) for action prediction in unvisited states.
+        \item \textbf{Customized Eligibility Traces}: Modified eligibility tracing that selectively rewards past actions, ensuring only actions resulting in engaged interventions receive positive reinforcement, addressing standard eligibility trace inconsistencies.
+        \item \textbf{Transfer Learning Implementation}: Knowledge reuse across multiple learning environments through a 'Common Policy' (CP) that accumulates successful experiences from all agents, coupled with a 'State Classifier' (SC) for action prediction in unvisited states.
     \end{itemize}
-    \item \textbf{Markov Decision Process Formulation**}:
+    \item \textbf{Markov Decision Process Formulation}:
     \begin{itemize}
-        \item \textbf{MOMI State Space**}: Six-parameter representation: time, location, physical\_activity\_status, phone\_screen\_status, emotional\_status, and number\_of\_interventions\_sent\_for\_planned\_activity
-        \item \textbf{MOMI Actions**}: Binary choice set: \{Deliver\_Intervention, Deliver\_Nothing\}
-        \item \textbf{MIS State Space**}: Four-parameter tuple: habit\_strength, behavior\_frequency, day\_type, remember\_behavior
-        \item \textbf{MIS Actions**}: Intervention type selection: \{J1, J2, ..., Jn, No\_Intervention\}
+        \item \textbf{MOMI State Space}: Six-parameter representation: time, location, physical\_activity\_status, phone\_screen\_status, emotional\_status, and number\_of\_interventions\_sent\_for\_planned\_activity
+        \item \textbf{MOMI Actions}: Binary choice set: \{Deliver\_Intervention, Deliver\_Nothing\}
+        \item \textbf{MIS State Space}: Four-parameter tuple: habit\_strength, behavior\_frequency, day\_type, remember\_behavior
+        \item \textbf{MIS Actions}: Intervention type selection: \{J1, J2, ..., Jn, No\_Intervention\}
     \end{itemize}
-    \item \textbf{Reward Function Design**}: Sophisticated reward structures conditioning on user engagement, temporal proximity, and behavioral outcomes to optimize both immediate and long-term intervention effectiveness.
+    \item \textbf{Reward Function Design}: Sophisticated reward structures conditioning on user engagement, temporal proximity, and behavioral outcomes to optimize both immediate and long-term intervention effectiveness.
 \end{itemize}
 
 \subsection*{Results}
 \begin{itemize}
-    \item \textbf{Personalized Intervention Duration**}: Algorithm demonstrates adaptive behavior by delivering interventions for extended periods to personas with lower commitment intensity (Person-1) while reducing intervention duration for high-commitment individuals (Person-4), aligning with habit formation model predictions.
-    \item \textbf{Preference-Adaptive Delivery**}: System successfully adapts to individual persona preferences, with intervention type ratios reflecting initial preference distributions, though some inconsistencies occur due to exploration in unexplored states.
-    \item \textbf{Temporal Optimization**}: Intervention delivery ratios decrease appropriately as time difference between intervention delivery and behavior performance increases, indicating successful learning of personalized temporal patterns.
-    \item \textbf{Accelerator Technique Effectiveness**}: Both selective eligibility traces and transfer learning significantly enhance learning performance:
+    \item \textbf{Personalized Intervention Duration}: Algorithm demonstrates adaptive behavior by delivering interventions for extended periods to personas with lower commitment intensity (Person-1) while reducing intervention duration for high-commitment individuals (Person-4), aligning with habit formation model predictions.
+    \item \textbf{Preference-Adaptive Delivery}: System successfully adapts to individual persona preferences, with intervention type ratios reflecting initial preference distributions, though some inconsistencies occur due to exploration in unexplored states.
+    \item \textbf{Temporal Optimization}: Intervention delivery ratios decrease appropriately as time difference between intervention delivery and behavior performance increases, indicating successful learning of personalized temporal patterns.
+    \item \textbf{Accelerator Technique Effectiveness}: Both selective eligibility traces and transfer learning significantly enhance learning performance:
     \begin{itemize}
         \item QL-SET-TL (Q-Learning with Selective Eligibility Traces and Transfer Learning) outperforms standard Q-Learning and QL-SET in total reward collection
         \item State Classifier effectively selects optimal actions at trial beginnings, contributing to faster learning convergence
         \item Jump-start performance shows marked improvement with accelerator techniques
     \end{itemize}
-    \item \textbf{Hypothesis Validation**}: Results generally validate hypotheses regarding personalized intervention delivery effectiveness and adaptive algorithm behavior across different persona types.
+    \item \textbf{Hypothesis Validation}: Results generally validate hypotheses regarding personalized intervention delivery effectiveness and adaptive algorithm behavior across different persona types.
 \end{itemize}
 
 \subsection*{Challenges}
 \begin{itemize}
-    \item \textbf{Scalability Complexity**}: Algorithm complexity increases substantially with larger state and action spaces, with training phase computational demands being the primary limiting factor rather than real-time execution requirements.
-    \item \textbf{Model Enhancement Opportunities**}: Intervention-selection model shows potential for improvement through model-based approaches or decomposition into separate type and frequency adjustment models.
-    \item \textbf{Simulation-Reality Gap**}: While simulation provides controlled validation, translation to real-world scenarios may reveal additional complexities not captured in the current framework.
-    \item \textbf{State Space Management**}: Discrete state representation, while computationally manageable, may not capture the full complexity of human contextual variations.
-    \item \textbf{Exploration-Exploitation Balance**}: Random selection in unexplored states occasionally leads to suboptimal intervention choices, highlighting the ongoing challenge of balancing exploration and exploitation.
+    \item \textbf{Scalability Complexity}: Algorithm complexity increases substantially with larger state and action spaces, with training phase computational demands being the primary limiting factor rather than real-time execution requirements.
+    \item \textbf{Model Enhancement Opportunities}: Intervention-selection model shows potential for improvement through model-based approaches or decomposition into separate type and frequency adjustment models.
+    \item \textbf{Simulation-Reality Gap}: While simulation provides controlled validation, translation to real-world scenarios may reveal additional complexities not captured in the current framework.
+    \item \textbf{State Space Management}: Discrete state representation, while computationally manageable, may not capture the full complexity of human contextual variations.
+    \item \textbf{Exploration-Exploitation Balance}: Random selection in unexplored states occasionally leads to suboptimal intervention choices, highlighting the ongoing challenge of balancing exploration and exploitation.
 \end{itemize}
 
 \subsection*{Future Directions}
 \begin{itemize}
-    \item \textbf{Real-World Validation**}: Planned validation through the multi-national POWER2DM project focused on developing self-management support systems for diabetes patients, providing crucial real-world testing of the proposed framework.
-    \item \textbf{Context Parameter Enrichment**}: Enhancement of models with additional contextual parameters including self-efficacy measures, motivation levels, and social context indicators to improve personalization accuracy.
-    \item \textbf{Deep Reinforcement Learning Integration**}: Exploration of deep RL approaches for better state generalization and handling of larger, more complex state spaces without discrete approximations.
-    \item \textbf{Model Architecture Refinement**}: Investigation of model-based approaches and potential decomposition of intervention-selection models for improved performance and interpretability.
-    \item \textbf{Cross-Domain Transfer**}: Extension of transfer learning capabilities across different health behavior domains and chronic disease management contexts.
+    \item \textbf{Real-World Validation}: Planned validation through the multi-national POWER2DM project focused on developing self-management support systems for diabetes patients, providing crucial real-world testing of the proposed framework.
+    \item \textbf{Context Parameter Enrichment}: Enhancement of models with additional contextual parameters including self-efficacy measures, motivation levels, and social context indicators to improve personalization accuracy.
+    \item \textbf{Deep Reinforcement Learning Integration}: Exploration of deep RL approaches for better state generalization and handling of larger, more complex state spaces without discrete approximations.
+    \item \textbf{Model Architecture Refinement}: Investigation of model-based approaches and potential decomposition of intervention-selection models for improved performance and interpretability.
+    \item \textbf{Cross-Domain Transfer}: Extension of transfer learning capabilities across different health behavior domains and chronic disease management contexts.
 \end{itemize}
 
 \subsection*{Critique}
@@ -1244,17 +1244,17 @@ This study introduces a novel approach for personalizing e-Health interventions 
     \begin{itemize}
         \item \textbf{User Type Simulation}: Multiple distinct user profiles including workaholic, sporter, and retiree archetypes, each with unique lifestyle schedules and behavioral characteristics
         \item \textbf{Behavioral Complexity}: Incorporates complex and stochastic user behavior patterns to realistically model human variability and unpredictability
-        \item \textbf{Public Availability**}: Simulator released publicly for research benchmarking and reproducibility
-        \item \textbf{Activity Focus**}: Specifically designed for physical activity promotion interventions with realistic temporal and contextual constraints
+        \item \textbf{Public Availability}: Simulator released publicly for research benchmarking and reproducibility
+        \item \textbf{Activity Focus}: Specifically designed for physical activity promotion interventions with realistic temporal and contextual constraints
     \end{itemize}
-    \item \textbf{HeartSteps Benchmark Dataset**}: Real-world dataset from a 42-day e-Health intervention trial:
+    \item \textbf{HeartSteps Benchmark Dataset}: Real-world dataset from a 42-day e-Health intervention trial:
     \begin{itemize}
-        \item \textbf{Intervention Focus**}: Aimed at increasing daily step counts through positive message delivery
-        \item \textbf{Trial Duration**}: Comprehensive 42-day intervention period providing substantial longitudinal data
-        \item \textbf{Generative Modeling**}: Utilizes micro-randomized trial data to create generative models for experience simulation
-        \item \textbf{Real-World Validation**}: Provides authentic user behavior patterns for algorithm validation beyond simulation
+        \item \textbf{Intervention Focus}: Aimed at increasing daily step counts through positive message delivery
+        \item \textbf{Trial Duration}: Comprehensive 42-day intervention period providing substantial longitudinal data
+        \item \textbf{Generative Modeling}: Utilizes micro-randomized trial data to create generative models for experience simulation
+        \item \textbf{Real-World Validation}: Provides authentic user behavior patterns for algorithm validation beyond simulation
     \end{itemize}
-    \item \textbf{State Representation Features**}: Observable and inferable characteristics including:
+    \item \textbf{State Representation Features}: Observable and inferable characteristics including:
     \begin{itemize}
         \item Temporal information (current time, weekday)
         \item Behavioral status (workout completion, fatigue levels)
@@ -1264,74 +1264,74 @@ This study introduces a novel approach for personalizing e-Health interventions 
 
 \subsection*{Data Preprocessing}
 \begin{itemize}
-    \item \textbf{Trajectory Construction**}: User behavioral trajectories defined as sequences containing states and rewards: (s\_u, r, s'\_u, r', s''\_u, r'', ...) for clustering analysis.
-    \item \textbf{Dynamic Time Warping (DTW) Distance**}: Implementation of DTW as the primary distance function for clustering user trajectories, chosen over Euclidean distance for its ability to measure similarity between time series that may be temporally misaligned by finding optimal data point matching.
-    \item \textbf{K-Medoids Clustering**}: Utilization of K-Medoids clustering algorithm with DTW distance metric to identify suitable user clusters, with automatic optimal cluster number selection using silhouette score analysis.
-    \item \textbf{Warm-up Phase Data Collection**}: Seven-day initial data generation period using default policy to enable exploration and trajectory collection before clustering implementation.
-    \item \textbf{Feature Normalization**}: Standardization of observable features to ensure equitable contribution to distance calculations and clustering performance.
+    \item \textbf{Trajectory Construction}: User behavioral trajectories defined as sequences containing states and rewards: (s\_u, r, s'\_u, r', s''\_u, r'', ...) for clustering analysis.
+    \item \textbf{Dynamic Time Warping (DTW) Distance}: Implementation of DTW as the primary distance function for clustering user trajectories, chosen over Euclidean distance for its ability to measure similarity between time series that may be temporally misaligned by finding optimal data point matching.
+    \item \textbf{K-Medoids Clustering}: Utilization of K-Medoids clustering algorithm with DTW distance metric to identify suitable user clusters, with automatic optimal cluster number selection using silhouette score analysis.
+    \item \textbf{Warm-up Phase Data Collection}: Seven-day initial data generation period using default policy to enable exploration and trajectory collection before clustering implementation.
+    \item \textbf{Feature Normalization}: Standardization of observable features to ensure equitable contribution to distance calculations and clustering performance.
 \end{itemize}
 
 \subsection*{Approach}
 \begin{itemize}
-    \item \textbf{Three-Phase Learning Framework**}:
+    \item \textbf{Three-Phase Learning Framework}:
     \begin{itemize}
-        \item \textbf{Warm-up Phase**}: Initial exploration period using default policy for trace collection and baseline establishment
-        \item \textbf{Clustering Step**}: User trajectory clustering to identify groups with similar behavioral patterns
-        \item \textbf{Learning Phase**}: RL policy learning for identified clusters using online or batch algorithms
-        \item \textbf{Performance Phase**}: Fixed policy evaluation and performance assessment
+        \item \textbf{Warm-up Phase}: Initial exploration period using default policy for trace collection and baseline establishment
+        \item \textbf{Clustering Step}: User trajectory clustering to identify groups with similar behavioral patterns
+        \item \textbf{Learning Phase}: RL policy learning for identified clusters using online or batch algorithms
+        \item \textbf{Performance Phase}: Fixed policy evaluation and performance assessment
     \end{itemize}
-    \item \textbf{Model-Free RL Implementation**}: Avoidance of explicit environment modeling through model-free RL algorithms, reducing complexity and computational requirements while maintaining effectiveness.
-    \item \textbf{Dual Algorithm Comparison**}:
+    \item \textbf{Model-Free RL Implementation}: Avoidance of explicit environment modeling through model-free RL algorithms, reducing complexity and computational requirements while maintaining effectiveness.
+    \item \textbf{Dual Algorithm Comparison}:
     \begin{itemize}
-        \item \textbf{Online Q-Learning**}: Table-based approach with separate Q-value storage for each state-action pair, updated after each experience with tuned parameters (learning rate , discount factor , exploration rate )
-        \item \textbf{Batch Least-Squares Policy Iteration (LSPI)**}: Feature-based approach using linear function approximation of Q-function from experience batches, alternating between policy evaluation and improvement steps
+        \item \textbf{Online Q-Learning}: Table-based approach with separate Q-value storage for each state-action pair, updated after each experience with tuned parameters (learning rate , discount factor , exploration rate )
+        \item \textbf{Batch Least-Squares Policy Iteration (LSPI)}: Feature-based approach using linear function approximation of Q-function from experience batches, alternating between policy evaluation and improvement steps
     \end{itemize}
-    \item \textbf{Multi-Level Policy Learning**}: Comparison of three policy learning approaches:
+    \item \textbf{Multi-Level Policy Learning}: Comparison of three policy learning approaches:
     \begin{itemize}
-        \item \textbf{Individual Policies**}: Separate policy learning for each user (maximum personalization)
-        \item \textbf{Pooled Policy**}: Single policy across all users (maximum generalization)
-        \item \textbf{Cluster-Based Policies**}: Group-specific policies for identified user clusters (balanced approach)
+        \item \textbf{Individual Policies}: Separate policy learning for each user (maximum personalization)
+        \item \textbf{Pooled Policy}: Single policy across all users (maximum generalization)
+        \item \textbf{Cluster-Based Policies}: Group-specific policies for identified user clusters (balanced approach)
     \end{itemize}
-    \item \textbf{Reward Function Design**}: Three-component reward structure optimizing intervention acceptance (+1/-1), exercise behavior (+0.1 per timestep, +10 completion bonus), and fatigue management (-0.1 per fatigue unit per hour).
+    \item \textbf{Reward Function Design}: Three-component reward structure optimizing intervention acceptance (+1/-1), exercise behavior (+0.1 per timestep, +10 completion bonus), and fatigue management (-0.1 per fatigue unit per hour).
 \end{itemize}
 
 \subsection*{Results}
 \begin{itemize}
-    \item \textbf{Algorithm Performance Comparison**}: LSPI (batch learning) significantly outperforms Q-learning (online learning) in the self-developed simulator, particularly under limited interaction time constraints. However, Q-learning demonstrates superior performance in the HeartSteps setting, attributed to differences in environmental complexity and stochasticity.
-    \item \textbf{Clustering Effectiveness**}: K-Medoids with DTW successfully identifies near-optimal user clusterings, resulting in significantly improved cumulative reward performance compared to both individual policy learning and single non-personalized policies across all users.
-    \item \textbf{Policy Optimization**}: Cluster-based approach consistently achieves results closest to optimal reward benchmarks, demonstrating effective balance between personalization and generalization.
-    \item \textbf{Intervention Timing Accuracy**}: Learned policies demonstrate high accuracy in intervention timing, successfully guiding users to increase workout frequency at appropriate daily intervals.
-    \item \textbf{Learning Acceleration**}: Clustering approach significantly reduces learning time compared to individual policy approaches while maintaining superior performance to pooled strategies.
+    \item \textbf{Algorithm Performance Comparison}: LSPI (batch learning) significantly outperforms Q-learning (online learning) in the self-developed simulator, particularly under limited interaction time constraints. However, Q-learning demonstrates superior performance in the HeartSteps setting, attributed to differences in environmental complexity and stochasticity.
+    \item \textbf{Clustering Effectiveness}: K-Medoids with DTW successfully identifies near-optimal user clusterings, resulting in significantly improved cumulative reward performance compared to both individual policy learning and single non-personalized policies across all users.
+    \item \textbf{Policy Optimization}: Cluster-based approach consistently achieves results closest to optimal reward benchmarks, demonstrating effective balance between personalization and generalization.
+    \item \textbf{Intervention Timing Accuracy}: Learned policies demonstrate high accuracy in intervention timing, successfully guiding users to increase workout frequency at appropriate daily intervals.
+    \item \textbf{Learning Acceleration}: Clustering approach significantly reduces learning time compared to individual policy approaches while maintaining superior performance to pooled strategies.
 \end{itemize}
 
 \subsection*{Challenges}
 \begin{itemize}
-    \item \textbf{Learning Period Limitations**}:
+    \item \textbf{Learning Period Limitations}:
     \begin{itemize}
-        \item \textbf{User Disengagement Risk**}: RL algorithms typically require substantial learning periods, but e-Health users can quickly disengage if interventions prove ineffective, creating critical time constraints for policy optimization
-        \item \textbf{Optimal Intervention Windows**}: Timing-sensitive nature of e-Health interventions means optimal windows can pass quickly, making effective rapid learning essential
+        \item \textbf{User Disengagement Risk}: RL algorithms typically require substantial learning periods, but e-Health users can quickly disengage if interventions prove ineffective, creating critical time constraints for policy optimization
+        \item \textbf{Optimal Intervention Windows}: Timing-sensitive nature of e-Health interventions means optimal windows can pass quickly, making effective rapid learning essential
     \end{itemize}
-    \item \textbf{Data-Related Challenges**}:
+    \item \textbf{Data-Related Challenges}:
     \begin{itemize}
-        \item \textbf{Real-World Data Scarcity**}: Experimenting with different RL strategies requires substantial user populations and interaction samples, often necessitating reliance on simulators with uncertain real-world validity
-        \item \textbf{Privacy and Missing Data**}: Mobile healthcare settings present inherent challenges including data privacy concerns, missing observations, and difficulties in interactive simulation with authentic human data
-        \item \textbf{Behavioral Stochasticity**}: Real-world user behavior exhibits high stochasticity and randomness that must be adequately captured in simulation environments for robust algorithm development
+        \item \textbf{Real-World Data Scarcity}: Experimenting with different RL strategies requires substantial user populations and interaction samples, often necessitating reliance on simulators with uncertain real-world validity
+        \item \textbf{Privacy and Missing Data}: Mobile healthcare settings present inherent challenges including data privacy concerns, missing observations, and difficulties in interactive simulation with authentic human data
+        \item \textbf{Behavioral Stochasticity}: Real-world user behavior exhibits high stochasticity and randomness that must be adequately captured in simulation environments for robust algorithm development
     \end{itemize}
-    \item \textbf{Personalization vs. Generalization Trade-offs**}:
+    \item \textbf{Personalization vs. Generalization Trade-offs}:
     \begin{itemize}
-        \item \textbf{Individual vs. Population Policies**}: Individual policy learning offers maximum personalization but requires extensive per-user data, while pooled approaches sacrifice effectiveness for feasibility
-        \item \textbf{State Space Generalization**}: Online learning methods require effective state space generalization to achieve reasonable policy performance within human-scale interaction timeframes
+        \item \textbf{Individual vs. Population Policies}: Individual policy learning offers maximum personalization but requires extensive per-user data, while pooled approaches sacrifice effectiveness for feasibility
+        \item \textbf{State Space Generalization}: Online learning methods require effective state space generalization to achieve reasonable policy performance within human-scale interaction timeframes
     \end{itemize}
-    \item \textbf{Clustering Accuracy Limitations**}: Current clustering methods fail to achieve perfect user groupings compared to benchmarks with known optimal cluster information, indicating room for improvement in clustering technique sophistication.
+    \item \textbf{Clustering Accuracy Limitations}: Current clustering methods fail to achieve perfect user groupings compared to benchmarks with known optimal cluster information, indicating room for improvement in clustering technique sophistication.
 \end{itemize}
 
 \subsection*{Future Directions}
 \begin{itemize}
-    \item \textbf{Real-World Data Integration**}: Transition from simulator-based validation to real user data collection through mobile treatment applications, particularly focusing on mental health interventions for depressed patients with comprehensive behavioral modeling.
-    \item \textbf{Enhanced Data Collection**}: Integration of intervention responses, socio-demographic information, and daily mental state ratings to create more comprehensive behavioral models for improved policy learning.
-    \item \textbf{Sensor Data Incorporation**}: Integration of raw sensor data into state representations to enhance simulator realism and improve real-world applicability of learned policies.
-    \item \textbf{Advanced Clustering Techniques**}: Exploration of sophisticated clustering methods and alternative distance metrics to achieve closer-to-optimal user groupings and improve policy performance.
-    \item \textbf{Multi-Domain Generalization**}: Development of frameworks that generalize effectively across states (via basis functions), user traces (group-based policies), and user selection (cluster-based approaches) for comprehensive e-Health intervention systems.
+    \item \textbf{Real-World Data Integration}: Transition from simulator-based validation to real user data collection through mobile treatment applications, particularly focusing on mental health interventions for depressed patients with comprehensive behavioral modeling.
+    \item \textbf{Enhanced Data Collection}: Integration of intervention responses, socio-demographic information, and daily mental state ratings to create more comprehensive behavioral models for improved policy learning.
+    \item \textbf{Sensor Data Incorporation}: Integration of raw sensor data into state representations to enhance simulator realism and improve real-world applicability of learned policies.
+    \item \textbf{Advanced Clustering Techniques}: Exploration of sophisticated clustering methods and alternative distance metrics to achieve closer-to-optimal user groupings and improve policy performance.
+    \item \textbf{Multi-Domain Generalization}: Development of frameworks that generalize effectively across states (via basis functions), user traces (group-based policies), and user selection (cluster-based approaches) for comprehensive e-Health intervention systems.
 \end{itemize}
 
 \subsection*{Critique}
@@ -1353,89 +1353,89 @@ This empirical study investigates the effectiveness of different information enc
 
 \subsection*{Data Used}
 \begin{itemize}
-    \item \textbf{MIMIC-III Dataset**}: Medical Information Mart for Intensive Care (MIMIC-III) database version 1.4, providing comprehensive intensive care unit patient data for research applications.
-    \item \textbf{Patient Cohort**}: Septic patient cohort defined by Komorowski et al. (2018) methodology:
+    \item \textbf{MIMIC-III Dataset}: Medical Information Mart for Intensive Care (MIMIC-III) database version 1.4, providing comprehensive intensive care unit patient data for research applications.
+    \item \textbf{Patient Cohort}: Septic patient cohort defined by Komorowski et al. (2018) methodology:
     \begin{itemize}
-        \item \textbf{Cohort Size**}: 19,418 septic patients with comprehensive observational data
-        \item \textbf{Mortality Rate**}: Observed mortality rate of approximately 9\% (death within 48 hours of final observation)
-        \item \textbf{Clinical Focus**}: Patients with confirmed or suspected sepsis requiring intensive care management
+        \item \textbf{Cohort Size}: 19,418 septic patients with comprehensive observational data
+        \item \textbf{Mortality Rate}: Observed mortality rate of approximately 9\% (death within 48 hours of final observation)
+        \item \textbf{Clinical Focus}: Patients with confirmed or suspected sepsis requiring intensive care management
     \end{itemize}
-    \item \textbf{Feature Composition**}:
+    \item \textbf{Feature Composition}:
     \begin{itemize}
-        \item \textbf{Physiological Features**}: 33 time-varying vital signs and laboratory measurements including heart rate, blood pressure, temperature, oxygen saturation, and critical lab values
-        \item \textbf{Demographic Features**}: 5 static patient characteristics including age, gender, and baseline health indicators
-        \item \textbf{Temporal Window**}: 72-hour observation period spanning 24 hours before to 48 hours after presumed sepsis onset
+        \item \textbf{Physiological Features}: 33 time-varying vital signs and laboratory measurements including heart rate, blood pressure, temperature, oxygen saturation, and critical lab values
+        \item \textbf{Demographic Features}: 5 static patient characteristics including age, gender, and baseline health indicators
+        \item \textbf{Temporal Window}: 72-hour observation period spanning 24 hours before to 48 hours after presumed sepsis onset
     \end{itemize}
-    \item \textbf{Treatment Actions**}: Fluid and vasopressor administration data providing the action space for policy learning and evaluation.
+    \item \textbf{Treatment Actions}: Fluid and vasopressor administration data providing the action space for policy learning and evaluation.
 \end{itemize}
 
 \subsection*{Data Preprocessing}
 \begin{itemize}
-    \item \textbf{Missing Data Handling**}: Two-stage imputation process addressing the irregular and incomplete nature of healthcare data:
+    \item \textbf{Missing Data Handling}: Two-stage imputation process addressing the irregular and incomplete nature of healthcare data:
     \begin{itemize}
-        \item \textbf{Time-Limited Sample-and-Hold**}: Forward filling of missing values within reasonable temporal constraints to maintain clinical relevance
-        \item \textbf{Nearest-Neighbor Imputation**}: Secondary imputation for remaining missing values using similarity-based estimation
+        \item \textbf{Time-Limited Sample-and-Hold}: Forward filling of missing values within reasonable temporal constraints to maintain clinical relevance
+        \item \textbf{Nearest-Neighbor Imputation}: Secondary imputation for remaining missing values using similarity-based estimation
     \end{itemize}
-    \item \textbf{Feature Normalization**}: Z-score normalization applied to all features post-imputation to ensure equitable contribution across different measurement scales and units.
-    \item \textbf{Action Space Discretization**}: Continuous treatment actions (fluid and vasopressor administration) categorized into 5 discrete bins per action type, creating 25 total possible discrete action combinations for policy learning.
-    \item \textbf{Dataset Partitioning**}: Stratified 70/15/15 split for training, validation, and testing phases, maintaining terminal outcome proportions across all partitions to ensure representative evaluation.
-    \item \textbf{Temporal Alignment**}: Standardization of observation timestamps and synchronization of multi-modal data streams for consistent sequential processing.
+    \item \textbf{Feature Normalization}: Z-score normalization applied to all features post-imputation to ensure equitable contribution across different measurement scales and units.
+    \item \textbf{Action Space Discretization}: Continuous treatment actions (fluid and vasopressor administration) categorized into 5 discrete bins per action type, creating 25 total possible discrete action combinations for policy learning.
+    \item \textbf{Dataset Partitioning}: Stratified 70/15/15 split for training, validation, and testing phases, maintaining terminal outcome proportions across all partitions to ensure representative evaluation.
+    \item \textbf{Temporal Alignment}: Standardization of observation timestamps and synchronization of multi-modal data streams for consistent sequential processing.
 \end{itemize}
 
 \subsection*{Approach}
 \begin{itemize}
-    \item \textbf{Seven Encoding Architecture Comparison**}:
+    \item \textbf{Seven Encoding Architecture Comparison}:
     \begin{itemize}
-        \item \textbf{Basic RNN Autoencoder (RNN)**}: Standard recurrent neural network autoencoder for sequential data encoding
-        \item \textbf{Approximate Information State (AIS)**}: Information-theoretic approach to state representation learning
-        \item \textbf{Neural Controlled Differential Equations (CDE)**}: Continuous-time neural architecture for irregular time series modeling
-        \item \textbf{Decoupled Dynamics Module (DDM)**}: Separated modeling of state dynamics and observation processes
-        \item \textbf{Deep Signature Transforms (DST)**}: Path signature-based representation for sequential data characterization
-        \item \textbf{ODE-RNN (ODE)**}: Ordinary differential equation enhanced recurrent networks for continuous dynamics
+        \item \textbf{Basic RNN Autoencoder (RNN)}: Standard recurrent neural network autoencoder for sequential data encoding
+        \item \textbf{Approximate Information State (AIS)}: Information-theoretic approach to state representation learning
+        \item \textbf{Neural Controlled Differential Equations (CDE)}: Continuous-time neural architecture for irregular time series modeling
+        \item \textbf{Decoupled Dynamics Module (DDM)}: Separated modeling of state dynamics and observation processes
+        \item \textbf{Deep Signature Transforms (DST)}: Path signature-based representation for sequential data characterization
+        \item \textbf{ODE-RNN (ODE)}: Ordinary differential equation enhanced recurrent networks for continuous dynamics
         \item \textbf{Simple Autoencoder (AE)*}*: Non-recurrent baseline autoencoder for comparison
     \end{itemize}
-    \item \textbf{Mathematical Formulation**}: Learning encoding function that maps patient history H\textsubscript{t,t-1} to state representation S\textsubscript{t}, and decoding function predicting subsequent observation O\textsubscript{t+1} given state S\textsubscript{t} and action A\textsubscript{t}.
-    \item \textbf{Batch Constrained Q-Learning (dBCQ)**}: Off-policy RL algorithm implementation suitable for offline learning with observational healthcare data, addressing extrapolation errors through Q-function truncation for out-of-distribution actions.
-    \item \textbf{Representation Enhancement Techniques**}:
+    \item \textbf{Mathematical Formulation}: Learning encoding function that maps patient history H\textsubscript{t,t-1} to state representation S\textsubscript{t}, and decoding function predicting subsequent observation O\textsubscript{t+1} given state S\textsubscript{t} and action A\textsubscript{t}.
+    \item \textbf{Batch Constrained Q-Learning (dBCQ)}: Off-policy RL algorithm implementation suitable for offline learning with observational healthcare data, addressing extrapolation errors through Q-function truncation for out-of-distribution actions.
+    \item \textbf{Representation Enhancement Techniques}:
     \begin{itemize}
-        \item \textbf{Demographic Context Integration**}: Incorporation of static demographic features as encoder inputs to improve representation quality
-        \item \textbf{Correlation Regularization**}: Loss function regularization using correlation with clinical acuity scores (SOFA, SAPS II, OASIS) to encourage clinically meaningful representations
+        \item \textbf{Demographic Context Integration}: Incorporation of static demographic features as encoder inputs to improve representation quality
+        \item \textbf{Correlation Regularization}: Loss function regularization using correlation with clinical acuity scores (SOFA, SAPS II, OASIS) to encourage clinically meaningful representations
     \end{itemize}
-    \item \textbf{Policy Evaluation**}: Weighted Importance Sampling (WIS) methodology for policy performance assessment on held-out test data, providing robust offline evaluation metrics.
+    \item \textbf{Policy Evaluation}: Weighted Importance Sampling (WIS) methodology for policy performance assessment on held-out test data, providing robust offline evaluation metrics.
 \end{itemize}
 
 \subsection*{Results}
 \begin{itemize}
-    \item \textbf{Representation Dimensionality Effects**}: Prediction accuracy for subsequent observations saturates beyond 64-dimensional representations, with higher dimensions sometimes degrading test performance, indicating that increased model capacity does not guarantee improved informativeness.
-    \item \textbf{Demographic Context Benefits**}: Consistent improvement in subsequent observation prediction performance when demographic features are included as encoder inputs, demonstrating the value of static patient characteristics for dynamic state modeling.
-    \item \textbf{Regularization Impact**}: Correlation regularization with clinical acuity scores generally degrades performance except for DDM and DST architectures. Unregularized representations often fail to encode acuity-correlated information, but demographic context inclusion improves such correlations.
-    \item \textbf{Architecture Performance Rankings**}:
+    \item \textbf{Representation Dimensionality Effects}: Prediction accuracy for subsequent observations saturates beyond 64-dimensional representations, with higher dimensions sometimes degrading test performance, indicating that increased model capacity does not guarantee improved informativeness.
+    \item \textbf{Demographic Context Benefits}: Consistent improvement in subsequent observation prediction performance when demographic features are included as encoder inputs, demonstrating the value of static patient characteristics for dynamic state modeling.
+    \item \textbf{Regularization Impact}: Correlation regularization with clinical acuity scores generally degrades performance except for DDM and DST architectures. Unregularized representations often fail to encode acuity-correlated information, but demographic context inclusion improves such correlations.
+    \item \textbf{Architecture Performance Rankings}:
     \begin{itemize}
-        \item \textbf{Top Performer**}: Neural CDE (CDE) encoded representations consistently produce superior downstream policies
-        \item \textbf{Strong Performers**}: Simpler recurrent architectures (AIS, RNN) outperform non-recurrent autoencoders
-        \item \textbf{Context Dependency**}: Best-performing policies across most architectures utilize demographic context during representation learning
+        \item \textbf{Top Performer}: Neural CDE (CDE) encoded representations consistently produce superior downstream policies
+        \item \textbf{Strong Performers}: Simpler recurrent architectures (AIS, RNN) outperform non-recurrent autoencoders
+        \item \textbf{Context Dependency}: Best-performing policies across most architectures utilize demographic context during representation learning
     \end{itemize}
-    \item \textbf{Clinical Interpretability**}: Learned representations, particularly with demographic context, provide enhanced separability between patients with different outcomes (recovery vs. mortality) compared to raw observational data, suggesting clinically meaningful feature extraction.
+    \item \textbf{Clinical Interpretability}: Learned representations, particularly with demographic context, provide enhanced separability between patients with different outcomes (recovery vs. mortality) compared to raw observational data, suggesting clinically meaningful feature extraction.
 \end{itemize}
 
 \subsection*{Challenges}
 \begin{itemize}
-    \item \textbf{Representation Capacity Paradox**}: Higher-dimensional representations, despite increased theoretical capacity, can reduce prediction accuracy and policy performance, challenging conventional assumptions about model complexity and effectiveness.
-    \item \textbf{Clinical Regularization Limitations**}: Regularization approaches designed to incorporate clinical knowledge through acuity score correlation do not consistently improve representation quality or downstream policy performance, questioning direct clinical knowledge integration strategies.
-    \item \textbf{Information Content Opacity**}: Limited understanding of what information is actually encoded in learned representations and how this relates to clinical decision-making processes, creating interpretability challenges for clinical deployment.
-    \item \textbf{Demographic Bias Concerns**}: Incorporation of demographic information, while improving performance, raises potential fairness and bias issues that require careful consideration in clinical applications.
-    \item \textbf{Generalizability Questions**}: Uncertainty regarding whether learned representations capture generalizable patient health trends (improvement/deterioration) beyond immediate observation prediction capabilities.
-    \item \textbf{Sequential Data Complexity**}: Healthcare data's inherently partial, irregular, and noisy nature poses persistent challenges for representation learning architectures designed for more structured sequential data.
+    \item \textbf{Representation Capacity Paradox}: Higher-dimensional representations, despite increased theoretical capacity, can reduce prediction accuracy and policy performance, challenging conventional assumptions about model complexity and effectiveness.
+    \item \textbf{Clinical Regularization Limitations}: Regularization approaches designed to incorporate clinical knowledge through acuity score correlation do not consistently improve representation quality or downstream policy performance, questioning direct clinical knowledge integration strategies.
+    \item \textbf{Information Content Opacity}: Limited understanding of what information is actually encoded in learned representations and how this relates to clinical decision-making processes, creating interpretability challenges for clinical deployment.
+    \item \textbf{Demographic Bias Concerns}: Incorporation of demographic information, while improving performance, raises potential fairness and bias issues that require careful consideration in clinical applications.
+    \item \textbf{Generalizability Questions}: Uncertainty regarding whether learned representations capture generalizable patient health trends (improvement/deterioration) beyond immediate observation prediction capabilities.
+    \item \textbf{Sequential Data Complexity}: Healthcare data's inherently partial, irregular, and noisy nature poses persistent challenges for representation learning architectures designed for more structured sequential data.
 \end{itemize}
 
 \subsection*{Future Directions}
 \begin{itemize}
-    \item \textbf{Multi-Task Learning Integration**}: Development of joint training approaches that simultaneously optimize representation learning and multiple clinical prediction tasks to improve overall system performance and generalizability.
-    \item \textbf{Missingness-Aware Methods**}: Investigation of architectures that explicitly model feature missingness patterns and incorporate missingness indicators as informative signals rather than obstacles to overcome.
-    \item \textbf{Bias Quantification Studies**}: Systematic analysis of demographic information encoding effects on representation space bias and quantification of associated performance trade-offs across different patient populations.
-    \item \textbf{End-to-End Policy Development**}: Creation of unified frameworks combining auxiliary prediction tasks with RL objectives, explicitly accounting for state representation quality in policy optimization processes.
-    \item \textbf{Clinical Interpretability Enhancement**}: Development of methods for understanding and visualizing what clinical relationships and patterns are preserved or discovered in learned state representations.
-    \item \textbf{Temporal Trend Embedding**}: Investigation of whether representations can effectively capture longitudinal patient health trajectories and disease progression patterns beyond immediate next-step prediction.
+    \item \textbf{Multi-Task Learning Integration}: Development of joint training approaches that simultaneously optimize representation learning and multiple clinical prediction tasks to improve overall system performance and generalizability.
+    \item \textbf{Missingness-Aware Methods}: Investigation of architectures that explicitly model feature missingness patterns and incorporate missingness indicators as informative signals rather than obstacles to overcome.
+    \item \textbf{Bias Quantification Studies}: Systematic analysis of demographic information encoding effects on representation space bias and quantification of associated performance trade-offs across different patient populations.
+    \item \textbf{End-to-End Policy Development}: Creation of unified frameworks combining auxiliary prediction tasks with RL objectives, explicitly accounting for state representation quality in policy optimization processes.
+    \item \textbf{Clinical Interpretability Enhancement}: Development of methods for understanding and visualizing what clinical relationships and patterns are preserved or discovered in learned state representations.
+    \item \textbf{Temporal Trend Embedding}: Investigation of whether representations can effectively capture longitudinal patient health trajectories and disease progression patterns beyond immediate next-step prediction.
 \end{itemize}
 
 \subsection*{Critique}
@@ -1745,31 +1745,31 @@ This study presents a novel framework that combines pharmacokinetic-pharmacodyna
 
 \subsection{Research Goals and Objectives}
 \begin{itemize}
-    \item \textbf{Primary Goal**}: Develop individualized adaptive dosing protocols using personal QL agents rather than population-based approaches
-    \item \textbf{Clinical Target**}: Optimize erdafitinib dosing to maintain serum phosphate in therapeutic range (5.5-7 mg/dL)
-    \item \textbf{Comparative Analysis**}: Evaluate individual RL-based protocols against FDA-approved clinical protocols
-    \item \textbf{Performance Demonstration**}: Show superiority of personalized AI-driven dosing over standardized practice
+    \item \textbf{Primary Goal}: Develop individualized adaptive dosing protocols using personal QL agents rather than population-based approaches
+    \item \textbf{Clinical Target}: Optimize erdafitinib dosing to maintain serum phosphate in therapeutic range (5.5-7 mg/dL)
+    \item \textbf{Comparative Analysis}: Evaluate individual RL-based protocols against FDA-approved clinical protocols
+    \item \textbf{Performance Demonstration}: Show superiority of personalized AI-driven dosing over standardized practice
 \end{itemize}
 
 \subsection{Clinical Background}
 \subsubsection{The Drug: Erdafitinib (Balversa)}
 \begin{itemize}
-    \item \textbf{Indication**}: Metastatic urothelial carcinoma (bladder cancer)
-    \item \textbf{Mechanism**}: FGFR (fibroblast growth factor receptor) inhibitor
-    \item \textbf{Approval Status**}: FDA-approved with adaptive dosing protocol
+    \item \textbf{Indication}: Metastatic urothelial carcinoma (bladder cancer)
+    \item \textbf{Mechanism}: FGFR (fibroblast growth factor receptor) inhibitor
+    \item \textbf{Approval Status}: FDA-approved with adaptive dosing protocol
 \end{itemize}
 
 \subsubsection{Clinical Challenges}
 \begin{itemize}
-    \item \textbf{Narrow therapeutic window**}: Small margin between effective and toxic doses
-    \item \textbf{High inter-individual variability**}: Patients respond very differently to same dose
-    \item \textbf{Complex biomarker**}: Serum phosphate $[PO_4]$ serves as both efficacy and safety indicator:
+    \item \textbf{Narrow therapeutic window}: Small margin between effective and toxic doses
+    \item \textbf{High inter-individual variability}: Patients respond very differently to same dose
+    \item \textbf{Complex biomarker}: Serum phosphate $[PO_4]$ serves as both efficacy and safety indicator:
     \begin{itemize}
-        \item \textbf{Efficacy threshold**}: $\geq 5.5$ mg/dL correlates with better progression-free survival
-        \item \textbf{Safety threshold**}: $\geq 7$ mg/dL causes hyperphosphatemia (major adverse event)  
-        \item \textbf{Severe toxicity**}: $> 9$ mg/dL requires immediate treatment interruption
+        \item \textbf{Efficacy threshold}: $\geq 5.5$ mg/dL correlates with better progression-free survival
+        \item \textbf{Safety threshold}: $\geq 7$ mg/dL causes hyperphosphatemia (major adverse event)  
+        \item \textbf{Severe toxicity}: $> 9$ mg/dL requires immediate treatment interruption
     \end{itemize}
-    \item \textbf{Current Performance Gap**}: Only 30\% of patients achieve target phosphate range after 4 months with FDA protocol
+    \item \textbf{Current Performance Gap}: Only 30\% of patients achieve target phosphate range after 4 months with FDA protocol
 \end{itemize}
 
 \subsection{Methodology}
@@ -1807,9 +1807,9 @@ The patient state is represented by tuple: $X = \{L_{PO_4}, D_P, L_{int}\}$
 \textbf{Agent Actions}
 Actions designed with clinical constraints but greater flexibility than FDA protocol:
 \begin{itemize}
-    \item \textbf{Initial Dose Selection}**: Choose from all 5 dose levels (4, 5, 6, 8, 9 mg/day) vs. fixed 8 mg/day in clinical protocol
-    \item \textbf{Dose Adjustments**}: Increase ($D^+$), decrease ($D^-$), or maintain ($D^=$) dose by one level
-    \item \textbf{Interruption Management**}:
+    \item \textbf{Initial Dose Selection}: Choose from all 5 dose levels (4, 5, 6, 8, 9 mg/day) vs. fixed 8 mg/day in clinical protocol
+    \item \textbf{Dose Adjustments}: Increase ($D^+$), decrease ($D^-$), or maintain ($D^=$) dose by one level
+    \item \textbf{Interruption Management}:
     \begin{itemize}
         \item Moderate hyperphosphatemia: Option to interrupt or continue with lower dose
         \item Severe hyperphosphatemia: Mandatory interruption
@@ -1831,29 +1831,29 @@ Where:
 
 \subsubsection{Digital Twin Approach}
 \begin{itemize}
-    \item \textbf{Individual Patient Modeling**}: Each patient represented by personal PK-PD parameter set
-    \item \textbf{Individual QL Agent Training**}: Personal agents trained using patient's digital twin
-    \item \textbf{Simulation-Based Training**}: Training through PK-PD simulations rather than clinical data collection
+    \item \textbf{Individual Patient Modeling}: Each patient represented by personal PK-PD parameter set
+    \item \textbf{Individual QL Agent Training}: Personal agents trained using patient's digital twin
+    \item \textbf{Simulation-Based Training}: Training through PK-PD simulations rather than clinical data collection
 \end{itemize}
 
 \subsubsection{Technical Implementation}
 \begin{itemize}
-    \item \textbf{Software Environment**}: R version 3.4.1, Mlxtran language, RsSimulx package
-    \item \textbf{Training Process**}: Iterative agent-environment interaction with Q-value updates
-    \item \textbf{No Residual Variability**}: Simulations excluded measurement errors (acknowledged limitation)
+    \item \textbf{Software Environment}: R version 3.4.1, Mlxtran language, RsSimulx package
+    \item \textbf{Training Process}: Iterative agent-environment interaction with Q-value updates
+    \item \textbf{No Residual Variability}: Simulations excluded measurement errors (acknowledged limitation)
 \end{itemize}
 
 \subsection{Experimental Design}
 
 \subsubsection{Virtual Patient Population}
 \begin{itemize}
-    \item \textbf{Population Size**}: 141 patients
-    \item \textbf{Stratified Sampling**}:
+    \item \textbf{Population Size}: 141 patients
+    \item \textbf{Stratified Sampling}:
     \begin{itemize}
         \item Completely Responsive: $n=96$ (68\%) - maintain sensitivity for full 5-month period
         \item Partially Responsive: $n=45$ (32\%) - lose effectiveness before 5 months
     \end{itemize}
-    \item \textbf{Treatment Duration**}: 5 months (average clinical treatment duration)
+    \item \textbf{Treatment Duration}: 5 months (average clinical treatment duration)
 \end{itemize}
 
 \subsubsection{Comparison Groups}
@@ -1865,9 +1865,9 @@ Where:
 
 \subsubsection{Evaluation Metrics}
 \begin{itemize}
-    \item \textbf{Primary Efficacy**}: Percentage of patients with phosphate in target range (5.5-7 mg/dL)
+    \item \textbf{Primary Efficacy}: Percentage of patients with phosphate in target range (5.5-7 mg/dL)
     \item \textbf{Safety}: Incidence of moderate/severe hyperphosphatemia events
-    \item \textbf{Statistical Analysis**}: Wilcoxon paired signed-rank tests ($\alpha = 0.05$)
+    \item \textbf{Statistical Analysis}: Wilcoxon paired signed-rank tests ($\alpha = 0.05$)
 \end{itemize}
 
 \subsection{Key Results}
@@ -1889,47 +1889,47 @@ Improvement (4M) & \multicolumn{2}{c}{+27.79 percentage points} \\
 
 \subsubsection{Safety Outcomes}
 \begin{itemize}
-    \item \textbf{Severe hyperphosphatemia ($> 9$ mg/dL)**}: Completely eliminated by QL protocols
-    \item \textbf{Moderate hyperphosphatemia (7-9 mg/dL)**}: Drastically reduced
-    \item \textbf{Treatment interruptions**}: Significantly fewer with QL approach
+    \item \textbf{Severe hyperphosphatemia ($> 9$ mg/dL)}: Completely eliminated by QL protocols
+    \item \textbf{Moderate hyperphosphatemia (7-9 mg/dL)}: Drastically reduced
+    \item \textbf{Treatment interruptions}: Significantly fewer with QL approach
 \end{itemize}
 
 \subsubsection{Strategic Insights}
 \begin{itemize}
-    \item \textbf{Initial Dosing**}: QL agents selected 8 mg/day starting dose in only 23.4\% of patients
-    \item \textbf{Dose Escalation**}: Gradual, conservative increases preferred over aggressive dosing
-    \item \textbf{Prevention Focus**}: Avoid toxicity rather than react to it
+    \item \textbf{Initial Dosing}: QL agents selected 8 mg/day starting dose in only 23.4\% of patients
+    \item \textbf{Dose Escalation}: Gradual, conservative increases preferred over aggressive dosing
+    \item \textbf{Prevention Focus}: Avoid toxicity rather than react to it
 \end{itemize}
 
 \subsection{Challenges and Limitations}
 
 \subsubsection{Technical Limitations}
 \begin{itemize}
-    \item \textbf{Perfect PK-PD Model Assumption**}: Assumes published model perfectly describes all patients
-    \item \textbf{No Residual Variability**}: Excluded measurement errors and model misspecification
+    \item \textbf{Perfect PK-PD Model Assumption}: Assumes published model perfectly describes all patients
+    \item \textbf{No Residual Variability}: Excluded measurement errors and model misspecification
     \item \textbf{Known Parameters}: Assumes individual PK-PD parameters available from treatment start
-    \item \textbf{Computational Requirements**}: Real-time decisions needed within monitoring intervals
+    \item \textbf{Computational Requirements}: Real-time decisions needed within monitoring intervals
 \end{itemize}
 
 \subsubsection{Clinical Implementation Gaps}
 \begin{itemize}
-    \item \textbf{Parameter Estimation**}: Individual parameters must be learned during treatment
-    \item \textbf{Model Uncertainty**}: Real patients may deviate from model predictions
-    \item \textbf{Regulatory Validation**}: Extensive clinical validation required before implementation
+    \item \textbf{Parameter Estimation}: Individual parameters must be learned during treatment
+    \item \textbf{Model Uncertainty}: Real patients may deviate from model predictions
+    \item \textbf{Regulatory Validation}: Extensive clinical validation required before implementation
 \end{itemize}
 
 \subsection{Future Directions}
 
 \subsubsection{Technical Developments}
 \begin{itemize}
-    \item \textbf{Bayesian Integration**}: Continuous parameter learning and agent retraining
-    \item \textbf{Partially Observable MDPs**}: Handle uncertainty in state observations
-    \item \textbf{Multi-Objective Optimization**}: Include survival probability, quality of life, costs
+    \item \textbf{Bayesian Integration}: Continuous parameter learning and agent retraining
+    \item \textbf{Partially Observable MDPs}: Handle uncertainty in state observations
+    \item \textbf{Multi-Objective Optimization}: Include survival probability, quality of life, costs
 \end{itemize}
 
 \subsubsection{Clinical Implementation Strategy}
 \begin{itemize}
-    \item \textbf{Phase I**}: Retrospective validation on real patient data
+    \item \textbf{Phase I}: Retrospective validation on real patient data
     \item \textbf{Phase II}: Prospective randomized controlled trial
     \item \textbf{Phase III}: Clinical decision support system integration
 \end{itemize}
@@ -2292,4 +2292,624 @@ RL is applied across several areas of medicine:
     \item \textbf{Safe and Interpretable RL:} Develop RL architectures that are inherently safe and provide clear reasoning for their actions to facilitate clinical adoption.
     \item \textbf{Integrating Multimodal Data:} Effectively utilize heterogeneous, time-dependent data from EHRs, lab results, and imaging to create holistic patient state representations.
     \item \textbf{Transfer Learning:} Enable RL agents to generalize knowledge across different hospitals and patient populations, rather than being confined to the environment they were trained in.
+\end{itemize}
+
+% ============================== ARTICLE 46 =====================================
+\section{Deep Reinforcement Learning for Personalized Elderly Healthcare Recommendations}
+\textbf{Article Reference:} \cite{mulaniDeepReinforcementLearning2020}
+
+\subsection*{Overview and Objective}
+The main objective of this study is to investigate how Deep Reinforcement Learning (DRL) can be used to continuously learn from patient data, optimize treatment strategies, and provide personalized, real-time healthcare recommendations for the elderly. The research explores state-of-the-art DRL techniques for optimizing medical decision-making in geriatric healthcare.
+
+\subsection*{Approach Used and Implementation}
+The paper conceptually outlines how DRL models can be integrated into elderly healthcare:
+\begin{itemize}
+    \item \textbf{Problem Formulation:} The sequential nature of geriatric care is modeled as a Markov Decision Process (MDP) or Partially Observable Markov Decision Process (POMDP), where each decision affects future patient states.
+    \item \textbf{DRL Algorithms Explored:}
+    \begin{itemize}
+        \item Deep Q-Networks (DQN): Value-based method for learning optimal actions.
+        \item Policy Gradient Methods: Directly learn the optimal policy mapping from state to action.
+        \item Actor-Critic Methods: Hybrid approach combining value estimation (Critic) and policy learning (Actor).
+    \end{itemize}
+    \item \textbf{Learning Loop:} The DRL agent interacts with a representation of the elderly patient:
+    \begin{itemize}
+        \item \textbf{State:} Real-time data streams from wearables, IoT devices, EHRs, and sensor networks.
+        \item \textbf{Action:} Recommended healthcare interventions (e.g., medication adjustment, physical activity, scheduling follow-ups).
+        \item \textbf{Reward:} Designed to maximize long-term health, quality of life, and safety, while minimizing adverse events.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item \textbf{Data Complexity:} Elderly patient data is heterogeneous, sparse, and requires complex models to capture temporal dependencies of chronic conditions.
+    \item \textbf{Safety and Ethics:} The exploration-exploitation trade-off in RL is risky for fragile elderly populations; safety constraints are essential.
+    \item \textbf{Interpretability:} DRL models are often "black boxes," making clinical adoption and informed consent challenging due to lack of transparency.
+\end{itemize}
+
+\subsection*{Future Work}
+\begin{itemize}
+    \item \textbf{Safer Algorithms:} Develop DRL models with safety guarantees and strict constraints for clinical deployment.
+    \item \textbf{Improved Interpretability:} Design transparent DRL architectures to increase trust and facilitate clinical decision-making.
+    \item \textbf{Digital Twin Integration:} Leverage DRL within Digital Twins for healthy aging, enabling realistic simulation and testing of treatment plans.
+    \item \textbf{Addressing Data Challenges:} Innovate methods to handle the complexity and scarcity of geriatric healthcare data for robust, generalizable models.
+\end{itemize}
+
+% ============================== ARTICLE 47 =====================================
+\section{A Reinforcement Learning Approach to Personalized Asthma Exacerbation Prediction Using Proximal Policy Optimization}
+\textbf{Article Reference:} \cite{aliyuReinforcementLearningApproach2025}
+
+\subsection*{Overview}
+This paper introduces a Deep Reinforcement Learning (DRL) system using the Proximal Policy Optimization (PPO) algorithm for personalized, adaptive early prediction of asthma exacerbation attacks. The objective is to move beyond static models and enable dynamic, real-time risk assessment based on evolving patient and environmental data.
+
+\subsection*{Dataset Used}
+\begin{itemize}
+    \item \textbf{Source:} Weather Asthma (WEA) mobile health application.
+    \item \textbf{Size:} 2,020 records.
+    \item \textbf{Input Variables (10):}
+    \begin{itemize}
+        \item \textbf{Demographic \& Lifestyle:} Age group, Gender, Location, Frequency of outdoor job, Likelihood of outdoor activities.
+        \item \textbf{Environmental \& Weather:} Temperature, Humidity, Air pressure, Wind speed, UV index.
+    \end{itemize}
+    \item \textbf{Target Variable:} Asthma Control Test (ACT) score (range 5--25; lower scores indicate higher risk).
+    \item \textbf{Data Split:} 70\% training (1,414 samples), 30\% test (606 samples).
+\end{itemize}
+
+\subsection*{Approach and Implementation}
+The prediction problem is modeled as a Markov Decision Process (MDP), enabling sequential optimization over time.
+
+\begin{itemize}
+    \item \textbf{Core Algorithm:} Proximal Policy Optimization (PPO), an Actor-Critic DRL method chosen for stability and balanced exploration/exploitation.
+    \item \textbf{MDP Elements:}
+    \begin{itemize}
+        \item \textbf{State ($S_t$):} Patient health profile and environmental data (e.g., ACT score, weather, demographics).
+        \item \textbf{Action ($A_t$):} Agent's decision, such as adjusting risk prediction or triggering an early alert.
+        \item \textbf{Reward ($R_t$):} Positive reward for preventing exacerbations or accurate prediction; penalty otherwise. The PPO agent seeks the optimal policy to maximize expected cumulative reward.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Key Findings and Performance}
+\begin{itemize}
+    \item \textbf{Accuracy:} 96.60\%
+    \item \textbf{Recall (Sensitivity):} 96.65\% (critical for identifying true exacerbation cases)
+    \item \textbf{Outperformance:} PPO surpassed baseline RL algorithms:
+    \begin{itemize}
+        \item Deep Q-Learning: 92.21\% accuracy
+        \item Advantage Actor-Critic: 94.34\% accuracy
+        \item Trust Region Policy Optimization: 95.12\% accuracy
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item \textbf{Static Models:} Traditional ML models fail to capture temporal dynamics and real-time adaptation.
+    \item \textbf{Lack of Personalization:} Existing models rely on isolated, static features, limiting personalized risk assessment.
+    \item \textbf{Safety of Standard RL:} Extensive exploration in standard RL (e.g., Deep Q-Learning) can raise safety concerns in serious health conditions.
+\end{itemize}
+
+\subsection*{Future Work}
+\begin{itemize}
+    \item Train on larger, multi-source datasets for improved generalization.
+    \item Explore real-world deployment in telemedicine and integration with wearable health technologies.
+    \item Test model adaptability to other chronic diseases.
+\end{itemize}
+
+% ============================== ARTICLE 48 =====================================
+\section{Advancing Patient Care with an Intelligent and Personalized Medication Engagement System}
+\textbf{Article Reference:} \cite{ismailAdvancingPatientCare2024}
+
+\subsection*{Overview}
+This paper introduces the Personalized Medication Engagement System (PMES), a novel, intelligent, and personalized framework that uses a hybrid of Reinforcement Learning (RL) and Deep Learning (DL) to combat medication non-adherence and minimize medication errors.
+
+\subsection*{Problem and Objective}
+\begin{itemize}
+    \item \textbf{Problem:} Medication non-adherence is a major global health issue, with WHO studies showing that 50--70\% of patients do not properly follow their treatment plans, leading to increased morbidity, mortality, and higher healthcare costs. Existing patient engagement systems are often generic and fail to adapt to individual patient beliefs and preferences.
+    \item \textbf{Objective:} The PMES aims to create a highly responsive and customized system that proactively engages the patient to improve adherence while simultaneously monitoring and verifying the drug-taking process to minimize errors.
+\end{itemize}
+
+\subsection*{Dataset Used}
+The paper describes a proposed framework and does not mention a single, named, publicly available dataset (like MIMIC or HAM10000).
+\begin{itemize}
+    \item \textbf{RL Component Training Data:} The RL agent is trained using adherence reports. The system learns personalized patterns of responsiveness by observing the individual patient's response to engagement "signs" over time.
+    \item \textbf{DL Component Training Data:} The Deep Learning (DL) Verification Agent is trained for a given medication plan.
+\end{itemize}
+
+\subsection*{Approach and Implementation (Hybrid AI Framework)}
+The PMES is a two-fold intelligent system designed to work remotely as a cloud-based solution:
+
+\subsubsection*{1. Reinforcement Learning (RL) Component (Improving Adherence)}
+\begin{itemize}
+    \item \textbf{Purpose:} To improve medication adherence by providing personalized engagement.
+    \item \textbf{Modeling:} The medication engagement problem is modeled as a Markov Decision Process (MDP).
+    \item \textbf{Algorithm:} The agent utilizes the Contextual Bandit (CB) model, an extension of RL that considers contextual information ($X_i$)---the patient's adherence features---before choosing an Engagement Decision (Action) to maximize the Reward (improved adherence).
+    \item \textbf{Personalization:} The RL component is designed to be trained for each patient separately, allowing it to learn that specific individual's unique patterns of responsiveness and optimize for them.
+\end{itemize}
+
+\subsubsection*{2. Deep Learning Verification Agent (DLVA) Component (Minimizing Errors)}
+\begin{itemize}
+    \item \textbf{Purpose:} To monitor the drug-taking activity and ensure the patient takes the correct medicine, thereby minimizing medication errors.
+    \item \textbf{Algorithm:} The DLVA is built using a Convolutional Neural Network (CNN) model.
+    \item \textbf{Function:} It serves as a verification facility to monitor and check if a patient is taking the wrong drugs.
+\end{itemize}
+
+\subsection*{Challenges}
+The paper notes that existing approaches suffer from several limitations which the PMES attempts to address:
+\begin{itemize}
+    \item \textbf{Generic Application:} Current engagement systems are generic and do not incorporate patient preferences and beliefs into the treatment plan.
+    \item \textbf{Passive Reminders:} Many systems only provide reminder messages or basic monitoring but fail to actively engage the patient in the medication activity to influence their behavior.
+    \item \textbf{Lack of Verification:} Most existing personalized medication setups do not provide a verification mechanism to monitor whether the correct drug is being consumed.
+\end{itemize}
+
+\subsection*{Future Work and Novel Contributions}
+The core novelty of the PMES highlights the direction of future work:
+\begin{itemize}
+    \item \textbf{Personalized Engagement:} Future efforts will center on leveraging the RL component's ability to consider the patient's personalized behavior, learn that behavior, and engage the patient in a customized manner.
+    \item \textbf{Monitoring and Verification:} Expanding the dual-objective feature that both improves adherence and provides a dynamic verification facility to minimize errors in taking the wrong medicines.
+    \item \textbf{Dynamic and Remote Access:} Utilizing the system's cloud-based nature and its ability to be trained for different sets of medicines, enabling remote use anywhere.
+\end{itemize}
+
+
+% ============================== ARTICLE 49 =====================================
+\section{Applications of stochastic processes and reinforcement learning in strategic decision support and personalized ad recommendation: An AIGC study}
+\textbf{Article Reference:} \cite{DOI105425427552721}
+\subsection*{Overview and Objective}
+This paper investigates the integration of stochastic processes and reinforcement learning (RL) in strategic decision support systems (SDSS) and personalized advertisement recommendations. The objective is to demonstrate how combining these AI techniques can enhance decision-making accuracy and efficiency across various industries including financial services, healthcare, logistics, retail, and manufacturing. The study explores theoretical foundations, practical implementations, and addresses computational complexity and ethical considerations.
+
+\subsection*{Theoretical Foundations}
+\begin{itemize}
+    \item \textbf{Stochastic Processes:} Mathematical models incorporating randomness to predict and analyze systems evolving over time, particularly valuable for modeling uncertainties in strategic planning (e.g., supply chain demand fluctuations, financial risk assessment).
+    \item \textbf{Reinforcement Learning:} Dynamic AI approach where agents learn optimal actions through environment interaction to maximize cumulative rewards. The fundamental Bellman equation is presented:
+    \begin{equation}
+        Q^{\pi}(s,a) = E^{\pi}[r_t + \gamma \cdot Q^{\pi}(s_{t+1}, a_{t+1})|s_t = s, a_t = a]
+    \end{equation}
+    \item \textbf{Synergy:} Integration creates adaptive decision-making frameworks that respond to changing conditions and uncertainties in real-time.
+\end{itemize}
+
+\subsection*{Practical Applications}
+The paper presents comprehensive applications across five major industries:
+
+\begin{table}[h!]
+\centering
+\caption{Strategic Decision Support Systems Applications}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\textbf{Industry} & \textbf{Application} & \textbf{Stochastic Model} & \textbf{RL Method} & \textbf{Benefits} \\
+\hline
+Financial & Trading strategies & ARIMA, GARCH & Q-learning, DQN & Maximized returns \\
+\hline
+Logistics & Route optimization & Poisson, Markov & Policy Gradient & Reduced costs \\
+\hline
+Healthcare & Treatment planning & Bayesian Networks & Actor-Critic & Personalized care \\
+\hline
+Retail & Inventory management & Monte Carlo & Multi-Armed Bandit & Optimized stock \\
+\hline
+Manufacturing & Predictive maintenance & Weibull Distribution & DQN & Reduced downtime \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Key Applications}
+\begin{itemize}
+    \item \textbf{Strategic Decision Support Systems (SDSS):} Analyze vast data, identify trends, optimize strategies across industries
+    \item \textbf{Personalized Advertisement Recommendations:} Deliver tailored ad content using stochastic models for user behavior prediction and RL for ad placement optimization
+    \item \textbf{Case Studies:} Real-world implementations showing reduced financial risks, lower operational costs, improved patient care, increased sales, and minimized equipment downtime
+\end{itemize}
+
+\subsection*{Challenges and Limitations}
+\begin{itemize}
+    \item \textbf{Computational Complexity:} High computational requirements, large dataset processing, complex calculations requiring specialized expertise
+    \item \textbf{Data Quality and Availability:} Dependency on accurate, complete, and continuously updated data for effective model performance
+    \item \textbf{Ethical and Privacy Concerns:} User data collection raises privacy issues; potential algorithmic bias leading to discriminatory outcomes
+\end{itemize}
+
+\subsection*{Solutions and Mitigation Strategies}
+\begin{itemize}
+    \item High-performance computing infrastructure and cloud-based scalable resources
+    \item Advanced data processing algorithms and robust data management practices
+    \item Ethical AI guidelines, transparency, and regular bias audits
+    \item User-friendly development tools to simplify adoption
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Advancements in quantum computing and more sophisticated algorithms
+    \item Enhanced data processing capabilities and interdisciplinary collaboration
+    \item Development of industry-specific data standards and governance frameworks
+    \item Focus on explainable and auditable AI systems for building user trust
+\end{itemize}
+
+\subsection*{Significance}
+The integration demonstrates transformative potential for revolutionizing traditional business practices through real-time uncertainty modeling and decision optimization, with successful implementations across multiple industries showing measurable improvements in performance, cost reduction, and service delivery.
+
+
+% ============================== ARTICLE 50 =====================================
+\section{Supervised-actor-critic reinforcement learning for intelligent mechanical ventilation and sedative dosing in intensive care units}
+\textbf{Article Reference:} \cite{yuSupervisedactorcriticReinforcementLearning2020}
+
+\subsection*{Overview and Objective}
+This paper proposes a Supervised-Actor-Critic (SAC) reinforcement learning algorithm for addressing decision-making problems in Intensive Care Units (ICUs), specifically for mechanical ventilation and sedative dosing. The key innovation is combining long-term goal-oriented RL with short-term supervised learning objectives to ensure patient safety during treatment while optimizing clinical outcomes. The approach aims to cure patients in the long term while keeping treatment strategies aligned with clinical expert guidance.
+
+\subsection*{Problem Statement}
+Traditional RL algorithms focus solely on maximizing long-term rewards, which can lead to exploration strategies that may pose fatal risks to patients. Clinical treatment requires both:
+\begin{itemize}
+    \item \textbf{Long-term goal:} Curing the patient
+    \item \textbf{Short-term goal:} Maintaining patient stability through proper daily dosage control
+\end{itemize}
+The challenge is that traditional RL may achieve high cumulative rewards but deviate significantly from safe clinical treatment strategies.
+
+\subsection*{Dataset Used}
+\begin{itemize}
+    \item \textbf{Source:} MIMIC-III database (Medical Information Mart for Intensive Care)
+    \item \textbf{Patients:} 8,860 adult patient admissions extracted
+    \item \textbf{Inclusion Criteria:} Patients kept under ventilation for at least 24 hours and successfully discharged from ICU
+    \item \textbf{Patient Demographics:} Median age 65.8 years, 55.9\% male, 11.5\% hospitalized
+    \item \textbf{Temporal Resolution:} 10-minute intervals from admission to discharge
+    \item \textbf{Preprocessing:} Support Vector Machines (SVM) used to fit physiological measurements at different times
+\end{itemize}
+
+\subsection*{MDP Formulation}
+The decision-making problem is modeled as a Markov Decision Process (MDP):
+
+\subsubsection*{State (13-dimensional features)}
+Respiration rate, heart rate, arterial pH, PEEP set, SpO2, FiO2, arterial oxygen partial pressure, plateau pressure, average airway pressure, mean non-invasive blood pressure, body weight, and age.
+
+\subsubsection*{Action}
+\begin{itemize}
+    \item \textbf{Ventilation:} Binary decision (wean off or continue ventilation)
+    \item \textbf{Sedative:} Four discrete propofol dose levels
+    \item \textbf{Total:} Eight action combinations
+\end{itemize}
+
+\subsubsection*{Reward Function}
+\begin{equation}
+r_{t+1} = r^{vitals}_{t+1} + r^{vent\ off}_{t+1} + r^{vent\ on}_{t+1}
+\end{equation}
+where:
+\begin{itemize}
+    \item $r^{vitals}_{t+1}$: Evaluates physiological stability
+    \item $r^{vent\ off}_{t+1}$: Performance of stopping ventilation
+    \item $r^{vent\ on}_{t+1}$: Cost per hour on ventilator
+\end{itemize}
+
+\subsection*{Supervised-Actor-Critic (SAC) Algorithm}
+
+\subsubsection*{Framework Components}
+\begin{itemize}
+    \item \textbf{Actor Network:} Generates treatment actions
+    \item \textbf{Critic Network:} Evaluates action-state values using TD error
+    \item \textbf{Supervisor Network:} Provides expert guidance to reduce deviation from clinician strategies
+\end{itemize}
+
+\subsubsection*{Actor Network Update}
+Combined objective function:
+\begin{equation}
+J(\theta) = (1 - \epsilon)J_{RL}(\theta) + \epsilon(-J_{SL}(\theta))
+\end{equation}
+where:
+\begin{itemize}
+    \item $J_{RL}(\theta)$: RL optimization goal (maximize expected reward)
+    \item $J_{SL}(\theta)$: Supervised learning goal (minimize deviation from expert actions)
+    \item $\epsilon$: Weighting parameter balancing RL and supervised learning
+\end{itemize}
+
+Parameter update using stochastic gradient descent:
+\begin{equation}
+\theta = \theta + \alpha\left((1-\epsilon)\frac{\partial J_{RL}(\theta)}{\partial\theta} + \epsilon\left(-\frac{\partial J_{SL}(\theta)}{\partial\theta}\right)\right)
+\end{equation}
+
+\subsubsection*{Critic Network Update}
+\begin{equation}
+J(w) = E_{r_t,s_t}\left[(Q_w(s_t,a_t) - y_t)^2\right]
+\end{equation}
+\begin{equation}
+y_t = r(s_t,a_t) + \gamma Q^{tar}_w(s_{t+1}, \mu_\theta(s_{t+1}))
+\end{equation}
+
+\subsection*{Network Architecture}
+All networks (Actor, Critic, Supervisor) use three-layer neural networks:
+\begin{itemize}
+    \item \textbf{Actor:} 20 hidden neurons (ReLU), 2 output neurons (Softmax)
+    \item \textbf{Critic:} 20 hidden neurons (ReLU), 1 output neuron (no activation)
+    \item \textbf{Supervisor:} 9 hidden neurons, 2 output neurons (Softmax)
+    \item \textbf{Encoding:} One-hot encoding for discrete actions
+\end{itemize}
+
+\subsection*{Experimental Results}
+
+\subsubsection*{Ventilation Experiment}
+\begin{itemize}
+    \item \textbf{Convergence:} SAC converges significantly faster than AC (20 episodes vs. 60 episodes to reach 99\% accuracy)
+    \item \textbf{Accuracy Rate:} Both algorithms achieve over 99\% AR on test set
+    \item \textbf{Expert Data:} SAC more accurate on expert data (99.57\%) than AC (99.47\%)
+\end{itemize}
+
+\subsubsection*{Sedative Dosing Experiment}
+\begin{itemize}
+    \item \textbf{Mean Square Error:} SAC achieves lower MSE (2.49) than AC (3.10) on test set
+    \item \textbf{Accuracy Rate:} Both achieve 41.5\% AR on test set
+    \item \textbf{Multiple Intubation Data:} SAC shows 6\% higher AR and 0.8 lower MSE than AC
+    \item \textbf{Stability:} SAC more stable in final training episodes
+\end{itemize}
+
+\subsection*{Key Findings}
+\begin{itemize}
+    \item SAC converges much faster than traditional AC algorithm
+    \item SAC achieves higher data utilization efficiency
+    \item Strategy learned by SAC is closer to clinical expert strategies
+    \item SAC maintains better stability during learning process
+    \item Introduction of supervised learning reduces risk of deviation from safe clinical practices
+\end{itemize}
+
+\subsection*{Advantages of SAC}
+\begin{itemize}
+    \item Balances long-term treatment goals with short-term patient safety
+    \item Reduces exploration-related risks to patients
+    \item Learns strategies aligned with clinical expert guidance
+    \item Faster convergence and better data efficiency
+    \item More suitable for complex medical environments requiring patient stability
+\end{itemize}
+
+\subsection*{Future Work}
+Apply SAC algorithm to other healthcare domains such as:
+\begin{itemize}
+    \item HIV treatment
+    \item Sepsis management
+    \item Other dynamic treatment regimes requiring efficient and stable decision-making
+\end{itemize}
+
+\subsection*{Significance}
+This work demonstrates that combining supervised learning with RL is more appropriate for medical settings than pure RL alone, as clinical practice requires both achieving cure (long-term goal) and maintaining patient stability (short-term goal) simultaneously. The SAC framework provides a safer and more clinically-aligned approach to automated medical decision support.
+
+% ============================== ARTCLE 51 =====================================
+\section{A value-based deep reinforcement learning model with human expertise in optimal treatment of sepsis}
+\textbf{Article Reference:} \cite{wuValuebasedDeepReinforcement2023}
+
+\subsection*{Overview and Objective}
+This paper introduces a novel Deep Reinforcement Learning (DRL) model called the Weighted Dueling Double Deep Q-Network with embedded human Expertise (WD3QNE) to optimize sepsis treatment. The model addresses critical limitations of previous value-based DRL algorithms by improving Q value estimation accuracy and integrating clinical knowledge to provide safer, more reliable, and personalized real-time treatment recommendations.
+
+
+\subsection*{Objectives}
+The WD3QNE model aims to:
+\begin{enumerate}
+    \item Improve the accuracy and stability of Q value estimation
+    \item Integrate human clinical expertise to ensure reliability and cautious decision-making, particularly in less severe cases
+    \item Enhance interpretability through effective feature selection
+\end{enumerate}
+
+\subsection*{MDP Formulation}
+The sepsis treatment problem is framed as a Markov Decision Process (MDP) and solved using the WD3QNE algorithm, a modification of the Dueling Double Deep Q-Network (D3QN) architecture.
+
+\subsubsection*{State Space}
+\begin{itemize}
+    \item \textbf{Dimensionality:} 37 clinical and biological features
+    \item \textbf{Features Include:} Vital signs, lab results, medications
+    \item \textbf{Feature Selection:} Random Forest algorithm used to select most critical clinical variables, improving interpretability
+\end{itemize}
+
+\subsubsection*{Action Space}
+\begin{itemize}
+    \item \textbf{Type:} Discrete action space
+    \item \textbf{Interventions:} Two key treatments
+    \begin{itemize}
+        \item Intravenous (IV) fluid doses
+        \item Vasopressor (VP) doses
+    \end{itemize}
+    \item \textbf{Discretization:} 5×5 grid of 25 possible joint actions (e.g., Low IV + Medium VP, No IV + High VP)
+\end{itemize}
+
+\subsubsection*{Reward Function}
+The reward guides the agent toward long-term survival:
+\begin{itemize}
+    \item \textbf{Survival-based:} 
+    \begin{itemize}
+        \item +1 reward for discharge/survival
+        \item -1 penalty for death
+    \end{itemize}
+    \item \textbf{SOFA-based:} Immediate penalty if patient's SOFA score (Sequential Organ Failure Assessment) increases, reflecting worsening organ dysfunction
+\end{itemize}
+
+\subsection*{Novel WD3QNE Innovations}
+
+\subsubsection*{1. Weighted Target Q Value Function}
+\begin{itemize}
+    \item Introduces an adaptive dynamic weight ($p$) to calculate the target Q value
+    \item Dynamically balances two standard Q estimation methods:
+    \begin{itemize}
+        \item Dueling DQN (tends to overestimate)
+        \item D3QN (tends to underestimate)
+    \end{itemize}
+    \item Results in more accurate and stable Q value estimation
+    \item Resolves common estimation bias in value-based RL
+\end{itemize}
+
+\subsubsection*{2. Embedded Human Expertise}
+The system incorporates a Conditional Policy based on the patient's SOFA score:
+\begin{itemize}
+    \item \textbf{SOFA $<$ 5 (Mild Symptoms):} Uses Q value function derived from clinician's historical expertise, ensuring adherence to trusted, conservative protocols in stable patients
+    \item \textbf{SOFA $\geq$ 5 (Severe Symptoms):} Uses the novel adaptive weighted Q value to recommend more aggressive, optimized treatment
+\end{itemize}
+
+This dual approach ensures:
+\begin{itemize}
+    \item Safety and cautiousness for less severe cases
+    \item Optimized, data-driven decisions for critical cases
+    \item Integration of clinical wisdom with AI capabilities
+\end{itemize}
+
+\subsection*{Key Advantages}
+\begin{itemize}
+    \item \textbf{Improved Estimation Accuracy:} Weighted Q value function reduces overestimation and underestimation biases
+    \item \textbf{Enhanced Stability:} More stable Q value estimates lead to more reliable policies
+    \item \textbf{Safety Through Expertise:} Human expertise integration provides fail-safe mechanism for mild cases
+    \item \textbf{Interpretability:} Random Forest feature selection improves model transparency
+    \item \textbf{Personalized Treatment:} Conditional policy adapts to patient severity level
+\end{itemize}
+
+\subsection*{Challenges Addressed}
+
+\subsubsection*{Inaccurate Value Estimation}
+Existing value-based DRL algorithms (DQN, DDQN, D3QN) struggle to accurately estimate the optimal Q value, leading to suboptimal policies. WD3QNE resolves this through weighted averaging.
+
+\subsubsection*{Safety and Trust}
+Pure AI models lack the built-in cautiousness of human clinicians, making them risky to deploy in high-stakes ICU environments. WD3QNE addresses this by embedding expert knowledge conditionally.
+
+\subsubsection*{Interpretability}
+High-dimensional input features in complex DRL models make it difficult to explain decisions to clinicians. WD3QNE uses Random Forest for transparent feature selection.
+
+\subsection*{Future Work}
+
+\subsubsection*{External Validation}
+\begin{itemize}
+    \item Current study based solely on MIMIC-III dataset
+    \item Need validation on other large-scale clinical databases (e.g., eICU)
+    \item Confirm model's generalizability across diverse patient populations and healthcare settings
+\end{itemize}
+
+\subsubsection*{Real-time Clinical Trials}
+\begin{itemize}
+    \item Move from retrospective data validation to prospective, real-time clinical trials
+    \item Assess practical utility and safety in live ICU settings
+    \item Necessary step for clinical deployment and regulatory approval
+\end{itemize}
+
+\subsubsection*{Handling Unseen States}
+\begin{itemize}
+    \item Improve model's ability to provide reliable decisions for complex, rare, or unseen physiological states
+    \item Develop robust mechanisms for out-of-distribution detection
+    \item Ensure safe fallback to expert protocols when facing novel situations
+\end{itemize}
+% Add this to your preamble if not already there:
+% \usepackage{longtable}
+% \usepackage{array}
+
+
+\begin{longtable}{|p{1cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|}
+\hline
+\textbf{Ref.} & \textbf{Clinical Domain / Application} & \textbf{Dataset} & \textbf{RL Algorithm} & \textbf{State / Action / Reward}\\
+\hline
+\endfirsthead
+
+\multicolumn{5}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\textbf{Ref.} & \textbf{Clinical Domain / Application} & \textbf{Dataset} & \textbf{RL Algorithm} & \textbf{State / Action / Reward}\\
+\hline
+\endhead
+
+\hline \multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+
+\scriptsize
+\cite{gayathriEnhancingHeartDisease2024} & Heart disease prediction & UCI Cleveland + others & RL + Data Augmentation & Patient features / Augmentation or model updates / Accuracy \\
+\hline
+\cite{javadReinforcementLearningBased2019} & T1DM insulin dosing & 87 patient records (MGH) & Q-learning & Discretized HbA1c, BMI, activity, alcohol / Insulin dose / HbA1c improvement \\
+\hline
+\cite{abdelazizDeepQNetworkDQN2025} & Disease prediction (EHR) & UCI Heart Disease & Deep Q-Network (DQN) & EHR sample / Feature adjustment / Prediction accuracy \\
+\hline
+\cite{barataReinforcementLearningModel2023} & Skin cancer management & HAM10000 images & Deep Q-learning & Lesion features / Management action / Diagnosis outcome \\
+\hline
+\cite{stemberReinforcementLearningUsing2022} & Brain tumor localization & BraTS MRI (30 train/test) & DQN & Agent position / Move / Tumor region \\
+\hline
+\cite{petersenDeepReinforcementLearning2019} & Sepsis therapy (simulation) & Agent-based model (simulated) & Deep RL & Patient state / Cytokine therapy / Survival, tissue damage \\
+\hline
+\cite{yangPrescDRLDeepReinforcement2024} & Herbal prescription (TCM, diabetes) & Custom diabetes dataset & Deep RL (PrescDRL) & Patient health / Herbal prescription / Efficacy, safety \\
+\hline
+\cite{yangDeepReinforcementLearning2024} & Multi-class imbalanced classification & Real clinical datasets & Dueling/Double DQN & Data point / Class assignment / Custom (minority class) \\
+\hline
+\cite{maDeepAttentionQnetwork2023} & Critical care treatment recommendation & Real clinical (sepsis, hypotension) & Deep Attention Q-Network (Transformer) & Current+past obs / Treatment / Clinical outcome \\
+\hline
+\cite{tardiniOptimalTreatmentSelection2022} & Oropharyngeal cancer treatment & 536 patient records & Deep Q-Learning & Patient state / Treatment / Survival, toxicity \\
+\hline
+\cite{zhengPersonalizedMultimorbidityManagement2021} & T2DM multimorbidity management & 16,665 EHRs (NYU) & RL (multiple models) & Demographics, labs / Treatment / Target outcomes \\
+\hline
+\cite{liuDeepReinforcementLearning2022} & Cancer drug ranking & Breast cancer, TCGA, GDSC & PPO-based DRL (PPORank) & Patient-drug state / Drug ranking / NDCG  \\
+\hline
+\cite{zhaoSafeenhancedFullyClosedloop2025} & Artificial pancreas (T1D) & Simglucose simulator & PPO (with safety) & Glucose, insulin / Insulin dose / Time-in-range, safety  \\
+\hline
+\cite{liuReinforcementLearningOptimize2024} & Ventilator setting optimization & ICU retrospective EHR & RL (offline Q-learning) & Physio state / Ventilator settings / Clinical targets \\
+\hline
+\cite{ohEffectiveDatadrivenPrecision2022} & T2DM treatment (precision) & 22,581 EHRs (Korea) & Clustered DQN & Clustered health state / Medication / QALY \\
+\hline
+\cite{tripathyReinforcementLearningOptimizing2024} & Wearable-based interventions & Samsung smartwatch & Deep Q-Learning & Sensor/context / Intervention / Engagement \\
+\hline
+\cite{gonulReinforcementLearningBased2021} & Digital JIT adaptive interventions & Simulation & Dual RL (Q-learning + eligibility traces) & Context, habit / Intervention / Engagement \\
+\hline
+\cite{hassouniClusteringbasedReinforcementLearning2020} & e-Health interventions & Simulator + HeartSteps & Q-learning, LSPI & User state / Intervention / Reward for activity \\
+\hline
+\cite{killianEmpiricalStudyRepresentation2020} & Sepsis (representation learning) & MIMIC-III (19k patients) & dBCQ, 7 encoders & Sequential obs / Treatment / Survival, SOFA \\
+\hline
+\cite{abdellatifReinforcementLearningIntelligent2021} & RL in I-Health (survey) & Survey & Survey & N/A  \\
+\hline
+\cite{luoReinforcementLearningDynamic2024} & RL in DTRs (position paper) & MIMIC-III (sepsis) & DQN, CQL, BCQ, IQL & Patient state / Treatment / Mortality, SOFA \\
+\hline
+\cite{banumathiReinforcementLearningPersonalized2025} & RL in personalized medicine (review) & Review & Review & N/A \\
+\hline
+\cite{zhangReinforcementLearningClinical2019} & RL for DTRs (clinical) & Simulated & Q-learning, IPWE, AIPWE & Patient state / Treatment / Clinical outcome  \\
+\hline
+\cite{decarloReinforcementLearningPKPD2024} & PK-PD dosing (Erdafitinib) & Simulated (141 patients) & Q-learning (personal agent) & PK-PD state / Dose / Phosphate in range \\
+\hline
+\cite{banumathiReinforcementLearningPersonalized2025a} & RL in personalized medicine (review) & Review & Review & N/A \\
+\hline
+\cite{linDosingStrategyModel2022} & Sepsis dosing (vasopressor/IV) & MIMIC-III & DDPG & 12 features / Dose pair / Survival, SOFA \\
+\hline
+\cite{daiClosedloopHealthcareProcessing2022} & Closed-loop healthcare (sim) & Simulator & DRL (DDPG, etc.) & Simulated state / Intervention / Health  \\
+\hline
+\cite{gorrepatiReinforcementLearningFramework2025} & Real-time personalized planning & 50k+ EHRs + sim & PPO (deep policy net) & Latent state / Treatment / Health, cost, risk  \\
+\hline
+\cite{dahdouhNewApproachUsing2023} & Skin cancer classification & HAM10000 images & CNN + DQN & Image / Classification / Accuracy  \\
+\hline
+\cite{frommeyerReinforcementLearningIts2025} & RL in precision medicine (review) & Systematic review & Review & N/A  \\
+\hline
+\cite{zadehOptimizingWarfarinDosing2023} & Warfarin dosing optimization & PK/PD simulation & Deep Q-learning & INR, history / Dose+duration / INR penalty \\
+\hline
+\cite{deshmukhReinforcementLearningHealthcare2024} & RL for clinical decision support & Review + examples & Review & N/A \\
+\hline
+\cite{mulaniDeepReinforcementLearning2020} & Elderly healthcare (DRL) & Conceptual & DQN, Policy Grad, Actor-Critic & Wearables/EHR / Intervention / Health \\
+\hline
+\cite{aliyuReinforcementLearningApproach2025} & Asthma exacerbation prediction & WEA app (2020 recs) & PPO (Actor-Critic) & Profile+env / Alert / Exacerbation \\
+\hline
+\cite{ismailAdvancingPatientCare2024} & Medication adherence & Framework (conceptual) & RL (Contextual Bandit) + CNN & Adherence features / Engagement / Adherence \\
+\hline
+\cite{DOI105425427552721} & RL in SDSS, ad recommendation & Multi-industry & Q-learning, DQN, Policy Grad & Industry-specific / Action / Domain reward  \\
+\hline
+\cite{yuSupervisedactorcriticReinforcementLearning2020} & ICU ventilation/sedation & MIMIC-III (8,860 pts) & Supervised-Actor-Critic & 13 features / Vent+sedative / Vitals, weaning \\
+\hline
+\cite{wuValuebasedDeepReinforcement2023} & Sepsis treatment (ICU) & MIMIC-III & WD3QNE (Dueling Double DQN + expertise) & 37 features / IV+VP dose / Survival, SOFA  \\
+\hline
+\end{longtable}
+
+
+% ============================== CHALLENGES AND FUTURE WORKS ==============================
+
+\section{Challenges in Reinforcement Learning for Personalized Medicine}
+
+Despite significant progress, reinforcement learning (RL) in healthcare and personalized medicine faces several persistent challenges:
+
+\begin{itemize}
+    \item \textbf{Data Quality and Availability:} Clinical datasets are often limited, noisy, incomplete, or imbalanced, which hinders robust RL model training and generalization \cite{yangDeepReinforcementLearning2024, killianEmpiricalStudyRepresentation2020, deshmukhReinforcementLearningHealthcare2024, luoReinforcementLearningDynamic2024, barataReinforcementLearningModel2023, hassouniClusteringbasedReinforcementLearning2020, mulaniDeepReinforcementLearning2020}.
+    \item \textbf{Generalizability and Bias:} Models trained on single-center or homogeneous datasets may not generalize to diverse populations, raising concerns about fairness and bias \cite{ohEffectiveDatadrivenPrecision2022, banumathiReinforcementLearningPersonalized2025, banumathiReinforcementLearningPersonalized2025a, zadehOptimizingWarfarinDosing2023, zhengPersonalizedMultimorbidityManagement2021}.
+    \item \textbf{Interpretability and Transparency:} Deep RL models are often ``black boxes,'' making it difficult for clinicians to understand, trust, and validate recommendations \cite{maDeepAttentionQnetwork2023, deshmukhReinforcementLearningHealthcare2024, barataReinforcementLearningModel2023, wuValuebasedDeepReinforcement2023, frommeyerReinforcementLearningIts2025, banumathiReinforcementLearningPersonalized2025}.
+    \item \textbf{Reward Function Design:} Defining clinically meaningful, multi-objective reward functions that align with patient outcomes, safety, and quality of life is complex \cite{luoReinforcementLearningDynamic2024, frommeyerReinforcementLearningIts2025, petersenDeepReinforcementLearning2019, yangPrescDRLDeepReinforcement2024, zadehOptimizingWarfarinDosing2023}.
+    \item \textbf{Safety and Ethics:} RL exploration can pose risks to patient safety; ethical constraints and regulatory requirements limit the scope of experimentation \cite{zhaoSafeenhancedFullyClosedloop2025, deshmukhReinforcementLearningHealthcare2024, mulaniDeepReinforcementLearning2020, gorrepatiReinforcementLearningFramework2025, yuSupervisedactorcriticReinforcementLearning2020}.
+    \item \textbf{Computational Complexity and Scalability:} Training RL models on high-dimensional, multimodal clinical data requires significant computational resources and expertise \cite{DOI105425427552721, hassouniClusteringbasedReinforcementLearning2020, gorrepatiReinforcementLearningFramework2025, yangDeepReinforcementLearning2024}.
+    \item \textbf{Offline Policy Evaluation and Validation:} Reliable evaluation of RL policies using retrospective data is challenging due to confounding, delayed effects, and lack of ground truth \cite{luoReinforcementLearningDynamic2024, killianEmpiricalStudyRepresentation2020, zhengPersonalizedMultimorbidityManagement2021, zadehOptimizingWarfarinDosing2023}.
+    \item \textbf{Integration with Clinical Workflows:} Embedding RL systems into real-world clinical practice requires overcoming technical, regulatory, and workflow barriers \cite{barataReinforcementLearningModel2023, ohEffectiveDatadrivenPrecision2022, gorrepatiReinforcementLearningFramework2025, banumathiReinforcementLearningPersonalized2025}.
+\end{itemize}
+
+\section{Future Directions}
+
+To address these challenges, future research should focus on:
+
+\begin{itemize}
+    \item \textbf{Model Interpretability and Explainability:} Develop explainable RL models using XAI techniques (e.g., SHAP, LIME, attention mechanisms) to build clinician trust and facilitate adoption \cite{banumathiReinforcementLearningPersonalized2025, maDeepAttentionQnetwork2023, gorrepatiReinforcementLearningFramework2025, frommeyerReinforcementLearningIts2025}.
+    \item \textbf{Federated and Privacy-Preserving Learning:} Employ federated RL and privacy-preserving data sharing to enable multi-center collaboration while protecting patient privacy \cite{banumathiReinforcementLearningPersonalized2025, abdellatifReinforcementLearningIntelligent2021, banumathiReinforcementLearningPersonalized2025a}.
+    \item \textbf{Hybrid and Safe RL Algorithms:} Integrate supervised learning, expert knowledge, and safety constraints into RL frameworks to ensure reliable and clinically aligned decision-making \cite{wuValuebasedDeepReinforcement2023, yuSupervisedactorcriticReinforcementLearning2020, zhaoSafeenhancedFullyClosedloop2025, gorrepatiReinforcementLearningFramework2025}.
+    \item \textbf{Advanced RL Methods:} Explore meta-RL, hierarchical RL, multi-agent RL, and digital twin simulations for more robust, adaptive, and personalized treatment strategies \cite{banumathiReinforcementLearningPersonalized2025, decarloReinforcementLearningPKPD2024, gorrepatiReinforcementLearningFramework2025, petersenDeepReinforcementLearning2019}.
+    \item \textbf{Clinical Validation and Real-World Trials:} Move beyond retrospective studies to prospective, real-time clinical trials and integration with electronic medical record (EMR) systems \cite{zhengPersonalizedMultimorbidityManagement2021, gorrepatiReinforcementLearningFramework2025, barataReinforcementLearningModel2023, ohEffectiveDatadrivenPrecision2022}.
+    \item \textbf{Reward Function Refinement:} Design multi-objective, patient-centered reward functions that balance efficacy, safety, cost, and quality of life \cite{luoReinforcementLearningDynamic2024, petersenDeepReinforcementLearning2019, yangPrescDRLDeepReinforcement2024, zadehOptimizingWarfarinDosing2023}.
+    \item \textbf{Interdisciplinary Collaboration:} Foster collaboration among AI researchers, clinicians, ethicists, and policymakers to ensure responsible, effective, and ethical RL system design \cite{banumathiReinforcementLearningPersonalized2025, banumathiReinforcementLearningPersonalized2025a, frommeyerReinforcementLearningIts2025}.
+    \item \textbf{Standardized Benchmarks and Taxonomies:} Develop standardized datasets, benchmarks, and taxonomies to improve reproducibility, comparability, and clinical relevance of RL research in healthcare \cite{frommeyerReinforcementLearningIts2025, abdellatifReinforcementLearningIntelligent2021}.
 \end{itemize}
