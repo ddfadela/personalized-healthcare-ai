@@ -18,6 +18,14 @@
 \newcolumntype{L}{>{\RaggedRight\arraybackslash}X}
 \newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
 
+
+\usepackage[section]{placeins} 
+\setcounter{topnumber}{5}
+\setcounter{bottomnumber}{5}
+\setcounter{totalnumber}{10}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.75}
 \title{Reinforcement Learning in Healthcare: A Comprehensive Review of Applications, Challenges, and Future Directions}
 
 \author{Djelloul Daouadji Fadela \and Bachir Bouidjra Rochdi}
@@ -43,7 +51,9 @@ interpretability, safety/ethics, and computational constraints.
 
 \section{Introduction}
 Reinforcement learning (RL), a branch of artificial intelligence, is increasingly important in medicine due to its ability to model dynamic, sequential decision-making. Unlike traditional machine learning, RL algorithms interact with environments, adaptively learning optimal strategies through feedback. This makes RL well-suited for healthcare, where patient conditions and treatments evolve over time. RL enables personalized care by tailoring interventions to individual patient characteristics and preferences. This review provides a comprehensive overview of RL in healthcare, covering its principles, key applications, challenges, and future opportunities. We also discuss ethical and practical considerations, including data privacy, interpretability, and the need for clinical validation, aiming to highlight RL’s potential to transform patient care and outcomes~\cite{banumathiReinforcementLearningPersonalized2025,deshmukhReinforcementLearningHealthcare2024}.
-\begin{figure}[h]
+
+Figure~\ref{fig: workflow} presents the high-level RL workflow used throughout this review; the following sections describe its components and how they map to clinical problems.
+\begin{figure}[htbp]
     \centering 
     \includegraphics[width=1.0\textwidth]{figures/workflow.png} 
     \caption{Reinforcement Learning Workflow in Healthcare}
@@ -65,8 +75,16 @@ Despite these advances, several challenges persist. RL models often require larg
 
 Overall, the literature highlights RL’s potential to revolutionize healthcare by enabling personalized, data-driven decision-making. However, further work is needed to address data limitations, improve model transparency, and validate RL approaches in prospective clinical trials.
 
-\textbf{Summary and Gaps:} While RL has demonstrated promising results across diverse healthcare domains, persistent gaps remain in interpretability, clinical validation, and integration with real-world workflows. This review addresses these gaps by systematically categorizing RL applications, identifying key challenges, and proposing future research directions to advance safe and effective RL deployment in healthcare.\section{RL Applications in Healthcare: A Taxonomy}
-\begin{figure}[h]
+\subsection*{Summary and gaps}
+While RL has demonstrated promising results across diverse healthcare domains, persistent gaps remain in interpretability, clinical validation, and integration with real-world workflows. This review addresses these gaps by systematically categorizing RL applications, identifying key challenges, and proposing future research directions to advance safe and effective RL deployment in healthcare.
+
+
+\section{RL Applications in Healthcare: A Taxonomy}
+This section organizes RL applications into a compact taxonomy and then surveys representative works for each category.
+
+Figure~\ref{fig: timeline} provides a concise timeline of notable RL applications (2019--2025) discussed below.
+
+\begin{figure}[htbp]
     \centering 
     \includegraphics[width=1.0\textwidth]{figures/timeline.png} 
     \caption{Timeline of RL Applications in Healthcare (2019-2025)}
@@ -115,17 +133,21 @@ Contextual Bandit RL combined with CNN verification for personalized engagement 
 
 \subsubsection{Digital Health Interventions}
 Wearable-based adaptive interventions using Deep Q-Learning for real-time, context-aware recommendations~\cite{tripathyReinforcementLearningOptimizing2024,gonulReinforcementLearningBased2021,hassouniClusteringbasedReinforcementLearning2020}.
-\begin{figure}[h]
+
+We summarize the domain-level taxonomy in Figure~\ref{fig: taxonomy} and then detail the main subareas (intensive care, chronic disease, diagnostics, personalized interventions).
+\begin{figure}[htbp]
     \centering 
     \includegraphics[width=1.0\textwidth]{figures/taxonomy.png} 
     \caption{Taxonomy of RL Applications in Healthcare}
     \label{fig: taxonomy}
 \end{figure}
-
 \subsection{Datasets Used in RL Healthcare Studies} 
-\begin{table}[ht]
+Below table lists commonly used datasets and their typical applications in RL healthcare research.
+
+\begin{table}[htbp]
 \centering
 \caption{RL Healthcare Articles Grouped by Dataset Type}
+\label{tab:datasets}
 \begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
 \hline
 \textbf{Dataset} & \textbf{Clinical Domain / Application} & \textbf{References} \\
@@ -163,8 +185,15 @@ PK/PD Simulation & Warfarin dosing, Erdafitinib dosing & \cite{zadehOptimizingWa
 \end{tabular}
 \end{table}
 
+\FloatBarrier
+\begin{figure}[htbp]
+  \centering
+    \includegraphics[width=0.8\textwidth]{figures/dataset.jpg} 
+    \caption{Distribution of Datasets Used in RL Healthcare Studies}
+    \label{fig: dataset_pie_chart}
+\end{figure}
 \section{Challenges in Reinforcement Learning for Personalized Medicine}
-Despite the promise of reinforcement learning (RL) in healthcare and personalized medicine, several key challenges persist across the literature:
+This section summarizes key barriers to deploying RL in clinical settings and highlights areas where methodological work is most needed.
 
 \begin{itemize}
     \item \textbf{Data Quality and Availability:} Clinical datasets are often limited, noisy, incomplete, or imbalanced, which hinders robust RL model training and generalization \cite{yangDeepReinforcementLearning2024, killianEmpiricalStudyRepresentation2020, deshmukhReinforcementLearningHealthcare2024, luoReinforcementLearningDynamic2024, barataReinforcementLearningModel2023, hassouniClusteringbasedReinforcementLearning2020, mulaniDeepReinforcementLearning2020}.
@@ -176,6 +205,7 @@ Despite the promise of reinforcement learning (RL) in healthcare and personalize
     \item \textbf{Offline Policy Evaluation and Validation:} Reliable evaluation of RL policies using retrospective data is challenging due to confounding, delayed effects, and lack of ground truth \cite{luoReinforcementLearningDynamic2024, killianEmpiricalStudyRepresentation2020, zhengPersonalizedMultimorbidityManagement2021, zadehOptimizingWarfarinDosing2023}.
     \item \textbf{Integration with Clinical Workflows:} Embedding RL systems into real-world clinical practice requires overcoming technical, regulatory, and workflow barriers \cite{barataReinforcementLearningModel2023, ohEffectiveDatadrivenPrecision2022, gorrepatiReinforcementLearningFramework2025, banumathiReinforcementLearningPersonalized2025}.
 \end{itemize}
+Figure~\ref{fig: challenges} illustrates the principal challenge categories that we discuss below.
 \begin{figure}[h]
     \centering 
     \includegraphics[width=1.0\textwidth]{figures/challenges.jpg} 
