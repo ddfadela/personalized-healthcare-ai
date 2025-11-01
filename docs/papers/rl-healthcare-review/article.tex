@@ -27,6 +27,7 @@
 \renewcommand{\textfraction}{0.07}
 \renewcommand{\floatpagefraction}{0.75}
 \title{Reinforcement Learning in Healthcare: A Comprehensive Review of Applications, Challenges, and Future Directions}
+\titlerunning{RL in Healthcare: A Comprehensive Review}
 
 \author{Djelloul Daouadji Fadela \and Bachir Bouidjra Rochdi}
 \institute{Department of Computer Science, University Mascara, Mascara, Algeria \\
@@ -41,18 +42,17 @@ Reinforcement Learning (RL) is a powerful, adaptive tool for personalized health
 as revealed by a systematic review of many studies from 2019–2025.
 The review categorized applications across intensive care, chronic disease,
 diagnostics, and personalized interventions, identifying key algorithms
-like DQN, PPO, and Actor-Critic methods, alongside promising hybrid models that merge clinical knowledge with RL.
-While specific methods achieved high success (e.g., Supervised-Actor-Critic for sepsis with 99 accuracy), 
-deployment faces critical challenges: data quality/scarcity, limited generalizability, complex reward design,
-interpretability, safety/ethics, and computational constraints.
+like DQN, PPO, and Actor-Critic methods, alongside promising hybrid models that integrate clinical knowledge with RL frameworks.
+While specific methods achieved high success (e.g., Supervised-Actor-Critic achieving 99\% accuracy for sepsis management), 
+deployment faces critical challenges: data quality and scarcity, limited generalizability, complex reward design, interpretability, safety/ethics, and computational constraints.
 \end{abstract}
 
 \keywords{Artificial Intelligence, Personalized Healthcare, Deep Learning, Reinforcement Learning, Predictive Analytics, Precision Medicine}
 
 \section{Introduction}
-Reinforcement learning (RL), a branch of artificial intelligence, is increasingly important in medicine due to its ability to model dynamic, sequential decision-making. Unlike traditional machine learning, RL algorithms interact with environments, adaptively learning optimal strategies through feedback. This makes RL well-suited for healthcare, where patient conditions and treatments evolve over time. RL enables personalized care by tailoring interventions to individual patient characteristics and preferences. This review provides a comprehensive overview of RL in healthcare, covering its principles, key applications, challenges, and future opportunities. We also discuss ethical and practical considerations, including data privacy, interpretability, and the need for clinical validation, aiming to highlight RL’s potential to transform patient care and outcomes~\cite{banumathiReinforcementLearningPersonalized2025,deshmukhReinforcementLearningHealthcare2024}.
+Reinforcement learning (RL), a branch of artificial intelligence, is increasingly important in medicine due to its ability to model dynamic and sequential decision-making. Unlike traditional machine learning, RL algorithms interact with environments, adaptively learning optimal strategies through feedback. This makes RL well-suited for healthcare, where patient conditions and treatments evolve over time. RL enables personalized care by tailoring interventions to individual patient characteristics and preferences. This review provides a comprehensive overview of RL in healthcare, covering its principles, key applications, challenges, and future opportunities. We also discuss ethical and practical considerations, including data privacy, interpretability, and the need for clinical validation, aiming to highlight how RL can transform patient care and clinical outcomes~\cite{banumathiReinforcementLearningPersonalized2025a,deshmukhReinforcementLearningHealthcare2024}.
 
-Figure~\ref{fig: workflow} presents the high-level RL workflow used throughout this review; the following sections describe its components and how they map to clinical problems.
+Figure~\ref{fig: workflow} presents the high-level RL workflow used throughout this review, the following sections describe its components and how they map to clinical problems.
 \begin{figure}[htbp]
     \centering 
     \includegraphics[width=1.0\textwidth]{figures/workflow.png} 
@@ -62,7 +62,8 @@ Figure~\ref{fig: workflow} presents the high-level RL workflow used throughout t
 
 \section{Related Work and Background}
 
-Reinforcement Learning (RL) has emerged as a transformative approach in healthcare, enabling adaptive, sequential decision-making that aligns with the dynamic nature of patient care. Early RL applications focused on critical care, such as optimizing sepsis management and mechanical ventilation settings using large-scale datasets like MIMIC-III~\cite{wuValuebasedDeepReinforcement2023, yuSupervisedactorcriticReinforcementLearning2020}. These studies demonstrated that RL algorithms, including Q-learning, Deep Q-Networks (DQN), and Actor-Critic methods, can outperform traditional protocols by personalizing treatment strategies and improving patient outcomes.
+Reinforcement Learning (RL) has emerged as a transformative approach in healthcare, enabling adaptive, sequential decision-making that aligns with the dynamic nature of patient care. Early RL applications focused on critical care, such as optimizing sepsis management and mechanical ventilation settings using large-scale datasets like MIMIC-III~\cite{wuValuebasedDeepReinforcement2023, yuSupervisedactorcriticReinforcementLearning2020}. These studies demonstrated that RL algorithms, including Q-learning, Deep Q-Networks (DQN), and various Actor-Critic variants (including hybrid supervised approaches), can outperform traditional static protocols by enabling personalized treatment strategies 
+that adapt to individual patient trajectories.
 
 Beyond critical care, RL has been applied to chronic disease management, notably in diabetes and cardiovascular diseases. For example, Q-learning and PPO have been used to personalize insulin dosing for Type 1 Diabetes~\cite{javadReinforcementLearningBased2019, zhaoSafeenhancedFullyClosedloop2025}, while Deep Q-learning has optimized warfarin dosing in cardiovascular patients~\cite{zadehOptimizingWarfarinDosing2023}. These approaches leverage patient-specific data to tailor interventions, demonstrating improved accuracy and clinical concordance.
 
@@ -70,8 +71,13 @@ In medical diagnostics, RL has shown promise in enhancing image-based disease de
 
 Recent work has expanded RL’s scope to personalized interventions, such as medication adherence and digital health recommendations. Contextual bandit RL and wearable-based adaptive interventions have been used to deliver real-time, patient-specific guidance, improving engagement and outcomes~\cite{ismailAdvancingPatientCare2024, tripathyReinforcementLearningOptimizing2024}.
 
-Despite these advances, several challenges persist. RL models often require large, high-quality datasets, yet many healthcare studies rely on limited or simulated data, which can affect generalizability. Interpretability remains a concern, as complex RL models may act as “black boxes,” hindering clinical trust and adoption. Designing clinically meaningful reward functions, ensuring patient safety during exploration, and integrating RL systems into real-world clinical workflows are ongoing areas of research.
-
+Despite these advances, several challenges persist. While some large-scale datasets 
+exist (e.g., MIMIC-III), many clinical scenarios lack sufficient high-quality data. 
+Additionally, RL models trained on limited or simulated data may have reduced 
+generalizability. Interpretability remains a concern, as complex RL models may act as 
+"black boxes," hindering clinical trust and adoption. Designing clinically meaningful 
+reward functions, ensuring patient safety during exploration, and integrating RL systems 
+into real-world clinical workflows are ongoing areas of research.
 
 Overall, the literature highlights RL’s potential to revolutionize healthcare by enabling personalized, data-driven decision-making. However, further work is needed to address data limitations, improve model transparency, and validate RL approaches in prospective clinical trials.
 
@@ -102,14 +108,14 @@ Multiple studies address sepsis management through optimal dosing of IV fluids a
 \end{itemize}
 
 \subsubsection{Mechanical Ventilation and Sedation}
-Supervised-Actor-Critic (SAC) combines long-term RL objectives with short-term supervised learning to align with clinical practices, achieving 99\% accuracy and faster convergence than traditional Actor-Critic methods on MIMIC-III data (8,860 patients)~\cite{yuSupervisedactorcriticReinforcementLearning2020}. RL has also been used for ventilator setting optimization~\cite{liuReinforcementLearningOptimize2024}.
+Supervised-Actor-Critic combines long-term RL objectives with short-term supervised learning to align with clinical practices, achieving 99\% policy concordance with clinician decisions and demonstrating 30\% faster convergence compared to traditional Actor-Critic methods on MIMIC-III data (8,860 patients)~\cite{yuSupervisedactorcriticReinforcementLearning2020}. RL has also been used for ventilator setting optimization~\cite{liuReinforcementLearningOptimize2024}.
 
 \subsection{Chronic Disease Management}
 
 \subsubsection{Diabetes Management}
 \begin{itemize}
-    \item \textbf{Type 1 Diabetes}: Q-learning for insulin dosing~\cite{javadReinforcementLearningBased2019}, PPO for artificial pancreas achieving 87\% time-in-range~\cite{zhaoSafeenhancedFullyClosedloop2025}
-    \item \textbf{Type 2 Diabetes}: Clustered DQN for precision medicine with 81-85\% clinician concordance~\cite{ohEffectiveDatadrivenPrecision2022}
+    \item \textbf{Type 1 Diabetes}: Q-learning for insulin dosing~\cite{javadReinforcementLearningBased2019}; PPO-based artificial pancreas systems achieving 87\% time-in-target glucose range~\cite{zhaoSafeenhancedFullyClosedloop2025}
+    \item \textbf{Type 2 Diabetes}: Clustered DQN for precision medicine, demonstrating 81-85\% agreement with clinician treatment decisions~\cite{ohEffectiveDatadrivenPrecision2022}
 \end{itemize}
 
 \subsubsection{Cardiovascular Diseases}
@@ -120,7 +126,7 @@ Warfarin dosing optimization using Deep Q-learning on PK/PD simulations, outperf
 \subsubsection{Medical Imaging}
 \begin{itemize}
     \item \textbf{Skin Cancer}: CNN+DQN achieving 80\% accuracy on HAM10000 dataset~\cite{dahdouhNewApproachUsing2023,barataReinforcementLearningModel2023}
-    \item \textbf{Brain Tumors}: DQN for tumor localization achieving 70\% accuracy vs. 11\% supervised baseline~\cite{stemberReinforcementLearningUsing2022}
+    \item \textbf{Brain Tumors}: DQN for tumor localization achieving 70\% accuracy with limited training data, compared to 11\% for supervised methods under the same data-constrained conditions~\cite{stemberReinforcementLearningUsing2022}
 \end{itemize}
 
 \subsubsection{Disease Prediction}
@@ -141,12 +147,12 @@ We summarize the domain-level taxonomy in Figure~\ref{fig: taxonomy} and then de
     \caption{Taxonomy of RL Applications in Healthcare}
     \label{fig: taxonomy}
 \end{figure}
-\section{Datasets Used in RL Healthcare Studies} 
-Below table lists commonly used datasets and their typical applications in RL healthcare research.
+\section{Datasets Used in RL Healthcare Studies}
+The following table lists commonly used datasets and their typical applications in RL healthcare research.
 
 \begin{table}[htbp]
 \centering
-\caption{RL Healthcare Articles Grouped by Dataset Type}
+\caption{RL Healthcare Studies Grouped by Dataset Type}
 \label{tab:datasets}
 \begin{tabular}{|p{3cm}|p{5cm}|p{5cm}|}
 \hline
@@ -197,16 +203,16 @@ This section summarizes key barriers to deploying RL in clinical settings and hi
 
 \begin{itemize}
     \item \textbf{Data Quality and Availability:} Clinical datasets are often limited, noisy, incomplete, or imbalanced, which hinders robust RL model training and generalization \cite{yangDeepReinforcementLearning2024, killianEmpiricalStudyRepresentation2020, deshmukhReinforcementLearningHealthcare2024, luoReinforcementLearningDynamic2024, barataReinforcementLearningModel2023, hassouniClusteringbasedReinforcementLearning2020, mulaniDeepReinforcementLearning2020}.
-    \item \textbf{Generalizability and Bias:} Models trained on single-center or homogeneous datasets may not generalize to diverse populations, raising concerns about fairness and bias \cite{ohEffectiveDatadrivenPrecision2022, banumathiReinforcementLearningPersonalized2025, banumathiReinforcementLearningPersonalized2025a, zadehOptimizingWarfarinDosing2023, zhengPersonalizedMultimorbidityManagement2021}.
-    \item \textbf{Interpretability and Transparency:} Deep RL models are often ``black boxes,'' making it difficult for clinicians to understand, trust, and validate recommendations \cite{maDeepAttentionQnetwork2023, deshmukhReinforcementLearningHealthcare2024, barataReinforcementLearningModel2023, wuValuebasedDeepReinforcement2023, frommeyerReinforcementLearningIts2025, banumathiReinforcementLearningPersonalized2025}.
+    \item \textbf{Generalizability and Bias:} Models trained on single-center or homogeneous datasets may not generalize to diverse populations, raising concerns about fairness and bias \cite{ohEffectiveDatadrivenPrecision2022, banumathiReinforcementLearningPersonalized2025a, zadehOptimizingWarfarinDosing2023, zhengPersonalizedMultimorbidityManagement2021}.
+    \item \textbf{Interpretability and Transparency:} Deep RL models are often ``black boxes,'' making it difficult for clinicians to understand, trust, and validate recommendations \cite{maDeepAttentionQnetwork2023, deshmukhReinforcementLearningHealthcare2024, barataReinforcementLearningModel2023, wuValuebasedDeepReinforcement2023, frommeyerReinforcementLearningIts2025, banumathiReinforcementLearningPersonalized2025a}.
     \item \textbf{Reward Function Design:} Defining clinically meaningful, multi-objective reward functions that align with patient outcomes, safety, and quality of life is complex \cite{luoReinforcementLearningDynamic2024, frommeyerReinforcementLearningIts2025, petersenDeepReinforcementLearning2019, yangPrescDRLDeepReinforcement2024, zadehOptimizingWarfarinDosing2023}.
     \item \textbf{Safety and Ethics:} RL exploration can pose risks to patient safety; ethical constraints and regulatory requirements limit the scope of experimentation \cite{zhaoSafeenhancedFullyClosedloop2025, deshmukhReinforcementLearningHealthcare2024, mulaniDeepReinforcementLearning2020, gorrepatiReinforcementLearningFramework2025, yuSupervisedactorcriticReinforcementLearning2020}.
     \item \textbf{Computational Complexity and Scalability:} Training RL models on high-dimensional, multimodal clinical data requires significant computational resources and expertise \cite{DOI105425427552721, hassouniClusteringbasedReinforcementLearning2020, gorrepatiReinforcementLearningFramework2025, yangDeepReinforcementLearning2024}.
     \item \textbf{Offline Policy Evaluation and Validation:} Reliable evaluation of RL policies using retrospective data is challenging due to confounding, delayed effects, and lack of ground truth \cite{luoReinforcementLearningDynamic2024, killianEmpiricalStudyRepresentation2020, zhengPersonalizedMultimorbidityManagement2021, zadehOptimizingWarfarinDosing2023}.
-    \item \textbf{Integration with Clinical Workflows:} Embedding RL systems into real-world clinical practice requires overcoming technical, regulatory, and workflow barriers \cite{barataReinforcementLearningModel2023, ohEffectiveDatadrivenPrecision2022, gorrepatiReinforcementLearningFramework2025, banumathiReinforcementLearningPersonalized2025}.
+    \item \textbf{Integration with Clinical Workflows:} Embedding RL systems into real-world clinical practice requires overcoming technical, regulatory, and workflow barriers \cite{barataReinforcementLearningModel2023, ohEffectiveDatadrivenPrecision2022, gorrepatiReinforcementLearningFramework2025, banumathiReinforcementLearningPersonalized2025a}.
 \end{itemize}
 Figure~\ref{fig: challenges} illustrates the principal challenge categories that we discuss below.
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering 
     \includegraphics[width=1.0\textwidth]{figures/challenges.jpg} 
     \caption{Key Challenges in Reinforcement Learning for Personalized Medicine}
@@ -217,19 +223,30 @@ Figure~\ref{fig: challenges} illustrates the principal challenge categories that
 To address these challenges, future research should focus on:
 
 \begin{itemize}
-    \item \textbf{Model Interpretability and Explainability:} Develop explainable RL models using XAI techniques (e.g., SHAP, LIME, attention mechanisms) to build clinician trust and facilitate adoption \cite{banumathiReinforcementLearningPersonalized2025, maDeepAttentionQnetwork2023, gorrepatiReinforcementLearningFramework2025, frommeyerReinforcementLearningIts2025}.
-    \item \textbf{Federated and Privacy-Preserving Learning:} Employ federated RL and privacy-preserving data sharing to enable multi-center collaboration while protecting patient privacy \cite{banumathiReinforcementLearningPersonalized2025, abdellatifReinforcementLearningIntelligent2021, banumathiReinforcementLearningPersonalized2025a}.
+    \item \textbf{Model Interpretability and Explainability:} Develop explainable RL models using XAI techniques (e.g., SHAP, LIME, attention mechanisms) to build clinician trust and facilitate adoption \cite{banumathiReinforcementLearningPersonalized2025a, maDeepAttentionQnetwork2023, gorrepatiReinforcementLearningFramework2025, frommeyerReinforcementLearningIts2025}.
+    \item \textbf{Federated and Privacy-Preserving Learning:} Employ federated RL and privacy-preserving data sharing to enable multi-center collaboration while protecting patient privacy \cite{banumathiReinforcementLearningPersonalized2025a, abdellatifReinforcementLearningIntelligent2021}.
     \item \textbf{Hybrid and Safe RL Algorithms:} Integrate supervised learning, expert knowledge, and safety constraints into RL frameworks to ensure reliable and clinically aligned decision-making \cite{wuValuebasedDeepReinforcement2023, yuSupervisedactorcriticReinforcementLearning2020, zhaoSafeenhancedFullyClosedloop2025, gorrepatiReinforcementLearningFramework2025}.
-    \item \textbf{Advanced RL Methods:} Explore meta-RL, hierarchical RL, multi-agent RL, and digital twin simulations for more robust, adaptive, and personalized treatment strategies \cite{banumathiReinforcementLearningPersonalized2025, decarloReinforcementLearningPKPD2024, gorrepatiReinforcementLearningFramework2025, petersenDeepReinforcementLearning2019}.
+    \item \textbf{Advanced RL Methods:} Explore meta-RL, hierarchical RL, multi-agent RL, and digital twin simulations for more robust, adaptive, and personalized treatment strategies \cite{banumathiReinforcementLearningPersonalized2025a, decarloReinforcementLearningPKPD2024, gorrepatiReinforcementLearningFramework2025, petersenDeepReinforcementLearning2019}.
     \item \textbf{Clinical Validation and Real-World Trials:} Move beyond retrospective studies to prospective, real-time clinical trials and integration with electronic medical record (EMR) systems \cite{zhengPersonalizedMultimorbidityManagement2021, gorrepatiReinforcementLearningFramework2025, barataReinforcementLearningModel2023, ohEffectiveDatadrivenPrecision2022}.
     \item \textbf{Reward Function Refinement:} Design multi-objective, patient-centered reward functions that balance efficacy, safety, cost, and quality of life \cite{luoReinforcementLearningDynamic2024, petersenDeepReinforcementLearning2019, yangPrescDRLDeepReinforcement2024, zadehOptimizingWarfarinDosing2023}.
-    \item \textbf{Interdisciplinary Collaboration:} Foster collaboration among AI researchers, clinicians, ethicists, and policymakers to ensure responsible, effective, and ethical RL system design \cite{banumathiReinforcementLearningPersonalized2025, banumathiReinforcementLearningPersonalized2025a, frommeyerReinforcementLearningIts2025}.
+    \item \textbf{Interdisciplinary Collaboration:} Foster collaboration among AI researchers, clinicians, ethicists, and policymakers to ensure responsible, effective, and ethical RL system design \cite{banumathiReinforcementLearningPersonalized2025a, frommeyerReinforcementLearningIts2025}.
     \item \textbf{Standardized Benchmarks and Taxonomies:} Develop standardized datasets, benchmarks, and taxonomies to improve reproducibility, comparability, and clinical relevance of RL research in healthcare \cite{frommeyerReinforcementLearningIts2025, abdellatifReinforcementLearningIntelligent2021}.
 \end{itemize}
 
 \section{Conclusion}
-Reinforcement learning has shown significant promise in healthcare, enabling adaptive, personalized interventions across critical care, chronic disease management, diagnostics, and digital health. Key RL algorithms, such as DQN, PPO, and Actor-Critic, have achieved high accuracy and clinical concordance in various applications. However, challenges persist in data quality, generalizability, interpretability, reward design, safety, and integration with clinical practice. Addressing these issues through explainable models, federated learning, hybrid approaches, and rigorous clinical validation will be essential for RL’s successful adoption in medicine. Continued interdisciplinary collaboration and standardized benchmarks will further support the development of robust, ethical, and impactful RL systems, ultimately improving patient outcomes and advancing precision medicine.
+This comprehensive review highlights the growing role of reinforcement learning (RL) as a transformative technology in personalized healthcare. RL has demonstrated promising applications across critical care management, chronic disease treatment, medical diagnostics, and digital health interventions. However, several key challenges must be overcome before RL can be widely adopted in clinical practice, including data quality and availability, generalizability, interpretability, reward design, safety, and workflow integration.
 
+Future research should focus on:
+\begin{itemize}
+    \item Developing explainable RL models to enhance clinician trust through transparent decision-making.
+    \item Employing federated and privacy-preserving learning to enable collaboration across institutions while protecting patient data.
+    \item Incorporating clinical expertise into hybrid frameworks that combine supervised and reinforcement learning.
+    \item Advancing meta-RL, hierarchical RL, and digital twin simulations to improve adaptability and sample efficiency.
+    \item Conducting prospective clinical trials and integrating RL systems with electronic medical records for real-world validation.
+    \item Establishing standardized benchmarks, evaluation protocols, and promoting interdisciplinary collaboration among AI researchers, clinicians, ethicists, and policymakers.
+\end{itemize}
+
+Progress in these areas will help realize RL's potential to deliver more personalized, effective, and resource-efficient patient care.
 \bibliographystyle{splncs04}
 \bibliography{references}
 
