@@ -2777,10 +2777,6 @@ High-dimensional input features in complex DRL models make it difficult to expla
     \item Develop robust mechanisms for out-of-distribution detection
     \item Ensure safe fallback to expert protocols when facing novel situations
 \end{itemize}
-% Add this to your preamble if not already there:
-% \usepackage{longtable}
-% \usepackage{array}
-
 
 \begin{longtable}{|p{1cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|}
 \hline
@@ -2912,4 +2908,252 @@ To address these challenges, future research should focus on:
     \item \textbf{Reward Function Refinement:} Design multi-objective, patient-centered reward functions that balance efficacy, safety, cost, and quality of life \cite{luoReinforcementLearningDynamic2024, petersenDeepReinforcementLearning2019, yangPrescDRLDeepReinforcement2024, zadehOptimizingWarfarinDosing2023}.
     \item \textbf{Interdisciplinary Collaboration:} Foster collaboration among AI researchers, clinicians, ethicists, and policymakers to ensure responsible, effective, and ethical RL system design \cite{banumathiReinforcementLearningPersonalized2025, banumathiReinforcementLearningPersonalized2025a, frommeyerReinforcementLearningIts2025}.
     \item \textbf{Standardized Benchmarks and Taxonomies:} Develop standardized datasets, benchmarks, and taxonomies to improve reproducibility, comparability, and clinical relevance of RL research in healthcare \cite{frommeyerReinforcementLearningIts2025, abdellatifReinforcementLearningIntelligent2021}.
+\end{itemize}
+
+% ============================== ARTCLE 51 =====================================
+\section{A Primer on Reinforcement Learning in Medicine}
+\textbf{Article Reference:} \cite{PrimerReinforcementLearning}
+
+\subsection*{Overview}
+This primer introduces reinforcement learning (RL) to clinicians, summarizing core concepts, clinical applications, implementation constraints, evaluation challenges, and promising research directions for integrating RL into medical practice.
+
+\subsection*{Core Concepts}
+\begin{itemize}
+    \item \textbf{Agent / Environment / Reward:} An RL agent interacts with an environment (patient state / clinical setting), selects actions and receives scalar rewards, learning a policy that maximizes cumulative reward.
+    \item \textbf{MDP Framework:} Problems are commonly framed as Markov Decision Processes (MDPs) with states, actions, transition dynamics and rewards; limitations of the Markov assumption in medicine are noted.
+    \item \textbf{Model-based vs Model-free:}
+    \begin{itemize}
+        \item Model-based RL learns or uses an environment model to plan.
+        \item Model-free RL learns value or policy functions directly (value-based, policy-based, actor-critic hybrids).
+    \end{itemize}
+    \item \textbf{Online vs Offline RL:} Safety and ethics usually preclude online exploration with real patients; offline (batch) RL on retrospective data is therefore the predominant clinical paradigm.
+\end{itemize}
+
+\subsection*{Clinical Applications}
+\begin{itemize}
+    \item \textbf{Critical care:} Treatment optimisation for sepsis (fluids/vasopressors), ventilator weaning, sedation, anticoagulation, and other ICU decisions where sequential control and dense monitoring exist.
+    \item \textbf{Personalized dosing and therapies:} Insulin and artificial pancreas control, adaptive chemotherapy or targeted dosing using PK/PD simulators or digital twins.
+    \item \textbf{Longitudinal care and chronic diseases:} Adaptive regimens for diabetes, hypertension, multimorbidity management and behavior-change interventions.
+    \item \textbf{Robotics and automation:} Robotic-assisted surgery (RAS) and procedural automation where RL can learn fine-grained control policies from demonstrations and simulation.
+\end{itemize}
+
+\subsection*{Major Challenges}
+\begin{enumerate}
+    \item \textbf{State-space formulation:}
+    \begin{itemize}
+        \item High-dimensional, noisy, irregular EHR data; missingness and preprocessing decisions strongly affect outcomes.
+        \item Distribution shifts and demographic biases reduce generalizability.
+        \item Partial observability and violation of Markov assumptions in clinical trajectories.
+    \end{itemize}
+    \item \textbf{Reward design:}
+    \begin{itemize}
+        \item Clinical objectives are multi-faceted (survival, quality of life, safety, cost) and often subjective.
+        \item Sparse and delayed rewards (long-term outcomes) complicate credit assignment.
+    \end{itemize}
+    \item \textbf{Action-space and safety:}
+    \begin{itemize}
+        \item Continuous vs discrete action choices, safety constraints (drug interactions, guideline adherence) and the need for constrained policies.
+    \end{itemize}
+    \item \textbf{Evaluation and deployment:}
+    \begin{itemize}
+        \item Reliance on simulators and offline policy evaluation (OPE) with inherent biases.
+        \item Scarcity of prospective clinical trials; regulatory, ethical and workflow integration barriers.
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item \textbf{Hybrid and safe RL:} Combine expert knowledge, supervised objectives and constrained RL to ensure safety and clinical alignment.
+    \item \textbf{Federated and privacy-preserving methods:} Federated RL / FL-IRL to learn policies across institutions while maintaining patient privacy.
+    \item \textbf{Integration with LLMs and multimodal models:} Use LLMs and multimodal encoders for richer state representations and clinician-facing explanations.
+    \item \textbf{Digital twins and simulation:} High‑fidelity simulators and patient digital twins to pre-train and stress-test policies before clinical evaluation.
+    \item \textbf{Real-time adaptive systems:} Transition from static prediction to actionable, bedside RL-based decision support with explainability and uncertainty quantification.
+    \item \textbf{Robotics in surgery:} RL combined with advanced vision models to support automation and assistive behaviors in RAS.
+\end{itemize}
+
+\subsection*{Takeaway}
+RL offers a principled framework for sequential, personalized decision-making in medicine but requires rigorous handling of data, safety constraints, reward design and evaluation. Progress depends on hybrid-safe algorithms, federated collaborations, realistic simulators, and prospective clinical validation to translate RL from promising research to safe clinical tools.
+
+% ============================= Article 52 =============================
+\section{The Role of Artificial Intelligence in Personalized Healthcare Solutions}
+\textbf{Article Reference:} \cite{PDFRoleArtificial}
+
+\subsection*{Overview}
+This paper examines how artificial intelligence (AI) enables personalized healthcare by tailoring prevention, diagnosis, and treatment to individual patient characteristics (genetics, lifestyle, environment). It summarizes core AI technologies, clinical applications, benefits, challenges, and future directions for equitable deployment.
+
+\subsection*{Key AI Technologies and Concepts}
+\begin{itemize}
+    \item \textbf{Precision Medicine:} Move from one-size-fits-all to individualized interventions based on multi-modal data.
+    \item \textbf{Machine Learning (ML):} Supervised, unsupervised and deep learning for risk prediction, prognosis, and treatment selection using EHRs, imaging, and omics.
+    \item \textbf{Natural Language Processing (NLP):} Extraction of structured knowledge from clinical notes, reports, and literature to augment decision making.
+    \item \textbf{Robotics:} AI-driven robotic systems for surgical assistance, rehabilitation, and automated monitoring.
+    \item \textbf{Genomics and Bioinformatics:} Scalable analysis of sequencing data to identify actionable variants and inform pharmacogenomics.
+\end{itemize}
+
+\subsection*{AI Applications in Personalized Healthcare}
+\begin{itemize}
+    \item \textbf{Disease Prediction and Diagnosis:} Early detection and triage using EHRs, imaging, and multi-omic signatures.
+    \item \textbf{Treatment Personalization (Pharmacogenomics):} Drug selection and dosing guided by genetic markers and patient-specific models.
+    \item \textbf{Remote Monitoring and Wearables:} Continuous risk monitoring and dynamic intervention via streaming sensor data and telemedicine.
+    \item \textbf{Genomic Data Interpretation:} Variant annotation, driver mutation detection, and therapy matching in precision oncology.
+\end{itemize}
+
+\subsection*{Benefits}
+\begin{itemize}
+    \item \textbf{Improved accuracy and efficiency:} Faster, data-driven diagnostics and reduced human error.
+    \item \textbf{Enhanced patient experience:} More effective, better-tolerated therapies through personalization.
+    \item \textbf{Cost-effectiveness:} Prevention and early intervention reduce downstream costs and optimize resource use.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item \textbf{Data privacy and security:} Protecting sensitive patient data while enabling learning across sites.
+    \item \textbf{Algorithmic bias and fairness:} Historical biases in data can produce unequal outcomes across subpopulations.
+    \item \textbf{Regulatory and integration hurdles:} Unclear pathways for approval and difficulty embedding AI into clinical workflows.
+    \item \textbf{Access and infrastructure disparities:} Limited resources and digital literacy restrict equitable adoption.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item \textbf{Advances in AI models:} More robust, sample-efficient deep learning and multimodal models for clinical tasks.
+    \item \textbf{Real-time predictive and adaptive systems:} Continuous patient-state monitoring with dynamic therapy adjustment.
+    \item \textbf{Global access and low-resource solutions:} Lightweight, automated diagnostics to extend care to under-served regions.
+    \item \textbf{Ethical deployment and governance:} Transparency, informed consent, bias audits, and accountability frameworks to ensure responsible use.
+\end{itemize}
+
+AI offers transformative potential for personalized healthcare across prediction, diagnosis, and therapy personalization. Realizing this potential requires rigorous attention to privacy, fairness, clinical validation, and equitable access to avoid amplifying existing health disparities.
+
+% ============================ ARTICLE 53 ============================
+\section{A value-based deep reinforcement learning model with human expertise in optimal treatment of sepsis}
+\textbf{Article Reference:} \cite{wuValuebasedDeepReinforcement2023}
+
+\subsection*{Overview}
+Theyproposes WD3QNE (Weighted Dueling Double Deep Q-Network with embedded human Expertise), a value-based deep reinforcement learning (DRL) method designed to optimize intravenous fluid and vasopressor therapy for sepsis. WD3QNE aims to improve Q-value estimation accuracy and integrate clinician knowledge to increase safety and clinical alignment.
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item Primary dataset: MIMIC-III critical care database (retrospective ICU records).
+    \item External validation: eICU Research Institute (eRI) database.
+    \item Clinical variables: Initially many candidate features; feature selection reduced to 37 key variables.
+\end{itemize}
+
+\subsection*{Data Processing}
+\begin{itemize}
+    \item Standard ICU preprocessing: time-binning, imputation for missing vitals/labs, normalization.
+    \item Feature selection: Random Forest importance used to select a compact, interpretable subset (45 $\rightarrow$ 37 features).
+    \item Action discretization: Joint action grid for fluids and vasopressors (e.g., 5 × 5 discretization).
+\end{itemize}
+
+\subsection*{Approach}
+\begin{itemize}
+    \item Value-based DRL with architectural innovations to reduce Q-value bias.
+    \item Incorporation of human expertise into the policy via a conditional rule based on patient severity (SOFA score).
+    \item Reward: Terminal survival signal supplemented by intermediate penalties for SOFA score increases to encourage clinically relevant behavior.
+\end{itemize}
+
+\subsection*{Implementation of Reinforcement Learning}
+\begin{itemize}
+    \item Core model: Weighted Dueling Double DQN variant (WD3QNE).
+    \item Adaptive dynamic weight: Target Q-value computed as a weighted combination of estimators to balance Dueling DQN overestimation and D3QN underestimation; the weight adapts during training.
+    \item Embedded expertise: For mild cases (SOFA $<$ 5) the policy prefers clinician-derived actions (expert conditional policy); for severe cases the learned weighted Q policy is applied.
+    \item Training: Offline (batch) RL on retrospective trajectories with appropriate stability mechanisms (target networks, replay buffers).
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item MIMIC-III test set: WD3QNE achieved a reported survival rate of 97.81\%, exceeding clinician baseline (83.26\%) and outperforming competing DRL baselines (DQN, DDQN, D3QN, WD3QN).
+    \item External validation (eRI): Survival rate of 95.83\%, confirming robustness across datasets.
+    \item Safety / action distribution: WD3QNE prescribed lower vasopressor doses for mild sepsis compared to pure-AI agents, aligning better with conservative clinical practice.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Retrospective offline training: OPE limitations and potential confounding in observational ICU data.
+    \item Distributional shift: Risk when deploying policies trained on one hospital/system to another.
+    \item Interpretability: Although feature selection improves transparency, deep value functions remain partially opaque to clinicians.
+    \item Rare/unseen states: Need for robust fallbacks when encountering out-of-distribution patient conditions.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Prospective clinical evaluation and controlled trials to assess safety and clinical utility in real-world workflows.
+    \item Improved OOD detection and conservative action-masking to ensure safe deployment.
+    \item Federated / multi-center training to improve generalizability and reduce center bias.
+    \item Better explainability tools (feature attribution, counterfactuals) to increase clinician trust and regulatory acceptability.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item The adaptive weighting and expert-embedding are sensible safety-oriented innovations, but real-world safety requires prospective testing.
+    \item High reported survival rates are promising but may reflect dataset-specific effects and retrospective evaluation biases; robust external and prospective validation is essential.
+    \item Integration with clinician workflows and regulatory paths remains an open challenge.
+\end{itemize}
+
+% ============================ ARTICLE 54 ============================
+\section{Reinforcement Learning in Personalized Medicine: Tailoring Treatment Protocols to Individual Patients}
+\textbf{Article Reference:} \cite{banumathiReinforcementLearningPersonalized2025c}
+
+\subsection*{Overview}
+This work proposes a fairness-aware hybrid RL framework that combines model-based and model-free components to produce personalized treatment policies while explicitly reducing demographic performance gaps. The hybrid design balances short-term stabilization (model-based planning) with long-term recovery optimization (model-free learning).
+
+\subsection*{Dataset}
+\begin{itemize}
+    \item Source: Real-world clinical dataset collected from a hospital (not public).
+    \item Features: Vital signs (e.g., heart rate, lactate), demographics and physiological variables forming the patient state space.
+    \item Cohort: Heterogeneous patient population used to evaluate both clinical performance and fairness across demographic subgroups.
+\end{itemize}
+
+\subsection*{Data Processing \& Interpretability}
+\begin{itemize}
+    \item Standard preprocessing: time-binning, imputation, normalization, and stratification to handle heterogeneity.
+    \item Interpretability: SHAP (SHapley Additive exPlanations) used to attribute feature importance for each action recommendation, enabling clinician-facing explanations.
+\end{itemize}
+
+\subsection*{Approach}
+\begin{itemize}
+    \item Hybrid architecture:
+    \begin{itemize}
+        \item Model-based module: learns/predicts environment dynamics for short-horizon stabilization and safe planning.
+        \item Model-free module: learns a policy for long-horizon cumulative reward optimization.
+    \end{itemize}
+    \item Action space: Treatment protocols or dosage adjustments mapped from patient state to discrete/continuous actions.
+    \item Fairness mechanism: Reward augmented with a fairness-aware adjustment based on observed performance gaps across demographic groups.
+\end{itemize}
+
+\subsection*{Implementation Details}
+\begin{itemize}
+    \item Reward design:
+    \begin{itemize}
+        \item Clinical reward: based on improvements in clinical metrics (vitals, lactate, recovery).
+        \item Fairness adjustment: penalty or bonus applied when subgroup performance disparities are detected; the adjustment incentivizes reducing the measured gap in subsequent updates.
+    \end{itemize}
+    \item Training: joint optimization of model-based and model-free components with the augmented reward; periodic fairness evaluation on held-out subgroup splits to adapt the fairness term.
+    \item Explainability: SHAP values computed per decision to surface key contributing features (e.g., heart rate, lactate).
+\end{itemize}
+
+\subsection*{Results}
+\begin{itemize}
+    \item Cumulative reward: Hybrid RL: +1500 vs Model-Free: +1350 vs Model-Based: +1200.
+    \item Fairness: Bias index reduced to 0.05 after applying the fairness-aware reward adjustment.
+    \item Action accuracy: 88.5\% in recommending appropriate treatment protocols.
+    \item Interpretability: SHAP identified heart rate and lactate as principal drivers of action selection.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item Requires careful tuning of the fairness adjustment to avoid degrading overall clinical performance.
+    \item Dependency on reliable subgroup labels and sufficient data per demographic group.
+    \item Potential trade-offs between short-term stabilizing actions and long-term optimized outcomes.
+\end{itemize}
+
+\subsection*{Future Directions}
+\begin{itemize}
+    \item Fine-tuning and external validation across multiple hospitals to improve generalizability.
+    \item Real-time clinical deployment with continuous fairness monitoring and adaptive adjustment.
+    \item Exploration of advanced fairness metrics and multi-objective optimization to balance equity and efficacy.
+\end{itemize}
+
+\subsection*{Critique}
+\begin{itemize}
+    \item Promising integration of fairness and interpretability into RL for medicine, but prospective clinical evaluation and transparent reporting of subgroup sizes and statistical significance are required before clinical adoption.
 \end{itemize}
