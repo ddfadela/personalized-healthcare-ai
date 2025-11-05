@@ -3157,3 +3157,120 @@ This work proposes a fairness-aware hybrid RL framework that combines model-base
 \begin{itemize}
     \item Promising integration of fairness and interpretability into RL for medicine, but prospective clinical evaluation and transparent reporting of subgroup sizes and statistical significance are required before clinical adoption.
 \end{itemize}
+
+% ============================ ARTICLE 55 ============================
+\section{A Conceptual Framework for Personalized Early Prediction of Asthma Exacerbation Attacks Using Proximal Policy Optimization}
+\textbf{Article Reference:} \cite{ConceptualFrameworkPersonalized}
+
+\subsection*{Overview}
+This conceptual framework proposes a Proximal Policy Optimization (PPO) based reinforcement learning (RL) system for personalized, early prediction of asthma exacerbations. The objective is to combine patient-specific profiles and real-time environmental data to provide tailored early warnings and intervention recommendations, improving predictive accuracy across heterogeneous patient populations.
+
+\subsection*{Data}
+\begin{itemize}
+    \item \textbf{Patient-specific data:} Medical history, demographics, symptom severity and frequency, lung function metrics, medication patterns, self-reported triggers and prior exacerbation events (collected via mobile app).
+    \item \textbf{Environmental data:} Geolocated real-time air quality indices, pollen counts, temperature, humidity, pollution, mold and dust metrics.
+    \item \textbf{Conceptual dataset:} Designed as a longitudinal multimodal stream combining wearable/IoT signals, EMA (Ecological Momentary Assessment) inputs and contextual environmental feeds.
+\end{itemize}
+
+\subsection*{Preprocessing and Analysis}
+\begin{itemize}
+    \item \textbf{Trigger identification:} Additive interaction analysis to detect individual and combined trigger effects.
+    \item \textbf{Confounder handling:} Stratification and re-weighting to control for confounders when estimating trigger–exacerbation risk.
+    \item \textbf{Feature engineering:} Temporal aggregation, trend features and missingness-aware encodings for irregular sensor/EHR observations.
+\end{itemize}
+
+\subsection*{Reinforcement Learning Approach}
+\subsubsection*{MDP components}
+\begin{itemize}
+    \item \textbf{Agent:} PPO-based policy network that learns personalized prediction and intervention strategies.
+    \item \textbf{Environment:} Patient cohort dynamics, personalized trigger profiles and external environmental factors.
+    \item \textbf{State:} Current patient condition vector including recent symptoms, physiological signals, exposure metrics and history window.
+    \item \textbf{Action:} Recommended interventions or alerts (e.g., send early warning, adjust controller setpoints, suggest inhaler use, notify clinician).
+\end{itemize}
+
+\subsubsection*{Custom reward system}
+A tailored reward balances correct predictions, false alarms and missed events:
+\begin{equation}\label{eq:reward}
+R \;=\; W_A\,\mathbf{1}\{\mathrm{correct}(P_R,T_R)\}
+      \;-\; W_F\,F_A \;-\; W_M\,M_P
+\end{equation}
+where W\_A is the positive weight for accurate predictions, F\_A counts false alarms (penalised by W\_F) and M\_P counts missed predictions (penalised by W\_M). Weights can be tuned per patient subgroup to address heterogeneity and fairness.
+
+\subsection*{Evaluation and Validation (Conceptual)}
+\begin{itemize}
+    \item \textbf{Offline validation:} Retrospective simulation with held-out cohorts and OPE metrics (precision, recall, timeliness).
+    \item \textbf{Prospective validation:} Small-scale longitudinal pilot with wearable integration and clinician oversight.
+    \item \textbf{Fairness checks:} Subgroup performance reporting (age, sex, socio-economic status) and adaptive reward re-weighting when disparities arise.
+\end{itemize}
+
+\subsection*{Critique and Challenges}
+\begin{itemize}
+    \item \textbf{Heterogeneity:} Ensuring reward functions generalize across diverse trigger–response patterns is non-trivial.
+    \item \textbf{Data dependency:} Heavy reliance on accurate self-reported and environmental streams may limit robustness.
+    \item \textbf{Interpretability:} Translating policy outputs into clinician-actionable explanations requires additional XAI tooling.
+    \item \textbf{Safety and burden:} Balancing early warnings with acceptable false alarm rates to avoid alarm fatigue.
+\end{itemize}
+
+\subsection*{Future Work}
+\begin{itemize}
+    \item \textbf{Wearable/IoT integration:} Incorporate continuous physiological signals to improve timeliness and precision.
+    \item \textbf{Longitudinal trials:} Evaluate clinical utility and adherence in longer-term studies.
+    \item \textbf{Adaptive personalization:} Online updating of patient models and reward weights as more data is collected.
+    \item \textbf{Explainability:} Develop SHAP/attention-based explanations to increase clinician and patient trust.
+    \item \textbf{Scalability and deployment:} Study engineering and privacy-preserving strategies (e.g., federated learning) for real-world rollout.
+\end{itemize}
+% ============================ ARTICLE 56 ============================
+\section{Optimized glycemic control of type 2 diabetes with reinforcement learning: a proof-of-concept trial}
+\textbf{Article Reference:} \cite{wangOptimizedGlycemicControl2023}
+\subsection*{Overview}
+This paper introduces RL-DITR (RL-based Dynamic Insulin Titration Regimen), a model-based reinforcement learning framework for personalized insulin titration in hospitalized patients with Type 2 Diabetes (T2D). RL-DITR learns a patient dynamics model and uses it for multi-step planning to optimize insulin dosing, demonstrating improved glycemic control in a proof-of-concept clinical trial.
+
+\subsection*{Dataset and Preprocessing}
+\begin{itemize}
+    \item \textbf{Source:} Multi-center EHR dataset of hospitalized T2D patients in Shanghai, China.
+    \item \textbf{Size:} 12{,}981 inpatients, totaling 119{,}941 treatment days.
+    \item \textbf{Features:} Temporal sequences including demographics, laboratory values, medications, insulin administrations and clinical notes.
+    \item \textbf{NLP / feature extraction:} ClinicalBERT-based NLP pipeline to extract sequential features from free-text; features discretized into seven timesteps forming multi-dimensional temporal vectors.
+    \item \textbf{Standardization:} Temporal standardization and normalization to represent patient state evolution.
+\end{itemize}
+
+\subsection*{Model-Based RL Architecture (RL-DITR)}
+\begin{itemize}
+    \item \textbf{Two main components:}
+    \begin{itemize}
+        \item \emph{Patient Model (Environment/Dynamics):} Learns a dynamics function (hidden-state generator) and a prediction function that outputs future clinical status (e.g., blood glucose, Within-Target-Range (WTR) probability).
+        \item \emph{Policy Model (Agent):} Produces insulin dosing recommendations and performs multi-step planning by interacting with the learned patient model.
+    \end{itemize}
+    \item \textbf{Training regime:} Patient model trained with supervised objectives on observed transitions; policy optimized via model-based RL using the patient model for rollouts and with imitation/supervised loss components to reflect clinician behavior for safety.
+    \item \textbf{Reward signal:} Estimated from the patient model; rewards encourage future states within target glycemic range (WTR defined as $3.9$--$10.0\ \mathrm{mmol\,L^{-1}}$).
+\end{itemize}
+
+\subsection*{RL Component Definitions}
+\begin{itemize}
+    \item \textbf{State:} Hidden patient state derived from temporal features (biochemistry, meds, insulin usage, admission context).
+    \item \textbf{Action:} Recommended sequential insulin dose/titration (units).
+    \item \textbf{Environment:} Learned patient model simulating glucose dynamics and reward estimates.
+    \item \textbf{Agent:} Policy model optimized by RL + supervised imitation for safe dosing.
+    \item \textbf{Reward:} Model-estimated indication of glucose being within target range (WTR); cumulative reward correlates with higher WTR ratio.
+\end{itemize}
+
+\subsection*{Results and Critique}
+\begin{itemize}
+    \item \textbf{Performance:} Development MAE in insulin titration: $1.10\pm0.03$ U; clinical validation MAE: $1.18\pm0.09$ U (better than junior/intermediate physicians).
+    \item \textbf{Clinical trial (proof-of-concept):} 16 T2D inpatients — mean daily capillary glucose decreased from $11.1\pm3.6$ to $8.6\pm2.4\ \mathrm{mmol\,L^{-1}}$ (P\!<\!0.01). No severe hypoglycemia or hyperglycemia with ketosis reported.
+    \item \textbf{Critique:} Strong preliminary results; limitations include population homogeneity and inpatient-only context that may limit generalizability.
+\end{itemize}
+
+\subsection*{Challenges}
+\begin{itemize}
+    \item \textbf{Generalizability:} Cohort mainly Han Chinese (= 92\%), requiring external validation across ethnicities and clinical settings.
+    \item \textbf{Outpatient applicability:} Inpatient diet/activity are controlled; outpatient variability (diet, exercise) must be modelled for ambulatory use.
+    \item \textbf{Safety:} Ensuring robust safety constraints and clinician-aligned dosing in diverse, noisy real-world data.
+\end{itemize}
+
+\subsection*{Future Work}
+\begin{itemize}
+    \item Broader multi-center prospective trials and external validation across ethnicities and care settings.
+    \item Integration of patient-reported diet/exercise and wearable data for outpatient adaptation.
+    \item Improved uncertainty estimation, safety layers, and clinician-in-the-loop deployment for real-world use.
+\end{itemize}
