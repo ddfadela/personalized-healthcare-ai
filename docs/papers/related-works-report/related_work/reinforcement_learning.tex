@@ -3274,3 +3274,107 @@ This paper introduces RL-DITR (RL-based Dynamic Insulin Titration Regimen), a mo
     \item Integration of patient-reported diet/exercise and wearable data for outpatient adaptation.
     \item Improved uncertainty estimation, safety layers, and clinician-in-the-loop deployment for real-world use.
 \end{itemize}
+
+% =========================== ARTICLE 57 ============================
+\section{Personalized HeartSteps: A Reinforcement Learning Algorithm for Optimizing Physical Activity}
+\textbf{Article Reference:} \cite{liaoPersonalizedHeartStepsReinforcement2020}
+\subsection*{Overview}
+Personalized HeartSteps is an online RL algorithm designed to optimize delivery of Just-In-Time Adaptive Interventions (JITAIs) to increase short-term physical activity. The system was developed and validated using two longitudinal studies (HeartSteps V1 pilot and HeartSteps V2 trial) and emphasizes rapid personalized learning while controlling for intervention burden.
+
+\subsection*{Data and Preprocessing}
+\begin{itemize}
+    \item \textbf{Datasets:} HeartSteps V1 (42-day pilot) used to build priors and a generative simulator; HeartSteps V2 (90-day trial) used for deployment and evaluation.
+    \item \textbf{Reward transformation:} 30-minute post-decision step-count is log-transformed to reduce heavy tails and variance.
+    \item \textbf{Dosage variable:} $X_t$ tracks recent intervention burden via exponential discounting; incremented when a walking/anti-sedentary suggestion was sent since the last decision time. Used as a proxy for habituation/adverse long-term effects.
+\end{itemize}
+
+\subsection*{Reinforcement Learning Approach}
+\begin{itemize}
+    \item \textbf{Algorithm:} Bayesian Thompson Sampling (TS) with informative priors from V1 to accelerate per-user learning and balance exploration–exploitation.
+    \item \textbf{Update cadence:} Policy parameters updated nightly using accumulated interaction data.
+    \item \textbf{Stochasticization and clipping:} Randomization probability $\pi_t$ is clipped to $[\epsilon_1,1-\epsilon_0]$ to ensure sufficient data in both action arms for off-policy analysis.
+\end{itemize}
+
+\subsection*{MDP Components}
+\begin{itemize}
+    \item \textbf{Action $A_t$:} Binary — send activity suggestion ($1$) or not ($0$); decisions made five times per day.
+    \item \textbf{State $S_t=\{I_t,Z_t,X_t\}$:}
+        \begin{itemize}
+            \item $I_t$ (availability): whether an intervention is feasible (e.g., not driving).
+            \item $Z_t$ (context): features such as location, prior 30-min step count, yesterday's steps, temperature, recent activity history.
+            \item $X_t$ (dosage): treatment-burden proxy.
+        \end{itemize}
+    \item \textbf{Reward $R_t$:} $\log(\text{steps}_{t+30\text{min}}+1)$ (log-transformed 30-min step count).
+    \item \textbf{Delayed-effect proxy $\eta_d(x)$:} Estimated cost of habituation derived from $X_t$; used to compare immediate benefit against long-term burden.
+\end{itemize}
+
+\subsection*{Implementation Details}
+\begin{itemize}
+    \item \textbf{Action-centering:} Reward model centers actions to protect against baseline nonstationarity and model misspecification.
+    \item \textbf{Informative prior and simulator:} V1-derived priors and a V1-based simulator enable faster cold-start learning in V2.
+    \item \textbf{Per-user personalization:} Fully personalized policies learned per participant, with options for pooling similarity-based priors in future work.
+\end{itemize}
+
+\subsection*{Critique and Challenges}
+\begin{itemize}
+    \item \textbf{Burden estimation:} Dosage is a low-variance proxy but may under-capture complex engagement dynamics; richer latent-burden models are desirable.
+    \item \textbf{Model simplicity:} Linear, low-dimensional reward models were chosen for stability with limited pilot data; richer models could improve performance but need careful regularization.
+    \item \textbf{Non-stationarity:} Change-point detection and online tuning of discount parameters would improve adaptation to temporal shifts in behavior.
+\end{itemize}
+
+\subsection*{Future Work}
+\begin{itemize}
+    \item Develop latent-variable or hierarchical models for burden/engagement to better capture delayed effects.
+    \item Explore partial pooling or clustering to share information across similar users and speed learning.
+    \item Implement online tuning and change-point detection to handle non-stationarity more responsively.
+    \item Extend evaluation with rigorous off-policy analyses and longer-term engagement studies.
+\end{itemize}
+
+% =========================== ARTICLE 58 ============================
+\section{MedDreamer: Model-Based Reinforcement Learning with Latent Imagination on Complex EHRs for Clinical Decision Support}
+\textbf{Article Reference:} \cite{PDFMedDreamerModelBased}
+\subsection*{Overview}
+MedDreamer is a two-phase model-based Reinforcement Learning (RL) framework that learns a compact latent world model from irregular, sparse EHRs and then trains a policy by performing ``latent imagination'' (simulated rollouts) inside that model. The method targets robust, generalizable treatment policies for tasks such as sepsis therapy and mechanical ventilation management.
+
+\subsection*{Datasets and Preprocessing}
+\begin{itemize}
+    \item \textbf{Datasets:} Evaluated on MIMIC-IV (sepsis treatment) and eICU (mechanical ventilation management).
+    \item \textbf{Adaptive Feature Integration (AFI):} Rather than discretizing/imputing, AFI encodes each clinical feature together with the elapsed time since its last observation, enabling the model to process irregularly sampled, sparse EHR streams directly.
+    \item \textbf{Representation:} Raw features + elapsed-time channels are fed into the world model to produce temporally-aware latent states.
+\end{itemize}
+
+\subsection*{MedDreamer RL Architecture}
+\begin{itemize}
+    \item \textbf{World Model (Environment):} A Recurrent State-Space Model (RSSM) augmented with AFI that maps observation sequences to a dense latent state capturing patient dynamics.
+    \item \textbf{Agent / Policy:} Neural policy trained in latent space via imagined rollouts produced by the world model.
+    \item \textbf{State:} Latent state vector from the RSSM summarizing recent history and implicitly modelling missingness/timing.
+    \item \textbf{Action:} Task-specific treatment recommendations (e.g., discrete joint IV/vasopressor bins or ventilation settings).
+    \item \textbf{Reward:} Learned reward estimator (from outcomes) used during imagination to assign immediate and long-term value to imagined transitions.
+\end{itemize}
+
+\subsection*{Two-Phase Latent Imagination Policy Training}
+\begin{itemize}
+    \item \textbf{Phase 1 — Imagine through Time ($\tau$):} Ground the policy on short-horizon predictions by training on real trajectories augmented with short imagined rollouts (\(\tau=10\) steps). This stabilizes learning and aligns the policy with observed clinical dynamics.
+    \item \textbf{Phase 2 — Imagine through Horizon ($H$):} Refine the policy with longer counterfactual simulations (\(H=15\) steps) in the learned model to explore downstream consequences and improve robustness to unseen scenarios.
+\end{itemize}
+
+\subsection*{Key Findings}
+\begin{itemize}
+    \item \textbf{Performance:} Reported estimated relative mortality reduction of \(\approx20.9\%\) for sepsis and \(\approx16\%\) for mechanical ventilation tasks versus baselines (evaluated via model-estimated returns / OPE).
+    \item \textbf{AFI impact:} Explicit elapsed-time modelling (AFI) improved generalization to irregular EHRs compared to discretize-and-impute baselines.
+    \item \textbf{Stability:} The two-phase imagination curriculum (short then long rollouts) yielded more clinically-aligned and stable policies.
+\end{itemize}
+
+\subsection*{Critique and Limitations}
+\begin{itemize}
+    \item Policies are learned from observational data and evaluated using a learned reward model and offline policy evaluation (OPE), which may not perfectly reflect true clinical effect.
+    \item External validity beyond MIMIC-IV/eICU and across hospitals, populations, and deployment conditions remains to be established.
+    \item Practical deployment requires clinician-facing explainability, rigorous safety constraints, and prospective validation.
+\end{itemize}
+
+\subsection*{Future Work}
+\begin{itemize}
+    \item Validate generalization across multi-center cohorts and prospective clinical studies.
+    \item Improve reward realism (reduce dependence on learned reward models) and develop rigorous safety layers for clinical deployment.
+    \item Study clinician trust and interpretability mechanisms for latent-space policies and imagined trajectories.
+\end{itemize}
